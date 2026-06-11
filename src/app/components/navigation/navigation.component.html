@@ -1,1 +1,144 @@
-<p>navigation works!</p>
+<header class="navbar-header">
+  <div class="navbar-wrapper">
+    <div class="brand" (click)="scrollTo('home')">
+      <div class="avatar-container">
+        <img [ngSrc]="avatarUrl()" width="42" height="42" priority [alt]="developerName()" class="avatar" />
+      </div>
+      <div class="brand-text">
+        <span class="name">{{ developerName() }}</span>
+        <span class="title">{{ developerTitle() }}</span>
+      </div>
+    </div>
+
+    <nav class="desktop-nav">
+      <div class="nav-pill">
+        <div 
+          class="nav-indicator" 
+          [style.left.px]="activeLeft()" 
+          [style.width.px]="activeWidth()"
+          [style.opacity]="activeWidth() === 0 ? 0 : 1"
+        ></div>
+        @for (item of navItems(); track item.id) {
+          <button 
+            class="nav-item" 
+            [class.active]="activeSection() === item.id"
+            (click)="scrollTo(item.id)"
+          >
+            {{ item.label }}
+          </button>
+        }
+      </div>
+    </nav>
+
+    <div class="actions">
+      <div class="desktop-only-actions">
+        <div class="lang-selector">
+          <div class="lang-indicator" [class.en]="currentLang() === 'en'"></div>
+          <button class="lang-btn" [class.active]="currentLang() === 'de'" (click)="setLang('de')">DE</button>
+          <button class="lang-btn" [class.active]="currentLang() === 'en'" (click)="setLang('en')">EN</button>
+        </div>
+
+        <div class="actions-separator"></div>
+
+        <div class="theme-selector-pill">
+          <div class="theme-indicator" [class.dark]="selectedTheme() === 'dark'" [class.system]="selectedTheme() === 'system'"></div>
+          <button class="theme-btn" [class.active]="selectedTheme() === 'light'" (click)="setTheme('light')" aria-label="Hell">
+            <svg lucideSun class="icon" stroke-width="1.8"></svg>
+          </button>
+          <button class="theme-btn" [class.active]="selectedTheme() === 'dark'" (click)="setTheme('dark')" aria-label="Dunkel">
+            <svg lucideMoonStar class="icon" stroke-width="1.8"></svg>
+          </button>
+          <button class="theme-btn" [class.active]="selectedTheme() === 'system'" (click)="setTheme('system')" aria-label="System">
+            <svg lucideMonitor class="icon" stroke-width="1.8"></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="tablet-settings">
+        <button 
+          class="settings-toggle-btn" 
+          [class.active]="isSettingsOpen()" 
+          (click)="toggleSettings()" 
+          aria-label="Einstellungen"
+        >
+          <svg lucideSettings class="icon" stroke-width="1.8"></svg>
+        </button>
+
+        @if (isSettingsOpen()) {
+          <div class="settings-dropdown">
+            <div class="lang-selector">
+              <div class="lang-indicator" [class.en]="currentLang() === 'en'"></div>
+              <button class="lang-btn" [class.active]="currentLang() === 'de'" (click)="setLang('de')">DE</button>
+              <button class="lang-btn" [class.active]="currentLang() === 'en'" (click)="setLang('en')">EN</button>
+            </div>
+
+            <div class="actions-separator"></div>
+
+            <div class="theme-selector-pill">
+              <div class="theme-indicator" [class.dark]="selectedTheme() === 'dark'" [class.system]="selectedTheme() === 'system'"></div>
+              <button class="theme-btn" [class.active]="selectedTheme() === 'light'" (click)="setTheme('light')" aria-label="Hell">
+                <svg lucideSun class="icon" stroke-width="1.8"></svg>
+              </button>
+              <button class="theme-btn" [class.active]="selectedTheme() === 'dark'" (click)="setTheme('dark')" aria-label="Dunkel">
+                <svg lucideMoonStar class="icon" stroke-width="1.8"></svg>
+              </button>
+              <button class="theme-btn" [class.active]="selectedTheme() === 'system'" (click)="setTheme('system')" aria-label="System">
+                <svg lucideMonitor class="icon" stroke-width="1.8"></svg>
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+
+      <button 
+        class="menu-toggle" 
+        [class.active]="isMobileMenuOpen()" 
+        (click)="toggleMobileMenu()" 
+        aria-label="Menü umschalten"
+      >
+        <span class="hamburger-bar bar-top"></span>
+        <span class="hamburger-bar bar-middle"></span>
+        <span class="hamburger-bar bar-bottom"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav-overlay" [class.open]="isMobileMenuOpen()">
+    <div class="mobile-menu-content">
+      <nav class="mobile-nav">
+        @for (item of navItems(); track item.id) {
+          <button 
+            class="mobile-nav-item" 
+            [class.active]="activeSection() === item.id"
+            (click)="scrollTo(item.id)"
+          >
+            {{ item.label }}
+          </button>
+        }
+      </nav>
+
+      <div class="mobile-actions">
+        <div class="lang-selector">
+          <div class="lang-indicator" [class.en]="currentLang() === 'en'"></div>
+          <button class="lang-btn" [class.active]="currentLang() === 'de'" (click)="setLang('de')">DE</button>
+          <button class="lang-btn" [class.active]="currentLang() === 'en'" (click)="setLang('en')">EN</button>
+        </div>
+
+        <div class="actions-separator"></div>
+
+        <div class="theme-selector-pill">
+          <div class="theme-indicator" [class.dark]="selectedTheme() === 'dark'" [class.system]="selectedTheme() === 'system'"></div>
+          <button class="theme-btn" [class.active]="selectedTheme() === 'light'" (click)="setTheme('light')" aria-label="Hell">
+            <svg lucideSun class="icon" stroke-width="1.8"></svg>
+          </button>
+          <button class="theme-btn" [class.active]="selectedTheme() === 'dark'" (click)="setTheme('dark')" aria-label="Dunkel">
+            <svg lucideMoonStar class="icon" stroke-width="1.8"></svg>
+          </button>
+          <button class="theme-btn" [class.active]="selectedTheme() === 'system'" (click)="setTheme('system')" aria-label="System">
+            <svg lucideMonitor class="icon" stroke-width="1.8"></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

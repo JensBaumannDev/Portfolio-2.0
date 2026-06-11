@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Hero } from '../../components/hero/hero.component';
 import { About } from '../../components/about/about.component';
 import { Skills } from '../../components/skills/skills.component';
@@ -10,5 +10,6 @@ import { Contact } from '../../components/contact/contact.component';
   imports: [Hero, About, Skills, Projects, Contact],
   templateUrl: './landingpage.component.html',
   styleUrl: './landingpage.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Landingpage {}

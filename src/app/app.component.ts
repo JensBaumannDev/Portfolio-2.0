@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navigation } from './components/navigation/navigation.component';
 import { Footer } from './components/footer/footer.component';
@@ -8,6 +8,7 @@ import { Footer } from './components/footer/footer.component';
   imports: [RouterOutlet, Navigation, Footer],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
   protected readonly title = signal('Portfolio');
