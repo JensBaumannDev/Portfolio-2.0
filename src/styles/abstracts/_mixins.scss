@@ -1,3 +1,5 @@
+@use 'variables' as vars;
+
 @mixin flex($flex-direction: row, $flex-wrap: wrap, $justify-content: flex-start, $align-items: stretch) {
   display: flex;
   flex-direction: $flex-direction;
@@ -7,67 +9,55 @@
 }
 
 @mixin maxWidth {
-  max-width: 1440px;
+  max-width: vars.$max-width;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* #region responsive-mixins */
-
-// Up to 370px
 @mixin mobile-sm {
   @media (max-width: #{vars.$breakpoint-mobile-sm}) {
     @content;
   }
 }
 
-// Up to 480px
 @mixin mobile-md {
   @media (max-width: #{vars.$breakpoint-mobile}) {
     @content;
   }
 }
 
-// Up to 768px (Mobile/Large-Mobile range)
 @mixin mobile {
   @media (max-width: #{vars.$breakpoint-tablet}) {
     @content;
   }
 }
 
-// From 769px to 1024px (Tablet Landscape)
 @mixin tablet {
   @media (min-width: #{vars.$breakpoint-tablet + 1px}) and (max-width: #{vars.$breakpoint-desktop}) {
     @content;
   }
 }
 
-// Up to 1024px (Mobile and Tablet)
 @mixin tablet-lg {
   @media (max-width: #{vars.$breakpoint-desktop}) {
     @content;
   }
 }
 
-// Up to 1200px (Large Tablet / Small Laptop)
 @mixin tablet-xl {
   @media (max-width: #{vars.$breakpoint-tablet-lg}) {
     @content;
   }
 }
 
-// From 1025px (Desktop)
 @mixin desktop {
   @media (min-width: #{vars.$breakpoint-desktop + 1px}) {
     @content;
   }
 }
 
-// From 1441px (Large Desktop)
 @mixin large-desktop {
   @media (min-width: #{vars.$breakpoint-large + 1px}) {
     @content;
   }
 }
-
-/* #endregion */

@@ -1,0 +1,21 @@
+@use 'src/styles/abstracts' as abs;
+
+section {
+  min-height: 100vh;
+  padding: 140px 24px 80px 24px;
+  @include abs.flex(row, nowrap, center, center);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgba(29, 29, 31, 0.2);
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
+  position: relative;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: rgba(29, 29, 31, 0.4);
+  }
+
+  &:nth-child(even) {
+    background: rgba(0, 0, 0, 0.015);
+  }
+}
