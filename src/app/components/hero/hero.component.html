@@ -1,1 +1,41 @@
-<p>hero works!</p>
+<div class="hero-container">
+  <div class="hero-title-block">
+    <h1 class="hero-title">
+      <span class="accent">{{ name() }} /</span>
+      <span class="main-title"><span class="line">BUILDER OF</span><span class="line">DIGITAL EXPERIENCES</span></span>
+    </h1>
+  </div>
+  <hr class="hero-divider" />
+  <p class="hero-description">
+    Clean code. Thoughtful interfaces.<br>
+    A Fullstack Developer who combines <span class="glass-chip">human craft</span> with <span class="glass-chip">AI</span> —<br>
+    to build better, not just faster.
+  </p>
+  <div class="github-stats">
+    @if (loading()) {
+      <div class="stat-card skeleton"></div>
+      <div class="stat-card skeleton"></div>
+      <div class="stat-card skeleton"></div>
+    } @else if (stats()) {
+      <div class="stat-card">
+        <span class="stat-value">{{ stats()!.recentCommits }}</span>
+        <span class="stat-label">Commits · {{ currentYear }}</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-card">
+        <span class="stat-value">{{ stats()!.pullRequests }}</span>
+        <span class="stat-label">Pull Requests · {{ currentYear }}</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-card">
+        <span class="stat-value">{{ stats()!.projects }}</span>
+        <span class="stat-label">Projects</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-card">
+        <span class="stat-value">{{ stats()!.primaryLang }}</span>
+        <span class="stat-label">Primary Stack</span>
+      </div>
+    }
+  </div>
+</div>

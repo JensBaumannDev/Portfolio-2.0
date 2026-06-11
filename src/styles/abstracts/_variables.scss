@@ -16,6 +16,9 @@ $z-index-modal: 50;
 $z-index-toast: 60;
 $z-index-header-sidebar: 100;
 
+$color-accent: #0071e3;
+$color-accent-fade: rgba(0, 113, 227, 0.2);
+
 $color-text-primary: #1d1d1f;
 $color-text-secondary: #6e6e73;
 $color-text-muted: #636366;
@@ -25,6 +28,11 @@ $color-glass-bg: rgba(255, 255, 255, 0.45);
 $color-glass-border: rgba(255, 255, 255, 0.65);
 $color-glass-bg-hover: rgba(255, 255, 255, 0.5);
 $color-glass-border-hover: rgba(255, 255, 255, 0.75);
+$color-glass-border-top: rgba(255, 255, 255, 0.85);
+$color-glass-border-left: rgba(255, 255, 255, 0.7);
+$color-glass-border-right: rgba(255, 255, 255, 0.35);
+$color-glass-border-bottom: rgba(255, 255, 255, 0.25);
+$color-glass-shadow-inset: rgba(255, 255, 255, 0.5);
 
 $color-pill-bg: rgba(0, 0, 0, 0.035);
 $color-pill-border: rgba(0, 0, 0, 0.015);
