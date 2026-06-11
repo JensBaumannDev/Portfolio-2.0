@@ -19,3 +19,34 @@ section {
     background: rgba(0, 0, 0, 0.015);
   }
 }
+
+#home {
+  display: block;
+  min-height: auto;
+  padding-top: 186px;
+  padding-bottom: 80px;
+  padding-left: 0;
+  padding-right: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  border-bottom: none;
+
+  &:hover {
+    color: inherit;
+  }
+
+  .hero-section-inner {
+    max-width: abs.$max-width;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+}
+
+/* #region RESPONSIVE */
+@include abs.mobile {
+  #home {
+    padding-top: 136px;
+  }
+}
+/* #endregion */

@@ -1,0 +1,244 @@
+@use 'src/styles/abstracts' as abs;
+
+$stats-width: 720px;
+
+.hero-container {
+  width: 100%;
+  max-width: 1000px;
+  @include abs.flex(column, nowrap, flex-start, flex-start);
+  gap: 24px;
+  padding: 0;
+}
+
+.hero-title-block {
+  display: inline-block;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 6vw, 4.4rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin: 0;
+
+  .accent {
+    color: abs.$color-accent;
+  }
+
+  .main-title {
+    color: abs.$color-text-primary;
+
+    .line {
+      display: block;
+    }
+
+    :host-context(body.dark) & {
+      color: #ffffff;
+    }
+  }
+}
+
+.hero-divider {
+  align-self: flex-start;
+  width: 48px;
+  max-width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, abs.$color-accent 0%, abs.$color-accent-fade 100%);
+  border: none;
+  border-radius: 2px;
+  margin: 0;
+  animation: divider-expand 5s ease-in-out infinite;
+}
+
+@keyframes divider-expand {
+  0%   { width: 48px; }
+  50%  { width: $stats-width; }
+  100% { width: 48px; }
+}
+
+.hero-description {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 400;
+  color: abs.$color-text-secondary;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  max-width: 680px;
+  margin: 0;
+
+  :host-context(body.dark) & {
+    color: abs.$color-text-muted;
+  }
+}
+
+.glass-chip {
+  display: inline-block;
+  padding: 1px 10px 2px;
+  border-radius: 20px;
+  font-size: inherit;
+  font-weight: 500;
+  color: abs.$color-text-primary;
+  background: linear-gradient(135deg, abs.$color-glass-bg-hover 0%, abs.$color-glass-bg 100%);
+  backdrop-filter: blur(abs.$blur-glass) saturate(abs.$saturate-glass);
+  -webkit-backdrop-filter: blur(abs.$blur-glass) saturate(abs.$saturate-glass);
+  border-top: 1px solid abs.$color-glass-border-top;
+  border-left: 1px solid abs.$color-glass-border-left;
+  border-right: 1px solid abs.$color-glass-border-right;
+  border-bottom: 1px solid abs.$color-glass-border-bottom;
+  box-shadow:
+    0 1px 0 abs.$color-glass-shadow-inset inset,
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  white-space: nowrap;
+  vertical-align: baseline;
+
+  :host-context(body.dark) & {
+    color: #f5f5f7;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.github-stats {
+  @include abs.flex(row, nowrap, flex-start, center);
+  gap: 0;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, abs.$color-glass-bg-hover 0%, abs.$color-glass-bg 100%);
+  backdrop-filter: blur(abs.$blur-glass) saturate(abs.$saturate-glass);
+  -webkit-backdrop-filter: blur(abs.$blur-glass) saturate(abs.$saturate-glass);
+  border-top: 1px solid abs.$color-glass-border-top;
+  border-left: 1px solid abs.$color-glass-border-left;
+  border-right: 1px solid abs.$color-glass-border-right;
+  border-bottom: 1px solid abs.$color-glass-border-bottom;
+  box-shadow:
+    0 1px 0 abs.$color-glass-shadow-inset inset,
+    0 6px 24px rgba(0, 0, 0, 0.04),
+    0 1px 4px rgba(0, 0, 0, 0.02);
+  max-width: $stats-width;
+  width: 100%;
+
+  :host-context(body.dark) & {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 6px 24px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.stat-card {
+  flex: 1;
+  @include abs.flex(column, nowrap, center, center);
+  gap: 1px;
+  padding: 4px 12px;
+
+  &.skeleton {
+    width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.05) 25%,
+      rgba(0, 0, 0, 0.09) 50%,
+      rgba(0, 0, 0, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+.stat-value {
+  font-size: 1.35rem;
+  font-weight: 650;
+  color: abs.$color-text-primary;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+
+  :host-context(body.dark) & {
+    color: #f5f5f7;
+  }
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: abs.$color-text-muted;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    abs.$color-glass-border 30%,
+    abs.$color-glass-border 70%,
+    transparent
+  );
+  flex-shrink: 0;
+
+  :host-context(body.dark) & {
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 255, 255, 0.12) 30%,
+      rgba(255, 255, 255, 0.12) 70%,
+      transparent
+    );
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* #region RESPONSIVE */
+@include abs.mobile {
+  .github-stats {
+    padding: 8px 12px;
+  }
+
+  .stat-card {
+    padding: 4px 8px;
+  }
+
+  .stat-value {
+    font-size: 1.1rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+  }
+}
+
+@include abs.mobile-md {
+  .github-stats {
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .stat-card {
+    flex: 0 0 calc(50% - 5px);
+    padding: 6px 8px;
+    align-items: flex-start;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+}
+
+@include abs.mobile-sm {
+  .stat-value {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.6rem;
+  }
+}
+/* #endregion */
