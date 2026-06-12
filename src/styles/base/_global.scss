@@ -1,0 +1,15 @@
+@use 'src/styles/abstracts' as abs;
+
+body {
+  background: abs.$color-bg-light-1;
+  color: abs.$color-text-primary;
+  min-height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+
+  &.dark {
+    background: abs.$color-bg-dark-1;
+    color: abs.$color-text-dark-primary;
+  }
+}

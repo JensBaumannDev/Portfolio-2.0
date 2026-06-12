@@ -1,0 +1,63 @@
+@use 'variables' as vars;
+
+@mixin flex($flex-direction: row, $flex-wrap: wrap, $justify-content: flex-start, $align-items: stretch) {
+  display: flex;
+  flex-direction: $flex-direction;
+  flex-wrap: $flex-wrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin maxWidth {
+  max-width: vars.$max-width;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@mixin mobile-sm {
+  @media (max-width: #{vars.$breakpoint-mobile-sm}) {
+    @content;
+  }
+}
+
+@mixin mobile-md {
+  @media (max-width: #{vars.$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{vars.$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{vars.$breakpoint-tablet + 1px}) and (max-width: #{vars.$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin tablet-lg {
+  @media (max-width: #{vars.$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin tablet-xl {
+  @media (max-width: #{vars.$breakpoint-tablet-lg}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{vars.$breakpoint-desktop + 1px}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{vars.$breakpoint-large + 1px}) {
+    @content;
+  }
+}
