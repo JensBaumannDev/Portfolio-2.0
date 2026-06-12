@@ -1,1 +1,125 @@
+@use 'src/styles/abstracts' as abs;
 
+.btn-glass {
+  @include abs.flex(row, nowrap, center, center);
+  display: inline-flex;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  position: relative;
+  clip-path: inset(0 round 30px);
+  color: abs.$color-text-primary;
+  
+  // Real Glass borders (directionally lit, very fine and crisp)
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  // Pure, crisp glass base
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  
+  // Inner bezel highlight and flat crisp drop shadow
+  box-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 4px 12px rgba(0, 0, 0, 0.03);
+    
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  .icon {
+    stroke: currentColor;
+    transition: transform 0.3s ease;
+  }
+
+  // Clean glass lens flare sweep (crisp diagonal line)
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.15) 30%,
+      rgba(255, 255, 255, 0.65) 50%,
+      rgba(255, 255, 255, 0.15) 70%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    pointer-events: none;
+    z-index: abs.$z-index-shine;
+  }
+
+  &:hover {
+    color: abs.$color-accent; // Text turns lilac
+    background: rgba(255, 255, 255, 0.75);
+    
+    box-shadow: 
+      0 1px 0 rgba(255, 255, 255, 0.75) inset,
+      0 8px 20px rgba(abs.$color-accent, 0.08);
+
+    // Trigger the lens flare sweep
+    &::after {
+      left: 150%;
+      transition: left 1.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+  }
+
+  &:active {
+    transform: translate(2px, 2px); // Moves down-right over the shadow
+    transition: transform 0.1s;
+    box-shadow: 
+      0 1px 0 rgba(255, 255, 255, 0.3) inset,
+      0 2px 4px rgba(abs.$color-accent, 0.04);
+  }
+
+  body.dark & {
+    background: abs.$color-glass-dark-bg;
+    color: abs.$color-text-dark-primary;
+    
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    
+    box-shadow: 
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 4px 12px rgba(0, 0, 0, 0.15);
+
+    &::after {
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 30%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0.1) 70%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+
+    &:hover {
+      background: abs.$color-glass-dark-bg-hover;
+      color: abs.$color-accent-dark; // Text turns lilac in dark mode
+      
+      box-shadow: 
+        0 1px 0 rgba(255, 255, 255, 0.1) inset,
+        0 8px 20px rgba(abs.$color-accent-dark, 0.15);
+    }
+
+    &:active {
+      transform: translate(2px, 2px);
+      transition: transform 0.1s;
+      box-shadow: 
+        0 1px 0 rgba(255, 255, 255, 0.05) inset,
+        0 2px 4px rgba(abs.$color-accent-dark, 0.1);
+    }
+  }
+}

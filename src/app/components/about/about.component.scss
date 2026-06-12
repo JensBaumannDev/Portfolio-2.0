@@ -1,0 +1,385 @@
+@use 'src/styles/abstracts' as abs;
+
+.about-card {
+  position: relative;
+  z-index: abs.$z-index-interactive;
+  width: 100%;
+  max-width: abs.$max-width;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 48px;
+  align-items: start;
+  box-sizing: border-box;
+
+  background: linear-gradient(135deg, abs.$color-glass-bg-hover 0%, abs.$color-glass-bg 100%);
+  backdrop-filter: blur(abs.$blur-glass) saturate(abs.$saturate-glass);
+  -webkit-backdrop-filter: blur(abs.$blur-glass) saturate(abs.$saturate-glass);
+  border-top: 1px solid abs.$color-glass-border-top;
+  border-left: 1px solid abs.$color-glass-border-left;
+  border-right: 1px solid abs.$color-glass-border-right;
+  border-bottom: 1px solid abs.$color-glass-border-bottom;
+  box-shadow:
+    0 1px 0 abs.$color-glass-shadow-inset inset,
+    0 6px 24px rgba(0, 0, 0, 0.04),
+    0 1px 4px rgba(0, 0, 0, 0.02);
+
+  :host-context(body.dark) & {
+    background: linear-gradient(135deg, abs.$color-glass-dark-bg 0%, rgba(255, 255, 255, 0.01) 100%);
+    border-color: abs.$color-glass-dark-border;
+    box-shadow: 0 1px 0 abs.$color-glass-dark-shadow-inset inset, 0 6px 24px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.about-main {
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: 16px;
+}
+
+.about-title {
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0;
+  color: abs.$color-text-primary;
+
+  :host-context(body.dark) & {
+    color: abs.$color-text-dark-primary;
+  }
+}
+
+.about-avatar-container {
+  display: none;
+}
+
+.about-description {
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  line-height: 1.55;
+  color: abs.$color-text-secondary;
+  margin: 0;
+
+  :host-context(body.dark) & {
+    color: abs.$color-text-muted;
+  }
+}
+
+.about-highlight {
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  line-height: 1.55;
+  color: abs.$color-text-secondary;
+  margin: 0;
+
+  .accent {
+    color: abs.$color-accent;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    :host-context(body.dark) & {
+      color: abs.$color-accent-dark;
+    }
+  }
+
+  :host-context(body.dark) & {
+    color: abs.$color-text-muted;
+  }
+}
+
+.about-right-column {
+  @include abs.flex(column, nowrap, flex-start, flex-start);
+  gap: 32px;
+  width: 100%;
+}
+
+.about-passions {
+  @include abs.flex(column, nowrap, flex-start, flex-start);
+  gap: 16px;
+}
+
+.about-cv {
+  @include abs.flex(column, nowrap, flex-start, flex-start);
+  gap: 16px;
+  width: 100%;
+}
+
+.section-title {
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: abs.$color-text-primary;
+
+  :host-context(body.dark) & {
+    color: abs.$color-text-dark-primary;
+  }
+}
+
+.cv-download-btn {
+  padding: 12px 28px;
+  gap: 10px;
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.passions-list {
+  @include abs.flex(row, wrap, flex-start, stretch);
+  gap: 10px;
+}
+
+.passion-chip {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: abs.$color-text-primary;
+  background: abs.$color-glass-bg-hover;
+  border: 1px solid abs.$color-glass-border;
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: default;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  :host-context(body.dark) & {
+    color: abs.$color-text-dark-primary;
+    background: abs.$color-glass-dark-bg;
+    border-color: abs.$color-glass-dark-border;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background: abs.$color-glass-dark-bg-hover;
+      border-color: abs.$color-glass-dark-border-hover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.about-extended-description {
+  margin: 0;
+  padding-top: 12px;
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  line-height: 1.55;
+  color: abs.$color-text-secondary;
+
+  :host-context(body.dark) & {
+    color: abs.$color-text-muted;
+  }
+}
+
+.about-expand-btn-container {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 16px;
+}
+
+.expand-btn {
+  gap: 8px;
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.about-container {
+  position: relative;
+  width: 100%;
+  max-width: abs.$max-width;
+  margin: 0 auto;
+}
+
+.profile-portrait-container {
+  position: absolute;
+  top: -555px;
+  right: 0;
+  width: 580px;
+  z-index: abs.$z-index-base;
+  pointer-events: none;
+  overflow: visible;
+  transition: all 0.4s ease;
+
+  --glow-opacity-min: 0.15;
+  --glow-opacity-max: 0.9;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 80%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(210, 170, 255, 0.6) 0%, rgba(180, 140, 255, 0.45) 100%);
+    filter: blur(60px);
+    z-index: abs.$z-index-below;
+    pointer-events: none;
+    opacity: var(--glow-opacity-min);
+    transform: scale(0.96);
+
+    :host-context(body.sync-animations) & {
+      animation: glow-pulse 5s ease-in-out infinite;
+    }
+  }
+
+  :host-context(body.dark) & {
+    opacity: 0.95;
+    --glow-opacity-min: 0.18;
+    --glow-opacity-max: 0.85;
+
+    &::before {
+      background: linear-gradient(135deg, rgba(210, 170, 255, 0.48) 0%, rgba(180, 140, 255, 0.38) 100%);
+      filter: blur(75px);
+    }
+  }
+}
+
+.profile-portrait {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: var(--glow-opacity-min);
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: var(--glow-opacity-max);
+    transform: scale(1.05);
+  }
+}
+
+/* #region RESPONSIVE */
+@media (max-width: 1440px) {
+  .profile-portrait-container {
+    width: 500px;
+    top: -478px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .profile-portrait-container {
+    width: 420px;
+    top: -400px;
+  }
+}
+
+@include abs.tablet {
+  .about-card {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 24px;
+    padding: 32px;
+  }
+
+  .profile-portrait-container {
+    width: 35vw;
+    top: -34vw;
+    right: 0;
+  }
+}
+
+@include abs.mobile {
+  .about-card {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 24px;
+    border-radius: 18px;
+  }
+
+  .profile-portrait-container {
+    display: none;
+  }
+
+  .about-main {
+    display: block; // Change from flex to block to allow floated portrait wrapping!
+
+    .about-title {
+      margin-bottom: 20px;
+    }
+
+    .about-description {
+      margin-bottom: 16px;
+    }
+
+    .expandable-wrapper {
+      margin-bottom: 16px;
+    }
+
+    .about-highlight {
+      margin-bottom: 16px;
+    }
+  }
+
+  .about-avatar-container {
+    display: block;
+    float: right;
+    width: clamp(90px, 25vw, 120px);
+    height: clamp(90px, 25vw, 120px);
+    margin-left: 20px;
+    margin-bottom: 12px;
+    margin-top: 0;
+
+    @media (max-width: 480px) {
+      margin-left: 14px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .about-avatar-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    box-shadow: 
+      0 8px 24px rgba(168, 85, 247, 0.15),
+      0 2px 8px rgba(0, 0, 0, 0.05),
+      0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(168, 85, 247, 0) 70%);
+      z-index: abs.$z-index-below;
+      filter: blur(8px);
+    }
+
+    :host-context(body.dark) & {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 
+        0 8px 24px rgba(192, 132, 252, 0.25),
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        0 1px 0 rgba(255, 255, 255, 0.08) inset;
+    }
+  }
+
+  .about-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 12%;
+    display: block;
+    transform: scale(1.2) translateY(3px);
+    border-radius: 50%;
+  }
+}
+/* #endregion */

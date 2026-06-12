@@ -1,4 +1,4 @@
-import { Component, signal, ChangeDetectionStrategy, inject, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy, inject, ElementRef, AfterViewInit, effect } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { LucideSettings, LucideSun, LucideMoonStar, LucideMonitor } from '@lucide/angular';
 
@@ -24,11 +24,41 @@ export class Navigation implements AfterViewInit {
 
   protected readonly developerName = signal('Jens Baumann');
   protected readonly developerTitle = signal('Fullstack Developer');
-  protected readonly avatarUrl = signal('img/profile/Logo_ohneBG.png');
+  protected readonly avatarUrl = signal('img/profile/Logo-Photoroom.png');
   protected readonly activeSection = signal('home');
   protected readonly isMobileMenuOpen = signal(false);
 
   protected readonly selectedTheme = signal<'light' | 'dark' | 'system'>('system');
+
+  constructor() {
+    effect((onCleanup) => {
+      const theme = this.selectedTheme();
+      if (typeof window !== 'undefined') {
+        const updateTheme = () => {
+          const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.body.classList.add('dark');
+          } else {
+            document.body.classList.remove('dark');
+          }
+        };
+
+        updateTheme();
+
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const listener = () => {
+          if (this.selectedTheme() === 'system') {
+            updateTheme();
+          }
+        };
+
+        mediaQuery.addEventListener('change', listener);
+        onCleanup(() => {
+          mediaQuery.removeEventListener('change', listener);
+        });
+      }
+    });
+  }
 
   protected readonly currentLang = signal<'de' | 'en'>('de');
   protected readonly isSettingsOpen = signal(false);

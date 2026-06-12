@@ -1,10 +1,16 @@
 @use 'src/styles/abstracts' as abs;
 
 body {
-  background: linear-gradient(135deg, #f8fafd 0%, #e9edf5 100%);
-  color: #1d1d1f;
+  background: linear-gradient(135deg, abs.$color-bg-light-1 0%, abs.$color-bg-light-2 100%);
+  color: abs.$color-text-primary;
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+
+  &.dark {
+    background: linear-gradient(135deg, abs.$color-bg-dark-1 0%, abs.$color-bg-dark-2 100%);
+    color: abs.$color-text-dark-primary;
+  }
 }
 
 .app-container {
@@ -20,7 +26,7 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: abs.$z-index-below;
-  overflow: hidden;
+  clip-path: inset(0);
   pointer-events: none;
 }
 

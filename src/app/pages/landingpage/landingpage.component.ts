@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, OnDestroy, inject, Renderer2 } from '@angular/core';
 import { Hero } from '../../components/hero/hero.component';
 import { About } from '../../components/about/about.component';
 import { Skills } from '../../components/skills/skills.component';
@@ -12,4 +12,21 @@ import { Contact } from '../../components/contact/contact.component';
   styleUrl: './landingpage.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Landingpage {}
+export class Landingpage implements OnInit, OnDestroy {
+  private readonly renderer = inject(Renderer2);
+
+  ngOnInit(): void {
+    if (typeof window !== 'undefined') {
+      this.renderer.removeClass(document.body, 'sync-animations');
+      setTimeout(() => {
+        this.renderer.addClass(document.body, 'sync-animations');
+      }, 150);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (typeof window !== 'undefined') {
+      this.renderer.removeClass(document.body, 'sync-animations');
+    }
+  }
+}

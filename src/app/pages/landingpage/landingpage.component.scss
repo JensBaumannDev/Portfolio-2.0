@@ -24,7 +24,7 @@ section {
   display: block;
   min-height: auto;
   padding-top: 186px;
-  padding-bottom: 80px;
+  padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   font-size: inherit;
@@ -42,6 +42,28 @@ section {
     padding: 0 24px;
   }
 }
+
+#about {
+  min-height: auto;
+  padding-top: 30px;
+  padding-bottom: 100px;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  border-bottom: none;
+  background: transparent;
+
+  &:hover {
+    color: inherit;
+  }
+
+  app-about {
+    width: 100%;
+    max-width: abs.$max-width;
+    display: block;
+  }
+}
+
 
 /* #region RESPONSIVE */
 @include abs.mobile {
