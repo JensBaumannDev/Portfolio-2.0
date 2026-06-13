@@ -35,6 +35,10 @@
       color: abs.$color-white;
     }
   }
+
+  &.button-outline-white:hover {
+    outline-color: abs.$color-white;
+  }
 }
 
 .button .text {

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, signal, inject, OnInit, OnDestroy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, inject, OnInit, OnDestroy, input, output, computed } from '@angular/core';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -38,12 +38,17 @@ export class Navigation implements OnInit, OnDestroy {
   private routeSub?: Subscription;
   private scrollRafId?: number;
 
+  readonly forceLight = input(false);
+  readonly forceActive = input<string | undefined>(undefined);
+  readonly linkClick = output<string>();
+
   protected readonly isMenuOpen = signal<boolean>(false);
   protected readonly isScrolled = signal<boolean>(false);
   protected readonly isPastHero = signal<boolean>(false);
   protected readonly isLandingPage = signal<boolean>(true);
   protected readonly currentLang = this.translate.currentLang;
   protected readonly activeSection = signal<string>('home');
+  protected readonly currentActiveSection = computed(() => this.forceActive() ?? this.activeSection());
   protected readonly brandText = signal<string>('');
   protected readonly isTypingDone = signal<boolean>(false);
 
@@ -103,6 +108,7 @@ export class Navigation implements OnInit, OnDestroy {
 
   protected setActiveSection(section: string): void {
     this.activeSection.set(section);
+    this.linkClick.emit(section);
   }
 
   protected onWindowScroll(): void {
