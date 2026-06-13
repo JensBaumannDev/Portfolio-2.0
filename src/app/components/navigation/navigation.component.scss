@@ -1,1 +1,341 @@
-/* Navigation component styles */
+@use 'src/styles/abstracts' as abs;
+
+:host {
+  display: block;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  z-index: abs.$z-index-header-sidebar;
+  background: abs.$color-black;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
+
+  &.scrolled {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  &.past-hero {
+    background: abs.$color-white;
+    border-bottom-color: rgba(0, 0, 0, 0.05);
+
+    &.scrolled {
+      background: abs.$color-white;
+      border-bottom-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .brand {
+      color: abs.$color-text-primary;
+
+      &::after {
+        color: abs.$color-text-primary;
+      }
+    }
+
+    .nav-link {
+      color: abs.$color-text-secondary;
+
+      &:hover,
+      &.active {
+        background-color: abs.$color-black;
+        color: abs.$color-white;
+      }
+    }
+
+    .lang-btn {
+      color: abs.$color-text-secondary;
+
+      &:hover,
+      &.active {
+        background-color: abs.$color-black;
+        color: abs.$color-white;
+      }
+    }
+
+    .lang-separator {
+      color: rgba(abs.$color-text-primary, 0.15);
+    }
+
+    .burger-btn .burger-line {
+      background-color: abs.$color-text-primary;
+    }
+
+    .mobile-menu {
+      background: abs.$color-white;
+    }
+
+    .mobile-nav-link {
+      color: abs.$color-text-secondary;
+
+      &:hover,
+      &.active {
+        background-color: abs.$color-black;
+        color: abs.$color-white;
+      }
+    }
+
+    .mobile-lang-btn {
+      color: abs.$color-text-secondary;
+
+      &:hover,
+      &.active {
+        background-color: abs.$color-black;
+        color: abs.$color-white;
+      }
+    }
+
+    .mobile-lang-separator {
+      color: rgba(abs.$color-text-primary, 0.15);
+    }
+  }
+}
+
+.navbar-content {
+  @include abs.flex(row, nowrap, space-between, center);
+  height: 100%;
+  position: relative;
+  z-index: abs.$z-index-interactive;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  color: abs.$color-text-dark-primary;
+  white-space: nowrap;
+
+  &::after {
+    content: '|';
+    margin-left: 1px;
+    animation: cursorBlink 0.7s step-end infinite;
+    color: abs.$color-text-dark-primary;
+  }
+
+  &.typing-done::after {
+    display: none;
+  }
+}
+
+.nav-links {
+  @include abs.flex(row, nowrap, center, center);
+  gap: 8px;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  color: abs.$color-text-dark-secondary;
+  @include abs.flex(row, nowrap, center, center);
+
+  &:hover,
+  &.active {
+    background-color: abs.$color-active-bg;
+    color: abs.$color-text-primary;
+  }
+}
+
+.lang-selector {
+  @include abs.flex(row, nowrap, flex-end, center);
+  gap: 8px;
+  height: 100%;
+}
+
+.lang-btn {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  color: abs.$color-text-dark-secondary;
+  background: transparent;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  @include abs.flex(row, nowrap, center, center);
+
+  &:hover,
+  &.active {
+    background-color: abs.$color-active-bg;
+    color: abs.$color-text-primary;
+  }
+}
+
+.lang-separator {
+  font-size: 20px;
+  color: rgba(abs.$color-text-dark-primary, 0.45);
+  font-weight: 300;
+}
+
+.burger-btn {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+/* #region RESPONSIVE */
+@include abs.tablet-xl {
+  .burger-btn {
+    @include abs.flex(column, nowrap, space-between, center);
+    width: 24px;
+    height: 16px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: abs.$z-index-interactive;
+
+    .burger-line {
+      display: block;
+      width: 100%;
+      height: 2px;
+      border-radius: 1px;
+      transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+      background-color: abs.$color-text-dark-primary;
+    }
+
+    &.active {
+      .burger-line {
+        &:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+          transform: translateX(-10px);
+        }
+        &:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu {
+    @include abs.flex(row, nowrap, center, center);
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 65px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: abs.$z-index-base;
+    background: abs.$color-black;
+
+    &.open {
+      opacity: 1;
+      pointer-events: auto;
+
+      .mobile-nav-links {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+
+  .mobile-nav-links {
+    @include abs.flex(column, nowrap, center, center);
+    gap: 32px;
+    transform: translateY(-30px);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  }
+
+  .mobile-nav-link {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 0.72px;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    color: abs.$color-text-dark-secondary;
+    @include abs.flex(row, nowrap, center, center);
+
+    &:hover,
+    &.active {
+      background-color: abs.$color-active-bg;
+      color: abs.$color-text-primary;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  .navbar-content {
+    padding: 0 24px;
+  }
+
+  .lang-selector {
+    display: none;
+  }
+
+  .mobile-lang-selector {
+    @include abs.flex(row, nowrap, center, center);
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .mobile-lang-btn {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 1.2px;
+    color: abs.$color-text-dark-secondary;
+    background: transparent;
+    border: none;
+    padding: 6px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    @include abs.flex(row, nowrap, center, center);
+
+    &:hover,
+    &.active {
+      background-color: abs.$color-active-bg;
+      color: abs.$color-text-primary;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  .mobile-lang-separator {
+    font-size: 28px;
+    color: rgba(abs.$color-text-dark-primary, 0.45);
+    font-weight: 300;
+  }
+
+  @include abs.mobile-md {
+    .navbar-content {
+      padding: 0 16px;
+    }
+  }
+}
+/* #endregion */

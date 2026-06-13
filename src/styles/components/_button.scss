@@ -1,8 +1,45 @@
-/* Button styles */
+@use 'src/styles/abstracts' as abs;
+
 .btn-primary {
   display: inline-block;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
   border: 1px solid transparent;
+}
+
+.button {
+  @include abs.flex(row, nowrap, center, center);
+  width: 220px;
+  padding: 10px 15px;
+  gap: 15px;
+  background-color: abs.$color-button-bg;
+  outline: 3px abs.$color-button-bg solid;
+  outline-offset: -3px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: abs.$color-white;
+  transition: 400ms;
+}
+
+.button .text {
+  color: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  transition: 400ms;
+}
+
+.button ng-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  transition: 400ms;
+}
+
+.button:hover {
+  background-color: abs.$color-white;
+  outline-color: abs.$color-white;
+  color: abs.$color-black;
 }

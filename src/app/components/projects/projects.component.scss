@@ -1,1 +1,6 @@
-/* Projects component styles */
+@use 'src/styles/abstracts' as abs;
+
+.projects-container {
+  height: 100vh;
+  background: abs.$color-black;
+}

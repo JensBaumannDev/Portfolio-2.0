@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Über mich",
+    "projects": "Projekte",
+    "skills": "Skills",
+    "contact": "Kontakt"
+  },
+  "stats": {
+    "commits": "2026 Commits",
+    "prs": "2026 Pull Requests",
+    "projects": "Projekte insgesamt",
+    "language": "Beliebteste Sprache"
+  },
+  "hero": {
+    "contact": "Kontaktiere mich",
+    "cv": "CV Herunterladen"
+  }
+}

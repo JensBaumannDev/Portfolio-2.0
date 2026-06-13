@@ -17,23 +17,31 @@ $z-index-overlay: 40;
 $z-index-modal: 50;
 $z-index-toast: 60;
 $z-index-header-sidebar: 100;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-hero-overlay: rgba(0, 0, 0, 0.45);
+$color-navbar-bg: rgba(18, 17, 15, 0.65);
+$color-navbar-border: rgba(255, 255, 255, 0.08);
+$color-nav-active-bg: rgba(255, 255, 255, 0.1);
+$color-button-bg: #181717;
 
-$color-accent: #a855f7;
-$color-accent-dark: #c084fc;
-$color-accent-fade: rgba(168, 85, 247, 0.2);
 
-$color-bg-light-1: #f8fafd;
-$color-bg-light-2: #e9edf5;
-$color-bg-dark-1: #0b0f19;
-$color-bg-dark-2: #111827;
+$color-accent: #2b4c7e;
+$color-accent-dark: #8bb2f2;
+$color-accent-fade: rgba(43, 76, 126, 0.1);
 
-$color-text-primary: #1d1d1f;
-$color-text-secondary: #6e6e73;
-$color-text-muted: #636366;
-$color-text-light: #515154;
+$color-bg-light-1: #faf9f6;
+$color-bg-light-2: #f3f1eb;
+$color-bg-dark-1: #12110f;
+$color-bg-dark-2: #1b1a18;
 
-$color-text-dark-primary: #ffffff;
-$color-text-dark-secondary: rgba(255, 255, 255, 0.6);
+$color-text-primary: #1c1a17;
+$color-text-secondary: #6e6a64;
+$color-text-muted: #8c8780;
+$color-text-light: #a19c95;
+
+$color-text-dark-primary: #f5f4f0;
+$color-text-dark-secondary: #a19c95;
 
 $color-glass-bg: rgba(255, 255, 255, 0.45);
 $color-glass-border: rgba(255, 255, 255, 0.65);

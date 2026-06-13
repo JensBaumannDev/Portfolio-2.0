@@ -1,1 +1,6 @@
-/* About component styles */
+@use 'src/styles/abstracts' as abs;
+
+.about-container {
+  height: 100vh;
+  background: abs.$color-white;
+}
