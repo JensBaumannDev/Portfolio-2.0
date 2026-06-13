@@ -21,6 +21,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 - It MUST pass all AXE checks.
 - It MUST follow all WCAG AA minimums, including focus management, color contrast, and ARIA attributes.
+- Minimum font-size must be 16px.
 
 ### Components
 
@@ -62,3 +63,6 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use the z-index layer system defined in variables for managing component depth (`z-index`).
 - Avoid hardcoding values; prefer variables from `_variables.scss` and mixins from `_mixins.scss`.
 - Responsive content (e.g., `@media` queries or responsive mixins like `@include mobile`) must be placed at the very bottom of every SCSS file, grouped inside a `/* #region RESPONSIVE */` and `/* #endregion */` block.
+- Never use `overflow: hidden` or `!important`.
+- Never use `rem` or `em` units; use `px` instead.
+

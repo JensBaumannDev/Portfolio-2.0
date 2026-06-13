@@ -1,10 +1,20 @@
 @use 'src/styles/abstracts' as abs;
 
+html {
+  scroll-behavior: smooth;
+  background-color: abs.$color-bg-dark-1;
+
+  &:has(body.dark) {
+    background-color: abs.$color-bg-dark-1;
+  }
+}
+
 body {
-  background: abs.$color-bg-light-1;
+  background: abs.$color-bg-dark-1;
   color: abs.$color-text-primary;
   min-height: 100vh;
   margin: 0;
+  padding:0;
   font-family: sans-serif;
   transition: background 0.3s ease, color 0.3s ease;
 
@@ -12,4 +22,20 @@ body {
     background: abs.$color-bg-dark-1;
     color: abs.$color-text-dark-primary;
   }
+
+  &.menu-open {
+    overflow-y: clip;
+  }
+}
+
+.content-container {
+  @include abs.maxWidth;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+app-legal-notice,
+app-privacy-policy {
+  display: block;
+  padding-top: 80px;
 }

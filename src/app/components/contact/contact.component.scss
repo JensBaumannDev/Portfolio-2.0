@@ -1,1 +1,6 @@
-/* Contact component styles */
+@use 'src/styles/abstracts' as abs;
+
+.contact-container {
+  height: 100vh;
+  background: abs.$color-black;
+}

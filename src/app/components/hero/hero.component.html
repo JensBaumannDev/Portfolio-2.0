@@ -1,3 +1,39 @@
-<div class="hero-container">
-  <p>hero component works!</p>
+<div class="hero-image-container">
+  <img ngSrc="./img/hero/hero_bg.webp" fill priority alt="Tidal flat ripples at the North Sea coast in East Frisia" class="hero-image" />
+  <div class="hero-text">
+    <h1 class="hero-name">Jens Baumann</h1>
+    <p class="hero-title">Fullstack Developer</p>
+
+    @if (stats(); as data) {
+      <div class="hero-stats-row">
+        <div class="stat-item">
+          <span class="stat-val">{{ data.commits }}</span>
+          <span class="stat-lbl">{{ 'stats.commits' | translate }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val">{{ data.pullRequests }}</span>
+          <span class="stat-lbl">{{ 'stats.prs' | translate }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val">{{ data.projects }}</span>
+          <span class="stat-lbl">{{ 'stats.projects' | translate }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val">{{ data.primaryLang }}</span>
+          <span class="stat-lbl">{{ 'stats.language' | translate }}</span>
+        </div>
+      </div>
+    }
+
+    <div class="hero-actions">
+      <a href="#contact" class="button" role="button">
+        <ng-icon name="lucideMail" size="20px"></ng-icon>
+        <span class="text">{{ 'hero.contact' | translate }}</span>
+      </a>
+      <a href="./assets/Jens_Baumann_CV.pdf" download class="button" role="button">
+        <ng-icon name="lucideDownload" size="20px"></ng-icon>
+        <span class="text">{{ 'hero.cv' | translate }}</span>
+      </a>
+    </div>
+  </div>
 </div>

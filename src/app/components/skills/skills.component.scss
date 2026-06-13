@@ -1,1 +1,6 @@
-/* Skills component styles */
+@use 'src/styles/abstracts' as abs;
+
+.skills-container {
+  height: 100vh;
+  background: abs.$color-white;
+}
