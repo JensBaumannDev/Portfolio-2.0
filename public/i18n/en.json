@@ -15,5 +15,43 @@
   "hero": {
     "contact": "Contact me",
     "cv": "Download CV"
+  },
+  "about": {
+    "title": "About me",
+    "p1": "Hi, I'm Jens! Born in '88, married, dad, and dog owner. After my time as a telecommunications department manager in an electronics retail store, I'm now doing what I love: fulfilling my dream of programming.",
+    "p2": "I love combining aesthetics and technology: thoughtful design, solid software architecture, and absolute precision down to the last detail are my standards. This is how unique solutions that stand out are created.",
+    "facts": {
+      "role_label": "Role",
+      "role_val": "Fullstack Developer",
+      "role_back": "Frontend & Backend",
+      "loc_label": "Location",
+      "loc_val": "Emden, East Frisia",
+      "loc_back": "Open to: Remote & Hybrid",
+      "stack_label": "Tech Stack",
+      "stack_val": "Angular, TS, Node.js",
+      "stack_back": "Sass, Git, REST-APIs",
+      "focus_label": "Focus",
+      "focus_val": "Clean Code, UI/UX",
+      "focus_back": "Accessibility & UX",
+      "title_back": "Developer with Passion",
+      "p1_back": "I work in an agile, solution-oriented, and structured manner. Close communication within the team and the implementation of best practices are particularly important to me.",
+      "p2_back": "Whether Angular, Node.js, or relational databases – I love diving into new technologies and building robust, scalable solutions.",
+      "exp_label": "Experience",
+      "exp_val": "1+ Year & 4 Projects",
+      "exp_back": "As a developer. Previously 6 years telecommunications department manager.",
+      "fun_label": "Me & AI",
+      "fun_val": "My Strongest Tool",
+      "fun_back": "AI is like a blacksmith's hammer: it helps me shape things, but I remain the master of the code.",
+      "lang_label": "Languages",
+      "lang_val": "DE, EN & Low German",
+      "lang_back": "TS, HTML, CSS, Sass",
+      "int_label": "Interests",
+      "int_val": "Programming, Music & Gaming",
+      "int_back": "Code, sound & virtual worlds.",
+      "bio1_front": "Who I am",
+      "bio2_front": "How I work"
+    },
+    "more_about_me": "more about me",
+    "less_about_me": "less about me"
   }
 }
