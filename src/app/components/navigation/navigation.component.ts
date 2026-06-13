@@ -11,11 +11,11 @@ const TYPEWRITER_SPEED_MS = 75;
 type SectionTheme = 'light' | 'dark';
 
 const SECTION_THEMES: Record<string, SectionTheme> = {
-  home: 'dark',
-  about: 'light',
-  projects: 'dark',
-  skills: 'light',
-  contact: 'dark',
+  home: 'light',
+  about: 'dark',
+  projects: 'light',
+  skills: 'dark',
+  contact: 'light',
 };
 
 const SECTION_ORDER = Object.keys(SECTION_THEMES);

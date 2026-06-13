@@ -21,6 +21,20 @@
   cursor: pointer;
   color: abs.$color-white;
   transition: 400ms;
+
+  &.inverted,
+  &.button--inverted,
+  &.button-white {
+    background-color: abs.$color-white;
+    outline-color: abs.$color-white;
+    color: abs.$color-black;
+
+    &:hover {
+      background-color: abs.$color-button-bg;
+      outline-color: abs.$color-button-bg;
+      color: abs.$color-white;
+    }
+  }
 }
 
 .button .text {
@@ -43,3 +57,4 @@
   outline-color: abs.$color-white;
   color: abs.$color-black;
 }
+

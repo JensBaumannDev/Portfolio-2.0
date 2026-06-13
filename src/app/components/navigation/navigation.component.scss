@@ -39,7 +39,10 @@
     .nav-link {
       color: abs.$color-text-secondary;
 
-      &:hover,
+      &:hover:not(.active) {
+        color: abs.$color-text-primary;
+      }
+
       &.active {
         background-color: abs.$color-black;
         color: abs.$color-white;
@@ -142,11 +145,32 @@
   text-decoration: none;
   padding: 8px 16px;
   border-radius: 4px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease;
   color: abs.$color-text-dark-secondary;
   @include abs.flex(row, nowrap, center, center);
+  position: relative;
 
-  &:hover,
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover:not(.active) {
+    color: abs.$color-text-dark-primary;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
   &.active {
     background-color: abs.$color-active-bg;
     color: abs.$color-text-primary;
