@@ -181,6 +181,7 @@
   @include abs.flex(row, nowrap, flex-end, center);
   gap: 8px;
   height: 100%;
+  margin-right: -12px;
 }
 
 .lang-btn {

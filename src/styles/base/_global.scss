@@ -3,6 +3,7 @@
 html {
   scroll-behavior: smooth;
   background-color: abs.$color-bg-dark-1;
+  overflow-x: clip;
 
   &:has(body.dark) {
     background-color: abs.$color-bg-dark-1;
@@ -17,21 +18,20 @@ body {
   padding:0;
   font-family: sans-serif;
   transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: clip;
 
   &.dark {
     background: abs.$color-bg-dark-1;
     color: abs.$color-text-dark-primary;
   }
 
-  &.menu-open {
-    overflow-y: clip;
-  }
+
 }
 
 .content-container {
   @include abs.maxWidth;
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 16px;
 }
 
 app-legal-notice,
