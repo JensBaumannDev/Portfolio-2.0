@@ -37,8 +37,8 @@
 .dialog-left {
   @include abs.flex(column, nowrap, flex-start, flex-start);
   gap: 16px;
-  background-color: abs.$color-white;
-  color: abs.$color-text-primary;
+  background-color: abs.$color-black;
+  color: abs.$color-white;
 
   .back-btn {
     @include abs.flex(row, nowrap, flex-start, center);
@@ -50,7 +50,7 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: 700;
-    color: abs.$color-text-primary;
+    color: abs.$color-white;
   }
 
   .dialog-title {
@@ -68,14 +68,14 @@
   .dialog-text {
     font-size: 16px;
     line-height: 1.6;
-    color: abs.$color-text-secondary;
+    color: abs.$color-text-dark-secondary;
     margin: 0;
     max-width: 540px;
   }
 
   .dialog-duration {
     font-size: 16px;
-    color: abs.$color-text-primary;
+    color: abs.$color-white;
     margin: 16px 0 0 0;
 
     strong {
@@ -92,9 +92,9 @@
       font-family: monospace;
       font-size: 16px;
       font-weight: 600;
-      color: abs.$color-white;
-      background-color: abs.$color-black;
-      border: 1px solid abs.$color-black;
+      color: abs.$color-black;
+      background-color: abs.$color-white;
+      border: 1px solid abs.$color-white;
       padding: 4px 10px;
       border-radius: 5px;
       text-transform: uppercase;
@@ -106,7 +106,7 @@
 .dialog-right {
   @include abs.flex(column, nowrap, center, center);
   gap: 32px;
-  background-color: abs.$color-black;
+  background-color: abs.$color-white;
 
   .dialog-img-wrapper {
     position: relative;
@@ -131,13 +131,25 @@
     letter-spacing: 1px;
     color: abs.$color-white;
     background-color: abs.$color-black;
-    border: 1px solid abs.$color-white;
+    border: 1px solid abs.$color-black;
     padding: 6px 16px;
   }
 
   .dialog-actions {
     @include abs.flex(row, wrap, center, center);
     gap: 20px;
+
+    .button {
+      background-color: abs.$color-black;
+      color: abs.$color-white;
+      outline-color: abs.$color-black;
+
+      &:hover {
+        background-color: abs.$color-white;
+        color: abs.$color-black;
+        outline-color: abs.$color-black;
+      }
+    }
   }
 
   .next-btn {
@@ -149,7 +161,7 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: 700;
-    color: abs.$color-white;
+    color: abs.$color-text-primary;
   }
 }
 
