@@ -4,8 +4,8 @@
     <h1 class="hero-name">Jens Baumann</h1>
     <p class="hero-title">Fullstack Developer</p>
 
-    @if (stats(); as data) {
-      <div class="hero-stats-row">
+    <div class="hero-stats-row">
+      @if (stats(); as data) {
         <div class="stat-item">
           <span class="stat-val">{{ data.commits }}</span>
           <span class="stat-lbl">{{ 'stats.commits' | translate }}</span>
@@ -22,8 +22,25 @@
           <span class="stat-val">{{ data.primaryLang }}</span>
           <span class="stat-lbl">{{ 'stats.language' | translate }}</span>
         </div>
-      </div>
-    }
+      } @else {
+        <div class="stat-item">
+          <span class="stat-val placeholder"></span>
+          <span class="stat-lbl">{{ 'stats.commits' | translate }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val placeholder"></span>
+          <span class="stat-lbl">{{ 'stats.prs' | translate }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val placeholder"></span>
+          <span class="stat-lbl">{{ 'stats.projects' | translate }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val placeholder"></span>
+          <span class="stat-lbl">{{ 'stats.language' | translate }}</span>
+        </div>
+      }
+    </div>
 
     <div class="hero-actions">
       <a href="#contact" class="button" role="button">

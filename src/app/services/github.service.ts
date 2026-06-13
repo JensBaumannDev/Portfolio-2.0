@@ -23,8 +23,24 @@ export class GitHubService {
   private readonly http = inject(HttpClient);
   private readonly username = 'JensBaumannDev';
   private readonly base = 'https://api.github.com';
+  private readonly cacheKey = 'github_stats';
+  private readonly cacheTimeKey = 'github_stats_timestamp';
+  private readonly oneDayMs = 86400000;
 
   getStats(): Observable<GitHubStats> {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      const cachedData = localStorage.getItem(this.cacheKey);
+      const cachedTime = localStorage.getItem(this.cacheTimeKey);
+      if (cachedData && cachedTime) {
+        const parsedTime = parseInt(cachedTime, 10);
+        if (!isNaN(parsedTime) && Date.now() - parsedTime < this.oneDayMs) {
+          try {
+            return of(JSON.parse(cachedData) as GitHubStats);
+          } catch {}
+        }
+      }
+    }
+
     const headers = new HttpHeaders({
       Accept: 'application/vnd.github.cloak-preview+json',
     });
@@ -61,12 +77,21 @@ export class GitHubService {
         }
         const primaryLang = sorted[0]?.[0] ?? '—';
 
-        return {
+        const stats: GitHubStats = {
           commits: commitSearch.total_count,
           pullRequests: prSearch.total_count,
           projects: ownRepos.length,
           primaryLang,
         };
+
+        if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+          try {
+            localStorage.setItem(this.cacheKey, JSON.stringify(stats));
+            localStorage.setItem(this.cacheTimeKey, Date.now().toString());
+          } catch {}
+        }
+
+        return stats;
       }),
       catchError(() => of({ commits: 968, pullRequests: 208, projects: 18, primaryLang: 'TypeScript' }))
     );
