@@ -47,11 +47,63 @@
       "lang_back": "TS, HTML, CSS, Sass",
       "int_label": "Interessen",
       "int_val": "Programmieren, Musik & Gaming",
-      "int_back": "Code, Sound & virtuelle Welten.",
+      "int_back": "Code, Sound & virtuelle Weltwelten.",
       "bio1_front": "Wer ich bin",
       "bio2_front": "Wie ich arbeite"
     },
     "more_about_me": "mehr über mich",
     "less_about_me": "weniger über mich"
+  },
+  "projects": {
+    "title": "Projekte",
+    "join": {
+      "name": "Join",
+      "subtitle": "Developer Akademie Gruppenarbeit",
+      "description": "Auf dem Kanban-System basierender Aufgabenmanager. Erstellen und organisieren Sie Aufgaben mit Drag-and-Drop-Funktionen, weisen Sie Benutzer und Kategorien zu.",
+      "umsetzung": "Dieses Projekt ist mein kommendes Highlight. Es wird aktuell als umfangreiche Gruppenarbeit entwickelt und wird bald hier in vollem Umfang zu finden sein.",
+      "duration": "5 Wochen",
+      "tech": "HTML, CSS, JavaScript"
+    },
+    "dabubble": {
+      "name": "DABubble",
+      "subtitle": "Developer Akademie Gruppenarbeit",
+      "description": "Ein interaktiver Echtzeit-Team-Chat im Stil von Slack. Ermöglicht schnelle und strukturierte Kommunikation in Channels, Direktnachrichten und Threads.",
+      "umsetzung": "Umgesetzt mit Angular und Supabase als Backend. Echtzeit-Synchronisation über Channels, Threads und Direktnachrichten inklusive Authentifizierung.",
+      "duration": "6 Wochen",
+      "tech": "Angular, TypeScript, SCSS, Supabase"
+    },
+    "el_pollo_loco": {
+      "name": "El Pollo Loco",
+      "subtitle": "Jump 'n' Run Spiel",
+      "description": "Ein Lauf- und Wurfspiel, das auf einem objektorientierten Ansatz basiert. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen die verrückte Henne zu kämpfen.",
+      "umsetzung": "Vollständig objektorientiert in Vanilla JavaScript umgesetzt. Eigene Game-Loop, Kollisionserkennung und Sound-Management ganz ohne Framework.",
+      "duration": "3 Wochen",
+      "tech": "HTML, CSS, JavaScript, OOP"
+    },
+    "pokedex": {
+      "name": "Pokedex",
+      "subtitle": "Pokémon Enzyklopädie",
+      "description": "Eine einfache Bibliothek basierend auf der PokeAPI, um deine Lieblings-Pokemon mit all ihren Werten zu finden und anzuzeigen.",
+      "umsetzung": "Anbindung der PokeAPI über asynchrone Fetch-Aufrufe. Mit Such- und Filterfunktion sowie einer Detailansicht je Pokémon.",
+      "duration": "2 Wochen",
+      "tech": "HTML, CSS, JavaScript, REST-API"
+    },
+    "portfolio": {
+      "name": "Portfolio",
+      "subtitle": "Persönliche Website",
+      "description": "Dieses interaktive Entwickler-Portfolio mit modernem Kacheldesign und voller Mehrsprachigkeit.",
+      "umsetzung": "Komponentenbasiert in Angular mit Signals, OnPush und voller Mehrsprachigkeit. Responsives Kacheldesign mit 3D-Flip-Animationen.",
+      "duration": "Laufend",
+      "tech": "Angular, TypeScript, SCSS"
+    },
+    "github": "GitHub",
+    "live": "Live Demo",
+    "detail_cta": "Mehr erfahren",
+    "back": "Zurück",
+    "label_description": "Beschreibung",
+    "label_implementation": "Umsetzung",
+    "label_duration": "Dauer",
+    "next_project": "Nächstes Projekt",
+    "featured": "Featured Project"
   }
 }

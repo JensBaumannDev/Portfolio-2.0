@@ -53,5 +53,57 @@
     },
     "more_about_me": "more about me",
     "less_about_me": "less about me"
+  },
+  "projects": {
+    "title": "Projects",
+    "join": {
+      "name": "Join",
+      "subtitle": "Developer Academy Group Project",
+      "description": "A Kanban-based task manager. Create and organize tasks with drag-and-drop features and assign users and categories.",
+      "umsetzung": "This project is my upcoming highlight. It is currently being developed as an extensive group project and will soon be available here in full.",
+      "duration": "5 Weeks",
+      "tech": "HTML, CSS, JavaScript"
+    },
+    "dabubble": {
+      "name": "DABubble",
+      "subtitle": "Developer Academy Group Project",
+      "description": "An interactive real-time team chat in the style of Slack. Enables fast and structured communication in channels, direct messages and threads.",
+      "umsetzung": "Built with Angular and Supabase as the backend. Real-time synchronization across channels, threads and direct messages, including authentication.",
+      "duration": "6 Weeks",
+      "tech": "Angular, TypeScript, SCSS, Supabase"
+    },
+    "el_pollo_loco": {
+      "name": "El Pollo Loco",
+      "subtitle": "Jump 'n' Run Game",
+      "description": "A run-and-throw game based on an object-oriented approach. Help Pepe find coins and tabasco salsa to fight the crazy hen.",
+      "umsetzung": "Fully object-oriented in vanilla JavaScript. Custom game loop, collision detection and sound management entirely without a framework.",
+      "duration": "3 Weeks",
+      "tech": "HTML, CSS, JavaScript, OOP"
+    },
+    "pokedex": {
+      "name": "Pokedex",
+      "subtitle": "Pokémon Encyclopedia",
+      "description": "A simple library based on the PokeAPI to find and display your favorite Pokémon with all their stats.",
+      "umsetzung": "Connects to the PokeAPI via asynchronous fetch calls. With search and filter functionality as well as a detail view per Pokémon.",
+      "duration": "2 Weeks",
+      "tech": "HTML, CSS, JavaScript, REST-API"
+    },
+    "portfolio": {
+      "name": "Portfolio",
+      "subtitle": "Personal Website",
+      "description": "This interactive developer portfolio with a modern tile design and full multilingual support.",
+      "umsetzung": "Component-based in Angular with signals, OnPush and full multilingual support. Responsive tile design with 3D flip animations.",
+      "duration": "Ongoing",
+      "tech": "Angular, TypeScript, SCSS"
+    },
+    "github": "GitHub",
+    "live": "Live Demo",
+    "detail_cta": "Learn more",
+    "back": "Back",
+    "label_description": "Description",
+    "label_implementation": "Implementation",
+    "label_duration": "Duration",
+    "next_project": "Next Project",
+    "featured": "Featured Project"
   }
 }

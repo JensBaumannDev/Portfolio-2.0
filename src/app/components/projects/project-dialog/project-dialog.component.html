@@ -1,0 +1,64 @@
+<div class="dialog-backdrop" (click)="close.emit()"></div>
+
+<div
+  class="dialog"
+  role="dialog"
+  aria-modal="true"
+  tabindex="-1"
+  [attr.aria-label]="'projects.' + project().key + '.name' | translate"
+>
+  <app-navigation [forceLight]="true" [forceActive]="'projects'" (linkClick)="onNavLinkClick($event)"></app-navigation>
+
+  <div class="dialog-body">
+    <section class="dialog-left">
+      <button type="button" class="back-btn" (click)="close.emit()">
+        <ng-icon name="lucideArrowLeft" size="20px"></ng-icon>
+        <span>{{ 'projects.back' | translate }}</span>
+      </button>
+
+      <h2 class="dialog-title">{{ 'projects.' + project().key + '.name' | translate }}</h2>
+
+      <h3 class="dialog-heading">{{ 'projects.label_description' | translate }}</h3>
+      <p class="dialog-text">{{ 'projects.' + project().key + '.description' | translate }}</p>
+
+      <h3 class="dialog-heading">{{ 'projects.label_implementation' | translate }}</h3>
+      <p class="dialog-text">{{ 'projects.' + project().key + '.umsetzung' | translate }}</p>
+
+      <p class="dialog-duration">
+        <strong>{{ 'projects.label_duration' | translate }}:</strong>
+        {{ 'projects.' + project().key + '.duration' | translate }}
+      </p>
+
+      <div class="dialog-tags">
+        @for (tag of project().tags; track tag) {
+          <span class="dialog-tag">{{ tag }}</span>
+        }
+      </div>
+    </section>
+
+    <section class="dialog-right">
+      <div class="dialog-img-wrapper">
+        <img [ngSrc]="project().image" fill [alt]="project().imageAlt" class="dialog-img" />
+        @if (project().spotlight) {
+          <span class="dialog-featured">{{ 'projects.featured' | translate }}</span>
+        }
+      </div>
+
+      <div class="dialog-actions">
+        <a [href]="project().github" target="_blank" rel="noopener" class="button button-white button-outline-white">
+          <ng-icon name="lucideGithub" size="18px"></ng-icon>
+          <span class="text">{{ 'projects.github' | translate }}</span>
+        </a>
+        <a [href]="project().live" target="_blank" rel="noopener" class="button button-white button-outline-white">
+          <ng-icon name="lucideExternalLink" size="18px"></ng-icon>
+          <span class="text">{{ 'projects.live' | translate }}</span>
+        </a>
+      </div>
+
+      <button type="button" class="next-btn" (click)="next.emit()">
+        <span>{{ 'projects.next_project' | translate }}</span>
+        <ng-icon name="lucideArrowRight" size="20px"></ng-icon>
+      </button>
+    </section>
+  </div>
+</div>

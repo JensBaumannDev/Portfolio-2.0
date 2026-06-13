@@ -39,3 +39,8 @@ app-privacy-policy {
   display: block;
   padding-top: 80px;
 }
+
+body.no-scroll {
+  height: 100vh;
+  overflow-y: clip;
+}

@@ -1,1 +1,58 @@
-<div class="projects-container"></div>
+<div class="projects-container">
+  <div class="content-container">
+    <h2 class="projects-section-title">{{ 'projects.title' | translate }}</h2>
+    <div class="projects-grid">
+
+      @for (project of projects(); track project.key; let i = $index) {
+        <div [class]="'project-card ' + project.tile" (click)="toggleCard(i)">
+          <div class="card-inner" [class.flipped]="flippedStates()[i]">
+            <div class="card-front">
+              <div class="project-details">
+                @if (project.spotlight) {
+                  <span class="spotlight-badge">Spotlight</span>
+                }
+                <h3 class="project-name">{{ 'projects.' + project.key + '.name' | translate }}</h3>
+                <span class="project-subtitle">{{ 'projects.' + project.key + '.subtitle' | translate }}</span>
+                <div class="project-tags">
+                  @for (tag of project.tags; track tag) {
+                    <span class="tag">{{ tag }}</span>
+                  }
+                </div>
+              </div>
+              <div class="project-img-wrapper">
+                <img [ngSrc]="project.image" fill [alt]="project.imageAlt" class="project-img" />
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="card-back-header">
+                <h3 class="project-name-back">{{ 'projects.' + project.key + '.name' | translate }}</h3>
+                <button type="button" class="button button-white button-outline-white detail-cta" (click)="$event.stopPropagation(); openDialog(i)">
+                  <span class="text">{{ 'projects.detail_cta' | translate }}</span>
+                </button>
+              </div>
+              <p class="project-desc">{{ 'projects.' + project.key + '.description' | translate }}</p>
+              <div class="project-tech">
+                <strong>Tech Stack:</strong> {{ 'projects.' + project.key + '.tech' | translate }}
+              </div>
+              <div class="project-links">
+                <a [href]="project.github" target="_blank" rel="noopener" (click)="$event.stopPropagation()" class="button button-white button-outline-white">
+                  <ng-icon name="lucideGithub" size="18px"></ng-icon>
+                  <span class="text">{{ 'projects.github' | translate }}</span>
+                </a>
+                <a [href]="project.live" target="_blank" rel="noopener" (click)="$event.stopPropagation()" class="button button-white button-outline-white">
+                  <ng-icon name="lucideExternalLink" size="18px"></ng-icon>
+                  <span class="text">{{ 'projects.live' | translate }}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
+</div>
+
+@if (selectedProject(); as project) {
+  <app-project-dialog [project]="project" (close)="closeDialog()" (next)="nextProject()" />
+}
