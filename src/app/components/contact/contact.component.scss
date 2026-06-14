@@ -87,6 +87,9 @@ a.meta-item:hover {
   letter-spacing: 1px;
   text-transform: uppercase;
   color: abs.$color-white;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 3px;
 }
 
 .contact-title {
