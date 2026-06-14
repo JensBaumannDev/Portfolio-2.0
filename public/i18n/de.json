@@ -54,6 +54,10 @@
     "more_about_me": "mehr über mich",
     "less_about_me": "weniger über mich"
   },
+  "skills": {
+    "title": "Skills",
+    "learning": "Am Lernen"
+  },
   "projects": {
     "title": "Projekte",
     "join": {
