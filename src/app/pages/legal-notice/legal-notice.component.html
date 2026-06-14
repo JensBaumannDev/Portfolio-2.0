@@ -1,1 +1,41 @@
-<p>legal-notice works!</p>
+<main class="legal-page">
+  <div class="legal-inner">
+    <a routerLink="/" class="legal-back">&larr; {{ 'legal.back' | translate }}</a>
+
+    <h1 class="legal-title">{{ 'legal.title' | translate }}</h1>
+
+    <section class="legal-section">
+      <h2>{{ 'legal.provider_title' | translate }}</h2>
+      <p>
+        Jens Baumann<br />
+        {{ 'legal.address_street' | translate }}<br />
+        {{ 'legal.address_zip' | translate }} Emden<br />
+        {{ 'legal.country' | translate }}
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>{{ 'legal.contact_title' | translate }}</h2>
+      <p>
+        {{ 'legal.email_label' | translate }} <a href="mailto:info@jensbaumann.com">info&#64;jensbaumann.com</a>
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>{{ 'legal.liability_content_title' | translate }}</h2>
+      <p>{{ 'legal.liability_content_text' | translate }}</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>{{ 'legal.liability_links_title' | translate }}</h2>
+      <p>{{ 'legal.liability_links_text' | translate }}</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>{{ 'legal.copyright_title' | translate }}</h2>
+      <p>{{ 'legal.copyright_text' | translate }}</p>
+    </section>
+
+    <p class="legal-date">{{ 'legal.date' | translate }}</p>
+  </div>
+</main>
