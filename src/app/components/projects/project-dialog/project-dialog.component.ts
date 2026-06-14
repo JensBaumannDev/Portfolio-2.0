@@ -40,12 +40,18 @@ export class ProjectDialog implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    if (this.document?.documentElement) {
+      this.document.documentElement.classList.add('no-scroll');
+    }
     if (this.document?.body) {
       this.document.body.classList.add('no-scroll');
     }
   }
 
   ngOnDestroy(): void {
+    if (this.document?.documentElement) {
+      this.document.documentElement.classList.remove('no-scroll');
+    }
     if (this.document?.body) {
       this.document.body.classList.remove('no-scroll');
     }
