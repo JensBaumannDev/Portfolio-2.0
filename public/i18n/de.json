@@ -21,7 +21,7 @@
     "p1": "Hi, ich bin Jens! Jahrgang 88, verheiratet, Papa und Hundebesitzer. Nach meiner Zeit als Abteilungsleiter für Telekommunikation im Elektrofachgeschäft mache ich jetzt das, was ich liebe: Ich verwirkliche meinen Traum vom Programmieren.",
     "p2": "Ich liebe es, Ästhetik und Technik zu vereinen: Ein durchdachtes Design, eine solide Software-Architektur und absolute Genauigkeit bis ins letzte Detail sind für mich Standard. So entstehen einzigartige Lösungen, die sich abheben.",
     "facts": {
-      "role_label": "Rolle",
+      "role_label": "Spezialisierung",
       "role_val": "Fullstack-Entwickler",
       "role_back": "Frontend & Backend",
       "loc_label": "Standort",

@@ -21,7 +21,7 @@
     "p1": "Hi, I'm Jens! Born in '88, married, dad, and dog owner. After my time as a telecommunications department manager in an electronics retail store, I'm now doing what I love: fulfilling my dream of programming.",
     "p2": "I love combining aesthetics and technology: thoughtful design, solid software architecture, and absolute precision down to the last detail are my standards. This is how unique solutions that stand out are created.",
     "facts": {
-      "role_label": "Role",
+      "role_label": "Specialization",
       "role_val": "Fullstack Developer",
       "role_back": "Frontend & Backend",
       "loc_label": "Location",

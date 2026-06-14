@@ -98,8 +98,8 @@
 .card-back {
   transform: rotateY(180deg);
   background-color: abs.$color-white;
-  border: 1px solid abs.$color-card-border-subtle;
-  border-left: 5px solid abs.$color-black;
+  border: 1px solid abs.$color-black;
+  border-left: 8px solid abs.$color-black;
 
   .about-subtitle {
     color: abs.$color-card-subtitle-dark;
@@ -144,7 +144,7 @@
 
   .card-back {
     padding: 0;
-    border-left: 1px solid abs.$color-card-border-subtle;
+    border-left: 1px solid abs.$color-black;
   }
 }
 
