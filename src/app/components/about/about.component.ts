@@ -42,8 +42,8 @@ import {
 })
 export class About implements OnInit, OnDestroy {
   protected readonly images = [
-    './img/profile/jb_one.JPEG',
-    './img/profile/jb_two.JPEG',
+    './img/profile/jb_one_small.jpg',
+    './img/profile/jb_two_small.jpg',
   ];
 
   protected readonly activeIndex = signal(0);
