@@ -9,7 +9,6 @@
   padding: 80px 0;
 }
 
-
 .about-section-title {
   width: 100%;
   box-sizing: border-box;
@@ -213,12 +212,19 @@
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
+
   40% {
     transform: translateY(-6px);
   }
+
   60% {
     transform: translateY(-3px);
   }
@@ -237,10 +243,13 @@
   }
 }
 
-@include abs.tablet-lg {
+@include abs.desktop {
   .about-container {
-    padding: 0;
+    padding: 80px 0 16px;
   }
+}
+
+@include abs.tablet-lg {
 
   .metro-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -337,6 +346,7 @@
   }
 
   .fact-card {
+
     &.tile-image,
     &.tile-bio,
     &.tile-fact {
