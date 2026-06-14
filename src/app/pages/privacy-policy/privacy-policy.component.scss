@@ -1,3 +1,99 @@
 @use 'src/styles/abstracts' as abs;
 
-/* Privacy policy styles */
+.legal-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: abs.$color-black;
+  @include abs.flex(row, nowrap, center, flex-start);
+  padding: 64px 16px 96px;
+  box-sizing: border-box;
+}
+
+.legal-inner {
+  @include abs.maxWidth;
+  max-width: 860px;
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: 32px;
+}
+
+.legal-back {
+  color: abs.$color-text-dark-secondary;
+  text-decoration: none;
+  font-size: 16px;
+  width: fit-content;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: abs.$color-text-dark-primary;
+  }
+}
+
+.legal-title {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: abs.$color-text-dark-primary;
+}
+
+.legal-section {
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: 12px;
+
+  h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: abs.$color-text-dark-primary;
+  }
+
+  p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: abs.$color-text-dark-secondary;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 24px;
+    @include abs.flex(column, nowrap, flex-start, flex-start);
+    gap: 6px;
+  }
+
+  li {
+    font-size: 16px;
+    line-height: 1.6;
+    color: abs.$color-text-dark-secondary;
+  }
+
+  a {
+    color: abs.$color-white;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    word-break: break-word;
+  }
+}
+
+.legal-date {
+  margin: 0;
+  font-size: 16px;
+  color: abs.$color-text-light;
+}
+
+/* #region RESPONSIVE */
+@include abs.mobile {
+  .legal-page {
+    padding: 48px 16px 72px;
+  }
+
+  .legal-title {
+    font-size: 32px;
+  }
+
+  .legal-section h2 {
+    font-size: 20px;
+  }
+}
+/* #endregion */

@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideMail, lucideCheck, lucideMapPin } from '@ng-icons/lucide';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule, TranslatePipe, NgIcon],
+  imports: [ReactiveFormsModule, RouterLink, TranslatePipe, NgIcon],
   providers: [provideIcons({ lucideMail, lucideCheck, lucideMapPin })],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
