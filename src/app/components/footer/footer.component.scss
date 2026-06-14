@@ -227,12 +227,18 @@
   }
 
   .footer-bottom {
-    @include abs.flex(column, nowrap, center, center);
-    text-align: center;
+    @include abs.flex(column, nowrap, flex-start, flex-start);
   }
 
   .footer-legal {
-    justify-content: center;
+    justify-content: flex-start;
+  }
+}
+
+@include abs.mobile-sm {
+  .footer-nav {
+    @include abs.flex(column, nowrap, flex-start, flex-start);
+    gap: 12px;
   }
 }
 /* #endregion */
