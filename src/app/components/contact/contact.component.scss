@@ -5,11 +5,12 @@
   background-color: abs.$color-black;
   @include abs.flex(column, nowrap, flex-start, center);
   box-sizing: border-box;
-  padding: 80px 40px;
+  padding: 80px 0;
 }
 
 .contact-inner {
   @include abs.maxWidth;
+  padding: 0 16px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 64px;
@@ -277,7 +278,7 @@ a.meta-item:hover {
 
 @include abs.mobile {
   .contact-container {
-    padding: 72px 20px;
+    padding: 72px 0;
   }
 
   .contact-label {
@@ -326,7 +327,7 @@ a.meta-item:hover {
 
 @include abs.mobile-sm {
   .contact-container {
-    padding: 56px 16px;
+    padding: 56px 0;
   }
 
   .contact-label {
