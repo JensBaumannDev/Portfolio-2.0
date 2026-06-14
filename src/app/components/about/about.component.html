@@ -1,23 +1,9 @@
 <div class="about-container">
   <div class="content-container">
+    <h2 class="about-section-title">{{ 'about.title' | translate }}</h2>
     <div class="metro-grid" [class.collapsed]="!isExpanded()">
-      <div class="fact-card tile-title" (click)="toggleCard(0)">
+      <div class="fact-card tile-image" (click)="toggleCard(0)">
         <div class="card-inner" [class.flipped]="flippedStates()[0]">
-          <div class="card-front">
-            <span class="about-subtitle">01. ABOUT</span>
-            <h2 class="about-title">{{ 'about.title' | translate }}</h2>
-            <div class="tile-icon-wrapper">
-              <ng-icon name="lucideUser" size="40px" class="tile-icon"></ng-icon>
-            </div>
-          </div>
-          <div class="card-back">
-            <span class="about-subtitle">JENS BAUMANN</span>
-            <h2 class="about-title">{{ 'about.facts.title_back' | translate }}</h2>
-          </div>
-        </div>
-      </div>
-      <div class="fact-card tile-image" (click)="toggleCard(1)">
-        <div class="card-inner" [class.flipped]="flippedStates()[1]">
           <div class="card-front">
             <img [ngSrc]="images[0]" fill alt="Jens Baumann Profile" class="tile-img" />
           </div>
@@ -26,27 +12,33 @@
           </div>
         </div>
       </div>
-      <div class="fact-card tile-fact" (click)="toggleCard(2)">
-        <div class="card-inner" [class.flipped]="flippedStates()[2]">
+      <div class="fact-card tile-fact" (click)="toggleCard(1)">
+        <div class="card-inner" [class.flipped]="flippedStates()[1]">
           <div class="card-front">
-            <h2 class="tile-headline">{{ 'about.facts.role_label' | translate }}</h2>
             <div class="tile-icon-wrapper">
-              <ng-icon name="lucideBriefcase" size="40px" class="tile-icon"></ng-icon>
+              <ng-icon name="lucideBriefcase" size="32px" class="tile-icon"></ng-icon>
+            </div>
+            <div class="tile-front-content">
+              <span class="tile-cat">{{ 'about.facts.role_label' | translate }}</span>
+              <span class="tile-val">{{ 'about.facts.role_val' | translate }}</span>
+              <span class="tile-rule"></span>
             </div>
           </div>
           <div class="card-back">
             <span class="fact-label">{{ 'about.facts.role_label' | translate }}</span>
-            <span class="fact-value">{{ 'about.facts.role_val' | translate }}</span>
             <span class="fact-subvalue">{{ 'about.facts.role_back' | translate }}</span>
           </div>
         </div>
       </div>
-      <div class="fact-card tile-bio" (click)="toggleCard(3)">
-        <div class="card-inner" [class.flipped]="flippedStates()[3]">
+      <div class="fact-card tile-bio" (click)="toggleCard(2)">
+        <div class="card-inner" [class.flipped]="flippedStates()[2]">
           <div class="card-front">
-            <h2 class="tile-headline">{{ 'about.facts.bio1_front' | translate }}</h2>
             <div class="tile-icon-wrapper">
-              <ng-icon name="lucideInfo" size="40px" class="tile-icon"></ng-icon>
+              <ng-icon name="lucideInfo" size="32px" class="tile-icon"></ng-icon>
+            </div>
+            <div class="tile-front-content">
+              <span class="tile-val">{{ 'about.facts.bio1_front' | translate }}</span>
+              <span class="tile-rule"></span>
             </div>
           </div>
           <div class="card-back">
@@ -54,27 +46,33 @@
           </div>
         </div>
       </div>
-      <div class="fact-card tile-fact" (click)="toggleCard(4)">
-        <div class="card-inner" [class.flipped]="flippedStates()[4]">
+      <div class="fact-card tile-fact" (click)="toggleCard(3)">
+        <div class="card-inner" [class.flipped]="flippedStates()[3]">
           <div class="card-front">
-            <h2 class="tile-headline">{{ 'about.facts.loc_label' | translate }}</h2>
             <div class="tile-icon-wrapper">
-              <ng-icon name="lucideMapPin" size="40px" class="tile-icon"></ng-icon>
+              <ng-icon name="lucideMapPin" size="32px" class="tile-icon"></ng-icon>
+            </div>
+            <div class="tile-front-content">
+              <span class="tile-cat">{{ 'about.facts.loc_label' | translate }}</span>
+              <span class="tile-val">{{ 'about.facts.loc_val' | translate }}</span>
+              <span class="tile-rule"></span>
             </div>
           </div>
           <div class="card-back">
             <span class="fact-label">{{ 'about.facts.loc_label' | translate }}</span>
-            <span class="fact-value">{{ 'about.facts.loc_val' | translate }}</span>
             <span class="fact-subvalue">{{ 'about.facts.loc_back' | translate }}</span>
           </div>
         </div>
       </div>
-      <div class="fact-card tile-bio" (click)="toggleCard(5)">
-        <div class="card-inner" [class.flipped]="flippedStates()[5]">
+      <div class="fact-card tile-bio" (click)="toggleCard(4)">
+        <div class="card-inner" [class.flipped]="flippedStates()[4]">
           <div class="card-front">
-            <h2 class="tile-headline">{{ 'about.facts.bio2_front' | translate }}</h2>
             <div class="tile-icon-wrapper">
-              <ng-icon name="lucideTerminal" size="40px" class="tile-icon"></ng-icon>
+              <ng-icon name="lucideTerminal" size="32px" class="tile-icon"></ng-icon>
+            </div>
+            <div class="tile-front-content">
+              <span class="tile-val">{{ 'about.facts.bio2_front' | translate }}</span>
+              <span class="tile-rule"></span>
             </div>
           </div>
           <div class="card-back">
@@ -82,96 +80,74 @@
           </div>
         </div>
       </div>
-      <div class="fact-card tile-fact" (click)="toggleCard(6)">
-        <div class="card-inner" [class.flipped]="flippedStates()[6]">
+      <div class="fact-card tile-fact" (click)="toggleCard(5)">
+        <div class="card-inner" [class.flipped]="flippedStates()[5]">
           <div class="card-front">
-            <h2 class="tile-headline">{{ 'about.facts.stack_label' | translate }}</h2>
             <div class="tile-icon-wrapper">
-              <svg viewBox="0 0 24 24" class="tile-icon angular-logo-svg" fill="currentColor" width="40" height="40" shape-rendering="geometricPrecision">
-                <path d="M12 2L2 6l1.8 11.5L12 22l8.2-4.5L22 6z" />
-                <path d="M12 4.2l6.8 3.7-1.2 8.3L12 19.8l-5.6-3.6-1.2-8.3z" fill="black" />
-                <path d="M12 5.5l-4.5 9.5h1.9l.9-2.3h3.4l.9 2.3h1.9zm-1 5.5h2l-1-2.5z" fill="currentColor" />
-              </svg>
+              <ng-icon name="lucideAward" size="32px" class="tile-icon"></ng-icon>
+            </div>
+            <div class="tile-front-content">
+              <span class="tile-cat">{{ 'about.facts.exp_label' | translate }}</span>
+              <span class="tile-val">{{ 'about.facts.exp_val' | translate }}</span>
+              <span class="tile-rule"></span>
             </div>
           </div>
           <div class="card-back">
-            <span class="fact-label">{{ 'about.facts.stack_label' | translate }}</span>
-            <span class="fact-value">{{ 'about.facts.stack_val' | translate }}</span>
-            <span class="fact-subvalue">{{ 'about.facts.stack_back' | translate }}</span>
+            <span class="fact-label">{{ 'about.facts.exp_label' | translate }}</span>
+            <span class="fact-subvalue">{{ 'about.facts.exp_back' | translate }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="fact-card tile-fact" (click)="toggleCard(6)">
+        <div class="card-inner" [class.flipped]="flippedStates()[6]">
+          <div class="card-front">
+            <div class="tile-icon-wrapper">
+              <ng-icon name="lucideHammer" size="32px" class="tile-icon"></ng-icon>
+            </div>
+            <div class="tile-front-content">
+              <span class="tile-cat">{{ 'about.facts.fun_label' | translate }}</span>
+              <span class="tile-val">{{ 'about.facts.fun_val' | translate }}</span>
+              <span class="tile-rule"></span>
+            </div>
+          </div>
+          <div class="card-back">
+            <span class="fact-label">{{ 'about.facts.fun_label' | translate }}</span>
+            <span class="fact-subvalue">{{ 'about.facts.fun_back' | translate }}</span>
           </div>
         </div>
       </div>
       <div class="fact-card tile-fact" (click)="toggleCard(7)">
         <div class="card-inner" [class.flipped]="flippedStates()[7]">
           <div class="card-front">
-            <h2 class="tile-headline">{{ 'about.facts.focus_label' | translate }}</h2>
             <div class="tile-icon-wrapper">
-              <ng-icon name="lucideTarget" size="40px" class="tile-icon"></ng-icon>
+              <ng-icon name="lucideGlobe" size="32px" class="tile-icon"></ng-icon>
+            </div>
+            <div class="tile-front-content">
+              <span class="tile-cat">{{ 'about.facts.lang_label' | translate }}</span>
+              <span class="tile-val">{{ 'about.facts.lang_val' | translate }}</span>
+              <span class="tile-rule"></span>
             </div>
           </div>
           <div class="card-back">
-            <span class="fact-label">{{ 'about.facts.focus_label' | translate }}</span>
-            <span class="fact-value">{{ 'about.facts.focus_val' | translate }}</span>
-            <span class="fact-subvalue">{{ 'about.facts.focus_back' | translate }}</span>
+            <span class="fact-label">{{ 'about.facts.lang_label' | translate }}</span>
+            <span class="fact-subvalue">{{ 'about.facts.lang_back' | translate }}</span>
           </div>
         </div>
       </div>
       <div class="fact-card tile-fact" (click)="toggleCard(8)">
         <div class="card-inner" [class.flipped]="flippedStates()[8]">
           <div class="card-front">
-            <h2 class="tile-headline">{{ 'about.facts.exp_label' | translate }}</h2>
             <div class="tile-icon-wrapper">
-              <ng-icon name="lucideAward" size="40px" class="tile-icon"></ng-icon>
+              <ng-icon name="lucideSparkles" size="32px" class="tile-icon"></ng-icon>
             </div>
-          </div>
-          <div class="card-back">
-            <span class="fact-label">{{ 'about.facts.exp_label' | translate }}</span>
-            <span class="fact-value">{{ 'about.facts.exp_val' | translate }}</span>
-            <span class="fact-subvalue">{{ 'about.facts.exp_back' | translate }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="fact-card tile-fact" (click)="toggleCard(9)">
-        <div class="card-inner" [class.flipped]="flippedStates()[9]">
-          <div class="card-front">
-            <h2 class="tile-headline">{{ 'about.facts.fun_label' | translate }}</h2>
-            <div class="tile-icon-wrapper">
-              <ng-icon name="lucideHammer" size="40px" class="tile-icon"></ng-icon>
-            </div>
-          </div>
-          <div class="card-back">
-            <span class="fact-label">{{ 'about.facts.fun_label' | translate }}</span>
-            <span class="fact-value">{{ 'about.facts.fun_val' | translate }}</span>
-            <span class="fact-subvalue">{{ 'about.facts.fun_back' | translate }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="fact-card tile-fact" (click)="toggleCard(10)">
-        <div class="card-inner" [class.flipped]="flippedStates()[10]">
-          <div class="card-front">
-            <h2 class="tile-headline">{{ 'about.facts.lang_label' | translate }}</h2>
-            <div class="tile-icon-wrapper">
-              <ng-icon name="lucideGlobe" size="40px" class="tile-icon"></ng-icon>
-            </div>
-          </div>
-          <div class="card-back">
-            <span class="fact-label">{{ 'about.facts.lang_label' | translate }}</span>
-            <span class="fact-value">{{ 'about.facts.lang_val' | translate }}</span>
-            <span class="fact-subvalue">{{ 'about.facts.lang_back' | translate }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="fact-card tile-fact" (click)="toggleCard(11)">
-        <div class="card-inner" [class.flipped]="flippedStates()[11]">
-          <div class="card-front">
-            <h2 class="tile-headline">{{ 'about.facts.int_label' | translate }}</h2>
-            <div class="tile-icon-wrapper">
-              <ng-icon name="lucideSparkles" size="40px" class="tile-icon"></ng-icon>
+            <div class="tile-front-content">
+              <span class="tile-cat">{{ 'about.facts.int_label' | translate }}</span>
+              <span class="tile-val">{{ 'about.facts.int_val' | translate }}</span>
+              <span class="tile-rule"></span>
             </div>
           </div>
           <div class="card-back">
             <span class="fact-label">{{ 'about.facts.int_label' | translate }}</span>
-            <span class="fact-value">{{ 'about.facts.int_val' | translate }}</span>
             <span class="fact-subvalue">{{ 'about.facts.int_back' | translate }}</span>
           </div>
         </div>
