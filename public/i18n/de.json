@@ -143,6 +143,7 @@
   "footer": {
     "imprint": "Impressum",
     "privacy": "Datenschutz",
-    "copyright": "© 2026 Jens Baumann. Alle Rechte vorbehalten."
+    "copyright": "© 2026 Jens Baumann. Alle Rechte vorbehalten.",
+    "tagline": "Fullstack-Entwickler aus Ostfriesland. Ich verbinde sauberen Code mit durchdachtem Design."
   }
 }

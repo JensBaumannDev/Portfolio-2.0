@@ -1,29 +1,19 @@
 <footer class="footer-container">
   <div class="footer-content">
-    <div class="footer-left">
-      <div class="footer-links">
-        <a [routerLink]="['/legal-notice']" routerLinkActive="active" class="footer-link">{{ 'footer.imprint' | translate }}</a>
-        <a [routerLink]="['/privacy-policy']" routerLinkActive="active" class="footer-link">{{ 'footer.privacy' | translate }}</a>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo" aria-label="Jens Baumann">&lt;/Jens Baumann&gt;</a>
+        <p class="footer-tagline">{{ 'footer.tagline' | translate }}</p>
       </div>
-      <p class="footer-copyright">{{ 'footer.copyright' | translate }}</p>
-    </div>
-    <div class="footer-center">
-      <div class="avatar-tile" role="button" tabindex="0" aria-label="Avatar"
-           [class.flipped]="flippedTiles()['avatar']"
-           (click)="toggleFlip('avatar')"
-           (keydown.enter)="toggleFlip('avatar')"
-           (keydown.space)="$event.preventDefault(); toggleFlip('avatar')">
-        <div class="card-inner">
-          <div class="card-front">
-            <img ngSrc="./img/profile/avatar.png" width="80" height="80" alt="Avatar" class="avatar-img" priority />
-          </div>
-          <div class="card-back">
-            <span class="avatar-initials">JB</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-right">
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#" class="footer-nav-link">{{ 'nav.home' | translate }}</a>
+        <a href="#about" class="footer-nav-link">{{ 'nav.about' | translate }}</a>
+        <a href="#projects" class="footer-nav-link">{{ 'nav.projects' | translate }}</a>
+        <a href="#skills" class="footer-nav-link">{{ 'nav.skills' | translate }}</a>
+        <a href="#contact" class="footer-nav-link">{{ 'nav.contact' | translate }}</a>
+      </nav>
+
       <div class="social-tiles">
         <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener" class="social-tile" aria-label="LinkedIn"
            [class.flipped]="flippedTiles()['linkedin']"
@@ -37,7 +27,7 @@
               </svg>
             </div>
             <div class="card-back">
-              <span class="social-name">LinkedIn</span>
+              <span class="social-name">in</span>
             </div>
           </div>
         </a>
@@ -52,7 +42,7 @@
               </svg>
             </div>
             <div class="card-back">
-              <span class="social-name">GitHub</span>
+              <span class="social-name">GH</span>
             </div>
           </div>
         </a>
@@ -67,10 +57,18 @@
               </svg>
             </div>
             <div class="card-back">
-              <span class="social-name">YouTube</span>
+              <span class="social-name">YT</span>
             </div>
           </div>
         </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">{{ 'footer.copyright' | translate }}</p>
+      <div class="footer-legal">
+        <a [routerLink]="['/legal-notice']" routerLinkActive="active" class="footer-link">{{ 'footer.imprint' | translate }}</a>
+        <a [routerLink]="['/privacy-policy']" routerLinkActive="active" class="footer-link">{{ 'footer.privacy' | translate }}</a>
       </div>
     </div>
   </div>
