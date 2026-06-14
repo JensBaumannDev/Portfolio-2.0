@@ -1,1 +1,105 @@
-<div class="contact-container"></div>
+<div class="contact-container">
+  <div class="contact-inner">
+    <div class="contact-intro">
+      <span class="contact-label">{{ 'contact.label' | translate }}</span>
+      <h2 class="contact-title">{{ 'contact.title' | translate }}</h2>
+      <p class="contact-text">{{ 'contact.p1' | translate }}</p>
+      <p class="contact-text">{{ 'contact.p2' | translate }}</p>
+
+      <div class="contact-meta">
+        <a class="meta-item" [href]="'mailto:' + ('contact.email_value' | translate)">
+          <ng-icon name="lucideMail" size="20px" aria-hidden="true"></ng-icon>
+          <span>{{ 'contact.email_value' | translate }}</span>
+        </a>
+
+        <span class="meta-item">
+          <ng-icon name="lucideMapPin" size="20px" aria-hidden="true"></ng-icon>
+          <span>{{ 'contact.location_value' | translate }}</span>
+        </span>
+
+        <span class="availability-badge">
+          <span class="availability-dot" aria-hidden="true"></span>
+          {{ 'contact.available' | translate }}
+        </span>
+      </div>
+    </div>
+
+    <form class="contact-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-field">
+        <label class="field-label" for="contact-name">
+          {{ 'contact.name_label' | translate }}<span class="field-required">*</span>
+        </label>
+        <input
+          id="contact-name"
+          type="text"
+          formControlName="name"
+          class="field-input"
+          [class.invalid]="invalid('name')"
+          [attr.aria-invalid]="invalid('name')"
+          [placeholder]="'contact.name_placeholder' | translate"
+        />
+        <span class="field-error" role="alert">
+          @if (invalid('name')) { {{ 'contact.error_name' | translate }} }
+        </span>
+      </div>
+
+      <div class="form-field">
+        <label class="field-label" for="contact-email">
+          {{ 'contact.email_label' | translate }}<span class="field-required">*</span>
+        </label>
+        <input
+          id="contact-email"
+          type="email"
+          formControlName="email"
+          class="field-input"
+          [class.invalid]="invalid('email')"
+          [attr.aria-invalid]="invalid('email')"
+          [placeholder]="'contact.email_placeholder' | translate"
+        />
+        <span class="field-error" role="alert">
+          @if (invalid('email')) { {{ 'contact.error_email' | translate }} }
+        </span>
+      </div>
+
+      <div class="form-field">
+        <label class="field-label" for="contact-message">
+          {{ 'contact.message_label' | translate }}<span class="field-required">*</span>
+        </label>
+        <textarea
+          id="contact-message"
+          formControlName="message"
+          class="field-input field-textarea"
+          rows="3"
+          [class.invalid]="invalid('message')"
+          [attr.aria-invalid]="invalid('message')"
+          [placeholder]="'contact.message_placeholder' | translate"
+        ></textarea>
+        <span class="field-error" role="alert">
+          @if (invalid('message')) { {{ 'contact.error_message' | translate }} }
+        </span>
+      </div>
+
+      <div class="form-privacy">
+        <input id="contact-privacy" type="checkbox" formControlName="privacy" class="privacy-checkbox" />
+        <label class="privacy-label" for="contact-privacy">
+          {{ 'contact.privacy_pre' | translate }}
+          <a href="#" class="privacy-link">{{ 'contact.privacy_link' | translate }}</a>
+          {{ 'contact.privacy_post' | translate }}
+        </label>
+      </div>
+      <span class="field-error" role="alert">
+        @if (invalid('privacy')) { {{ 'contact.error_privacy' | translate }} }
+      </span>
+
+      <div class="form-footer">
+        @if (sent()) {
+          <span class="form-success" role="status">{{ 'contact.success' | translate }}</span>
+        }
+        <button type="submit" class="button form-submit" [class.is-sent]="sent()" [disabled]="form.invalid">
+          <ng-icon [name]="sent() ? 'lucideCheck' : 'lucideMail'" size="20px"></ng-icon>
+          <span class="text">{{ (sent() ? 'contact.success_short' : 'contact.submit') | translate }}</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
