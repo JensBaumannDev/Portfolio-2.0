@@ -143,6 +143,7 @@
   "footer": {
     "imprint": "Legal Notice",
     "privacy": "Privacy Policy",
-    "copyright": "© 2026 Jens Baumann. All rights reserved."
+    "copyright": "© 2026 Jens Baumann. All rights reserved.",
+    "tagline": "Fullstack developer from East Frisia. I blend clean code with thoughtful design."
   }
 }

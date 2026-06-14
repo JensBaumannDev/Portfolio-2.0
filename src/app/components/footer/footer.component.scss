@@ -2,141 +2,93 @@
 
 .footer-container {
   width: 100%;
-  height: 260px;
-  background-color: abs.$color-white;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: abs.$color-black;
+  border-top: 1px solid abs.$color-glass-dark-border-hover;
   @include abs.flex(row, nowrap, center, center);
 }
 
 .footer-content {
   @include abs.maxWidth;
   margin: 0 auto;
-  padding: 0 16px;
-  @include abs.flex(row, wrap, space-between, center);
-  gap: 32px;
-  width: 100%;
+  padding: 40px 16px 24px;
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: 28px;
 }
 
-.footer-left {
-  @include abs.flex(column, nowrap, space-between, flex-start);
-  height: 80px;
+.footer-top {
+  @include abs.flex(row, nowrap, space-between, center);
+  gap: 48px;
 }
 
-.footer-links {
-  @include abs.flex(row, nowrap, flex-start, center);
-  gap: 8px;
+.footer-brand {
+  @include abs.flex(column, nowrap, flex-start, flex-start);
+  gap: 10px;
+  max-width: 380px;
+}
+
+.footer-logo {
   font-size: 20px;
-  margin-left: -16px;
-}
-
-.footer-link {
-  color: abs.$color-text-secondary;
+  font-weight: 700;
+  color: abs.$color-text-dark-primary;
   text-decoration: none;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 5px;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.footer-tagline {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: abs.$color-text-dark-secondary;
+}
+
+.footer-nav {
+  @include abs.flex(row, wrap, center, center);
+  gap: 8px 28px;
+}
+
+.footer-nav-link {
   position: relative;
-  @include abs.flex(row, nowrap, center, center);
-  display: inline-flex;
-  font-size: 20px;
-  line-height: 1.15;
+  color: abs.$color-text-dark-secondary;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s ease;
 
   &::after {
     content: '';
     position: absolute;
-    bottom: 4px;
-    left: 16px;
-    right: 16px;
-    height: 2px;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 1px;
     background-color: currentColor;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
   }
 
-  &:hover:not(.active) {
-    color: abs.$color-black;
+  &:hover {
+    color: abs.$color-text-dark-primary;
 
     &::after {
       transform: scaleX(1);
     }
   }
-
-  &.active {
-    background-color: abs.$color-black;
-    color: abs.$color-white;
-  }
-}
-
-
-.footer-copyright {
-  margin: 0;
-  font-size: 16px;
-  color: abs.$color-text-muted;
-  line-height: 1.15;
-}
-
-.footer-center {
-  @include abs.flex(row, nowrap, center, center);
-  height: 80px;
-}
-
-.avatar-tile {
-  perspective: 1000px;
-  display: block;
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-  border-radius: 40px;
-
-  .card-inner {
-    border-radius: 40px;
-  }
-
-  .card-front {
-    border-radius: 40px;
-    background-color: abs.$color-white;
-    border: 2px solid abs.$color-black;
-  }
-
-  .card-back {
-    border-radius: 40px;
-    background-color: abs.$color-black;
-    color: abs.$color-white;
-    border: 2px solid abs.$color-black;
-  }
-}
-
-.avatar-initials {
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  line-height: 1;
-}
-
-.avatar-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 40px;
-}
-
-.footer-right {
-  @include abs.flex(row, nowrap, flex-end, center);
 }
 
 .social-tiles {
   @include abs.flex(row, nowrap, flex-end, center);
-  gap: 16px;
+  gap: 10px;
 }
 
 .social-tile {
-  perspective: 1000px;
+  perspective: 800px;
   display: block;
-  width: 80px;
-  height: 80px;
+  width: 44px;
+  height: 44px;
   text-decoration: none;
   cursor: pointer;
 }
@@ -152,100 +104,135 @@
 .card-front,
 .card-back {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   backface-visibility: hidden;
   box-sizing: border-box;
+  border-radius: 4px;
   @include abs.flex(row, nowrap, center, center);
   transform: translateZ(0.1px);
   will-change: transform;
 }
 
 .card-front {
-  background-color: abs.$color-black;
-  color: abs.$color-white;
+  color: abs.$color-text-dark-primary;
+  background-color: abs.$color-glass-dark-bg;
+  border: 1px solid abs.$color-glass-dark-border-hover;
 }
 
 .card-back {
   transform: rotateY(180deg);
-  background-color: abs.$color-white;
   color: abs.$color-black;
-  border: 1px solid abs.$color-black;
+  background-color: abs.$color-white;
 }
 
 .social-name {
   font-size: 16px;
   font-weight: 700;
-  background-color: abs.$color-black;
-  color: abs.$color-white;
-  padding: 8px 0;
-  display: block;
-  width: 100%;
-  text-align: center;
   transform: translateZ(0.1px);
   will-change: transform;
 }
 
 .social-icon {
-  width: 36px;
-  height: 36px;
+  width: 22px;
+  height: 22px;
   display: block;
-  transform: translateZ(0.1px);
-  will-change: transform;
 }
 
-.social-tile.flipped .card-inner,
-.avatar-tile.flipped .card-inner {
+.social-tile.flipped .card-inner {
   transform: rotateY(180deg);
 }
 
-/* #region RESPONSIVE */
 @media (hover: hover) {
-  .social-tile:hover .card-inner,
-  .avatar-tile:hover .card-inner {
+  .social-tile:hover .card-inner {
     transform: rotateY(180deg);
   }
 }
 
-@include abs.mobile {
-  .footer-container {
-    height: auto;
+.footer-bottom {
+  @include abs.flex(row, wrap, space-between, center);
+  gap: 12px 24px;
+  padding-top: 24px;
+  border-top: 1px solid abs.$color-glass-dark-border;
+}
+
+.footer-copyright {
+  margin: 0;
+  font-size: 16px;
+  color: abs.$color-text-light;
+}
+
+.footer-legal {
+  @include abs.flex(row, wrap, flex-end, center);
+  gap: 24px;
+}
+
+.footer-link {
+  position: relative;
+  color: abs.$color-text-dark-secondary;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
   }
 
-  .footer-content {
-    padding: 36px 12px;
-    @include abs.flex(column-reverse, nowrap, center, center);
-    text-align: center;
+  &:hover:not(.active) {
+    color: abs.$color-text-dark-primary;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &.active {
+    color: abs.$color-text-dark-primary;
+    font-weight: 600;
+  }
+}
+
+/* #region RESPONSIVE */
+@include abs.tablet-xl {
+  .footer-top {
+    @include abs.flex(column, nowrap, flex-start, flex-start);
     gap: 24px;
   }
 
-  .footer-left {
-    @include abs.flex(column, nowrap, flex-start, center);
-    height: auto;
-    gap: 12px;
+  .footer-brand {
+    max-width: none;
   }
 
-  .footer-links {
-    @include abs.flex(row, nowrap, center, center);
-    margin-left: 0;
-  }
-
-  .footer-center {
-    @include abs.flex(row, nowrap, center, center);
-    width: 100%;
-  }
-
-  .footer-right {
-    @include abs.flex(row, nowrap, center, center);
-    width: 100%;
+  .footer-nav {
+    justify-content: flex-start;
   }
 
   .social-tiles {
-    @include abs.flex(row, nowrap, center, center);
-    gap: 12px;
-    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@include abs.mobile {
+  .footer-content {
+    padding: 36px 16px 24px;
+    gap: 24px;
+  }
+
+  .footer-bottom {
+    @include abs.flex(column, nowrap, center, center);
+    text-align: center;
+  }
+
+  .footer-legal {
+    justify-content: center;
   }
 }
 /* #endregion */
