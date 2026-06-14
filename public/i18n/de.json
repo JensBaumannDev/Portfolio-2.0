@@ -139,5 +139,10 @@
     "available": "Aktuell offen für neue Projekte",
     "email_value": "baumannjens37@gmail.com",
     "location_value": "Emden, Ostfriesland · Remote & Hybrid"
+  },
+  "footer": {
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "copyright": "© 2026 Jens Baumann. Alle Rechte vorbehalten."
   }
 }

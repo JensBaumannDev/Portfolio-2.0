@@ -1,1 +1,10 @@
-.main-content {}
+@use 'src/styles/abstracts' as abs;
+
+.app-layout {
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+}

@@ -139,5 +139,10 @@
     "available": "Currently open for new projects",
     "email_value": "baumannjens37@gmail.com",
     "location_value": "Emden, East Frisia · Remote & Hybrid"
+  },
+  "footer": {
+    "imprint": "Legal Notice",
+    "privacy": "Privacy Policy",
+    "copyright": "© 2026 Jens Baumann. All rights reserved."
   }
 }
