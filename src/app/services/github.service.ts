@@ -28,17 +28,22 @@ export class GitHubService {
   private readonly oneDayMs = 86400000;
 
   getStats(): Observable<GitHubStats> {
+    let cachedStats: GitHubStats | null = null;
+    let parsedTime = 0;
+
     if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
       const cachedData = localStorage.getItem(this.cacheKey);
       const cachedTime = localStorage.getItem(this.cacheTimeKey);
       if (cachedData && cachedTime) {
-        const parsedTime = parseInt(cachedTime, 10);
-        if (!isNaN(parsedTime) && Date.now() - parsedTime < this.oneDayMs) {
-          try {
-            return of(JSON.parse(cachedData) as GitHubStats);
-          } catch {}
-        }
+        parsedTime = parseInt(cachedTime, 10);
+        try {
+          cachedStats = JSON.parse(cachedData) as GitHubStats;
+        } catch {}
       }
+    }
+
+    if (cachedStats && !isNaN(parsedTime) && Date.now() - parsedTime < this.oneDayMs) {
+      return of(cachedStats);
     }
 
     const headers = new HttpHeaders({
@@ -93,7 +98,17 @@ export class GitHubService {
 
         return stats;
       }),
-      catchError(() => of({ commits: 968, pullRequests: 208, projects: 18, primaryLang: 'TypeScript' }))
+      catchError(() => {
+        if (cachedStats) {
+          if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+            try {
+              localStorage.setItem(this.cacheTimeKey, (Date.now() - this.oneDayMs + 1800000).toString());
+            } catch {}
+          }
+          return of(cachedStats);
+        }
+        return of({ commits: 968, pullRequests: 208, projects: 18, primaryLang: 'TypeScript' });
+      })
     );
   }
 }
