@@ -114,5 +114,30 @@
     "label_duration": "Duration",
     "next_project": "Next Project",
     "featured": "Featured Project"
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Ready to work together?",
+    "p1": "I look forward to hearing from you! Feel free to tell me which role you see me in within your team. With my experience, my enthusiasm for modern web technologies and my constant willingness to learn, I am convinced I can offer real value.",
+    "p2": "I am open to new projects and challenges and bring not only technical know-how but also team spirit and creativity.",
+    "name_label": "What is your name?",
+    "name_placeholder": "Your name goes here",
+    "email_label": "What is your email address?",
+    "email_placeholder": "your.email@email.com",
+    "message_label": "How can I help?",
+    "message_placeholder": "Hi Jens, I am interested in…",
+    "privacy_pre": "I have read the",
+    "privacy_link": "privacy policy",
+    "privacy_post": "and agree to the processing of my data.",
+    "submit": "Send",
+    "error_name": "Please enter at least 4 characters.",
+    "error_email": "Please enter a valid email address.",
+    "error_message": "Please enter at least 4 characters.",
+    "error_privacy": "Please agree to the privacy policy.",
+    "success": "Thank you! Your message has been sent.",
+    "success_short": "Sent",
+    "available": "Currently open for new projects",
+    "email_value": "baumannjens37@gmail.com",
+    "location_value": "Emden, East Frisia · Remote & Hybrid"
   }
 }

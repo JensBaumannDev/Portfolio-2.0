@@ -114,5 +114,30 @@
     "label_duration": "Dauer",
     "next_project": "Nächstes Projekt",
     "featured": "Featured Project"
+  },
+  "contact": {
+    "label": "Kontakt",
+    "title": "Bereit zur Zusammenarbeit?",
+    "p1": "Ich freue mich darauf, von dir zu hören! Sag mir gerne, für welche Rolle du mich in deinem Team siehst. Mit meiner Erfahrung, meiner Begeisterung für moderne Webtechnologien und meinem stetigen Lernwillen bin ich überzeugt, einen echten Mehrwert zu bieten.",
+    "p2": "Ich bin offen für neue Projekte und Herausforderungen und bringe neben technischem Know-how auch Teamgeist und Kreativität mit.",
+    "name_label": "Wie lautet dein Name?",
+    "name_placeholder": "Dein Name kommt hier hin",
+    "email_label": "Wie lautet deine E-Mail-Adresse?",
+    "email_placeholder": "deine.email@email.com",
+    "message_label": "Wie kann ich helfen?",
+    "message_placeholder": "Hallo Jens, ich bin interessiert an…",
+    "privacy_pre": "Ich habe die",
+    "privacy_link": "Datenschutzerklärung",
+    "privacy_post": "gelesen und stimme der Verarbeitung meiner Daten zu.",
+    "submit": "Senden",
+    "error_name": "Bitte gib mindestens 4 Zeichen ein.",
+    "error_email": "Bitte gib eine gültige E-Mail-Adresse ein.",
+    "error_message": "Bitte gib mindestens 4 Zeichen ein.",
+    "error_privacy": "Bitte stimme der Datenschutzerklärung zu.",
+    "success": "Vielen Dank! Deine Nachricht wurde gesendet.",
+    "success_short": "Gesendet",
+    "available": "Aktuell offen für neue Projekte",
+    "email_value": "baumannjens37@gmail.com",
+    "location_value": "Emden, Ostfriesland · Remote & Hybrid"
   }
 }
