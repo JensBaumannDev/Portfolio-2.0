@@ -1,7 +1,7 @@
 @use 'src/styles/abstracts' as abs;
 
 .contact-container {
-  min-height: 100vh;
+  min-height: auto;
   background-color: abs.$color-black;
   @include abs.flex(column, nowrap, flex-start, center);
   box-sizing: border-box;

@@ -1,3 +1,251 @@
 @use 'src/styles/abstracts' as abs;
 
-/* Footer component styles */
+.footer-container {
+  width: 100%;
+  height: 260px;
+  background-color: abs.$color-white;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  @include abs.flex(row, nowrap, center, center);
+}
+
+.footer-content {
+  @include abs.maxWidth;
+  margin: 0 auto;
+  padding: 0 16px;
+  @include abs.flex(row, wrap, space-between, center);
+  gap: 32px;
+  width: 100%;
+}
+
+.footer-left {
+  @include abs.flex(column, nowrap, space-between, flex-start);
+  height: 80px;
+}
+
+.footer-links {
+  @include abs.flex(row, nowrap, flex-start, center);
+  gap: 8px;
+  font-size: 20px;
+  margin-left: -16px;
+}
+
+.footer-link {
+  color: abs.$color-text-secondary;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  position: relative;
+  @include abs.flex(row, nowrap, center, center);
+  display: inline-flex;
+  font-size: 20px;
+  line-height: 1.15;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover:not(.active) {
+    color: abs.$color-black;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &.active {
+    background-color: abs.$color-black;
+    color: abs.$color-white;
+  }
+}
+
+
+.footer-copyright {
+  margin: 0;
+  font-size: 16px;
+  color: abs.$color-text-muted;
+  line-height: 1.15;
+}
+
+.footer-center {
+  @include abs.flex(row, nowrap, center, center);
+  height: 80px;
+}
+
+.avatar-tile {
+  perspective: 1000px;
+  display: block;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  border-radius: 40px;
+
+  .card-inner {
+    border-radius: 40px;
+  }
+
+  .card-front {
+    border-radius: 40px;
+    background-color: abs.$color-white;
+    border: 2px solid abs.$color-black;
+  }
+
+  .card-back {
+    border-radius: 40px;
+    background-color: abs.$color-black;
+    color: abs.$color-white;
+    border: 2px solid abs.$color-black;
+  }
+}
+
+.avatar-initials {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 40px;
+}
+
+.footer-right {
+  @include abs.flex(row, nowrap, flex-end, center);
+}
+
+.social-tiles {
+  @include abs.flex(row, nowrap, flex-end, center);
+  gap: 16px;
+}
+
+.social-tile {
+  perspective: 1000px;
+  display: block;
+  width: 80px;
+  height: 80px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  @include abs.flex(row, nowrap, center, center);
+  transform: translateZ(0.1px);
+  will-change: transform;
+}
+
+.card-front {
+  background-color: abs.$color-black;
+  color: abs.$color-white;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background-color: abs.$color-white;
+  color: abs.$color-black;
+  border: 1px solid abs.$color-black;
+}
+
+.social-name {
+  font-size: 16px;
+  font-weight: 700;
+  background-color: abs.$color-black;
+  color: abs.$color-white;
+  padding: 8px 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+  transform: translateZ(0.1px);
+  will-change: transform;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  display: block;
+  transform: translateZ(0.1px);
+  will-change: transform;
+}
+
+.social-tile.flipped .card-inner,
+.avatar-tile.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* #region RESPONSIVE */
+@media (hover: hover) {
+  .social-tile:hover .card-inner,
+  .avatar-tile:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+@include abs.mobile {
+  .footer-container {
+    height: auto;
+  }
+
+  .footer-content {
+    padding: 36px 12px;
+    @include abs.flex(column-reverse, nowrap, center, center);
+    text-align: center;
+    gap: 24px;
+  }
+
+  .footer-left {
+    @include abs.flex(column, nowrap, flex-start, center);
+    height: auto;
+    gap: 12px;
+  }
+
+  .footer-links {
+    @include abs.flex(row, nowrap, center, center);
+    margin-left: 0;
+  }
+
+  .footer-center {
+    @include abs.flex(row, nowrap, center, center);
+    width: 100%;
+  }
+
+  .footer-right {
+    @include abs.flex(row, nowrap, center, center);
+    width: 100%;
+  }
+
+  .social-tiles {
+    @include abs.flex(row, nowrap, center, center);
+    gap: 12px;
+    width: 100%;
+  }
+}
+/* #endregion */
