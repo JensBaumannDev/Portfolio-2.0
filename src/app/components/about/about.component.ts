@@ -3,12 +3,10 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { NgOptimizedImage } from '@angular/common';
 import {
-  lucideUser,
   lucideBriefcase,
   lucideInfo,
   lucideMapPin,
   lucideTerminal,
-  lucideTarget,
   lucideAward,
   lucideHammer,
   lucideGlobe,
@@ -22,12 +20,10 @@ import {
   imports: [TranslatePipe, NgIcon, NgOptimizedImage],
   providers: [
     provideIcons({
-      lucideUser,
       lucideBriefcase,
       lucideInfo,
       lucideMapPin,
       lucideTerminal,
-      lucideTarget,
       lucideAward,
       lucideHammer,
       lucideGlobe,
@@ -48,7 +44,7 @@ export class About implements OnInit, OnDestroy {
 
   protected readonly activeIndex = signal(0);
   protected readonly previousIndex = signal(-1);
-  protected readonly flippedStates = signal<boolean[]>(Array(12).fill(false));
+  protected readonly flippedStates = signal<boolean[]>(Array(9).fill(false));
   protected readonly isExpanded = signal(false);
   private intervalId?: any;
 
@@ -65,7 +61,7 @@ export class About implements OnInit, OnDestroy {
 
   protected toggleCard(index: number): void {
     this.flippedStates.update((states) => {
-      const newStates = Array(12).fill(false);
+      const newStates = Array(9).fill(false);
       newStates[index] = !states[index];
       return newStates;
     });
