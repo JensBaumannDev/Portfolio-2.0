@@ -40,7 +40,7 @@ app-privacy-policy {
   padding-top: 80px;
 }
 
+html.no-scroll,
 body.no-scroll {
-  height: 100vh;
   overflow-y: clip;
 }
