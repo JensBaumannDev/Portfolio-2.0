@@ -20,6 +20,8 @@ const SECTION_THEMES: Record<string, SectionTheme> = {
 
 const SECTION_ORDER = Object.keys(SECTION_THEMES);
 
+const DARK_NAV_ROUTES = ['/cv'];
+
 @Component({
   selector: 'app-navigation',
   imports: [TranslatePipe],
@@ -134,7 +136,8 @@ export class Navigation implements OnInit, OnDestroy {
     this.isScrolled.set(scrollY > 0);
 
     if (!this.isLandingPage()) {
-      this.isPastHero.set(true);
+      const isDarkRoute = DARK_NAV_ROUTES.some((route) => this.router.url.startsWith(route));
+      this.isPastHero.set(!isDarkRoute);
       return;
     }
 
