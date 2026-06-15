@@ -1,14 +1,15 @@
 import { Component, ChangeDetectionStrategy, signal, inject, OnInit } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { lucideMail, lucideDownload } from '@ng-icons/lucide';
+import { lucideMail, lucideFileText } from '@ng-icons/lucide';
 import { GitHubService, GitHubStats } from '../../services/github.service';
 
 @Component({
   selector: 'app-hero',
-  imports: [NgOptimizedImage, TranslatePipe, NgIconComponent],
-  providers: [provideIcons({ lucideMail, lucideDownload })],
+  imports: [NgOptimizedImage, RouterLink, TranslatePipe, NgIconComponent],
+  providers: [provideIcons({ lucideMail, lucideFileText })],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

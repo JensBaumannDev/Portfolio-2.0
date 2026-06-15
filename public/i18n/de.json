@@ -14,7 +14,7 @@
   },
   "hero": {
     "contact": "Kontaktiere mich",
-    "cv": "CV Herunterladen"
+    "cv": "Zum CV"
   },
   "about": {
     "title": "Über mich",
@@ -145,6 +145,35 @@
     "privacy": "Datenschutz",
     "copyright": "© 2026 Jens Baumann. Alle Rechte vorbehalten.",
     "tagline": "Fullstack-Entwickler aus Ostfriesland. Ich verbinde sauberen Code mit durchdachtem Design."
+  },
+  "cv": {
+    "back": "Zurück zur Startseite",
+    "eyebrow": "Lebenslauf",
+    "name": "Jens Baumann",
+    "role": "Fullstack-Entwickler",
+    "location": "Emden, Ostfriesland · Remote & Hybrid",
+    "download": "Als PDF herunterladen",
+    "profile_title": "Profil",
+    "profile_text": "Programmierer wollte ich schon immer werden. Jetzt habe ich den Entschluss gefasst, aus diesem Traum meinen Beruf zu machen – mit voller Überzeugung, Disziplin und der Lebenserfahrung aus einem ersten Berufsweg im Rücken. Ich lerne schnell, arbeite genau und brenne für sauberen Code und durchdachtes Design.",
+    "experience_title": "Berufserfahrung",
+    "exp_agency_range": "2024 · 6 Monate",
+    "exp_agency_title": "Vertrieb",
+    "exp_agency_place": "Meershare GmbH · Social-Media-Agentur",
+    "exp_agency_text": "Sechs Monate im Vertrieb einer Social-Media-Agentur. Wertvoller Einblick in den Agenturalltag und die Welt des digitalen Marketings.",
+    "exp_lead_range": "2011 – 2016",
+    "exp_lead_title": "Abteilungsleiter Telekommunikation",
+    "exp_lead_place": "Expert Bening GmbH & Co. KG",
+    "exp_lead_text": "Leitung der Abteilung Telekommunikation mit Verantwortung für Team, Beratung und Verkauf. Hier habe ich Kommunikationsstärke, Strukturiertheit und Lösungsorientierung entwickelt, die mir heute in der Entwicklung zugutekommen.",
+    "education_title": "Ausbildung & Weiterbildung",
+    "edu_da_range": "Nov 2025 – Nov 2026",
+    "edu_da_title": "Weiterbildung zum Fullstack-Entwickler",
+    "edu_da_place": "Developer Akademie",
+    "edu_da_text": "Zwölfmonatige Intensiv-Weiterbildung in moderner Webentwicklung: die ersten sechs Monate mit Fokus auf Frontend (JavaScript, Angular, TypeScript), die zweiten sechs Monate auf Backend. Praxisnah anhand realer Projekte und Gruppenarbeiten.",
+    "edu_telekom_range": "2007 – 2010",
+    "edu_telekom_title": "Ausbildung Kaufmann im Einzelhandel",
+    "edu_telekom_place": "Deutsche Telekom",
+    "edu_telekom_text": "Ausbildung mit Schwerpunkt Verkauf und Kundenberatung im T-Shop (Wilhelmshaven und Emden). Sechs Monate davon bei der DTKS in Leer (Kundenservice für Komplett-Wechsler).",
+    "skills_title": "Skills"
   },
   "legal": {
     "back": "Zurück zur Startseite",

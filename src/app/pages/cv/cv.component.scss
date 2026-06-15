@@ -1,0 +1,271 @@
+@use 'src/styles/abstracts' as abs;
+
+.cv-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: abs.$color-white;
+  @include abs.flex(row, nowrap, center, flex-start);
+  padding: 120px 16px 96px;
+  box-sizing: border-box;
+}
+
+.cv-inner {
+  @include abs.maxWidth;
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: 56px;
+}
+
+.cv-back {
+  color: abs.$color-text-secondary;
+  text-decoration: none;
+  font-size: abs.$font-size-base;
+  width: fit-content;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: abs.$color-text-primary;
+  }
+}
+
+.cv-header {
+  @include abs.flex(row, nowrap, space-between, flex-end);
+  gap: 32px;
+}
+
+.cv-identity {
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: 8px;
+}
+
+.cv-eyebrow {
+  margin: 0;
+  font-size: abs.$font-size-base;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: abs.$color-text-secondary;
+}
+
+.cv-title {
+  margin: 0;
+  font-size: abs.$font-size-h1;
+  font-weight: 700;
+  line-height: 1.1;
+  color: abs.$color-text-primary;
+}
+
+.cv-role {
+  margin: 0;
+  font-size: abs.$font-size-xl;
+  font-weight: 700;
+  color: abs.$color-text-secondary;
+}
+
+.cv-meta {
+  margin: 0;
+  font-size: abs.$font-size-base;
+  color: abs.$color-text-secondary;
+}
+
+.cv-download {
+  flex: 0 0 auto;
+  text-decoration: none;
+
+  &:hover {
+    outline-color: abs.$color-black;
+  }
+}
+
+.cv-section {
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: 16px;
+
+  > h2 {
+    margin: 0;
+    font-size: abs.$font-size-xl;
+    font-weight: 700;
+    color: abs.$color-text-primary;
+  }
+
+  > p {
+    margin: 0;
+    font-size: abs.$font-size-base;
+    line-height: 1.7;
+    color: abs.$color-text-secondary;
+  }
+}
+
+.cv-profile .cv-lead {
+  font-size: abs.$font-size-lg;
+  line-height: 1.6;
+  font-weight: 500;
+  color: abs.$color-text-primary;
+}
+
+.cv-split {
+  @include abs.flex(row, nowrap, stretch, stretch);
+  gap: 0;
+}
+
+.cv-col {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: abs.$color-text-light;
+  }
+}
+
+.cv-col--edu {
+  padding-right: 40px;
+  text-align: right;
+
+  &::before {
+    right: 0;
+  }
+}
+
+.cv-col--exp {
+  padding-left: 40px;
+  text-align: left;
+
+  &::before {
+    left: 0;
+  }
+}
+
+.cv-divider {
+  display: none;
+}
+
+.cv-col-title {
+  margin: 0 0 32px;
+  font-size: abs.$font-size-xl;
+  font-weight: 700;
+  color: abs.$color-text-primary;
+}
+
+.cv-track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: 40px;
+}
+
+.cv-item {
+  position: relative;
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: 6px;
+}
+
+.cv-node {
+  position: absolute;
+  top: 6px;
+  z-index: abs.$z-index-base;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: abs.$color-black;
+}
+
+.cv-col--edu .cv-node {
+  right: -47px;
+}
+
+.cv-col--exp .cv-node {
+  left: -47px;
+}
+
+.cv-range {
+  font-size: abs.$font-size-base;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: abs.$color-text-secondary;
+}
+
+.cv-item-title {
+  margin: 0;
+  font-size: abs.$font-size-lg;
+  font-weight: 700;
+  color: abs.$color-text-primary;
+}
+
+.cv-place {
+  margin: 0;
+  font-size: abs.$font-size-base;
+  font-weight: 700;
+  color: abs.$color-text-secondary;
+}
+
+.cv-text {
+  margin: 0;
+  font-size: abs.$font-size-base;
+  line-height: 1.7;
+  color: abs.$color-text-secondary;
+}
+
+.cv-skills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include abs.flex(row, wrap, flex-start, center);
+  gap: 12px;
+
+  li {
+    font-family: monospace;
+    font-size: abs.$font-size-base;
+    font-weight: 600;
+    color: abs.$color-white;
+    background-color: abs.$color-black;
+    border: 1px solid abs.$color-black;
+    padding: 4px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* #region RESPONSIVE */
+@include abs.mobile {
+  .cv-page {
+    padding: 104px 16px 72px;
+  }
+
+  .cv-title {
+    font-size: abs.$font-size-h2;
+  }
+
+  .cv-header {
+    @include abs.flex(column, nowrap, flex-start, flex-start);
+    gap: 24px;
+  }
+
+  .cv-split {
+    @include abs.flex(column, nowrap, flex-start, stretch);
+    gap: 48px;
+  }
+
+  .cv-col--edu,
+  .cv-col--exp {
+    padding: 0 0 0 28px;
+    text-align: left;
+
+    &::before {
+      left: 5px;
+      right: auto;
+    }
+  }
+
+  .cv-col--edu .cv-node,
+  .cv-col--exp .cv-node {
+    left: -29px;
+    right: auto;
+  }
+}
+/* #endregion */

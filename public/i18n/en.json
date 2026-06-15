@@ -14,7 +14,7 @@
   },
   "hero": {
     "contact": "Contact me",
-    "cv": "Download CV"
+    "cv": "View CV"
   },
   "about": {
     "title": "About me",
@@ -145,6 +145,35 @@
     "privacy": "Privacy Policy",
     "copyright": "© 2026 Jens Baumann. All rights reserved.",
     "tagline": "Fullstack developer from East Frisia. I blend clean code with thoughtful design."
+  },
+  "cv": {
+    "back": "Back to home",
+    "eyebrow": "Résumé",
+    "name": "Jens Baumann",
+    "role": "Fullstack Developer",
+    "location": "Emden, East Frisia · Remote & Hybrid",
+    "download": "Download as PDF",
+    "profile_title": "Profile",
+    "profile_text": "I always wanted to become a programmer. Now I've made the decision to turn that dream into my profession – with full conviction, discipline and the life experience of a first career behind me. I learn fast, work with precision and am passionate about clean code and thoughtful design.",
+    "experience_title": "Experience",
+    "exp_agency_range": "2024 · 6 months",
+    "exp_agency_title": "Sales",
+    "exp_agency_place": "Meershare GmbH · Social media agency",
+    "exp_agency_text": "Six months in sales at a social media agency. A valuable look behind the scenes of agency life and the world of digital marketing.",
+    "exp_lead_range": "2011 – 2016",
+    "exp_lead_title": "Department Manager Telecommunications",
+    "exp_lead_place": "Expert Bening GmbH & Co. KG",
+    "exp_lead_text": "Leading the telecommunications department with responsibility for the team, consulting and sales. Here I developed communication skills, structure and a solution-oriented mindset that benefit me in development today.",
+    "education_title": "Education & Training",
+    "edu_da_range": "Nov 2025 – Nov 2026",
+    "edu_da_title": "Fullstack Developer Training",
+    "edu_da_place": "Developer Akademie",
+    "edu_da_text": "Twelve-month intensive training in modern web development: the first six months focused on frontend (JavaScript, Angular, TypeScript), the second six months on backend. Hands-on through real projects and group work.",
+    "edu_telekom_range": "2007 – 2010",
+    "edu_telekom_title": "Apprenticeship as Retail Salesman",
+    "edu_telekom_place": "Deutsche Telekom",
+    "edu_telekom_text": "Apprenticeship focused on sales and customer consulting in the T-Shop (Wilhelmshaven and Emden). Six months of which at DTKS in Leer (customer service for full-provider switchers).",
+    "skills_title": "Skills"
   },
   "legal": {
     "back": "Back to home",

@@ -1,0 +1,67 @@
+<main class="cv-page">
+  <div class="cv-inner">
+    <a routerLink="/" class="cv-back">&larr; {{ 'cv.back' | translate }}</a>
+
+    <header class="cv-header">
+      <div class="cv-identity">
+        <p class="cv-eyebrow">{{ 'cv.eyebrow' | translate }}</p>
+        <h1 class="cv-title">{{ 'cv.name' | translate }}</h1>
+        <p class="cv-role">{{ 'cv.role' | translate }}</p>
+        <p class="cv-meta">{{ 'cv.location' | translate }}</p>
+      </div>
+      <a href="assets/Lebenslauf-Jens-Baumann.pdf" download class="button cv-download">
+        <span class="text">{{ 'cv.download' | translate }}</span>
+      </a>
+    </header>
+
+    <section class="cv-section cv-profile">
+      <h2>{{ 'cv.profile_title' | translate }}</h2>
+      <p class="cv-lead">{{ 'cv.profile_text' | translate }}</p>
+    </section>
+
+    <section class="cv-timeline-section">
+      <div class="cv-split">
+        <div class="cv-col cv-col--edu">
+          <h2 class="cv-col-title">{{ 'cv.education_title' | translate }}</h2>
+          <ol class="cv-track">
+            @for (entry of education(); track entry.titleKey) {
+              <li class="cv-item">
+                <span class="cv-node" aria-hidden="true"></span>
+                <span class="cv-range">{{ entry.rangeKey | translate }}</span>
+                <h3 class="cv-item-title">{{ entry.titleKey | translate }}</h3>
+                <p class="cv-place">{{ entry.placeKey | translate }}</p>
+                <p class="cv-text">{{ entry.textKey | translate }}</p>
+              </li>
+            }
+          </ol>
+        </div>
+
+        <div class="cv-divider" aria-hidden="true"></div>
+
+        <div class="cv-col cv-col--exp">
+          <h2 class="cv-col-title">{{ 'cv.experience_title' | translate }}</h2>
+          <ol class="cv-track">
+            @for (entry of experience(); track entry.titleKey) {
+              <li class="cv-item">
+                <span class="cv-node" aria-hidden="true"></span>
+                <span class="cv-range">{{ entry.rangeKey | translate }}</span>
+                <h3 class="cv-item-title">{{ entry.titleKey | translate }}</h3>
+                <p class="cv-place">{{ entry.placeKey | translate }}</p>
+                <p class="cv-text">{{ entry.textKey | translate }}</p>
+              </li>
+            }
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2>{{ 'cv.skills_title' | translate }}</h2>
+      <ul class="cv-skills">
+        @for (skill of skills(); track skill) {
+          <li>{{ skill }}</li>
+        }
+      </ul>
+    </section>
+  </div>
+</main>
