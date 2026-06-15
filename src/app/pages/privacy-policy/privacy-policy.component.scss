@@ -19,7 +19,7 @@
 .legal-back {
   color: abs.$color-text-dark-secondary;
   text-decoration: none;
-  font-size: 16px;
+  font-size: abs.$font-size-base;
   width: fit-content;
   transition: color 0.2s ease;
 
@@ -30,7 +30,7 @@
 
 .legal-title {
   margin: 0;
-  font-size: 40px;
+  font-size: abs.$font-size-h1;
   font-weight: 700;
   line-height: 1.1;
   color: abs.$color-text-dark-primary;
@@ -42,14 +42,14 @@
 
   h2 {
     margin: 0;
-    font-size: 22px;
+    font-size: abs.$font-size-xl;
     font-weight: 700;
     color: abs.$color-text-dark-primary;
   }
 
   p {
     margin: 0;
-    font-size: 16px;
+    font-size: abs.$font-size-base;
     line-height: 1.7;
     color: abs.$color-text-dark-secondary;
   }
@@ -62,7 +62,7 @@
   }
 
   li {
-    font-size: 16px;
+    font-size: abs.$font-size-base;
     line-height: 1.6;
     color: abs.$color-text-dark-secondary;
   }
@@ -78,7 +78,7 @@
 
 .legal-date {
   margin: 0;
-  font-size: 16px;
+  font-size: abs.$font-size-base;
   color: abs.$color-text-light;
 }
 
@@ -89,11 +89,11 @@
   }
 
   .legal-title {
-    font-size: 32px;
+    font-size: abs.$font-size-h2;
   }
 
   .legal-section h2 {
-    font-size: 20px;
+    font-size: abs.$font-size-lg;
   }
 }
 /* #endregion */

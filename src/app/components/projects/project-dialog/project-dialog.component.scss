@@ -48,25 +48,25 @@
     padding: 0;
     margin-bottom: 24px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: abs.$font-size-base;
     font-weight: 700;
     color: abs.$color-white;
   }
 
   .dialog-title {
-    font-size: 48px;
+    font-size: abs.$font-size-display-sm;
     font-weight: 700;
     margin: 0 0 16px 0;
   }
 
   .dialog-heading {
-    font-size: 22px;
+    font-size: abs.$font-size-xl;
     font-weight: 700;
     margin: 8px 0 0 0;
   }
 
   .dialog-text {
-    font-size: 16px;
+    font-size: abs.$font-size-base;
     line-height: 1.6;
     color: abs.$color-text-dark-secondary;
     margin: 0;
@@ -74,7 +74,7 @@
   }
 
   .dialog-duration {
-    font-size: 16px;
+    font-size: abs.$font-size-base;
     color: abs.$color-white;
     margin: 16px 0 0 0;
 
@@ -90,7 +90,7 @@
 
     .dialog-tag {
       font-family: monospace;
-      font-size: 16px;
+      font-size: abs.$font-size-base;
       font-weight: 600;
       color: abs.$color-black;
       background-color: abs.$color-white;
@@ -125,7 +125,7 @@
     top: 12px;
     right: 12px;
     font-family: monospace;
-    font-size: 16px;
+    font-size: abs.$font-size-base;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -159,7 +159,7 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    font-size: 16px;
+    font-size: abs.$font-size-base;
     font-weight: 700;
     color: abs.$color-text-primary;
   }
@@ -188,7 +188,7 @@
   }
 
   .dialog-left .dialog-title {
-    font-size: 40px;
+    font-size: abs.$font-size-h1;
   }
 }
 
@@ -206,7 +206,7 @@
   }
 
   .dialog-left .dialog-title {
-    font-size: 36px;
+    font-size: abs.$font-size-h1;
   }
 }
 /* #endregion */

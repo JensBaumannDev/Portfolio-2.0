@@ -35,7 +35,7 @@
   gap: 10px;
   padding: 8px 16px;
   font-family: monospace;
-  font-size: 16px;
+  font-size: abs.$font-size-base;
   font-weight: 700;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -48,21 +48,21 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #3ec46d;
-  box-shadow: 0 0 0 0 rgba(62, 196, 109, 0.6);
+  background-color: abs.$color-status-online;
+  box-shadow: 0 0 0 0 abs.$color-status-online-glow;
   animation: availability-pulse 2s ease-out infinite;
 }
 
 @keyframes availability-pulse {
   to {
-    box-shadow: 0 0 0 10px rgba(62, 196, 109, 0);
+    box-shadow: 0 0 0 10px abs.$color-status-online-fade;
   }
 }
 
 .meta-item {
   @include abs.flex(row, nowrap, flex-start, center);
   gap: 14px;
-  font-size: 18px;
+  font-size: abs.$font-size-md;
   color: abs.$color-text-dark-primary;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -82,7 +82,7 @@ a.meta-item:hover {
 }
 
 .contact-label {
-  font-size: 40px;
+  font-size: abs.$font-size-h1;
   font-weight: 700;
   line-height: 1;
   letter-spacing: 1px;
@@ -95,7 +95,7 @@ a.meta-item:hover {
 
 .contact-title {
   margin: 0;
-  font-size: clamp(48px, 4.6vw, 68px);
+  font-size: abs.$font-size-display-fluid;
   font-weight: 700;
   line-height: 1.05;
   color: abs.$color-white;
@@ -104,7 +104,7 @@ a.meta-item:hover {
 
 .contact-text {
   margin: 0;
-  font-size: 20px;
+  font-size: abs.$font-size-lg;
   line-height: 1.65;
   color: abs.$color-text-dark-secondary;
 }
@@ -126,7 +126,7 @@ a.meta-item:hover {
 }
 
 .field-label {
-  font-size: 18px;
+  font-size: abs.$font-size-md;
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -142,7 +142,7 @@ a.meta-item:hover {
   width: 100%;
   box-sizing: border-box;
   padding: 18px 20px;
-  font-size: 18px;
+  font-size: abs.$font-size-md;
   color: abs.$color-text-primary;
   background-color: abs.$color-white;
   border: 1px solid abs.$color-text-light;
@@ -163,7 +163,7 @@ a.meta-item:hover {
     border-color: abs.$color-error;
 
     &:focus {
-      box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.1);
+      box-shadow: 0 0 0 4px abs.$color-error-fade;
     }
   }
 }
@@ -177,7 +177,7 @@ a.meta-item:hover {
 .field-error {
   display: block;
   min-height: 22px;
-  font-size: 16px;
+  font-size: abs.$font-size-base;
   line-height: 22px;
   letter-spacing: 0.3px;
   color: abs.$color-error;
@@ -199,7 +199,7 @@ a.meta-item:hover {
 }
 
 .privacy-label {
-  font-size: 18px;
+  font-size: abs.$font-size-md;
   line-height: 1.5;
   color: abs.$color-text-secondary;
   cursor: pointer;
@@ -241,7 +241,7 @@ a.meta-item:hover {
 }
 
 .form-success {
-  font-size: 18px;
+  font-size: abs.$font-size-md;
   font-weight: 600;
   color: abs.$color-accent;
 }
@@ -263,15 +263,15 @@ a.meta-item:hover {
   }
 
   .contact-label {
-    font-size: 36px;
+    font-size: abs.$font-size-h1;
   }
 
   .contact-title {
-    font-size: 60px;
+    font-size: abs.$font-size-display;
   }
 
   .contact-text {
-    font-size: 18px;
+    font-size: abs.$font-size-md;
     max-width: 640px;
   }
 }
@@ -282,11 +282,11 @@ a.meta-item:hover {
   }
 
   .contact-label {
-    font-size: 32px;
+    font-size: abs.$font-size-h2;
   }
 
   .contact-title {
-    font-size: 44px;
+    font-size: abs.$font-size-display-sm;
   }
 
   .contact-form {
@@ -296,18 +296,18 @@ a.meta-item:hover {
 
   .field-input {
     padding: 16px;
-    font-size: 16px;
+    font-size: abs.$font-size-base;
   }
 
   .field-label,
   .privacy-label {
-    font-size: 16px;
+    font-size: abs.$font-size-base;
   }
 }
 
 @include abs.mobile-md {
   .contact-title {
-    font-size: 38px;
+    font-size: abs.$font-size-h1;
   }
 
   .contact-form {
@@ -331,11 +331,11 @@ a.meta-item:hover {
   }
 
   .contact-label {
-    font-size: 26px;
+    font-size: abs.$font-size-h3;
   }
 
   .contact-title {
-    font-size: 30px;
+    font-size: abs.$font-size-h2;
   }
 
   .contact-form {
@@ -347,7 +347,7 @@ a.meta-item:hover {
   }
 
   .meta-item {
-    font-size: 16px;
+    font-size: abs.$font-size-base;
   }
 }
 /* #endregion */

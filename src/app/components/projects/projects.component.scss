@@ -21,7 +21,7 @@
 }
 
 .projects-section-title {
-  font-size: 40px;
+  font-size: abs.$font-size-h1;
   font-weight: 700;
   color: abs.$color-white;
   margin: 0 0 40px 0;
@@ -93,7 +93,7 @@
     background-color: abs.$color-black;
     color: abs.$color-white;
     font-family: monospace;
-    font-size: 16px;
+    font-size: abs.$font-size-base;
     font-weight: 700;
     text-transform: uppercase;
     padding: 8px 16px;
@@ -131,14 +131,14 @@
   }
 
   .project-name {
-    font-size: 28px;
+    font-size: abs.$font-size-h3;
     font-weight: 700;
     color: abs.$color-text-primary;
     margin: 0 0 2px 0;
   }
 
   .project-subtitle {
-    font-size: 16px;
+    font-size: abs.$font-size-base;
     color: abs.$color-text-secondary;
     margin-bottom: 20px;
   }
@@ -150,7 +150,7 @@
 
     .tag {
       font-family: monospace;
-      font-size: 16px;
+      font-size: abs.$font-size-base;
       font-weight: 600;
       color: abs.$color-white;
       background-color: abs.$color-black;
@@ -180,7 +180,7 @@
 .card-back {
   transform: rotateY(180deg);
   background-color: abs.$color-black;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid abs.$color-border-light-subtle;
   border-left: 5px solid abs.$color-white;
   @include abs.flex(column, nowrap, flex-start, flex-start);
 
@@ -203,7 +203,7 @@
   }
 
   .project-name-back {
-    font-size: 24px;
+    font-size: abs.$font-size-xl;
     font-weight: 700;
     color: abs.$color-white;
     margin: 0;
@@ -211,14 +211,14 @@
   }
 
   .project-desc {
-    font-size: 16px;
+    font-size: abs.$font-size-base;
     line-height: 1.5;
     color: abs.$color-text-dark-secondary;
     margin: 0 0 16px 0;
   }
 
   .project-tech {
-    font-size: 16px;
+    font-size: abs.$font-size-base;
     color: abs.$color-text-dark-primary;
     margin-bottom: auto;
 
@@ -300,7 +300,7 @@
       }
 
       .project-tags .tag {
-        font-size: 16px;
+        font-size: abs.$font-size-base;
         padding: 3px 8px;
       }
     }
@@ -362,7 +362,7 @@
   }
 
   .projects-section-title {
-    font-size: 32px;
+    font-size: abs.$font-size-h2;
   }
 
   .projects-grid {
