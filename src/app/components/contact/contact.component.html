@@ -95,9 +95,12 @@
         @if (sent()) {
           <span class="form-success" role="status">{{ 'contact.success' | translate }}</span>
         }
-        <button type="submit" class="button form-submit" [class.is-sent]="sent()" [disabled]="form.invalid">
+        @if (failed()) {
+          <span class="field-error" role="alert">{{ 'contact.error_send' | translate }}</span>
+        }
+        <button type="submit" class="button form-submit" [class.is-sent]="sent()" [disabled]="form.invalid || sending()">
           <ng-icon [name]="sent() ? 'lucideCheck' : 'lucideMail'" size="20px"></ng-icon>
-          <span class="text">{{ (sent() ? 'contact.success_short' : 'contact.submit') | translate }}</span>
+          <span class="text">{{ (sending() ? 'contact.sending' : sent() ? 'contact.success_short' : 'contact.submit') | translate }}</span>
         </button>
       </div>
     </form>

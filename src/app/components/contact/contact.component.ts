@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -15,8 +16,11 @@ import { lucideMail, lucideCheck, lucideMapPin } from '@ng-icons/lucide';
 })
 export class Contact {
   private readonly fb = inject(FormBuilder);
+  private readonly http = inject(HttpClient);
 
   protected readonly sent = signal(false);
+  protected readonly sending = signal(false);
+  protected readonly failed = signal(false);
 
   protected readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(4)]],
@@ -26,15 +30,28 @@ export class Contact {
   });
 
   protected onSubmit(): void {
-    if (this.form.invalid) {
+    if (this.form.invalid || this.sending()) {
       this.form.markAllAsTouched();
       return;
     }
 
-    this.sent.set(true);
-    this.form.reset();
+    this.sending.set(true);
+    this.failed.set(false);
 
-    setTimeout(() => this.sent.set(false), 4000);
+    const { name, email, message } = this.form.getRawValue();
+
+    this.http.post('send-mail.php', { name, email, message }).subscribe({
+      next: () => {
+        this.sending.set(false);
+        this.sent.set(true);
+        this.form.reset();
+        setTimeout(() => this.sent.set(false), 4000);
+      },
+      error: () => {
+        this.sending.set(false);
+        this.failed.set(true);
+      },
+    });
   }
 
   protected invalid(controlName: string): boolean {

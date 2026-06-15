@@ -14,7 +14,8 @@
   },
   "hero": {
     "contact": "Kontaktiere mich",
-    "cv": "CV Herunterladen"
+    "cv": "CV Herunterladen",
+    "cv_soon": "Erscheint bald"
   },
   "about": {
     "title": "Über mich",
@@ -136,6 +137,8 @@
     "error_privacy": "Bitte stimme der Datenschutzerklärung zu.",
     "success": "Vielen Dank! Deine Nachricht wurde gesendet.",
     "success_short": "Gesendet",
+    "sending": "Wird gesendet …",
+    "error_send": "Senden fehlgeschlagen. Bitte versuche es später erneut oder schreib mir direkt per E-Mail.",
     "available": "Aktuell offen für neue Projekte",
     "email_value": "info@jensbaumann.com",
     "location_value": "Emden, Ostfriesland · Remote & Hybrid"

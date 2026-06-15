@@ -59,7 +59,7 @@ export class Projects {
       image: './img/projects/webp/pokedex_project.webp',
       imageAlt: 'Pokedex Project',
       github: 'https://github.com/JensBaumannDev/Pokedex',
-      live: 'https://jensbaumann.com/projects/Pokedex/',
+      live: 'https://jensbaumann.com/projects/pokedex/',
     },
     {
       key: 'join',
@@ -79,7 +79,7 @@ export class Projects {
       image: './img/projects/webp/portfolio_project.webp',
       imageAlt: 'Portfolio Website',
       github: 'https://github.com/JensBaumannDev/Portfolio',
-      live: 'https://jensbaumann.com/',
+      live: 'https://jensbaumann.com/projects/portfolio/',
     },
   ]);
 

@@ -117,6 +117,44 @@
   pointer-events: auto;
 }
 
+.button.is-disabled {
+  position: relative;
+  cursor: not-allowed;
+  opacity: 0.55;
+
+  &:hover {
+    background-color: abs.$color-button-bg;
+    outline-color: abs.$color-button-bg;
+    color: abs.$color-white;
+  }
+
+  &:hover .button-tooltip,
+  &:focus-visible .button-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -8px);
+  }
+}
+
+.button-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-bottom: 4px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: abs.$color-white;
+  color: abs.$color-black;
+  font-size: abs.$font-size-base;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
 /* #region RESPONSIVE */
 @include abs.mobile {
   .hero-name {

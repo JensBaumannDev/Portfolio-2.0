@@ -14,7 +14,8 @@
   },
   "hero": {
     "contact": "Contact me",
-    "cv": "Download CV"
+    "cv": "Download CV",
+    "cv_soon": "Coming soon"
   },
   "about": {
     "title": "About me",
@@ -136,6 +137,8 @@
     "error_privacy": "Please agree to the privacy policy.",
     "success": "Thank you! Your message has been sent.",
     "success_short": "Sent",
+    "sending": "Sending …",
+    "error_send": "Sending failed. Please try again later or email me directly.",
     "available": "Currently open for new projects",
     "email_value": "info@jensbaumann.com",
     "location_value": "Emden, East Frisia · Remote & Hybrid"

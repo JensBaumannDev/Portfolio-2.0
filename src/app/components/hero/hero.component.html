@@ -47,10 +47,11 @@
         <ng-icon name="lucideMail" size="20px"></ng-icon>
         <span class="text">{{ 'hero.contact' | translate }}</span>
       </a>
-      <a href="./assets/Jens_Baumann_CV.pdf" download class="button" role="button">
+      <span class="button is-disabled" role="button" aria-disabled="true" tabindex="-1">
         <ng-icon name="lucideDownload" size="20px"></ng-icon>
         <span class="text">{{ 'hero.cv' | translate }}</span>
-      </a>
+        <span class="button-tooltip" role="tooltip">{{ 'hero.cv_soon' | translate }}</span>
+      </span>
     </div>
   </div>
 </div>
