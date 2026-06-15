@@ -85,3 +85,26 @@ $color-card-border-subtle: rgba(0, 0, 0, 0.05);
 $blur-glass: 20px;
 $blur-glass-overlay: 25px;
 $saturate-glass: 190%;
+
+$color-status-online: #3ec46d;
+$color-status-online-glow: rgba(62, 196, 109, 0.6);
+$color-status-online-fade: rgba(62, 196, 109, 0);
+$color-error-fade: rgba(211, 47, 47, 0.1);
+
+$color-border-light-subtle: rgba(255, 255, 255, 0.3);
+$color-nav-border-dark: rgba(255, 255, 255, 0.05);
+$color-nav-border-dark-hover: rgba(255, 255, 255, 0.08);
+$color-nav-border-light: rgba(0, 0, 0, 0.05);
+$color-nav-border-light-hover: rgba(0, 0, 0, 0.08);
+
+$font-size-base: 16px;
+$font-size-md: 18px;
+$font-size-lg: 20px;
+$font-size-xl: 24px;
+$font-size-h3: 28px;
+$font-size-h2: 32px;
+$font-size-h1: 40px;
+$font-size-display-sm: 48px;
+$font-size-display: 60px;
+$font-size-display-xl: 95px;
+$font-size-display-fluid: clamp(48px, 4.6vw, 68px);

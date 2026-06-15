@@ -27,7 +27,7 @@
 }
 
 .footer-logo {
-  font-size: 20px;
+  font-size: abs.$font-size-lg;
   font-weight: 700;
   color: abs.$color-text-dark-primary;
   text-decoration: none;
@@ -40,7 +40,7 @@
 
 .footer-tagline {
   margin: 0;
-  font-size: 16px;
+  font-size: abs.$font-size-base;
   line-height: 1.6;
   color: abs.$color-text-dark-secondary;
 }
@@ -54,7 +54,7 @@
   position: relative;
   color: abs.$color-text-dark-secondary;
   text-decoration: none;
-  font-size: 16px;
+  font-size: abs.$font-size-base;
   transition: color 0.2s ease;
 
   &::after {
@@ -126,7 +126,7 @@
 }
 
 .social-name {
-  font-size: 16px;
+  font-size: abs.$font-size-base;
   font-weight: 700;
   transform: translateZ(0.1px);
   will-change: transform;
@@ -157,7 +157,7 @@
 
 .footer-copyright {
   margin: 0;
-  font-size: 16px;
+  font-size: abs.$font-size-base;
   color: abs.$color-text-light;
 }
 
@@ -170,7 +170,7 @@
   position: relative;
   color: abs.$color-text-dark-secondary;
   text-decoration: none;
-  font-size: 16px;
+  font-size: abs.$font-size-base;
   transition: color 0.2s ease;
 
   &::after {
