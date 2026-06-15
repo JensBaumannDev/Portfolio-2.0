@@ -10,11 +10,31 @@
     "commits": "2026 Commits",
     "prs": "2026 Pull Requests",
     "projects": "Total Projects",
-    "language": "Primary Language"
+    "language": "Primary Language",
+    "commits_back": "Across all repositories",
+    "prs_back": "Reviewed & merged",
+    "projects_back": "Live & in progress",
+    "language_back": "My daily stack"
   },
   "hero": {
     "contact": "Contact me",
-    "cv": "View CV"
+    "cv": "View CV",
+    "status": "Open to work",
+    "status_sub": "Remote · Hybrid",
+    "status_back": "Drop me a line – I reply fast",
+    "location": "Emden",
+    "stat1_val": "4",
+    "stat1_lbl": "Projects deployed",
+    "stat1_back": "Live, documented & on GitHub",
+    "stat2_val": "Fullstack",
+    "stat2_lbl": "Frontend & Backend",
+    "stat2_back": "Angular · TypeScript · Node.js",
+    "stat3_val": "6 Years",
+    "stat3_lbl": "Leadership experience",
+    "stat3_back": "Department head before the switch",
+    "stat4_val": "Backend",
+    "stat4_lbl": "Currently focused on",
+    "stat4_back": "Python, Django, Node.js & APIs"
   },
   "about": {
     "title": "About me",
