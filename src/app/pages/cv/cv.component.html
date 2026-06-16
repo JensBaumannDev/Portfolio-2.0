@@ -9,11 +9,15 @@
         <p class="cv-role">{{ 'cv.role' | translate }}</p>
         <p class="cv-meta">{{ 'cv.location' | translate }}</p>
       </div>
-      <span class="cv-download-wrapper" [attr.data-tooltip]="'cv.download_soon' | translate">
-        <button type="button" class="button cv-download" disabled aria-disabled="true">
-          <span class="text">{{ 'cv.download' | translate }}</span>
-        </button>
-      </span>
+      <a
+        class="button cv-download"
+        [href]="'cv.download_file' | translate"
+        [attr.download]="'cv.download_name' | translate"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="text">{{ 'cv.download' | translate }}</span>
+      </a>
     </header>
 
     <section class="cv-section cv-profile" appReveal>
