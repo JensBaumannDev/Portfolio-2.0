@@ -1,3 +1,5 @@
+@use 'functions' as fn;
+
 $breakpoint-mobile-sm: 370px;
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
@@ -97,14 +99,14 @@ $color-nav-border-dark-hover: rgba(255, 255, 255, 0.08);
 $color-nav-border-light: rgba(0, 0, 0, 0.05);
 $color-nav-border-light-hover: rgba(0, 0, 0, 0.08);
 
-$font-size-base: 16px;
-$font-size-md: 18px;
-$font-size-lg: 20px;
-$font-size-xl: 24px;
-$font-size-h3: 28px;
-$font-size-h2: 32px;
-$font-size-h1: 40px;
-$font-size-display-sm: 48px;
-$font-size-display: 60px;
-$font-size-display-xl: 95px;
-$font-size-display-fluid: clamp(48px, 4.6vw, 68px);
+$font-size-base: fn.rem(16);
+$font-size-md: fn.rem(18);
+$font-size-lg: fn.rem(20);
+$font-size-xl: fn.rem(24);
+$font-size-h3: fn.rem(28);
+$font-size-h2: fn.rem(32);
+$font-size-h1: fn.rem(40);
+$font-size-display-sm: fn.rem(48);
+$font-size-display: fn.rem(60);
+$font-size-display-xl: fn.rem(95);
+$font-size-display-fluid: clamp(#{fn.rem(48)}, 4.6vw, #{fn.rem(68)});

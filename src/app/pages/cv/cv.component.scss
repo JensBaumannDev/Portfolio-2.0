@@ -5,14 +5,14 @@
   min-height: 100vh;
   background-color: abs.$color-white;
   @include abs.flex(row, nowrap, center, flex-start);
-  padding: 120px 16px 96px;
+  padding: abs.rem(120) abs.rem(16) abs.rem(96);
   box-sizing: border-box;
 }
 
 .cv-inner {
   @include abs.maxWidth;
   @include abs.flex(column, nowrap, flex-start, stretch);
-  gap: 56px;
+  gap: abs.rem(56);
 }
 
 .cv-back {
@@ -29,18 +29,18 @@
 
 .cv-header {
   @include abs.flex(row, nowrap, space-between, flex-end);
-  gap: 32px;
+  gap: abs.rem(32);
 }
 
 .cv-identity {
   @include abs.flex(column, nowrap, flex-start, stretch);
-  gap: 8px;
+  gap: abs.rem(8);
 }
 
 .cv-eyebrow {
   margin: 0;
   font-size: abs.$font-size-base;
-  letter-spacing: 2px;
+  letter-spacing: abs.rem(2);
   text-transform: uppercase;
   color: abs.$color-text-secondary;
 }
@@ -74,7 +74,7 @@
   &::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: calc(100% + 10px);
+    bottom: calc(100% + abs.rem(10));
     left: 50%;
     transform: translateX(-50%) translateY(6px);
     white-space: nowrap;
@@ -82,7 +82,7 @@
     color: abs.$color-white;
     font-size: abs.$font-size-base;
     font-weight: 600;
-    padding: 8px 14px;
+    padding: abs.rem(8) abs.rem(14);
     border-radius: 6px;
     opacity: 0;
     visibility: hidden;
@@ -106,7 +106,7 @@
 
 .cv-section {
   @include abs.flex(column, nowrap, flex-start, stretch);
-  gap: 16px;
+  gap: abs.rem(16);
 
   > h2 {
     margin: 0;
@@ -145,13 +145,13 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 2px;
+    width: abs.rem(2);
     background-color: abs.$color-text-light;
   }
 }
 
 .cv-col--edu {
-  padding-right: 40px;
+  padding-right: abs.rem(40);
   text-align: right;
 
   &::before {
@@ -160,7 +160,7 @@
 }
 
 .cv-col--exp {
-  padding-left: 40px;
+  padding-left: abs.rem(40);
   text-align: left;
 
   &::before {
@@ -173,7 +173,7 @@
 }
 
 .cv-col-title {
-  margin: 0 0 32px;
+  margin: 0 0 abs.rem(32);
   font-size: abs.$font-size-xl;
   font-weight: 700;
   color: abs.$color-text-primary;
@@ -184,37 +184,37 @@
   margin: 0;
   padding: 0;
   @include abs.flex(column, nowrap, flex-start, stretch);
-  gap: 40px;
+  gap: abs.rem(40);
 }
 
 .cv-item {
   position: relative;
   @include abs.flex(column, nowrap, flex-start, stretch);
-  gap: 6px;
+  gap: abs.rem(6);
 }
 
 .cv-node {
   position: absolute;
-  top: 6px;
+  top: abs.rem(6);
   z-index: abs.$z-index-base;
-  width: 14px;
-  height: 14px;
+  width: abs.rem(14);
+  height: abs.rem(14);
   border-radius: 50%;
   background-color: abs.$color-black;
 }
 
 .cv-col--edu .cv-node {
-  right: -47px;
+  right: abs.rem(-47);
 }
 
 .cv-col--exp .cv-node {
-  left: -47px;
+  left: abs.rem(-47);
 }
 
 .cv-range {
   font-size: abs.$font-size-base;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: abs.rem(1);
   color: abs.$color-text-secondary;
 }
 
@@ -244,7 +244,7 @@
   margin: 0;
   padding: 0;
   @include abs.flex(row, wrap, flex-start, center);
-  gap: 12px;
+  gap: abs.rem(12);
 
   li {
     font-family: monospace;
@@ -253,17 +253,17 @@
     color: abs.$color-white;
     background-color: abs.$color-black;
     border: 1px solid abs.$color-black;
-    padding: 4px 10px;
+    padding: abs.rem(4) abs.rem(10);
     border-radius: 5px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: abs.rem(0.5);
   }
 }
 
 /* #region RESPONSIVE */
 @include abs.mobile {
   .cv-page {
-    padding: 104px 16px 72px;
+    padding: abs.rem(104) abs.rem(16) abs.rem(72);
   }
 
   .cv-title {
@@ -272,28 +272,28 @@
 
   .cv-header {
     @include abs.flex(column, nowrap, flex-start, flex-start);
-    gap: 24px;
+    gap: abs.rem(24);
   }
 
   .cv-split {
     @include abs.flex(column, nowrap, flex-start, stretch);
-    gap: 48px;
+    gap: abs.rem(48);
   }
 
   .cv-col--edu,
   .cv-col--exp {
-    padding: 0 0 0 28px;
+    padding: 0 0 0 abs.rem(28);
     text-align: left;
 
     &::before {
-      left: 5px;
+      left: abs.rem(5);
       right: auto;
     }
   }
 
   .cv-col--edu .cv-node,
   .cv-col--exp .cv-node {
-    left: -29px;
+    left: abs.rem(-29);
     right: auto;
   }
 }

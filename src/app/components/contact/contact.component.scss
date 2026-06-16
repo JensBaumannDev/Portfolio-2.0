@@ -5,39 +5,39 @@
   background-color: abs.$color-black;
   @include abs.flex(column, nowrap, flex-start, center);
   box-sizing: border-box;
-  padding: 80px 0;
+  padding: abs.rem(80) 0;
 }
 
 .contact-inner {
   @include abs.maxWidth;
-  padding: 0 16px;
+  padding: 0 abs.rem(16);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 64px;
+  gap: abs.rem(64);
   align-items: stretch;
 }
 
 .contact-intro {
   @include abs.flex(column, nowrap, flex-start, flex-start);
-  gap: 32px;
-  padding: 8px 0;
+  gap: abs.rem(32);
+  padding: abs.rem(8) 0;
 }
 
 .contact-meta {
   @include abs.flex(column, nowrap, flex-start, flex-start);
-  gap: 24px;
+  gap: abs.rem(24);
   margin-top: auto;
-  padding-top: 16px;
+  padding-top: abs.rem(16);
 }
 
 .availability-badge {
   @include abs.flex(row, nowrap, center, center);
-  gap: 10px;
-  padding: 8px 16px;
+  gap: abs.rem(10);
+  padding: abs.rem(8) abs.rem(16);
   font-family: monospace;
   font-size: abs.$font-size-base;
   font-weight: 700;
-  letter-spacing: 1.2px;
+  letter-spacing: abs.rem(1.2);
   text-transform: uppercase;
   color: abs.$color-black;
   background-color: abs.$color-white;
@@ -45,8 +45,8 @@
 }
 
 .availability-dot {
-  width: 10px;
-  height: 10px;
+  width: abs.rem(10);
+  height: abs.rem(10);
   border-radius: 50%;
   background-color: abs.$color-status-online;
   box-shadow: 0 0 0 0 abs.$color-status-online-glow;
@@ -61,7 +61,7 @@
 
 .meta-item {
   @include abs.flex(row, nowrap, flex-start, center);
-  gap: 14px;
+  gap: abs.rem(14);
   font-size: abs.$font-size-md;
   color: abs.$color-text-dark-primary;
   text-decoration: none;
@@ -75,8 +75,8 @@
 
 a.meta-item {
   border-radius: 5px;
-  padding: 4px 12px;
-  margin: -4px -12px;
+  padding: abs.rem(4) abs.rem(12);
+  margin: abs.rem(-4) abs.rem(-12);
   transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -94,12 +94,12 @@ a.meta-item:hover {
   font-size: abs.$font-size-h1;
   font-weight: 700;
   line-height: 1;
-  letter-spacing: 1px;
+  letter-spacing: abs.rem(1);
   text-transform: uppercase;
   color: abs.$color-white;
   text-decoration: underline;
-  text-underline-offset: 8px;
-  text-decoration-thickness: 3px;
+  text-underline-offset: abs.rem(8);
+  text-decoration-thickness: abs.rem(3);
 }
 
 .contact-title {
@@ -120,37 +120,37 @@ a.meta-item:hover {
 
 .contact-form {
   @include abs.flex(column, nowrap, flex-start, stretch);
-  margin-top: 8px;
-  gap: 24px;
+  margin-top: abs.rem(8);
+  gap: abs.rem(24);
   width: 100%;
   box-sizing: border-box;
-  padding: 56px;
+  padding: abs.rem(56);
   border-radius: 5px;
   background-color: abs.$color-white;
 }
 
 .form-field {
   @include abs.flex(column, nowrap, flex-start, stretch);
-  gap: 10px;
+  gap: abs.rem(10);
 }
 
 .field-label {
   font-size: abs.$font-size-md;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: abs.rem(0.5);
   text-transform: uppercase;
   color: abs.$color-text-primary;
 }
 
 .field-required {
-  margin-left: 4px;
+  margin-left: abs.rem(4);
   color: abs.$color-error;
 }
 
 .field-input {
   width: 100%;
   box-sizing: border-box;
-  padding: 18px 20px;
+  padding: abs.rem(18) abs.rem(20);
   font-size: abs.$font-size-md;
   color: abs.$color-text-primary;
   background-color: abs.$color-white;
@@ -179,28 +179,28 @@ a.meta-item:hover {
 
 .field-textarea {
   resize: none;
-  height: 140px;
+  height: abs.rem(140);
   font-family: inherit;
 }
 
 .field-error {
   display: block;
-  min-height: 22px;
+  min-height: abs.rem(22);
   font-size: abs.$font-size-base;
-  line-height: 22px;
-  letter-spacing: 0.3px;
+  line-height: abs.rem(22);
+  letter-spacing: abs.rem(0.3);
   color: abs.$color-error;
 }
 
 .form-privacy {
   @include abs.flex(row, nowrap, flex-start, flex-start);
-  gap: 14px;
+  gap: abs.rem(14);
 }
 
 .privacy-checkbox {
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+  width: abs.rem(24);
+  height: abs.rem(24);
   margin: 0;
   accent-color: abs.$color-black;
   border-radius: 5px;
@@ -222,8 +222,8 @@ a.meta-item:hover {
 
 .form-footer {
   @include abs.flex(row, nowrap, flex-end, center);
-  gap: 24px;
-  margin-top: 8px;
+  gap: abs.rem(24);
+  margin-top: abs.rem(8);
 }
 
 .form-submit {
@@ -259,8 +259,8 @@ a.meta-item:hover {
 @include abs.tablet-xl {
   .contact-inner {
     grid-template-columns: 1fr;
-    gap: 48px;
-    max-width: 720px;
+    gap: abs.rem(48);
+    max-width: abs.rem(720);
   }
 
   .contact-form {
@@ -268,7 +268,7 @@ a.meta-item:hover {
   }
 
   .contact-meta {
-    margin-top: 8px;
+    margin-top: abs.rem(8);
   }
 
   .contact-label {
@@ -281,13 +281,13 @@ a.meta-item:hover {
 
   .contact-text {
     font-size: abs.$font-size-md;
-    max-width: 640px;
+    max-width: abs.rem(640);
   }
 }
 
 @include abs.mobile {
   .contact-container {
-    padding: 72px 0;
+    padding: abs.rem(72) 0;
   }
 
   .contact-label {
@@ -299,12 +299,12 @@ a.meta-item:hover {
   }
 
   .contact-form {
-    padding: 32px 24px;
-    gap: 20px;
+    padding: abs.rem(32) abs.rem(24);
+    gap: abs.rem(20);
   }
 
   .field-input {
-    padding: 16px;
+    padding: abs.rem(16);
     font-size: abs.$font-size-base;
   }
 
@@ -320,13 +320,13 @@ a.meta-item:hover {
   }
 
   .contact-form {
-    padding: 24px 18px;
+    padding: abs.rem(24) abs.rem(18);
   }
 
   .form-footer {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 16px;
+    gap: abs.rem(16);
   }
 
   .form-submit {
@@ -336,7 +336,7 @@ a.meta-item:hover {
 
 @include abs.mobile-sm {
   .contact-container {
-    padding: 56px 0;
+    padding: abs.rem(56) 0;
   }
 
   .contact-label {
@@ -348,11 +348,11 @@ a.meta-item:hover {
   }
 
   .contact-form {
-    padding: 20px 16px;
+    padding: abs.rem(20) abs.rem(16);
   }
 
   .availability-badge {
-    letter-spacing: 0.8px;
+    letter-spacing: abs.rem(0.8);
   }
 
   .meta-item {

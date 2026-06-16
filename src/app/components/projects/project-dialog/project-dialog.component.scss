@@ -23,30 +23,30 @@
   @include abs.flex(row, nowrap, stretch, stretch);
   flex: 1 1 auto;
   min-height: 0;
-  padding-top: 65px;
+  padding-top: abs.rem(65);
 }
 
 .dialog-left,
 .dialog-right {
   width: 50%;
-  padding: 60px;
+  padding: abs.rem(60);
   box-sizing: border-box;
   overflow-y: auto;
 }
 
 .dialog-left {
   @include abs.flex(column, nowrap, flex-start, flex-start);
-  gap: 16px;
+  gap: abs.rem(16);
   background-color: abs.$color-black;
   color: abs.$color-white;
 
   .back-btn {
     @include abs.flex(row, nowrap, flex-start, center);
-    gap: 8px;
+    gap: abs.rem(8);
     background: none;
     border: none;
     padding: 0;
-    margin-bottom: 24px;
+    margin-bottom: abs.rem(24);
     cursor: pointer;
     font-size: abs.$font-size-base;
     font-weight: 700;
@@ -56,13 +56,13 @@
   .dialog-title {
     font-size: abs.$font-size-display-sm;
     font-weight: 700;
-    margin: 0 0 16px 0;
+    margin: 0 0 abs.rem(16) 0;
   }
 
   .dialog-heading {
     font-size: abs.$font-size-xl;
     font-weight: 700;
-    margin: 8px 0 0 0;
+    margin: abs.rem(8) 0 0 0;
   }
 
   .dialog-text {
@@ -70,13 +70,13 @@
     line-height: 1.6;
     color: abs.$color-text-dark-secondary;
     margin: 0;
-    max-width: 540px;
+    max-width: abs.rem(540);
   }
 
   .dialog-duration {
     font-size: abs.$font-size-base;
     color: abs.$color-white;
-    margin: 16px 0 0 0;
+    margin: abs.rem(16) 0 0 0;
 
     strong {
       font-weight: 700;
@@ -85,8 +85,8 @@
 
   .dialog-tags {
     @include abs.flex(row, wrap, flex-start, center);
-    gap: 16px;
-    margin-top: 8px;
+    gap: abs.rem(16);
+    margin-top: abs.rem(8);
 
     .dialog-tag {
       font-family: monospace;
@@ -95,23 +95,23 @@
       color: abs.$color-black;
       background-color: abs.$color-white;
       border: 1px solid abs.$color-white;
-      padding: 4px 10px;
+      padding: abs.rem(4) abs.rem(10);
       border-radius: 5px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: abs.rem(0.5);
     }
   }
 }
 
 .dialog-right {
   @include abs.flex(column, nowrap, center, center);
-  gap: 32px;
+  gap: abs.rem(32);
   background-color: abs.$color-white;
 
   .dialog-img-wrapper {
     position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: abs.rem(600);
     aspect-ratio: 1847 / 1130;
   }
 
@@ -122,22 +122,22 @@
 
   .dialog-featured {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: abs.rem(12);
+    right: abs.rem(12);
     font-family: monospace;
     font-size: abs.$font-size-base;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: abs.rem(1);
     color: abs.$color-white;
     background-color: abs.$color-black;
     border: 1px solid abs.$color-black;
-    padding: 6px 16px;
+    padding: abs.rem(6) abs.rem(16);
   }
 
   .dialog-actions {
     @include abs.flex(row, wrap, center, center);
-    gap: 20px;
+    gap: abs.rem(20);
 
     .button {
       background-color: abs.$color-black;
@@ -154,7 +154,7 @@
 
   .next-btn {
     @include abs.flex(row, nowrap, center, center);
-    gap: 8px;
+    gap: abs.rem(8);
     background: none;
     border: none;
     padding: 0;
@@ -176,15 +176,15 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: min(1440px, 92vw);
-    height: min(800px, 90vh);
+    width: min(abs.rem(1440), 92vw);
+    height: min(abs.rem(800), 90vh);
   }
 }
 
 @include abs.tablet-lg {
   .dialog-left,
   .dialog-right {
-    padding: 40px;
+    padding: abs.rem(40);
   }
 
   .dialog-left .dialog-title {
@@ -201,7 +201,7 @@
   .dialog-left,
   .dialog-right {
     width: 100%;
-    padding: 32px 24px;
+    padding: abs.rem(32) abs.rem(24);
     overflow-y: visible;
   }
 
