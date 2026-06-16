@@ -1,6 +1,6 @@
 <main class="legal-page">
   <div class="legal-inner">
-    <a routerLink="/" class="legal-back">&larr; {{ 'privacy.back' | translate }}</a>
+    <button type="button" (click)="goBack()" class="legal-back">&larr; {{ 'privacy.back' | translate }}</button>
 
     <h1 class="legal-title">{{ 'privacy.title' | translate }}</h1>
 

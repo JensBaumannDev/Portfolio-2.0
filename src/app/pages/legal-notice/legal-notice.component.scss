@@ -21,6 +21,11 @@
   text-decoration: none;
   font-size: abs.$font-size-base;
   width: fit-content;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
   transition: color 0.2s ease;
 
   &:hover {
