@@ -81,7 +81,7 @@ export class Projects {
       image: './img/projects/webp/portfolio_project.webp',
       imageAlt: 'Portfolio Website',
       github: 'https://github.com/JensBaumannDev/Portfolio',
-      live: 'https://jensbaumann.com/',
+      live: 'https://jensbaumann.com/projects/portfolio/',
     },
   ]);
 
