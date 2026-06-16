@@ -8,6 +8,26 @@
   align-items: $align-items;
 }
 
+@mixin flip-hint($color, $offset: 12px, $size: 18px) {
+  &::after {
+    content: '';
+    position: absolute;
+    top: $offset;
+    right: $offset;
+    width: $size;
+    height: $size;
+    background-color: $color;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: vars.$z-index-interactive;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-mask: var(--flip-hint-icon) no-repeat center / contain;
+    mask: var(--flip-hint-icon) no-repeat center / contain;
+    transition: opacity 0.3s ease, transform 0.6s ease;
+  }
+}
+
 @mixin maxWidth {
   max-width: vars.$max-width;
   width: 100%;
