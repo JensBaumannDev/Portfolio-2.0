@@ -1,6 +1,6 @@
 <div class="skills-container">
-  <h2 class="skills-section-title">{{ 'skills.title' | translate }}</h2>
-  <div class="skills-grid">
+  <h2 class="skills-section-title" appReveal>{{ 'skills.title' | translate }}</h2>
+  <div class="skills-grid" appRevealStagger revealSelector=".skill-card">
     @for (skill of skills; track skill.name; let i = $index) {
       <div class="skill-card" (click)="toggleCard(i)">
         <div class="card-inner" [class.flipped]="flippedStates()[i]">

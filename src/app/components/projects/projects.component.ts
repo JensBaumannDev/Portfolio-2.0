@@ -4,6 +4,8 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideGithub, lucideExternalLink } from '@ng-icons/lucide';
 import { ProjectDialog } from './project-dialog/project-dialog.component';
+import { Reveal } from '../../directives/reveal.directive';
+import { RevealStagger } from '../../directives/reveal-stagger.directive';
 
 export interface Project {
   key: string;
@@ -18,7 +20,7 @@ export interface Project {
 
 @Component({
   selector: 'app-projects',
-  imports: [NgOptimizedImage, TranslatePipe, NgIcon, ProjectDialog],
+  imports: [NgOptimizedImage, TranslatePipe, NgIcon, ProjectDialog, Reveal, RevealStagger],
   providers: [
     provideIcons({
       lucideGithub,
