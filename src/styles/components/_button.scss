@@ -2,21 +2,21 @@
 
 .btn-primary {
   display: inline-block;
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: abs.rem(8) abs.rem(16);
+  border-radius: abs.rem(4);
   cursor: pointer;
   border: 1px solid transparent;
 }
 
 .button {
   @include abs.flex(row, nowrap, center, center);
-  width: 220px;
-  padding: 10px 15px;
-  gap: 15px;
+  width: abs.rem(220);
+  padding: abs.rem(10) abs.rem(15);
+  gap: abs.rem(15);
   background-color: abs.$color-button-bg;
   outline: 3px abs.$color-button-bg solid;
   outline-offset: -3px;
-  border-radius: 5px;
+  border-radius: abs.rem(5);
   border: none;
   cursor: pointer;
   color: abs.$color-white;

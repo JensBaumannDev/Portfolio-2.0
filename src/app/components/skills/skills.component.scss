@@ -5,34 +5,34 @@
   background-color: abs.$color-white;
   @include abs.flex(column, nowrap, center, center);
   box-sizing: border-box;
-  padding: 80px 0;
+  padding: abs.rem(80) 0;
 }
 
 .skills-section-title {
   width: 100%;
-  max-width: 1440px;
+  max-width: abs.rem(1440);
   box-sizing: border-box;
-  padding: 0 16px;
-  margin: 0 0 40px 0;
+  padding: 0 abs.rem(16);
+  margin: 0 0 abs.rem(40) 0;
   font-size: abs.$font-size-h1;
   font-weight: 700;
   color: abs.$color-black;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: abs.rem(1);
   text-decoration: underline;
-  text-underline-offset: 8px;
-  text-decoration-thickness: 3px;
+  text-underline-offset: abs.rem(8);
+  text-decoration-thickness: abs.rem(3);
 }
 
 .skills-grid {
   display: grid;
-  min-height: calc(100vh - 185px);
+  min-height: calc(100vh - abs.rem(185));
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 20px;
+  gap: abs.rem(20);
   width: 100%;
-  max-width: 1440px;
-  padding: 0 16px 80px;
+  max-width: abs.rem(1440);
+  padding: 0 abs.rem(16) abs.rem(80);
   box-sizing: border-box;
 }
 
@@ -61,8 +61,8 @@
   box-sizing: border-box;
   position: relative;
   @include abs.flex(column, nowrap, center, center);
-  padding: 36px 24px;
-  gap: 20px;
+  padding: abs.rem(36) abs.rem(24);
+  gap: abs.rem(20);
 }
 
 .skill-banner {
@@ -74,9 +74,9 @@
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: abs.rem(0.5);
   white-space: nowrap;
-  padding: 4px 14px;
+  padding: abs.rem(4) abs.rem(14);
   border-radius: 5px;
 }
 
@@ -114,18 +114,18 @@
   font-family: monospace;
   font-size: abs.$font-size-base;
   font-weight: 600;
-  padding: 4px 14px;
+  padding: abs.rem(4) abs.rem(14);
   border: 1px solid transparent;
   border-radius: 5px;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: abs.rem(0.5);
   white-space: nowrap;
 }
 
 .skill-icon {
-  width: 160px;
-  height: 160px;
+  width: abs.rem(160);
+  height: abs.rem(160);
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -145,28 +145,28 @@
     grid-template-rows: none;
     grid-auto-rows: auto;
     max-width: none;
-    padding: 0 16px;
+    padding: 0 abs.rem(16);
   }
 
   .skills-section-title {
     max-width: none;
-    padding: 0 16px;
+    padding: 0 abs.rem(16);
   }
 
   .card-front,
   .card-back {
-    padding: 28px 20px;
+    padding: abs.rem(28) abs.rem(20);
   }
 
   .skill-icon {
-    width: 110px;
-    height: 110px;
+    width: abs.rem(110);
+    height: abs.rem(110);
   }
 }
 
 @include abs.mobile {
   .skills-container {
-    padding: 65px 0 40px;
+    padding: abs.rem(65) 0 abs.rem(40);
   }
 
   .skills-grid {
@@ -175,43 +175,43 @@
   }
 
   .skills-section-title {
-    margin-bottom: 24px;
+    margin-bottom: abs.rem(24);
     font-size: abs.$font-size-h2;
   }
 }
 
 @include abs.mobile-md {
   .skills-grid {
-    gap: 12px;
-    padding: 0 16px;
+    gap: abs.rem(12);
+    padding: 0 abs.rem(16);
   }
 
   .card-front,
   .card-back {
-    padding: 24px 16px;
+    padding: abs.rem(24) abs.rem(16);
   }
 
   .skill-icon {
-    width: 90px;
-    height: 90px;
+    width: abs.rem(90);
+    height: abs.rem(90);
   }
 }
 
 @include abs.mobile-sm {
   .skills-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 0 16px;
+    gap: abs.rem(10);
+    padding: 0 abs.rem(16);
   }
 
   .card-front,
   .card-back {
-    padding: 20px 12px;
+    padding: abs.rem(20) abs.rem(12);
   }
 
   .skill-icon {
-    width: 72px;
-    height: 72px;
+    width: abs.rem(72);
+    height: abs.rem(72);
   }
 }
 

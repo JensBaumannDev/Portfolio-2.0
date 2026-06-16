@@ -35,13 +35,13 @@ body {
 .content-container {
   @include abs.maxWidth;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 abs.rem(16);
 }
 
 app-legal-notice,
 app-privacy-policy {
   display: block;
-  padding-top: 80px;
+  padding-top: abs.rem(80);
 }
 
 html.no-scroll,

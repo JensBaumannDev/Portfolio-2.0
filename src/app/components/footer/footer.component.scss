@@ -10,20 +10,20 @@
 .footer-content {
   @include abs.maxWidth;
   margin: 0 auto;
-  padding: 40px 16px 24px;
+  padding: abs.rem(40) abs.rem(16) abs.rem(24);
   @include abs.flex(column, nowrap, flex-start, stretch);
-  gap: 28px;
+  gap: abs.rem(28);
 }
 
 .footer-top {
   @include abs.flex(row, nowrap, space-between, center);
-  gap: 48px;
+  gap: abs.rem(48);
 }
 
 .footer-brand {
   @include abs.flex(column, nowrap, flex-start, flex-start);
-  gap: 10px;
-  max-width: 380px;
+  gap: abs.rem(10);
+  max-width: abs.rem(380);
 }
 
 .footer-logo {
@@ -33,8 +33,8 @@
   text-decoration: none;
   display: inline-block;
   border-radius: 5px;
-  padding: 4px 12px;
-  margin: -4px -12px;
+  padding: abs.rem(4) abs.rem(12);
+  margin: abs.rem(-4) abs.rem(-12);
   transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
 
   &:hover {
@@ -53,7 +53,7 @@
 
 .footer-nav {
   @include abs.flex(row, wrap, center, center);
-  gap: 8px 28px;
+  gap: abs.rem(8) abs.rem(28);
 }
 
 .footer-nav-link {
@@ -66,10 +66,10 @@
   &::after {
     content: '';
     position: absolute;
-    bottom: -3px;
+    bottom: abs.rem(-3);
     left: 0;
     width: 100%;
-    height: 1px;
+    height: abs.rem(1);
     background-color: currentColor;
     transform: scaleX(0);
     transform-origin: left;
@@ -87,14 +87,14 @@
 
 .social-tiles {
   @include abs.flex(row, nowrap, flex-end, center);
-  gap: 10px;
+  gap: abs.rem(10);
 }
 
 .social-tile {
   perspective: 800px;
   display: block;
-  width: 44px;
-  height: 44px;
+  width: abs.rem(44);
+  height: abs.rem(44);
   text-decoration: none;
   cursor: pointer;
 }
@@ -139,8 +139,8 @@
 }
 
 .social-icon {
-  width: 22px;
-  height: 22px;
+  width: abs.rem(22);
+  height: abs.rem(22);
   display: block;
 }
 
@@ -156,8 +156,8 @@
 
 .footer-bottom {
   @include abs.flex(row, wrap, space-between, center);
-  gap: 12px 24px;
-  padding-top: 24px;
+  gap: abs.rem(12) abs.rem(24);
+  padding-top: abs.rem(24);
   border-top: 1px solid abs.$color-glass-dark-border;
 }
 
@@ -169,7 +169,7 @@
 
 .footer-legal {
   @include abs.flex(row, wrap, flex-end, center);
-  gap: 24px;
+  gap: abs.rem(24);
 }
 
 .footer-link {
@@ -182,10 +182,10 @@
   &::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: abs.rem(-2);
     left: 0;
     width: 100%;
-    height: 1px;
+    height: abs.rem(1);
     background-color: currentColor;
     transform: scaleX(0);
     transform-origin: left;
@@ -210,7 +210,7 @@
 @include abs.tablet-xl {
   .footer-top {
     @include abs.flex(column, nowrap, flex-start, flex-start);
-    gap: 24px;
+    gap: abs.rem(24);
   }
 
   .footer-brand {
@@ -228,8 +228,8 @@
 
 @include abs.mobile {
   .footer-content {
-    padding: 36px 16px 24px;
-    gap: 24px;
+    padding: abs.rem(36) abs.rem(16) abs.rem(24);
+    gap: abs.rem(24);
   }
 
   .footer-bottom {
@@ -244,7 +244,7 @@
 @include abs.mobile-sm {
   .footer-nav {
     @include abs.flex(column, nowrap, flex-start, flex-start);
-    gap: 12px;
+    gap: abs.rem(12);
   }
 }
 /* #endregion */

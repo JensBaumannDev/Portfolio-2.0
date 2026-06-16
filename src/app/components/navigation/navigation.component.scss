@@ -9,7 +9,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 65px;
+  height: abs.rem(65);
   z-index: abs.$z-index-header-sidebar;
   background: abs.$color-black;
   border-bottom: 1px solid abs.$color-nav-border-dark;
@@ -112,7 +112,7 @@
 .brand {
   font-size: abs.$font-size-xl;
   font-weight: 700;
-  letter-spacing: 1.2px;
+  letter-spacing: abs.rem(1.2);
   text-decoration: none;
   transition: color 0.3s ease;
   color: abs.$color-text-dark-primary;
@@ -120,7 +120,7 @@
 
   &::after {
     content: '|';
-    margin-left: 1px;
+    margin-left: abs.rem(1);
     animation: cursorBlink 0.7s step-end infinite;
     color: abs.$color-text-dark-primary;
   }
@@ -132,7 +132,7 @@
 
 .nav-links {
   @include abs.flex(row, nowrap, center, center);
-  gap: 8px;
+  gap: abs.rem(8);
   height: 100%;
   position: absolute;
   left: 50%;
@@ -143,7 +143,7 @@
   font-size: abs.$font-size-base;
   font-weight: 500;
   text-decoration: none;
-  padding: 8px 16px;
+  padding: abs.rem(8) abs.rem(16);
   border-radius: 4px;
   transition: color 0.2s ease, background-color 0.2s ease;
   color: abs.$color-text-dark-secondary;
@@ -153,10 +153,10 @@
   &::after {
     content: '';
     position: absolute;
-    bottom: 4px;
-    left: 16px;
-    right: 16px;
-    height: 2px;
+    bottom: abs.rem(4);
+    left: abs.rem(16);
+    right: abs.rem(16);
+    height: abs.rem(2);
     background-color: currentColor;
     transform: scaleX(0);
     transform-origin: left;
@@ -179,19 +179,19 @@
 
 .lang-selector {
   @include abs.flex(row, nowrap, flex-end, center);
-  gap: 8px;
+  gap: abs.rem(8);
   height: 100%;
-  margin-right: -12px;
+  margin-right: abs.rem(-12);
 }
 
 .lang-btn {
   font-size: abs.$font-size-base;
   font-weight: 500;
-  letter-spacing: 0.8px;
+  letter-spacing: abs.rem(0.8);
   color: abs.$color-text-dark-secondary;
   background: transparent;
   border: none;
-  padding: 6px 12px;
+  padding: abs.rem(6) abs.rem(12);
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -222,8 +222,8 @@
 @include abs.tablet-xl {
   .burger-btn {
     @include abs.flex(column, nowrap, space-between, center);
-    width: 24px;
-    height: 16px;
+    width: abs.rem(24);
+    height: abs.rem(16);
     background: transparent;
     border: none;
     padding: 0;
@@ -233,7 +233,7 @@
     .burger-line {
       display: block;
       width: 100%;
-      height: 2px;
+      height: abs.rem(2);
       border-radius: 1px;
       transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
       background-color: abs.$color-text-dark-primary;
@@ -262,10 +262,10 @@
   .mobile-menu {
     @include abs.flex(row, nowrap, center, center);
     position: fixed;
-    top: 65px;
+    top: abs.rem(65);
     left: 0;
     width: 100%;
-    height: calc(100vh - 65px);
+    height: calc(100vh - abs.rem(65));
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
@@ -285,7 +285,7 @@
 
   .mobile-nav-links {
     @include abs.flex(column, nowrap, center, center);
-    gap: 32px;
+    gap: abs.rem(32);
     transform: translateY(-30px);
     opacity: 0;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
@@ -294,9 +294,9 @@
   .mobile-nav-link {
     font-size: abs.$font-size-xl;
     font-weight: 300;
-    letter-spacing: 0.72px;
+    letter-spacing: abs.rem(0.72);
     text-decoration: none;
-    padding: 10px 24px;
+    padding: abs.rem(10) abs.rem(24);
     border-radius: 4px;
     transition: background-color 0.2s ease, color 0.2s ease;
     color: abs.$color-text-dark-secondary;
@@ -314,7 +314,7 @@
   }
 
   .navbar-content {
-    padding: 0 24px;
+    padding: 0 abs.rem(24);
   }
 
   .lang-selector {
@@ -323,18 +323,18 @@
 
   .mobile-lang-selector {
     @include abs.flex(row, nowrap, center, center);
-    gap: 8px;
-    margin-top: 16px;
+    gap: abs.rem(8);
+    margin-top: abs.rem(16);
   }
 
   .mobile-lang-btn {
     font-size: abs.$font-size-xl;
     font-weight: 300;
-    letter-spacing: 1.2px;
+    letter-spacing: abs.rem(1.2);
     color: abs.$color-text-dark-secondary;
     background: transparent;
     border: none;
-    padding: 6px 20px;
+    padding: abs.rem(6) abs.rem(20);
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
@@ -359,7 +359,7 @@
 
   @include abs.mobile-md {
     .navbar-content {
-      padding: 0 16px;
+      padding: 0 abs.rem(16);
     }
   }
 }

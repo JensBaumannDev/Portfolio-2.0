@@ -64,5 +64,6 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Avoid hardcoding values; prefer variables from `_variables.scss` and mixins from `_mixins.scss`.
 - Responsive content (e.g., `@media` queries or responsive mixins like `@include mobile`) must be placed at the very bottom of every SCSS file, grouped inside a `/* #region RESPONSIVE */` and `/* #endregion */` block.
 - Never use `overflow: hidden` or `!important`.
-- Never use `rem` or `em` units; use `px` instead.
+- Never write raw `px` or `rem`/`em` values for sizing or spacing. Use the `rem()` function from `abstracts` instead (e.g. `padding: abs.rem(16);`), passing the value in pixels. It converts to `rem` at build time so layouts scale with the user's font-size setting.
+  - Keep raw `px` only for purely graphical details that must not scale: `border`, `outline`, `box-shadow`, `perspective`, `blur()`, transform/animation offsets, and `$breakpoint-*` values in media queries.
 

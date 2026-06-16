@@ -5,15 +5,15 @@
   min-height: 100vh;
   background-color: abs.$color-black;
   @include abs.flex(row, nowrap, center, flex-start);
-  padding: 64px 16px 96px;
+  padding: abs.rem(64) abs.rem(16) abs.rem(96);
   box-sizing: border-box;
 }
 
 .legal-inner {
   @include abs.maxWidth;
-  max-width: 860px;
+  max-width: abs.rem(860);
   @include abs.flex(column, nowrap, flex-start, stretch);
-  gap: 32px;
+  gap: abs.rem(32);
 }
 
 .legal-back {
@@ -43,7 +43,7 @@
 
 .legal-section {
   @include abs.flex(column, nowrap, flex-start, stretch);
-  gap: 12px;
+  gap: abs.rem(12);
 
   h2 {
     margin: 0;
@@ -63,7 +63,7 @@
     color: abs.$color-white;
     font-weight: 700;
     text-decoration: underline;
-    text-underline-offset: 3px;
+    text-underline-offset: abs.rem(3);
     word-break: break-word;
   }
 }
@@ -77,7 +77,7 @@
 /* #region RESPONSIVE */
 @include abs.mobile {
   .legal-page {
-    padding: 48px 16px 72px;
+    padding: abs.rem(48) abs.rem(16) abs.rem(72);
   }
 
   .legal-title {

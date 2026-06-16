@@ -1,4 +1,5 @@
 @use 'variables' as vars;
+@use 'functions' as fn;
 
 @mixin flex($flex-direction: row, $flex-wrap: wrap, $justify-content: flex-start, $align-items: stretch) {
   display: flex;
@@ -8,7 +9,7 @@
   align-items: $align-items;
 }
 
-@mixin flip-hint($color, $offset: 12px, $size: 18px) {
+@mixin flip-hint($color, $offset: fn.rem(12), $size: fn.rem(18)) {
   &::after {
     content: '';
     position: absolute;
