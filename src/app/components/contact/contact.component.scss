@@ -73,11 +73,20 @@
   }
 }
 
+a.meta-item {
+  border-radius: 5px;
+  padding: 4px 12px;
+  margin: -4px -12px;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
 a.meta-item:hover {
-  color: abs.$color-accent-dark;
+  color: abs.$color-black;
+  background-color: abs.$color-white;
+  transform: translateX(12px);
 
   ng-icon {
-    color: abs.$color-accent-dark;
+    color: abs.$color-black;
   }
 }
 
