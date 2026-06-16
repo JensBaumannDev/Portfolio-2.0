@@ -26,7 +26,7 @@
 
 .skills-grid {
   display: grid;
-  height: calc(100vh - 185px);
+  min-height: calc(100vh - 185px);
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 20px;
@@ -140,7 +140,7 @@
 
 @include abs.tablet-lg {
   .skills-grid {
-    height: auto;
+    min-height: 0;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: none;
     grid-auto-rows: auto;
