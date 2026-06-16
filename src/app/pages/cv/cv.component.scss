@@ -66,13 +66,42 @@
   color: abs.$color-text-secondary;
 }
 
-.cv-download {
+.cv-download-wrapper {
+  position: relative;
   flex: 0 0 auto;
-  text-decoration: none;
+  @include abs.flex(row, nowrap, center, center);
 
-  &:hover {
-    outline-color: abs.$color-black;
+  &::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    white-space: nowrap;
+    background-color: abs.$color-black;
+    color: abs.$color-white;
+    font-size: abs.$font-size-base;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
   }
+
+  &:hover::after,
+  &:focus-within::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.cv-download {
+  text-decoration: none;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .cv-section {

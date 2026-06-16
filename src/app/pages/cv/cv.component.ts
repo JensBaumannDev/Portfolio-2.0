@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { Reveal } from '../../directives/reveal.directive';
 
 interface TimelineEntry {
   rangeKey: string;
@@ -11,7 +12,7 @@ interface TimelineEntry {
 
 @Component({
   selector: 'app-cv',
-  imports: [RouterLink, TranslatePipe],
+  imports: [RouterLink, TranslatePipe, Reveal],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

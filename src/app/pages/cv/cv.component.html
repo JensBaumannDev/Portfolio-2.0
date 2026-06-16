@@ -9,17 +9,19 @@
         <p class="cv-role">{{ 'cv.role' | translate }}</p>
         <p class="cv-meta">{{ 'cv.location' | translate }}</p>
       </div>
-      <a href="assets/Lebenslauf-Jens-Baumann.pdf" download class="button cv-download">
-        <span class="text">{{ 'cv.download' | translate }}</span>
-      </a>
+      <span class="cv-download-wrapper" [attr.data-tooltip]="'cv.download_soon' | translate">
+        <button type="button" class="button cv-download" disabled aria-disabled="true">
+          <span class="text">{{ 'cv.download' | translate }}</span>
+        </button>
+      </span>
     </header>
 
-    <section class="cv-section cv-profile">
+    <section class="cv-section cv-profile" appReveal>
       <h2>{{ 'cv.profile_title' | translate }}</h2>
       <p class="cv-lead">{{ 'cv.profile_text' | translate }}</p>
     </section>
 
-    <section class="cv-timeline-section">
+    <section class="cv-timeline-section" appReveal>
       <div class="cv-split">
         <div class="cv-col cv-col--edu">
           <h2 class="cv-col-title">{{ 'cv.education_title' | translate }}</h2>
@@ -55,7 +57,7 @@
       </div>
     </section>
 
-    <section class="cv-section">
+    <section class="cv-section" appReveal>
       <h2>{{ 'cv.skills_title' | translate }}</h2>
       <ul class="cv-skills">
         @for (skill of skills(); track skill) {
