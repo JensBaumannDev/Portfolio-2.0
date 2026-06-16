@@ -4,10 +4,11 @@ import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideMail, lucideCheck, lucideMapPin } from '@ng-icons/lucide';
+import { RevealStagger } from '../../directives/reveal-stagger.directive';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule, RouterLink, TranslatePipe, NgIcon],
+  imports: [ReactiveFormsModule, RouterLink, TranslatePipe, NgIcon, RevealStagger],
   providers: [provideIcons({ lucideMail, lucideCheck, lucideMapPin })],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',

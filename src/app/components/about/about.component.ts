@@ -14,10 +14,12 @@ import {
   lucideChevronDown,
   lucideChevronUp
 } from '@ng-icons/lucide';
+import { Reveal } from '../../directives/reveal.directive';
+import { RevealStagger } from '../../directives/reveal-stagger.directive';
 
 @Component({
   selector: 'app-about',
-  imports: [TranslatePipe, NgIcon, NgOptimizedImage],
+  imports: [TranslatePipe, NgIcon, NgOptimizedImage, Reveal, RevealStagger],
   providers: [
     provideIcons({
       lucideBriefcase,
@@ -38,6 +40,7 @@ import {
 })
 export class About implements OnInit, OnDestroy {
   protected readonly images = [
+    './img/profile/hello_world.png',
     './img/profile/jb_one_small.jpg',
     './img/profile/jb_two_small.jpg',
   ];

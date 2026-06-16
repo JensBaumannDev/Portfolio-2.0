@@ -1,7 +1,7 @@
 <div class="projects-container">
   <div class="content-container">
-    <h2 class="projects-section-title">{{ 'projects.title' | translate }}</h2>
-    <div class="projects-grid">
+    <h2 class="projects-section-title" appReveal>{{ 'projects.title' | translate }}</h2>
+    <div class="projects-grid" appRevealStagger revealSelector=".project-card">
 
       @for (project of projects(); track project.key; let i = $index) {
         <div [class]="'project-card ' + project.tile" (click)="toggleCard(i)">

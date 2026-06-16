@@ -50,7 +50,9 @@ export class Navigation implements OnInit, OnDestroy {
   protected readonly isLandingPage = signal<boolean>(true);
   protected readonly currentLang = this.translate.currentLang;
   protected readonly activeSection = signal<string>('home');
-  protected readonly currentActiveSection = computed(() => this.forceActive() ?? this.activeSection());
+  protected readonly currentActiveSection = computed(() =>
+    this.forceActive() ?? (this.isLandingPage() ? this.activeSection() : '')
+  );
   protected readonly brandText = signal<string>('');
   protected readonly isTypingDone = signal<boolean>(false);
 

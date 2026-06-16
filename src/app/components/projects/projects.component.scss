@@ -124,6 +124,8 @@
     }
   }
 
+  @include abs.flip-hint(abs.$color-text-secondary);
+
   .project-details {
     @include abs.flex(column, nowrap, flex-start, flex-start);
     width: 100%;
@@ -311,6 +313,11 @@
   .project-card:hover .card-inner {
     transform: rotateY(180deg);
   }
+
+  .project-card:hover .card-front::after {
+    opacity: 1;
+    transform: rotate(180deg);
+  }
 }
 
 @include abs.tablet-lg {
@@ -433,6 +440,14 @@
 @media (prefers-reduced-motion: reduce) {
   .card-front .spotlight-badge {
     animation: none;
+  }
+
+  .card-front::after {
+    transition: opacity 0.3s ease;
+  }
+
+  .project-card:hover .card-front::after {
+    transform: none;
   }
 }
 /* #endregion */

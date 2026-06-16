@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
+import { Reveal } from '../../directives/reveal.directive';
+import { RevealStagger } from '../../directives/reveal-stagger.directive';
 
 interface Skill {
   name: string;
@@ -10,7 +12,7 @@ interface Skill {
 
 @Component({
   selector: 'app-skills',
-  imports: [TranslatePipe, NgOptimizedImage],
+  imports: [TranslatePipe, NgOptimizedImage, Reveal, RevealStagger],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

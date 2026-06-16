@@ -1,5 +1,9 @@
 @use 'src/styles/abstracts' as abs;
 
+:root {
+  --flip-hint-icon: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23000'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M3%2012a9%209%200%200%201%209-9%209.75%209.75%200%200%201%206.74%202.74L21%208'/%3E%3Cpath%20d='M21%203v5h-5'/%3E%3Cpath%20d='M21%2012a9%209%200%200%201-9%209%209.75%209.75%200%200%201-6.74-2.74L3%2016'/%3E%3Cpath%20d='M3%2021v-5h5'/%3E%3C/svg%3E");
+}
+
 html {
   scroll-behavior: smooth;
   background-color: abs.$color-bg-dark-1;
