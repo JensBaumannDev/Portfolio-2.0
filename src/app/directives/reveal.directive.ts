@@ -29,9 +29,7 @@ export class Reveal implements AfterViewInit, OnDestroy {
       this.renderer.setStyle(element, '--reveal-delay', `${this.revealDelay()}ms`);
     }
 
-    const reducedMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reducedMotion || typeof IntersectionObserver === 'undefined') {
       this.show(element);

@@ -29,9 +29,7 @@ export class RevealStagger implements AfterViewInit, OnDestroy {
       this.renderer.setStyle(target, '--reveal-delay', `${index * this.revealStep()}ms`);
     });
 
-    const reducedMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reducedMotion || typeof IntersectionObserver === 'undefined') {
       this.reveal(targets);

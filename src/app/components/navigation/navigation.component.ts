@@ -56,10 +56,6 @@ export class Navigation implements OnInit, OnDestroy {
   protected readonly brandText = signal<string>('');
   protected readonly isTypingDone = signal<boolean>(false);
 
-  constructor() {
-    this.translate.use('de');
-  }
-
   ngOnInit(): void {
     this.startTypewriter();
     this.checkRoute();
@@ -79,12 +75,6 @@ export class Navigation implements OnInit, OnDestroy {
   }
 
   private startTypewriter(): void {
-    if (typeof window === 'undefined') {
-      this.brandText.set(BRAND_TEXT);
-      this.isTypingDone.set(true);
-      return;
-    }
-
     this.typewriterTimeout = setTimeout(() => {
       let index = 0;
       this.typewriterInterval = setInterval(() => {
@@ -108,6 +98,7 @@ export class Navigation implements OnInit, OnDestroy {
 
   protected changeLanguage(lang: string): void {
     this.translate.use(lang);
+    localStorage.setItem('lang', lang);
   }
 
   protected setActiveSection(section: string): void {
@@ -124,7 +115,6 @@ export class Navigation implements OnInit, OnDestroy {
   }
 
   private checkRoute(): void {
-    if (typeof window === 'undefined') return;
     const url = this.router.url;
     const isLanding = url === '/' || url.startsWith('/#') || url.startsWith('/?');
     this.isLandingPage.set(isLanding);
@@ -132,8 +122,6 @@ export class Navigation implements OnInit, OnDestroy {
   }
 
   private updateScrollState(): void {
-    if (typeof window === 'undefined') return;
-
     const scrollY = window.scrollY;
     this.isScrolled.set(scrollY > 0);
 

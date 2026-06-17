@@ -26,20 +26,19 @@ export class GitHubService {
   private readonly cacheKey = 'github_stats';
   private readonly cacheTimeKey = 'github_stats_timestamp';
   private readonly oneDayMs = 86400000;
+  private readonly retryDelayMs = 1800000;
 
   getStats(): Observable<GitHubStats> {
     let cachedStats: GitHubStats | null = null;
     let parsedTime = 0;
 
-    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-      const cachedData = localStorage.getItem(this.cacheKey);
-      const cachedTime = localStorage.getItem(this.cacheTimeKey);
-      if (cachedData && cachedTime) {
-        parsedTime = parseInt(cachedTime, 10);
-        try {
-          cachedStats = JSON.parse(cachedData) as GitHubStats;
-        } catch {}
-      }
+    const cachedData = localStorage.getItem(this.cacheKey);
+    const cachedTime = localStorage.getItem(this.cacheTimeKey);
+    if (cachedData && cachedTime) {
+      parsedTime = parseInt(cachedTime, 10);
+      try {
+        cachedStats = JSON.parse(cachedData) as GitHubStats;
+      } catch {}
     }
 
     if (cachedStats && !isNaN(parsedTime) && Date.now() - parsedTime < this.oneDayMs) {
@@ -50,13 +49,16 @@ export class GitHubService {
       Accept: 'application/vnd.github.cloak-preview+json',
     });
 
+    const year = new Date().getFullYear();
+    const dateRange = `${year}-01-01..${year}-12-31`;
+
     const commits$ = this.http.get<SearchResult>(
-      `${this.base}/search/commits?q=author:${this.username}+author-date:2026-01-01..2026-12-31&per_page=1`,
+      `${this.base}/search/commits?q=author:${this.username}+author-date:${dateRange}&per_page=1`,
       { headers }
     );
 
     const prs$ = this.http.get<SearchResult>(
-      `${this.base}/search/issues?q=author:${this.username}+type:pr+created:2026-01-01..2026-12-31&per_page=1`,
+      `${this.base}/search/issues?q=author:${this.username}+type:pr+created:${dateRange}&per_page=1`,
       { headers }
     );
 
@@ -75,12 +77,10 @@ export class GitHubService {
           }
         });
         const sorted = Object.entries(langCount).sort((a, b) => b[1] - a[1]);
-        const tsIndex = sorted.findIndex(([l]) => l === 'TypeScript');
-        const jsIndex = sorted.findIndex(([l]) => l === 'JavaScript');
-        if (tsIndex > 0 && jsIndex === 0) {
-          sorted[0] = sorted.splice(tsIndex, 1, sorted[0])[0];
+        let primaryLang = sorted[0]?.[0] ?? '—';
+        if (primaryLang === 'JavaScript' && langCount['TypeScript']) {
+          primaryLang = 'TypeScript';
         }
-        const primaryLang = sorted[0]?.[0] ?? '—';
 
         const stats: GitHubStats = {
           commits: commitSearch.total_count,
@@ -89,22 +89,19 @@ export class GitHubService {
           primaryLang,
         };
 
-        if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-          try {
-            localStorage.setItem(this.cacheKey, JSON.stringify(stats));
-            localStorage.setItem(this.cacheTimeKey, Date.now().toString());
-          } catch {}
-        }
+        try {
+          localStorage.setItem(this.cacheKey, JSON.stringify(stats));
+          localStorage.setItem(this.cacheTimeKey, Date.now().toString());
+        } catch {}
 
         return stats;
       }),
       catchError(() => {
         if (cachedStats) {
-          if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-            try {
-              localStorage.setItem(this.cacheTimeKey, (Date.now() - this.oneDayMs + 1800000).toString());
-            } catch {}
-          }
+          const retryAt = Date.now() - this.oneDayMs + this.retryDelayMs;
+          try {
+            localStorage.setItem(this.cacheTimeKey, retryAt.toString());
+          } catch {}
           return of(cachedStats);
         }
         return of({ commits: 968, pullRequests: 208, projects: 18, primaryLang: 'TypeScript' });

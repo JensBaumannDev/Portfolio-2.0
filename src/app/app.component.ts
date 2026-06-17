@@ -1,5 +1,6 @@
-import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { Navigation } from './components/navigation/navigation.component';
 import { Footer } from './components/footer/footer.component';
 
@@ -11,5 +12,12 @@ import { Footer } from './components/footer/footer.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
+  private readonly translate = inject(TranslateService);
+
   protected readonly title = signal('Portfolio');
+
+  constructor() {
+    const stored = localStorage.getItem('lang');
+    this.translate.use(stored === 'en' ? 'en' : 'de');
+  }
 }
