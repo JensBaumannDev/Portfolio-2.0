@@ -18,16 +18,6 @@ interface Skill {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Skills {
-  protected readonly flippedStates = signal<boolean[]>(Array(9).fill(false));
-
-  protected toggleCard(index: number): void {
-    this.flippedStates.update((states) => {
-      const newStates = Array(9).fill(false);
-      newStates[index] = !states[index];
-      return newStates;
-    });
-  }
-
   skills: Skill[] = [
     { name: 'Angular', icon: 'angular' },
     { name: 'TypeScript', icon: 'typescript' },
@@ -39,4 +29,14 @@ export class Skills {
     { name: 'Python', icon: 'python', learning: true },
     { name: 'Django', icon: 'django', learning: true },
   ];
+
+  protected readonly flippedStates = signal<boolean[]>(this.skills.map(() => false));
+
+  protected toggleCard(index: number): void {
+    this.flippedStates.update((states) => {
+      const newStates = this.skills.map(() => false);
+      newStates[index] = !states[index];
+      return newStates;
+    });
+  }
 }

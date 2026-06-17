@@ -17,6 +17,8 @@ import {
 import { Reveal } from '../../directives/reveal.directive';
 import { RevealStagger } from '../../directives/reveal-stagger.directive';
 
+const FACT_CARD_COUNT = 9;
+
 @Component({
   selector: 'app-about',
   imports: [TranslatePipe, NgIcon, NgOptimizedImage, Reveal, RevealStagger],
@@ -46,10 +48,9 @@ export class About implements OnInit, OnDestroy {
   ];
 
   protected readonly activeIndex = signal(0);
-  protected readonly previousIndex = signal(-1);
-  protected readonly flippedStates = signal<boolean[]>(Array(9).fill(false));
+  protected readonly flippedStates = signal<boolean[]>(Array(FACT_CARD_COUNT).fill(false));
   protected readonly isExpanded = signal(false);
-  private intervalId?: any;
+  private intervalId?: ReturnType<typeof setInterval>;
 
   protected toggleExpand(): void {
     this.isExpanded.update((val) => !val);
@@ -57,14 +58,13 @@ export class About implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.intervalId = setInterval(() => {
-      this.previousIndex.set(this.activeIndex());
       this.activeIndex.update((index) => (index + 1) % this.images.length);
     }, 8000);
   }
 
   protected toggleCard(index: number): void {
     this.flippedStates.update((states) => {
-      const newStates = Array(9).fill(false);
+      const newStates = Array(FACT_CARD_COUNT).fill(false);
       newStates[index] = !states[index];
       return newStates;
     });
