@@ -116,10 +116,9 @@
     "featured": "Featured Project"
   },
   "contact": {
-    "label": "Kontakt",
-    "title": "Bereit zur Zusammenarbeit?",
-    "p1": "Ich freue mich darauf, von dir zu hören! Sag mir gerne, für welche Rolle du mich in deinem Team siehst. Mit meiner Erfahrung, meiner Begeisterung für moderne Webtechnologien und meinem stetigen Lernwillen bin ich überzeugt, einen echten Mehrwert zu bieten.",
-    "p2": "Ich bin offen für neue Projekte und Herausforderungen und bringe neben technischem Know-how auch Teamgeist und Kreativität mit.",
+    "eyebrow": "Junior Fullstack · Verfügbar ab Q4 2026",
+    "title": "Sprechen wir.",
+    "subtitle": "Offen für Praktikum, Werkstudium oder eine Junior-Rolle — gern remote, hybrid oder vor Ort in Ostfriesland.",
     "name_label": "Wie lautet dein Name?",
     "name_placeholder": "Dein Name kommt hier hin",
     "email_label": "Wie lautet deine E-Mail-Adresse?",
@@ -136,15 +135,12 @@
     "error_privacy": "Bitte stimme der Datenschutzerklärung zu.",
     "success": "Vielen Dank! Deine Nachricht wurde gesendet.",
     "success_short": "Gesendet",
-    "available": "Aktuell offen für neue Projekte",
-    "email_value": "info@jensbaumann.com",
-    "location_value": "Emden, Ostfriesland · Remote & Hybrid"
+    "email_value": "info@jensbaumann.com"
   },
   "footer": {
     "imprint": "Impressum",
     "privacy": "Datenschutz",
-    "copyright": "© 2026 Jens Baumann. Alle Rechte vorbehalten.",
-    "tagline": "Fullstack-Entwickler aus Ostfriesland. Ich verbinde sauberen Code mit durchdachtem Design."
+    "copyright": "© 2026 Jens Baumann"
   },
   "cv": {
     "back": "Zurück zur Startseite",

@@ -3,13 +3,13 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideMail, lucideCheck, lucideMapPin } from '@ng-icons/lucide';
+import { lucideMail, lucideCheck } from '@ng-icons/lucide';
 import { RevealStagger } from '../../directives/reveal-stagger.directive';
 
 @Component({
   selector: 'app-contact',
   imports: [ReactiveFormsModule, RouterLink, TranslatePipe, NgIcon, RevealStagger],
-  providers: [provideIcons({ lucideMail, lucideCheck, lucideMapPin })],
+  providers: [provideIcons({ lucideMail, lucideCheck })],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

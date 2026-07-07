@@ -116,10 +116,9 @@
     "featured": "Featured Project"
   },
   "contact": {
-    "label": "Contact",
-    "title": "Ready to work together?",
-    "p1": "I look forward to hearing from you! Feel free to tell me which role you see me in within your team. With my experience, my enthusiasm for modern web technologies and my constant willingness to learn, I am convinced I can offer real value.",
-    "p2": "I am open to new projects and challenges and bring not only technical know-how but also team spirit and creativity.",
+    "eyebrow": "Junior fullstack · Available from Q4 2026",
+    "title": "Let's talk.",
+    "subtitle": "Open to an internship, working student position or a junior role — remote, hybrid or on-site in East Frisia.",
     "name_label": "What is your name?",
     "name_placeholder": "Your name goes here",
     "email_label": "What is your email address?",
@@ -136,15 +135,12 @@
     "error_privacy": "Please agree to the privacy policy.",
     "success": "Thank you! Your message has been sent.",
     "success_short": "Sent",
-    "available": "Currently open for new projects",
-    "email_value": "info@jensbaumann.com",
-    "location_value": "Emden, East Frisia · Remote & Hybrid"
+    "email_value": "info@jensbaumann.com"
   },
   "footer": {
     "imprint": "Legal Notice",
     "privacy": "Privacy Policy",
-    "copyright": "© 2026 Jens Baumann. All rights reserved.",
-    "tagline": "Fullstack developer from East Frisia. I blend clean code with thoughtful design."
+    "copyright": "© 2026 Jens Baumann"
   },
   "cv": {
     "back": "Back to home",

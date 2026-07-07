@@ -1,250 +1,57 @@
 @use 'src/styles/abstracts' as abs;
 
 .footer-container {
-  width: 100%;
-  background-color: abs.$color-black;
-  border-top: 1px solid abs.$color-glass-dark-border-hover;
-  @include abs.flex(row, nowrap, center, center);
+  background-color: abs.$color-bg-dark-1;
+  padding: abs.rem(32) 0;
 }
 
-.footer-content {
-  @include abs.maxWidth;
-  margin: 0 auto;
-  padding: abs.rem(40) abs.rem(16) abs.rem(24);
-  @include abs.flex(column, nowrap, flex-start, stretch);
-  gap: abs.rem(28);
-}
-
-.footer-top {
-  @include abs.flex(row, nowrap, space-between, center);
-  gap: abs.rem(48);
-}
-
-.footer-brand {
-  @include abs.flex(column, nowrap, flex-start, flex-start);
-  gap: abs.rem(10);
-  max-width: abs.rem(380);
-}
-
-.footer-logo {
-  font-size: abs.$font-size-lg;
-  font-weight: 700;
-  color: abs.$color-text-dark-primary;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 5px;
-  padding: abs.rem(4) abs.rem(12);
-  margin: abs.rem(-4) abs.rem(-12);
-  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-
-  &:hover {
-    color: abs.$color-black;
-    background-color: abs.$color-white;
-    transform: translateX(12px);
-  }
-}
-
-.footer-tagline {
-  margin: 0;
-  font-size: abs.$font-size-base;
-  line-height: 1.6;
-  color: abs.$color-text-dark-secondary;
-}
-
-.footer-nav {
-  @include abs.flex(row, wrap, center, center);
-  gap: abs.rem(8) abs.rem(28);
-}
-
-.footer-nav-link {
-  position: relative;
-  color: abs.$color-text-dark-secondary;
-  text-decoration: none;
-  font-size: abs.$font-size-base;
-  transition: color 0.2s ease;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: abs.rem(-3);
-    left: 0;
-    width: 100%;
-    height: abs.rem(1);
-    background-color: currentColor;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover {
-    color: abs.$color-text-dark-primary;
-
-    &::after {
-      transform: scaleX(1);
-    }
-  }
-}
-
-.social-tiles {
-  @include abs.flex(row, nowrap, flex-end, center);
-  gap: abs.rem(10);
-}
-
-.social-tile {
-  perspective: 800px;
-  display: block;
-  width: abs.rem(44);
-  height: abs.rem(44);
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-front,
-.card-back {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  box-sizing: border-box;
-  border-radius: 4px;
-  @include abs.flex(row, nowrap, center, center);
-  transform: translateZ(0.1px);
-  will-change: transform;
-}
-
-.card-front {
-  color: abs.$color-text-dark-primary;
-  background-color: abs.$color-glass-dark-bg;
-  border: 1px solid abs.$color-glass-dark-border-hover;
-}
-
-.card-back {
-  transform: rotateY(180deg);
-  color: abs.$color-black;
-  background-color: abs.$color-white;
-}
-
-.social-name {
-  font-size: abs.$font-size-base;
-  font-weight: 700;
-  transform: translateZ(0.1px);
-  will-change: transform;
-}
-
-.social-icon {
-  width: abs.rem(22);
-  height: abs.rem(22);
-  display: block;
-}
-
-.social-tile.flipped .card-inner {
-  transform: rotateY(180deg);
-}
-
-@media (hover: hover) {
-  .social-tile:hover .card-inner {
-    transform: rotateY(180deg);
-  }
-}
-
-.footer-bottom {
+.footer-inner {
   @include abs.flex(row, wrap, space-between, center);
-  gap: abs.rem(12) abs.rem(24);
-  padding-top: abs.rem(24);
-  border-top: 1px solid abs.$color-glass-dark-border;
+  gap: abs.rem(16);
+  margin: 0 auto;
 }
 
 .footer-copyright {
   margin: 0;
+  font-family: abs.$font-family-mono;
   font-size: abs.$font-size-base;
-  color: abs.$color-text-light;
+  text-transform: uppercase;
+  letter-spacing: abs.rem(1.5);
+  color: abs.$color-text-dark-secondary;
 }
 
-.footer-legal {
+.footer-links {
   @include abs.flex(row, wrap, flex-end, center);
   gap: abs.rem(24);
 }
 
 .footer-link {
-  position: relative;
-  color: abs.$color-text-dark-secondary;
-  text-decoration: none;
+  font-family: abs.$font-family-mono;
   font-size: abs.$font-size-base;
+  text-transform: uppercase;
+  letter-spacing: abs.rem(1.5);
+  text-decoration: none;
+  color: abs.$color-text-dark-secondary;
   transition: color 0.2s ease;
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: abs.rem(-2);
-    left: 0;
-    width: 100%;
-    height: abs.rem(1);
-    background-color: currentColor;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
+  &:hover {
+    color: abs.$color-text-dark-primary;
   }
 
-  &:hover:not(.active) {
-    color: abs.$color-text-dark-primary;
-
-    &::after {
-      transform: scaleX(1);
-    }
-  }
-
-  &.active {
-    color: abs.$color-text-dark-primary;
-    font-weight: 600;
+  &:focus-visible {
+    outline: 2px solid abs.$color-accent;
+    outline-offset: 4px;
   }
 }
 
 /* #region RESPONSIVE */
-@include abs.tablet-xl {
-  .footer-top {
-    @include abs.flex(column, nowrap, flex-start, flex-start);
-    gap: abs.rem(24);
-  }
-
-  .footer-brand {
-    max-width: none;
-  }
-
-  .footer-nav {
-    justify-content: flex-start;
-  }
-
-  .social-tiles {
-    justify-content: flex-start;
-  }
-}
-
 @include abs.mobile {
-  .footer-content {
-    padding: abs.rem(36) abs.rem(16) abs.rem(24);
-    gap: abs.rem(24);
-  }
-
-  .footer-bottom {
+  .footer-inner {
     @include abs.flex(column, nowrap, flex-start, flex-start);
   }
 
-  .footer-legal {
-    justify-content: flex-start;
-  }
-}
-
-@include abs.mobile-sm {
-  .footer-nav {
-    @include abs.flex(column, nowrap, flex-start, flex-start);
-    gap: abs.rem(12);
+  .footer-links {
+    @include abs.flex(row, wrap, flex-start, center);
   }
 }
 /* #endregion */

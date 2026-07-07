@@ -1,26 +1,13 @@
 <div class="contact-container">
-  <div class="contact-inner" appRevealStagger revealSelector=".contact-intro, .contact-form">
-    <div class="contact-intro">
-      <span class="contact-label">{{ 'contact.label' | translate }}</span>
+  <div class="content-container contact-inner" appRevealStagger revealSelector=".contact-header, .contact-form">
+    <div class="contact-header">
+      <p class="contact-eyebrow">{{ 'contact.eyebrow' | translate }}</p>
       <h2 class="contact-title">{{ 'contact.title' | translate }}</h2>
-      <p class="contact-text">{{ 'contact.p1' | translate }}</p>
-      <p class="contact-text">{{ 'contact.p2' | translate }}</p>
+      <p class="contact-subtitle">{{ 'contact.subtitle' | translate }}</p>
 
-      <div class="contact-meta">
-        <a class="meta-item" [href]="'mailto:' + ('contact.email_value' | translate)">
-          <ng-icon name="lucideMail" size="20px" aria-hidden="true"></ng-icon>
-          <span>{{ 'contact.email_value' | translate }}</span>
-        </a>
-
-        <span class="meta-item">
-          <ng-icon name="lucideMapPin" size="20px" aria-hidden="true"></ng-icon>
-          <span>{{ 'contact.location_value' | translate }}</span>
-        </span>
-
-        <span class="availability-badge">
-          <span class="availability-dot" aria-hidden="true"></span>
-          {{ 'contact.available' | translate }}
-        </span>
+      <div class="contact-ctas">
+        <a class="button contact-mail" [href]="'mailto:' + ('contact.email_value' | translate)">{{ 'contact.email_value' | translate }}</a>
+        <a class="button button-outline contact-github" href="https://github.com/JensBaumannDev" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
 
