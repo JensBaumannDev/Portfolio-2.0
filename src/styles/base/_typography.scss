@@ -1,22 +1,39 @@
 @use '../abstracts' as abs;
 
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
-  font-weight: 100 900;
+  font-family: 'DM Sans';
+  src: url('/fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype-variations');
+  font-weight: 100 1000;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
-  font-weight: 100 900;
-  font-style: italic;
+  font-family: 'DM Mono';
+  src: url('/fonts/DMMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('/fonts/DMMono-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
   font-display: swap;
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: abs.$font-family-base;
   font-size: abs.$font-size-base;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: abs.$font-weight-heading;
+  line-height: 1.05;
+  letter-spacing: abs.rem(-1);
 }

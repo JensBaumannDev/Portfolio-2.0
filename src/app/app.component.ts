@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Navigation } from './components/navigation/navigation.component';
 import { Footer } from './components/footer/footer.component';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { Footer } from './components/footer/footer.component';
 })
 export class App {
   private readonly translate = inject(TranslateService);
+  protected readonly themeService = inject(ThemeService);
 
   protected readonly title = signal('Portfolio');
 

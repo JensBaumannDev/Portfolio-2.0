@@ -1,35 +1,50 @@
 @use 'src/styles/abstracts' as abs;
 
 :root {
+  color-scheme: light;
+  --color-bg: #{abs.$color-bg-light-1};
+  --color-bg-alt: #{abs.$color-bg-light-2};
+  --color-surface: #{abs.$color-white};
+  --color-bg-inverse: #{abs.$color-bg-dark-1};
+  --color-text: #{abs.$color-text-primary};
+  --color-text-secondary: #{abs.$color-text-secondary};
+  --color-text-muted: #{abs.$color-text-muted};
+  --color-text-inverse: #{abs.$color-text-dark-primary};
+  --color-accent: #{abs.$color-accent};
+  --color-accent-text: #{abs.$color-accent-text};
+  --color-border: #{abs.$color-border-light};
   --flip-hint-icon: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23000'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M3%2012a9%209%200%200%201%209-9%209.75%209.75%200%200%201%206.74%202.74L21%208'/%3E%3Cpath%20d='M21%203v5h-5'/%3E%3Cpath%20d='M21%2012a9%209%200%200%201-9%209%209.75%209.75%200%200%201-6.74-2.74L3%2016'/%3E%3Cpath%20d='M3%2021v-5h5'/%3E%3C/svg%3E");
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: #{abs.$color-bg-dark-1};
+  --color-bg-alt: #{abs.$color-bg-dark-2};
+  --color-surface: #{abs.$color-bg-dark-2};
+  --color-bg-inverse: #{abs.$color-bg-light-2};
+  --color-text: #{abs.$color-text-dark-primary};
+  --color-text-secondary: #{abs.$color-text-dark-secondary};
+  --color-text-muted: #{abs.$color-text-muted};
+  --color-text-inverse: #{abs.$color-text-primary};
+  --color-accent: #{abs.$color-accent-dark};
+  --color-accent-text: #{abs.$color-accent-dark};
+  --color-border: #{abs.$color-border-dark};
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: abs.$color-bg-dark-1;
+  background-color: var(--color-bg);
   overflow-x: clip;
-
-  &:has(body.dark) {
-    background-color: abs.$color-bg-dark-1;
-  }
 }
 
 body {
-  background: abs.$color-bg-dark-1;
-  color: abs.$color-text-primary;
+  background: var(--color-bg);
+  color: var(--color-text);
   min-height: 100vh;
   margin: 0;
-  padding:0;
-  font-family: sans-serif;
+  padding: 0;
   transition: background 0.3s ease, color 0.3s ease;
   overflow-x: clip;
-
-  &.dark {
-    background: abs.$color-bg-dark-1;
-    color: abs.$color-text-dark-primary;
-  }
-
-
 }
 
 .content-container {
