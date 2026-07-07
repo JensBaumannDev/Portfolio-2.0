@@ -45,8 +45,15 @@
   },
   "projects": {
     "title": "Projekte",
+    "more_title": "Weitere Projekte",
+    "more_sub": "Aus der Fortbildung · 2025–2026",
+    "all_github": "Alle Projekte auf GitHub",
     "join": {
       "name": "Join",
+      "eyebrow": "Gruppenprojekt · Kanban-Board",
+      "stat1_lbl": "Drag & Drop",
+      "stat2_lbl": "Volle Aufgaben-Logik",
+      "stat3_lbl": "Kontakte & Zuweisung",
       "subtitle": "Developer Akademie Gruppenarbeit",
       "description": "Auf dem Kanban-System basierender Aufgabenmanager. Erstellen und organisieren Sie Aufgaben mit Drag-and-Drop-Funktionen, weisen Sie Benutzer und Kategorien zu.",
       "learnings": "Dieses Gruppenprojekt hat mir gezeigt, wie wichtig strukturierte Aufgabenverteilung und klare Absprachen über Git sind. Die größte Herausforderung war die fehlerfreie Synchronisation des Kanban-Boards.",
@@ -56,6 +63,10 @@
     },
     "dabubble": {
       "name": "DABubble",
+      "eyebrow": "Gruppenprojekt · Echtzeit-Chat",
+      "stat1_lbl": "Echtzeit-Sync",
+      "stat2_lbl": "Login & Profile",
+      "stat3_lbl": "Channels & Threads",
       "subtitle": "Developer Akademie Gruppenarbeit",
       "description": "Ein interaktiver Echtzeit-Team-Chat im Stil von Slack. Ermöglicht schnelle und strukturierte Kommunikation in Channels, Direktnachrichten und Threads.",
       "learnings": "Da das Projekt für vier Personen ausgelegt war, wir aber nur zu zweit gearbeitet haben, haben wir KI-Tools aktiv integriert. Zudem wurden optionale Features wie Push-Benachrichtigungen und individuelle Chat-Löschvorgänge implementiert.",
@@ -65,6 +76,10 @@
     },
     "el_pollo_loco": {
       "name": "El Pollo Loco",
+      "eyebrow": "Eigenprojekt · Game Dev",
+      "stat1_lbl": "Objektorientiert",
+      "stat2_lbl": "Eigene Game-Loop",
+      "stat3_lbl": "Sound & Kollision",
       "subtitle": "Jump 'n' Run Spiel",
       "description": "Ein Lauf- und Wurfspiel, das auf einem objektorientierten Ansatz basiert. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen die verrückte Henne zu kämpfen.",
       "learnings": "Mein erstes größeres objektorientiertes JavaScript-Spiel. Hier habe ich gelernt, wie man eine eigene Physik-Engine und Game-Loops strukturiert und Performance-Probleme löst.",
@@ -90,8 +105,8 @@
       "duration": "3 Wochen",
       "tech": "Angular, TypeScript, SCSS"
     },
-    "github": "GitHub",
-    "live": "Live Demo",
+    "github": "Code auf GitHub",
+    "live": "Live-Demo",
     "detail_cta": "Mehr erfahren",
     "back": "Zurück",
     "label_learnings": "Herausforderungen & Erkenntnisse",

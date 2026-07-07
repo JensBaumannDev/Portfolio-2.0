@@ -7,7 +7,7 @@
   tabindex="-1"
   [attr.aria-label]="'projects.' + project().key + '.name' | translate"
 >
-  <app-navigation [forceLight]="true" [forceActive]="'projects'" (linkClick)="onNavLinkClick($event)"></app-navigation>
+  <app-navigation [forceActive]="'projects'" (linkClick)="onNavLinkClick($event)"></app-navigation>
 
   <div class="dialog-body">
     <section class="dialog-left">
@@ -39,7 +39,7 @@
     <section class="dialog-right">
       <div class="dialog-img-wrapper">
         <img [ngSrc]="project().image" fill [alt]="project().imageAlt" class="dialog-img" />
-        @if (project().spotlight) {
+        @if (project().featured) {
           <span class="dialog-featured">{{ 'projects.featured' | translate }}</span>
         }
       </div>

@@ -1,54 +1,77 @@
 <div class="projects-container">
-  <div class="content-container">
-    <h2 class="projects-section-title" appReveal>{{ 'projects.title' | translate }}</h2>
-    <div class="projects-grid" appRevealStagger revealSelector=".project-card">
+  <h2 class="sr-only">{{ 'projects.title' | translate }}</h2>
 
-      @for (project of projects(); track project.key; let i = $index) {
-        <div [class]="'project-card ' + project.tile" (click)="toggleCard(i)">
-          <div class="card-inner" [class.flipped]="flippedStates()[i]">
-            <div class="card-front">
-              <div class="project-details">
-                @if (project.spotlight) {
-                  <span class="spotlight-badge">Spotlight</span>
-                }
-                <h3 class="project-name">{{ 'projects.' + project.key + '.name' | translate }}</h3>
-                <span class="project-subtitle">{{ 'projects.' + project.key + '.subtitle' | translate }}</span>
-                <div class="project-tags">
-                  @for (tag of project.tags; track tag) {
-                    <span class="tag">{{ tag }}</span>
-                  }
-                </div>
-              </div>
-              <div class="project-img-wrapper">
-                <img [ngSrc]="project.image" fill [alt]="project.imageAlt" class="project-img" />
-              </div>
+  @for (project of featuredProjects(); track project.key; let i = $index) {
+    <article class="featured" [class.featured-dark]="i % 2 === 0">
+      <div class="content-container featured-inner" appReveal>
+        <span class="featured-number" aria-hidden="true">{{ project.number }}</span>
+
+        <p class="featured-eyebrow">{{ 'projects.' + project.key + '.eyebrow' | translate }}</p>
+        <h3 class="featured-title">{{ 'projects.' + project.key + '.name' | translate }}</h3>
+        <p class="featured-desc">{{ 'projects.' + project.key + '.description' | translate }}</p>
+
+        <div class="featured-stats">
+          @for (value of project.statValues; track $index; let s = $index) {
+            <div class="featured-stat">
+              <span class="featured-stat-value">{{ value }}</span>
+              <span class="featured-stat-label">{{ 'projects.' + project.key + '.stat' + (s + 1) + '_lbl' | translate }}</span>
             </div>
-            <div class="card-back">
-              <div class="card-back-header">
-                <h3 class="project-name-back">{{ 'projects.' + project.key + '.name' | translate }}</h3>
-                <button type="button" class="button button-white button-outline-white detail-cta" (click)="$event.stopPropagation(); openDialog(i)">
-                  <span class="text">{{ 'projects.detail_cta' | translate }}</span>
-                </button>
-              </div>
-              <p class="project-desc">{{ 'projects.' + project.key + '.description' | translate }}</p>
-              <div class="project-tech">
-                <strong>Tech Stack:</strong> {{ 'projects.' + project.key + '.tech' | translate }}
-              </div>
-              <div class="project-links">
-                <a [href]="project.github" target="_blank" rel="noopener" (click)="$event.stopPropagation()" class="button button-white button-outline-white">
-                  <ng-icon name="lucideGithub" size="18px"></ng-icon>
-                  <span class="text">{{ 'projects.github' | translate }}</span>
-                </a>
-                <a [href]="project.live" target="_blank" rel="noopener" (click)="$event.stopPropagation()" class="button button-white button-outline-white">
-                  <ng-icon name="lucideExternalLink" size="18px"></ng-icon>
-                  <span class="text">{{ 'projects.live' | translate }}</span>
-                </a>
-              </div>
-            </div>
+          }
+        </div>
+
+        <div class="featured-media">
+          <img [ngSrc]="project.image" fill [alt]="project.imageAlt" />
+        </div>
+
+        <div class="featured-footer">
+          <span class="featured-tech">{{ 'projects.' + project.key + '.tech' | translate }}</span>
+          <div class="featured-links">
+            <a [href]="project.github" target="_blank" rel="noopener" class="arrow-link featured-link">
+              {{ 'projects.github' | translate }}
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <a [href]="project.live" target="_blank" rel="noopener" class="arrow-link featured-link">
+              {{ 'projects.live' | translate }}
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <button type="button" class="arrow-link featured-link" (click)="openDialog(project.key)">
+              {{ 'projects.detail_cta' | translate }}
+              <span aria-hidden="true">&rarr;</span>
+            </button>
           </div>
         </div>
-      }
+      </div>
+    </article>
+  }
 
+  <div class="content-container more-projects">
+    <h3 class="more-title" appReveal>{{ 'projects.more_title' | translate }}</h3>
+    <p class="more-sub">{{ 'projects.more_sub' | translate }}</p>
+
+    <div class="more-grid" appRevealStagger revealSelector=".more-card">
+      @for (project of moreProjects(); track project.key) {
+        <article class="more-card">
+          <div class="more-card-media">
+            <span class="more-card-number">{{ project.number }}</span>
+            <img [ngSrc]="project.image" fill [alt]="project.imageAlt" />
+          </div>
+          <div class="more-card-body">
+            <button type="button" class="more-card-trigger" (click)="openDialog(project.key)">
+              <span class="more-card-title">{{ 'projects.' + project.key + '.name' | translate }}</span>
+              <span class="more-card-arrow" aria-hidden="true">&rarr;</span>
+            </button>
+            <p class="more-card-desc">{{ 'projects.' + project.key + '.description' | translate }}</p>
+            <p class="more-card-tech">{{ 'projects.' + project.key + '.tech' | translate }}</p>
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="more-cta">
+      <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="button button-outline">
+        {{ 'projects.all_github' | translate }}
+        <span aria-hidden="true">&rarr;</span>
+      </a>
     </div>
   </div>
 </div>

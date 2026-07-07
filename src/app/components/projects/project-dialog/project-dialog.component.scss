@@ -4,209 +4,177 @@
   position: fixed;
   inset: 0;
   z-index: abs.$z-index-dialog;
+  display: block;
 }
 
 .dialog-backdrop {
   position: absolute;
   inset: 0;
-  background-color: abs.$color-black;
+  background-color: var(--color-bg);
 }
 
 .dialog {
   position: absolute;
   inset: 0;
-  @include abs.flex(column, nowrap, flex-start, stretch);
-  outline: none;
+  overflow-y: auto;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 .dialog-body {
-  @include abs.flex(row, nowrap, stretch, stretch);
-  flex: 1 1 auto;
-  min-height: 0;
-  padding-top: abs.rem(65);
-}
-
-.dialog-left,
-.dialog-right {
-  width: 50%;
-  padding: abs.rem(60);
-  box-sizing: border-box;
-  overflow-y: auto;
+  @include abs.flex(row, nowrap, space-between, flex-start);
+  @include abs.maxWidth;
+  gap: abs.rem(64);
+  margin: 0 auto;
+  padding: abs.rem(120) abs.rem(16) abs.rem(64);
 }
 
 .dialog-left {
-  @include abs.flex(column, nowrap, flex-start, flex-start);
-  gap: abs.rem(16);
-  background-color: abs.$color-black;
-  color: abs.$color-white;
-
-  .back-btn {
-    @include abs.flex(row, nowrap, flex-start, center);
-    gap: abs.rem(8);
-    background: none;
-    border: none;
-    padding: 0;
-    margin-bottom: abs.rem(24);
-    cursor: pointer;
-    font-size: abs.$font-size-base;
-    font-weight: 700;
-    color: abs.$color-white;
-  }
-
-  .dialog-title {
-    font-size: abs.$font-size-display-sm;
-    font-weight: 700;
-    margin: 0 0 abs.rem(16) 0;
-  }
-
-  .dialog-heading {
-    font-size: abs.$font-size-xl;
-    font-weight: 700;
-    margin: abs.rem(8) 0 0 0;
-  }
-
-  .dialog-text {
-    font-size: abs.$font-size-base;
-    line-height: 1.6;
-    color: abs.$color-text-dark-secondary;
-    margin: 0;
-    max-width: abs.rem(540);
-  }
-
-  .dialog-duration {
-    font-size: abs.$font-size-base;
-    color: abs.$color-white;
-    margin: abs.rem(16) 0 0 0;
-
-    strong {
-      font-weight: 700;
-    }
-  }
-
-  .dialog-tags {
-    @include abs.flex(row, wrap, flex-start, center);
-    gap: abs.rem(16);
-    margin-top: abs.rem(8);
-
-    .dialog-tag {
-      font-family: monospace;
-      font-size: abs.$font-size-base;
-      font-weight: 600;
-      color: abs.$color-black;
-      background-color: abs.$color-white;
-      border: 1px solid abs.$color-white;
-      padding: abs.rem(4) abs.rem(10);
-      border-radius: 5px;
-      text-transform: uppercase;
-      letter-spacing: abs.rem(0.5);
-    }
-  }
+  flex: 1 1 50%;
 }
 
 .dialog-right {
-  @include abs.flex(column, nowrap, center, center);
-  gap: abs.rem(32);
-  background-color: abs.$color-white;
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  flex: 1 1 50%;
+  gap: abs.rem(24);
+}
 
-  .dialog-img-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: abs.rem(600);
-    aspect-ratio: 1847 / 1130;
+.back-btn {
+  @include abs.flex(row, nowrap, flex-start, center);
+  gap: abs.rem(8);
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-family: abs.$font-family-mono;
+  font-size: abs.$font-size-base;
+  text-transform: uppercase;
+  letter-spacing: abs.rem(1.5);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-accent-text);
   }
 
-  .dialog-img {
-    object-fit: contain;
-    object-position: center;
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-text);
+    outline-offset: 4px;
+  }
+}
+
+.dialog-title {
+  margin: abs.rem(32) 0 0;
+  font-size: abs.$font-size-display-sm;
+  color: var(--color-text);
+}
+
+.dialog-heading {
+  margin: abs.rem(40) 0 0;
+  font-family: abs.$font-family-mono;
+  font-size: abs.$font-size-base;
+  font-weight: abs.$font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: abs.rem(2);
+  color: var(--color-text-muted);
+}
+
+.dialog-text {
+  margin: abs.rem(12) 0 0;
+  font-size: abs.$font-size-md;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.dialog-duration {
+  margin: abs.rem(32) 0 0;
+  font-size: abs.$font-size-md;
+  color: var(--color-text-secondary);
+
+  strong {
+    color: var(--color-text);
+  }
+}
+
+.dialog-tags {
+  @include abs.flex(row, wrap, flex-start, center);
+  gap: abs.rem(8);
+  margin-top: abs.rem(24);
+}
+
+.dialog-tag {
+  padding: abs.rem(6) abs.rem(14);
+  border: 1px solid var(--color-border);
+  border-radius: abs.rem(8);
+  font-family: abs.$font-family-mono;
+  font-size: abs.$font-size-base;
+  color: var(--color-text);
+}
+
+.dialog-img-wrapper {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: abs.rem(16);
+  border: 1px solid var(--color-border);
+}
+
+.dialog-img {
+  border-radius: abs.rem(16);
+  object-fit: cover;
+}
+
+.dialog-featured {
+  position: absolute;
+  top: abs.rem(16);
+  right: abs.rem(16);
+  z-index: abs.$z-index-base;
+  padding: abs.rem(4) abs.rem(12);
+  border-radius: abs.rem(8);
+  background-color: abs.$color-accent;
+  color: abs.$color-white;
+  font-family: abs.$font-family-mono;
+  font-size: abs.$font-size-base;
+  text-transform: uppercase;
+  letter-spacing: abs.rem(1);
+}
+
+.dialog-actions {
+  @include abs.flex(row, wrap, flex-start, center);
+  gap: abs.rem(16);
+}
+
+.next-btn {
+  @include abs.flex(row, nowrap, flex-end, center);
+  gap: abs.rem(8);
+  align-self: flex-end;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: abs.$font-size-md;
+  font-weight: abs.$font-weight-bold;
+  color: var(--color-accent-text);
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
   }
 
-  .dialog-featured {
-    position: absolute;
-    top: abs.rem(12);
-    right: abs.rem(12);
-    font-family: monospace;
-    font-size: abs.$font-size-base;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: abs.rem(1);
-    color: abs.$color-white;
-    background-color: abs.$color-black;
-    border: 1px solid abs.$color-black;
-    padding: abs.rem(6) abs.rem(16);
-  }
-
-  .dialog-actions {
-    @include abs.flex(row, wrap, center, center);
-    gap: abs.rem(20);
-
-    .button {
-      background-color: abs.$color-black;
-      color: abs.$color-white;
-      outline-color: abs.$color-black;
-
-      &:hover {
-        background-color: abs.$color-white;
-        color: abs.$color-black;
-        outline-color: abs.$color-black;
-      }
-    }
-  }
-
-  .next-btn {
-    @include abs.flex(row, nowrap, center, center);
-    gap: abs.rem(8);
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    font-size: abs.$font-size-base;
-    font-weight: 700;
-    color: abs.$color-text-primary;
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-text);
+    outline-offset: 4px;
   }
 }
 
 /* #region RESPONSIVE */
-@include abs.desktop {
-  .dialog-backdrop {
-    background-color: abs.$color-bg-dark-1;
-  }
-
-  .dialog {
-    inset: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: min(abs.rem(1440), 92vw);
-    height: min(abs.rem(800), 90vh);
-  }
-}
-
 @include abs.tablet-lg {
-  .dialog-left,
-  .dialog-right {
-    padding: abs.rem(40);
-  }
-
-  .dialog-left .dialog-title {
-    font-size: abs.$font-size-h1;
-  }
-}
-
-@include abs.mobile {
   .dialog-body {
     @include abs.flex(column, nowrap, flex-start, stretch);
-    overflow-y: auto;
-  }
-
-  .dialog-left,
-  .dialog-right {
-    width: 100%;
-    padding: abs.rem(32) abs.rem(24);
-    overflow-y: visible;
-  }
-
-  .dialog-left .dialog-title {
-    font-size: abs.$font-size-h1;
+    gap: abs.rem(40);
+    padding-top: abs.rem(104);
   }
 }
 /* #endregion */

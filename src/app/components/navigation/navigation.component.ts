@@ -37,7 +37,6 @@ export class Navigation implements OnInit, OnDestroy {
   private routeSub?: Subscription;
   private scrollRafId?: number;
 
-  readonly forceLight = input(false);
   readonly forceActive = input<string | undefined>(undefined);
   readonly linkClick = output<string>();
 
