@@ -1,163 +1,19 @@
-<section class="hero" [class.is-static]="!animate()">
-  <div class="hero-photo" aria-hidden="true"></div>
-  <div class="hero-scrim" aria-hidden="true"></div>
-
+<section class="hero">
   <div class="content-container hero-inner">
-    <div class="hero-bento">
-      <div class="bento-tile bento-name name-front">
-        <div class="name-front-head">
-          <span class="hero-eyebrow">Fullstack Developer</span>
-          <h1 class="hero-name">Jens Baumann</h1>
-        </div>
-        <div class="hero-actions">
-          <a href="#contact" class="button" role="button">
-            <ng-icon name="lucideMail" size="20px"></ng-icon>
-            <span class="text">{{ 'hero.contact' | translate }}</span>
-          </a>
-          <a routerLink="/cv" class="button" role="button">
-            <ng-icon name="lucideFileText" size="20px"></ng-icon>
-            <span class="text">{{ 'hero.cv' | translate }}</span>
-          </a>
-        </div>
-      </div>
+    <p class="hero-eyebrow">{{ 'hero.eyebrow' | translate }}</p>
+    <h1 class="hero-title">{{ 'hero.title' | translate }}</h1>
+    <p class="hero-subtitle">{{ 'hero.subtitle' | translate }}</p>
 
-      <div
-        class="bento-tile flip-tile stat-tile"
-        role="button"
-        tabindex="0"
-        [class.is-flipped]="flipped() === 'stat1'"
-        [attr.aria-pressed]="flipped() === 'stat1'"
-        (click)="toggleFlip('stat1')"
-        (keydown.enter)="toggleFlip('stat1', $event)"
-        (keydown.space)="toggleFlip('stat1', $event)"
-      >
-        <div class="flip-inner">
-          <div class="flip-face stat-front">
-            <span class="stat-val num">{{ 'hero.stat1_val' | translate }}</span>
-            <span class="stat-lbl">{{ 'hero.stat1_lbl' | translate }}</span>
-          </div>
-          <div class="flip-face stat-back">
-            <ng-icon name="lucideRocket" size="28px"></ng-icon>
-            <span class="stat-back-text">{{ 'hero.stat1_back' | translate }}</span>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="bento-tile flip-tile stat-tile"
-        role="button"
-        tabindex="0"
-        [class.is-flipped]="flipped() === 'stat2'"
-        [attr.aria-pressed]="flipped() === 'stat2'"
-        (click)="toggleFlip('stat2')"
-        (keydown.enter)="toggleFlip('stat2', $event)"
-        (keydown.space)="toggleFlip('stat2', $event)"
-      >
-        <div class="flip-inner">
-          <div class="flip-face stat-front">
-            <span class="stat-val">{{ 'hero.stat2_val' | translate }}</span>
-            <span class="stat-lbl">{{ 'hero.stat2_lbl' | translate }}</span>
-          </div>
-          <div class="flip-face stat-back">
-            <ng-icon name="lucideCode2" size="28px"></ng-icon>
-            <span class="stat-back-text">{{ 'hero.stat2_back' | translate }}</span>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="bento-tile flip-tile stat-tile"
-        role="button"
-        tabindex="0"
-        [class.is-flipped]="flipped() === 'stat3'"
-        [attr.aria-pressed]="flipped() === 'stat3'"
-        (click)="toggleFlip('stat3')"
-        (keydown.enter)="toggleFlip('stat3', $event)"
-        (keydown.space)="toggleFlip('stat3', $event)"
-      >
-        <div class="flip-inner">
-          <div class="flip-face stat-front">
-            <span class="stat-val">{{ 'hero.stat3_val' | translate }}</span>
-            <span class="stat-lbl">{{ 'hero.stat3_lbl' | translate }}</span>
-          </div>
-          <div class="flip-face stat-back">
-            <ng-icon name="lucideUsers" size="28px"></ng-icon>
-            <span class="stat-back-text">{{ 'hero.stat3_back' | translate }}</span>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="bento-tile flip-tile stat-tile"
-        role="button"
-        tabindex="0"
-        [class.is-flipped]="flipped() === 'stat4'"
-        [attr.aria-pressed]="flipped() === 'stat4'"
-        (click)="toggleFlip('stat4')"
-        (keydown.enter)="toggleFlip('stat4', $event)"
-        (keydown.space)="toggleFlip('stat4', $event)"
-      >
-        <div class="flip-inner">
-          <div class="flip-face stat-front">
-            <span class="stat-val">{{ 'hero.stat4_val' | translate }}</span>
-            <span class="stat-lbl">{{ 'hero.stat4_lbl' | translate }}</span>
-          </div>
-          <div class="flip-face stat-back">
-            <ng-icon name="lucideServer" size="28px"></ng-icon>
-            <span class="stat-back-text">{{ 'hero.stat4_back' | translate }}</span>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="bento-tile flip-tile bento-status"
-        role="button"
-        tabindex="0"
-        [class.is-flipped]="flipped() === 'status'"
-        [attr.aria-pressed]="flipped() === 'status'"
-        (click)="toggleFlip('status')"
-        (keydown.enter)="toggleFlip('status', $event)"
-        (keydown.space)="toggleFlip('status', $event)"
-      >
-        <div class="flip-inner">
-          <div class="flip-face status-front">
-            <span class="status-line">{{ 'hero.status' | translate }}</span>
-            <span class="status-sub">{{ 'hero.status_sub' | translate }}</span>
-          </div>
-          <div class="flip-face status-back">
-            <ng-icon name="lucideMail" size="26px"></ng-icon>
-            <span class="status-back-text">{{ 'hero.status_back' | translate }}</span>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="bento-tile flip-tile loc-tile"
-        role="button"
-        tabindex="0"
-        [class.is-flipped]="flipped() === 'loc'"
-        [attr.aria-pressed]="flipped() === 'loc'"
-        (click)="toggleFlip('loc')"
-        (keydown.enter)="toggleFlip('loc', $event)"
-        (keydown.space)="toggleFlip('loc', $event)"
-      >
-        <div class="flip-inner">
-          <div class="flip-face loc-front">
-            <ng-icon name="lucideMapPin" size="22px"></ng-icon>
-            <span class="loc-front-text">
-              <span class="location-text">{{ 'hero.location' | translate }}</span>
-              <span class="loc-coords">Ostfriesland · 53.3°N, 7.2°E</span>
-            </span>
-          </div>
-          <div class="flip-face loc-back" aria-hidden="true"></div>
-        </div>
-      </div>
+    <div class="hero-actions">
+      <a href="#projects" class="button">
+        {{ 'hero.cta_projects' | translate }}
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+      <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="button button-outline">GitHub</a>
     </div>
-  </div>
 
-  <div class="hero-tiles" aria-hidden="true">
-    @for (tile of tiles; track $index) {
-      <span class="hero-tile" [style.animation-delay.ms]="tile.delay"></span>
-    }
+    <div class="hero-media">
+      <img ngSrc="/img/hero/hero_bg.webp" fill priority [alt]="'hero.image_alt' | translate" />
+    </div>
   </div>
 </section>

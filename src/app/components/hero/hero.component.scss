@@ -1,496 +1,74 @@
 @use 'src/styles/abstracts' as abs;
 
-$hero-cols: 8;
-$hero-rows: 5;
-
 .hero {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100svh;
-  overflow: hidden;
-  background: abs.$color-black;
-  @include abs.flex(row, nowrap, center, center);
+  background-color: var(--color-bg);
+  padding: abs.rem(160) 0 abs.rem(96);
 }
 
-/* #region PHOTO + REVEAL */
-.hero-photo {
-  position: absolute;
-  inset: 0;
-  z-index: abs.$z-index-base;
-  background-image: url('/img/hero/hero_bg.webp');
-  background-size: cover;
-  background-position: center 55%;
-  filter: grayscale(100%) brightness(0.5);
-}
-
-.hero-scrim {
-  position: absolute;
-  inset: 0;
-  z-index: abs.$z-index-base;
-  background: linear-gradient(120deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
-}
-
-.hero-tiles {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: repeat($hero-cols, 1fr);
-  grid-template-rows: repeat($hero-rows, 1fr);
-  z-index: abs.$z-index-shine;
-  pointer-events: none;
-}
-
-.hero-tile {
-  background: abs.$color-black;
-  opacity: 1;
-  animation: heroTileOut 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  will-change: opacity;
-}
-
-@keyframes heroTileOut {
-  to {
-    opacity: 0;
-  }
-}
-/* #endregion */
-
-/* #region BENTO LAYOUT */
-.hero .hero-inner {
-  position: relative;
-  z-index: abs.$z-index-interactive;
-  padding-top: abs.rem(110);
-  padding-bottom: abs.rem(56);
-}
-
-.hero-bento {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, minmax(0, 1fr));
-  grid-auto-flow: row dense;
-  gap: abs.rem(12);
-  width: 100%;
-  height: min(abs.rem(680), calc(100svh - abs.rem(166)));
-  min-height: abs.rem(440);
-}
-
-.bento-tile {
-  box-sizing: border-box;
-  min-width: 0;
-}
-
-.bento-name {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.name-front {
-  height: 100%;
-  background: abs.$color-white;
-  padding: abs.rem(36);
+.hero-inner {
   @include abs.flex(column, nowrap, flex-start, flex-start);
-  gap: abs.rem(28);
-}
-
-.name-front-head {
-  flex: 1;
-  width: 100%;
-  @include abs.flex(column, nowrap, center, flex-start);
-  gap: abs.rem(24);
+  margin: 0 auto;
 }
 
 .hero-eyebrow {
-  font-family: monospace;
+  margin: 0;
+  font-family: abs.$font-family-mono;
   font-size: abs.$font-size-base;
   text-transform: uppercase;
-  color: abs.$color-text-secondary;
+  letter-spacing: abs.rem(3);
+  color: var(--color-accent-text);
 }
 
-.hero-name {
-  margin: 0;
-  font-size: abs.$font-size-display;
-  font-weight: 700;
-  line-height: 0.95;
-  color: abs.$color-black;
+.hero-title {
+  margin: abs.rem(24) 0 0;
+  max-width: abs.rem(900);
+  font-size: abs.$font-size-display-fluid;
+  font-weight: abs.$font-weight-heading;
+  line-height: 0.98;
+  letter-spacing: abs.rem(-2);
+  color: var(--color-text);
+}
+
+.hero-subtitle {
+  margin: abs.rem(32) 0 0;
+  max-width: abs.rem(680);
+  font-size: abs.$font-size-xl;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
 }
 
 .hero-actions {
   @include abs.flex(row, wrap, flex-start, center);
-  gap: abs.rem(14);
-
-  .button {
-    width: auto;
-    min-width: abs.rem(180);
-
-    &:hover {
-      outline-color: abs.$color-black;
-    }
-  }
-}
-/* #endregion */
-
-/* #region STATUS */
-.bento-status {
-  grid-column: span 2;
+  gap: abs.rem(16);
+  margin-top: abs.rem(40);
 }
 
-.status-front {
-  background: abs.$color-white;
-  border: 1px solid abs.$color-white;
-  border-left: 5px solid abs.$color-white;
-  padding: abs.rem(24);
-  @include abs.flex(column, nowrap, center, flex-start);
-  gap: abs.rem(10);
-}
-
-.status-back {
-  transform: rotateY(180deg);
-  background: abs.$color-black;
-  border: 1px solid abs.$color-white;
-  border-left: 5px solid abs.$color-white;
-  padding: abs.rem(28);
-  @include abs.flex(column, nowrap, center, flex-start);
-  gap: abs.rem(12);
-  color: abs.$color-white;
-
-  ng-icon {
-    display: flex;
-    color: abs.$color-white;
-  }
-}
-
-.status-back-text {
-  font-family: monospace;
-  font-size: abs.$font-size-base;
-  line-height: 1.4;
-  color: rgba(abs.$color-text-dark-primary, 0.9);
-  overflow-wrap: break-word;
-  hyphens: auto;
-  max-width: 100%;
-}
-
-.status-line {
-  font-size: abs.$font-size-h1;
-  font-weight: 700;
-  line-height: 1;
-  color: abs.$color-black;
-}
-
-.status-sub {
-  font-family: monospace;
-  font-size: abs.$font-size-base;
-  text-transform: uppercase;
-  color: abs.$color-text-secondary;
-}
-/* #endregion */
-
-/* #region FLIP (stats + location) */
-.flip-tile {
-  position: relative;
-  perspective: 1000px;
-  outline: none;
-}
-
-.flip-inner {
+.hero-media {
   position: relative;
   width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+  aspect-ratio: 16 / 7;
+  margin-top: abs.rem(80);
+  border-radius: abs.rem(16);
 
-.flip-face {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  box-sizing: border-box;
-}
-
-.flip-tile {
-  cursor: pointer;
-}
-
-.stat-front,
-.status-front,
-.loc-front {
-  @include abs.flip-hint(abs.$color-text-secondary);
-}
-
-.flip-tile.is-flipped .flip-inner {
-  transform: rotateY(180deg);
-}
-
-@media (hover: hover) {
-  .flip-tile:hover .flip-inner {
-    transform: rotateY(180deg);
-  }
-
-  .flip-tile:hover .flip-face::after {
-    opacity: 1;
-    transform: rotate(180deg);
+  img {
+    border-radius: abs.rem(16);
+    object-fit: cover;
   }
 }
-
-.flip-tile:focus-visible {
-  outline: 3px solid abs.$color-white;
-  outline-offset: 3px;
-}
-/* #endregion */
-
-/* #region STAT TILES */
-.stat-front {
-  padding: abs.rem(24);
-  border: 1px solid abs.$color-white;
-  border-left: 5px solid abs.$color-white;
-  background: abs.$color-white;
-  @include abs.flex(column, nowrap, center, flex-start);
-  gap: abs.rem(10);
-
-  .stat-val {
-    color: abs.$color-black;
-  }
-
-  .stat-lbl {
-    color: abs.$color-text-secondary;
-  }
-}
-
-.stat-back {
-  padding: abs.rem(24);
-  border: 1px solid abs.$color-white;
-  border-left: 5px solid abs.$color-white;
-  background: abs.$color-black;
-  transform: rotateY(180deg);
-  @include abs.flex(column, nowrap, center, flex-start);
-  gap: abs.rem(12);
-  color: abs.$color-white;
-
-  ng-icon {
-    display: flex;
-    color: abs.$color-white;
-  }
-}
-
-.stat-back-text {
-  font-family: monospace;
-  font-size: abs.$font-size-base;
-  line-height: 1.4;
-  color: rgba(abs.$color-text-dark-primary, 0.9);
-  overflow-wrap: break-word;
-  hyphens: auto;
-  max-width: 100%;
-}
-
-.stat-val {
-  font-size: abs.$font-size-h1;
-  font-weight: 700;
-  line-height: 1;
-  color: abs.$color-text-dark-primary;
-  overflow-wrap: break-word;
-  hyphens: auto;
-}
-
-.stat-lbl {
-  font-family: monospace;
-  font-size: abs.$font-size-base;
-  text-transform: uppercase;
-  line-height: 1.2;
-  color: rgba(abs.$color-text-dark-primary, 0.7);
-  overflow-wrap: break-word;
-  hyphens: auto;
-  max-width: 100%;
-}
-/* #endregion */
-
-/* #region LOCATION (wide flip) */
-.loc-tile {
-  grid-column: span 2;
-}
-
-.loc-front {
-  background: abs.$color-white;
-  border: 1px solid abs.$color-white;
-  border-left: 5px solid abs.$color-white;
-  padding: abs.rem(24);
-  @include abs.flex(column, nowrap, center, flex-start);
-  gap: abs.rem(10);
-
-  ng-icon {
-    position: absolute;
-    bottom: abs.rem(20);
-    right: abs.rem(20);
-    display: flex;
-    color: abs.$color-text-secondary;
-  }
-}
-
-.loc-front-text {
-  @include abs.flex(column, nowrap, center, flex-start);
-  gap: abs.rem(10);
-}
-
-.location-text {
-  font-size: abs.$font-size-h1;
-  font-weight: 700;
-  line-height: 1;
-  color: abs.$color-black;
-}
-
-.loc-coords {
-  font-family: monospace;
-  font-size: abs.$font-size-base;
-  text-transform: uppercase;
-  line-height: 1.2;
-  color: abs.$color-text-secondary;
-  overflow-wrap: break-word;
-}
-
-.loc-back {
-  transform: rotateY(180deg);
-  border: 1px solid abs.$color-white;
-  background-color: abs.$color-black;
-  background-image: url('/img/profile/emden_hero_2.jpg');
-  background-size: cover;
-  background-position: center;
-  filter: grayscale(100%);
-}
-/* #endregion */
-
-/* #region STATIC (reduced-motion / already played) */
-.hero.is-static .hero-tile {
-  opacity: 0;
-  animation: none;
-}
-/* #endregion */
 
 /* #region RESPONSIVE */
-@include abs.tablet-xl {
-  .hero-name {
-    font-size: abs.$font-size-h1;
-  }
-
-  .stat-val {
-    font-size: abs.$font-size-display-sm;
-  }
-
-  .hero-bento {
-    gap: abs.rem(10);
-  }
-}
-
-@include abs.tablet-lg {
-  .hero-bento {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    grid-auto-rows: minmax(abs.rem(150), auto);
-    height: auto;
-  }
-
-  .bento-name {
-    grid-column: span 2;
-    grid-row: auto;
-    height: auto;
-    min-height: abs.rem(240);
-  }
-}
-
 @include abs.mobile {
-  .hero-inner {
-    padding-top: abs.rem(96);
+  .hero {
+    padding: abs.rem(120) 0 abs.rem(64);
   }
 
-  .hero-bento {
-    grid-auto-rows: abs.rem(130);
+  .hero-subtitle {
+    font-size: abs.$font-size-md;
   }
 
-  .bento-name {
-    min-height: abs.rem(260);
-  }
-
-  .name-front {
-    padding: abs.rem(28);
-  }
-
-  .hero-name {
-    font-size: abs.$font-size-h1;
-  }
-
-  .hero-actions {
-    width: 100%;
-
-    .button {
-      flex: 1;
-      min-width: abs.rem(150);
-    }
-  }
-
-  .stat-val {
-    font-size: abs.$font-size-h1;
-  }
-}
-
-@include abs.mobile-md {
-  .hero-bento {
-    grid-auto-rows: minmax(abs.rem(116), auto);
-    gap: abs.rem(10);
-  }
-
-  .stat-front,
-  .stat-back,
-  .status-front,
-  .status-back,
-  .loc-front {
-    padding: abs.rem(16);
-  }
-
-  .flip-face::after {
-    display: none;
-  }
-
-  .stat-val,
-  .status-line,
-  .location-text {
-    font-size: abs.$font-size-h2;
-  }
-
-  .loc-front ng-icon {
-    bottom: abs.rem(16);
-    right: abs.rem(16);
-  }
-
-  .hero-actions {
-    @include abs.flex(column, nowrap, flex-start, stretch);
-    gap: abs.rem(10);
-
-    .button {
-      width: 100%;
-      min-width: 0;
-    }
-  }
-}
-
-@include abs.mobile-sm {
-  .hero-inner {
-    padding-top: abs.rem(88);
-  }
-
-  .name-front {
-    padding: abs.rem(22);
-    gap: abs.rem(22);
-  }
-
-  .hero-name {
-    font-size: abs.$font-size-h2;
-  }
-
-  .stat-val,
-  .status-line,
-  .location-text {
-    font-size: abs.$font-size-xl;
-  }
-
-  .loc-front ng-icon {
-    display: none;
+  .hero-media {
+    aspect-ratio: 4 / 3;
+    margin-top: abs.rem(48);
   }
 }
 /* #endregion */

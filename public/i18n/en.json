@@ -1,10 +1,11 @@
 {
   "nav": {
     "home": "Home",
-    "about": "About me",
-    "projects": "Projects",
-    "skills": "Skills",
-    "contact": "Contact"
+    "about": "About",
+    "projects": "Work",
+    "skills": "Stack",
+    "contact": "Contact",
+    "theme": "Toggle color scheme"
   },
   "stats": {
     "commits": "2026 Commits",
@@ -17,24 +18,11 @@
     "language_back": "My daily stack"
   },
   "hero": {
-    "contact": "Contact me",
-    "cv": "View CV",
-    "status": "Open to work",
-    "status_sub": "Remote · Hybrid",
-    "status_back": "Drop me a line – I reply fast",
-    "location": "Emden",
-    "stat1_val": "4",
-    "stat1_lbl": "Projects deployed",
-    "stat1_back": "Live, documented & on GitHub",
-    "stat2_val": "Fullstack",
-    "stat2_lbl": "Frontend & Backend",
-    "stat2_back": "Angular · TypeScript · Node.js",
-    "stat3_val": "6 Years",
-    "stat3_lbl": "Leadership experience",
-    "stat3_back": "Department head before the switch",
-    "stat4_val": "Backend",
-    "stat4_lbl": "Currently focused on",
-    "stat4_back": "Python, Django, Node.js & APIs"
+    "eyebrow": "Fullstack developer in training · Emden",
+    "title": "Builds the whole thing.",
+    "subtitle": "Career changer, midway through a 12-month fullstack program. These are the projects where I learn the craft — from database to pixel.",
+    "cta_projects": "View projects",
+    "image_alt": "Jens Baumann at his workspace"
   },
   "about": {
     "title": "About me",

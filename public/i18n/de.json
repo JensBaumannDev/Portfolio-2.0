@@ -1,10 +1,11 @@
 {
   "nav": {
     "home": "Home",
-    "about": "Über mich",
-    "projects": "Projekte",
-    "skills": "Skills",
-    "contact": "Kontakt"
+    "about": "Über",
+    "projects": "Arbeit",
+    "skills": "Stack",
+    "contact": "Kontakt",
+    "theme": "Farbschema umschalten"
   },
   "stats": {
     "commits": "2026 Commits",
@@ -17,24 +18,11 @@
     "language_back": "Mein täglicher Stack"
   },
   "hero": {
-    "contact": "Kontaktiere mich",
-    "cv": "Zum CV",
-    "status": "Open to work",
-    "status_sub": "Remote · Hybrid",
-    "status_back": "Schreib mir – ich antworte schnell",
-    "location": "Emden",
-    "stat1_val": "4",
-    "stat1_lbl": "Projekte deployed",
-    "stat1_back": "Live, dokumentiert & auf GitHub",
-    "stat2_val": "Fullstack",
-    "stat2_lbl": "Frontend & Backend",
-    "stat2_back": "Angular · TypeScript · Node.js",
-    "stat3_val": "6 Jahre",
-    "stat3_lbl": "Führungserfahrung",
-    "stat3_back": "Abteilungsleiter vor dem Quereinstieg",
-    "stat4_val": "Backend",
-    "stat4_lbl": "Aktuell im Fokus",
-    "stat4_back": "Python, Django, Node.js & APIs"
+    "eyebrow": "Fullstack-Entwickler in Ausbildung · Emden",
+    "title": "Baut das ganze Ding.",
+    "subtitle": "Quereinsteiger, mitten in einer 12-monatigen Fullstack-Fortbildung. Hier die Projekte, an denen ich das Handwerk lerne — von der Datenbank bis zum Pixel.",
+    "cta_projects": "Projekte ansehen",
+    "image_alt": "Jens Baumann an seinem Arbeitsplatz"
   },
   "about": {
     "title": "Über mich",

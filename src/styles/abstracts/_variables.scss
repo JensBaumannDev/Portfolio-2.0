@@ -121,4 +121,4 @@ $font-size-h1: fn.rem(40);
 $font-size-display-sm: fn.rem(48);
 $font-size-display: fn.rem(60);
 $font-size-display-xl: fn.rem(95);
-$font-size-display-fluid: clamp(#{fn.rem(48)}, 4.6vw, #{fn.rem(68)});
+$font-size-display-fluid: clamp(#{fn.rem(48)}, 8vw, #{fn.rem(96)});
