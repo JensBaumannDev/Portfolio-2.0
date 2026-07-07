@@ -1,33 +1,16 @@
 @use 'functions' as fn;
 
-$breakpoint-mobile-sm: 370px;
-$breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
-$breakpoint-tablet-lg: 1200px;
-$breakpoint-large: 1440px;
 $max-width: 1200px;
 
-$z-index-below: -1;
 $z-index-base: 1;
-$z-index-interactive: 2;
-$z-index-shine: 3;
-$z-index-dropdown: 20;
-$z-index-dropdown-top: 21;
-$z-index-sticky: 30;
-$z-index-overlay: 40;
-$z-index-modal: 50;
-$z-index-toast: 60;
 $z-index-header-sidebar: 100;
 $z-index-dialog: 110;
+
 $color-black: #000000;
 $color-white: #ffffff;
-$color-hero-overlay: rgba(0, 0, 0, 0.45);
-$color-navbar-bg: rgba(18, 17, 15, 0.65);
-$color-navbar-border: rgba(255, 255, 255, 0.08);
-$color-nav-active-bg: rgba(255, 255, 255, 0.1);
 $color-button-bg: #141414;
-
 
 $color-error: #d32f2f;
 
@@ -44,7 +27,6 @@ $color-bg-dark-2: #1a1a18;
 $color-text-primary: #141414;
 $color-text-secondary: #57574f;
 $color-text-muted: #8a8a82;
-$color-text-light: #a5a59d;
 
 $color-text-dark-primary: #f4f4f0;
 $color-text-dark-secondary: #a5a59d;
@@ -52,61 +34,9 @@ $color-text-dark-secondary: #a5a59d;
 $color-border-light: #e5e5e2;
 $color-border-dark: #2a2a26;
 
-$color-glass-bg: rgba(255, 255, 255, 0.45);
-$color-glass-border: rgba(255, 255, 255, 0.65);
-$color-glass-bg-hover: rgba(255, 255, 255, 0.5);
-$color-glass-border-hover: rgba(255, 255, 255, 0.75);
-$color-glass-border-top: rgba(255, 255, 255, 0.85);
-$color-glass-border-left: rgba(255, 255, 255, 0.7);
-$color-glass-border-right: rgba(255, 255, 255, 0.35);
-$color-glass-border-bottom: rgba(255, 255, 255, 0.25);
-$color-glass-shadow-inset: rgba(255, 255, 255, 0.5);
-
-$color-glass-dark-bg: rgba(255, 255, 255, 0.03);
-$color-glass-dark-bg-hover: rgba(255, 255, 255, 0.08);
-$color-glass-dark-border: rgba(255, 255, 255, 0.06);
-$color-glass-dark-border-hover: rgba(255, 255, 255, 0.15);
-$color-glass-dark-shadow-inset: rgba(255, 255, 255, 0.03);
-
-$color-pill-bg: rgba(0, 0, 0, 0.035);
-$color-pill-border: rgba(0, 0, 0, 0.015);
-$color-pill-hover-bg: rgba(255, 255, 255, 0.35);
-$color-pill-hover-text: #1d1d1f;
-$color-active-bg: #ffffff;
-
-$color-toggle-bg: rgba(0, 0, 0, 0.03);
-$color-toggle-border: rgba(0, 0, 0, 0.01);
-$color-toggle-hover-bg: rgba(0, 0, 0, 0.06);
-
-$color-mobile-overlay-bg: rgba(255, 255, 255, 0.5);
-$color-mobile-overlay-border: rgba(255, 255, 255, 0.6);
-$color-mobile-item-hover-bg: rgba(0, 0, 0, 0.03);
-$color-mobile-item-active-bg: rgba(255, 255, 255, 0.8);
-
-$color-card-subtitle-light: rgba(255, 255, 255, 0.55);
-$color-card-paragraph-light: rgba(255, 255, 255, 0.9);
-$color-card-subtitle-dark: rgba(0, 0, 0, 0.45);
-$color-card-border-subtle: rgba(0, 0, 0, 0.05);
-
-$blur-glass: 20px;
-$blur-glass-overlay: 25px;
-$saturate-glass: 190%;
-
-$color-status-online: #3ec46d;
-$color-status-online-glow: rgba(62, 196, 109, 0.6);
-$color-status-online-fade: rgba(62, 196, 109, 0);
-$color-error-fade: rgba(211, 47, 47, 0.1);
-
-$color-border-light-subtle: rgba(255, 255, 255, 0.3);
-$color-nav-border-dark: rgba(255, 255, 255, 0.05);
-$color-nav-border-dark-hover: rgba(255, 255, 255, 0.08);
-$color-nav-border-light: rgba(0, 0, 0, 0.05);
-$color-nav-border-light-hover: rgba(0, 0, 0, 0.08);
-
 $font-family-base: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 $font-family-mono: 'DM Mono', 'Cascadia Code', Consolas, monospace;
 
-$font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 $font-weight-heading: 800;
@@ -120,5 +50,4 @@ $font-size-h2: fn.rem(32);
 $font-size-h1: fn.rem(40);
 $font-size-display-sm: fn.rem(48);
 $font-size-display: fn.rem(60);
-$font-size-display-xl: fn.rem(95);
 $font-size-display-fluid: clamp(#{fn.rem(48)}, 8vw, #{fn.rem(96)});

@@ -3,7 +3,7 @@
 .cv-page {
   width: 100%;
   min-height: 100vh;
-  background-color: abs.$color-white;
+  background-color: var(--color-bg);
   @include abs.flex(row, nowrap, center, flex-start);
   padding: abs.rem(120) abs.rem(16) abs.rem(96);
   box-sizing: border-box;
@@ -16,14 +16,14 @@
 }
 
 .cv-back {
-  color: abs.$color-text-secondary;
+  color: var(--color-text-secondary);
   text-decoration: none;
   font-size: abs.$font-size-base;
   width: fit-content;
   transition: color 0.2s ease;
 
   &:hover {
-    color: abs.$color-text-primary;
+    color: var(--color-text);
   }
 }
 
@@ -39,10 +39,11 @@
 
 .cv-eyebrow {
   margin: 0;
+  font-family: abs.$font-family-mono;
   font-size: abs.$font-size-base;
   letter-spacing: abs.rem(2);
   text-transform: uppercase;
-  color: abs.$color-text-secondary;
+  color: var(--color-accent-text);
 }
 
 .cv-title {
@@ -50,20 +51,20 @@
   font-size: abs.$font-size-h1;
   font-weight: 700;
   line-height: 1.1;
-  color: abs.$color-text-primary;
+  color: var(--color-text);
 }
 
 .cv-role {
   margin: 0;
   font-size: abs.$font-size-xl;
   font-weight: 700;
-  color: abs.$color-text-secondary;
+  color: var(--color-text-secondary);
 }
 
 .cv-meta {
   margin: 0;
   font-size: abs.$font-size-base;
-  color: abs.$color-text-secondary;
+  color: var(--color-text-secondary);
 }
 
 .cv-download {
@@ -79,14 +80,14 @@
     margin: 0;
     font-size: abs.$font-size-xl;
     font-weight: 700;
-    color: abs.$color-text-primary;
+    color: var(--color-text);
   }
 
   > p {
     margin: 0;
     font-size: abs.$font-size-base;
     line-height: 1.7;
-    color: abs.$color-text-secondary;
+    color: var(--color-text-secondary);
   }
 }
 
@@ -94,7 +95,7 @@
   font-size: abs.$font-size-lg;
   line-height: 1.6;
   font-weight: 500;
-  color: abs.$color-text-primary;
+  color: var(--color-text);
 }
 
 .cv-split {
@@ -113,7 +114,7 @@
     top: 0;
     bottom: 0;
     width: abs.rem(2);
-    background-color: abs.$color-text-light;
+    background-color: var(--color-border);
   }
 }
 
@@ -143,7 +144,7 @@
   margin: 0 0 abs.rem(32);
   font-size: abs.$font-size-xl;
   font-weight: 700;
-  color: abs.$color-text-primary;
+  color: var(--color-text);
 }
 
 .cv-track {
@@ -167,7 +168,7 @@
   width: abs.rem(14);
   height: abs.rem(14);
   border-radius: 50%;
-  background-color: abs.$color-black;
+  background-color: var(--color-accent);
 }
 
 .cv-col--edu .cv-node {
@@ -182,28 +183,28 @@
   font-size: abs.$font-size-base;
   font-weight: 700;
   letter-spacing: abs.rem(1);
-  color: abs.$color-text-secondary;
+  color: var(--color-text-secondary);
 }
 
 .cv-item-title {
   margin: 0;
   font-size: abs.$font-size-lg;
   font-weight: 700;
-  color: abs.$color-text-primary;
+  color: var(--color-text);
 }
 
 .cv-place {
   margin: 0;
   font-size: abs.$font-size-base;
   font-weight: 700;
-  color: abs.$color-text-secondary;
+  color: var(--color-text-secondary);
 }
 
 .cv-text {
   margin: 0;
   font-size: abs.$font-size-base;
   line-height: 1.7;
-  color: abs.$color-text-secondary;
+  color: var(--color-text-secondary);
 }
 
 .cv-skills {
@@ -214,14 +215,12 @@
   gap: abs.rem(12);
 
   li {
-    font-family: monospace;
+    font-family: abs.$font-family-mono;
     font-size: abs.$font-size-base;
-    font-weight: 600;
-    color: abs.$color-white;
-    background-color: abs.$color-black;
-    border: 1px solid abs.$color-black;
-    padding: abs.rem(4) abs.rem(10);
-    border-radius: 5px;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    padding: abs.rem(8) abs.rem(14);
+    border-radius: abs.rem(8);
     text-transform: uppercase;
     letter-spacing: abs.rem(0.5);
   }

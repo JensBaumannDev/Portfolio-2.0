@@ -3,7 +3,7 @@
 .legal-page {
   width: 100%;
   min-height: 100vh;
-  background-color: abs.$color-black;
+  background-color: var(--color-bg);
   @include abs.flex(row, nowrap, center, flex-start);
   padding: abs.rem(64) abs.rem(16) abs.rem(96);
   box-sizing: border-box;
@@ -17,7 +17,7 @@
 }
 
 .legal-back {
-  color: abs.$color-text-dark-secondary;
+  color: var(--color-text-secondary);
   text-decoration: none;
   font-size: abs.$font-size-base;
   width: fit-content;
@@ -29,7 +29,7 @@
   transition: color 0.2s ease;
 
   &:hover {
-    color: abs.$color-text-dark-primary;
+    color: var(--color-text);
   }
 }
 
@@ -38,7 +38,7 @@
   font-size: abs.$font-size-h1;
   font-weight: 700;
   line-height: 1.1;
-  color: abs.$color-text-dark-primary;
+  color: var(--color-text);
 }
 
 .legal-section {
@@ -49,14 +49,14 @@
     margin: 0;
     font-size: abs.$font-size-xl;
     font-weight: 700;
-    color: abs.$color-text-dark-primary;
+    color: var(--color-text);
   }
 
   p {
     margin: 0;
     font-size: abs.$font-size-base;
     line-height: 1.7;
-    color: abs.$color-text-dark-secondary;
+    color: var(--color-text-secondary);
   }
 
   ul {
@@ -69,11 +69,11 @@
   li {
     font-size: abs.$font-size-base;
     line-height: 1.6;
-    color: abs.$color-text-dark-secondary;
+    color: var(--color-text-secondary);
   }
 
   a {
-    color: abs.$color-white;
+    color: var(--color-accent-text);
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: abs.rem(3);
@@ -84,7 +84,7 @@
 .legal-date {
   margin: 0;
   font-size: abs.$font-size-base;
-  color: abs.$color-text-light;
+  color: var(--color-text-muted);
 }
 
 /* #region RESPONSIVE */

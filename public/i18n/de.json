@@ -1,21 +1,10 @@
 {
   "nav": {
-    "home": "Home",
     "about": "Über",
     "projects": "Arbeit",
     "skills": "Stack",
     "contact": "Kontakt",
     "theme": "Farbschema umschalten"
-  },
-  "stats": {
-    "commits": "2026 Commits",
-    "prs": "2026 Pull Requests",
-    "projects": "Projekte insgesamt",
-    "language": "Beliebteste Sprache",
-    "commits_back": "Über alle Repositories",
-    "prs_back": "Reviewed & gemerged",
-    "projects_back": "Live & in Arbeit",
-    "language_back": "Mein täglicher Stack"
   },
   "hero": {
     "eyebrow": "Fullstack-Entwickler in Ausbildung · Emden",
@@ -54,7 +43,6 @@
       "stat1_lbl": "Drag & Drop",
       "stat2_lbl": "Volle Aufgaben-Logik",
       "stat3_lbl": "Kontakte & Zuweisung",
-      "subtitle": "Developer Akademie Gruppenarbeit",
       "description": "Auf dem Kanban-System basierender Aufgabenmanager. Erstellen und organisieren Sie Aufgaben mit Drag-and-Drop-Funktionen, weisen Sie Benutzer und Kategorien zu.",
       "learnings": "Dieses Gruppenprojekt hat mir gezeigt, wie wichtig strukturierte Aufgabenverteilung und klare Absprachen über Git sind. Die größte Herausforderung war die fehlerfreie Synchronisation des Kanban-Boards.",
       "umsetzung": "Dieses Projekt ist mein kommendes Highlight. Es wird aktuell als umfangreiche Gruppenarbeit entwickelt und wird bald hier in vollem Umfang zu finden sein.",
@@ -67,7 +55,6 @@
       "stat1_lbl": "Echtzeit-Sync",
       "stat2_lbl": "Login & Profile",
       "stat3_lbl": "Channels & Threads",
-      "subtitle": "Developer Akademie Gruppenarbeit",
       "description": "Ein interaktiver Echtzeit-Team-Chat im Stil von Slack. Ermöglicht schnelle und strukturierte Kommunikation in Channels, Direktnachrichten und Threads.",
       "learnings": "Da das Projekt für vier Personen ausgelegt war, wir aber nur zu zweit gearbeitet haben, haben wir KI-Tools aktiv integriert. Zudem wurden optionale Features wie Push-Benachrichtigungen und individuelle Chat-Löschvorgänge implementiert.",
       "umsetzung": "Umgesetzt mit Angular und Supabase as Backend. Echtzeit-Synchronisation über Channels, Threads und Direktnachrichten inklusive Authentifizierung.",
@@ -80,7 +67,6 @@
       "stat1_lbl": "Objektorientiert",
       "stat2_lbl": "Eigene Game-Loop",
       "stat3_lbl": "Sound & Kollision",
-      "subtitle": "Jump 'n' Run Spiel",
       "description": "Ein Lauf- und Wurfspiel, das auf einem objektorientierten Ansatz basiert. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen die verrückte Henne zu kämpfen.",
       "learnings": "Mein erstes größeres objektorientiertes JavaScript-Spiel. Hier habe ich gelernt, wie man eine eigene Physik-Engine und Game-Loops strukturiert und Performance-Probleme löst.",
       "umsetzung": "Vollständig objektorientiert in Vanilla JavaScript umgesetzt. Eigene Game-Loop, Kollisionserkennung und Sound-Management ganz ohne Framework.",
@@ -89,7 +75,6 @@
     },
     "pokedex": {
       "name": "Pokedex",
-      "subtitle": "Pokémon Enzyklopädie",
       "description": "Eine einfache Bibliothek basierend auf der PokeAPI, um deine Lieblings-Pokemon mit all ihren Werten zu finden und anzuzeigen.",
       "learnings": "Dieses Projekt half mir, den sicheren Umgang mit REST-APIs, asynchronen Funktionen und JSON-Datenstrukturen zu festigen. Wichtig war hierbei die Optimierung der Ladezeiten bei API-Anfragen.",
       "umsetzung": "Anbindung der PokeAPI über asynchrone Fetch-Aufrufe. Mit Such- und Filterfunktion sowie einer Detailansicht je Pokémon.",
@@ -98,7 +83,6 @@
     },
     "portfolio": {
       "name": "Portfolio",
-      "subtitle": "Projektarbeit Portfolio",
       "description": "Erfolgreiche Umsetzung eines modernen Figma-Designs in eine performante Angular-Anwendung.",
       "learnings": "Dieses Portfolio spiegelt mein Verständnis von sauberem Code und modernem Frontend-Design wider. Die größte Herausforderung war die Performance-Optimierung und die Vielzahl an Animationen.",
       "umsetzung": "Modulare Single Page Application (SPA) entwickelt in Angular. Nutzung von modernem SCSS mit einer Vielzahl von individuellen CSS-Animationen und Keyframes für das Styling sowie TypeScript für eine robuste, typsichere Anwendungslogik.",
