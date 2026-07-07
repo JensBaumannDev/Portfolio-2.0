@@ -1,25 +1,12 @@
-<div class="skills-container">
-  <h2 class="skills-section-title" appReveal>{{ 'skills.title' | translate }}</h2>
-  <div class="skills-grid" appRevealStagger revealSelector=".skill-card">
-    @for (skill of skills; track skill.name; let i = $index) {
-      <div class="skill-card" (click)="toggleCard(i)">
-        <div class="card-inner" [class.flipped]="flippedStates()[i]">
-          <div class="card-front">
-            @if (skill.learning) {
-              <span class="skill-banner">{{ 'skills.learning' | translate }}</span>
-            }
-            <img class="skill-icon" [ngSrc]="'./img/skills/svgs/' + skill.icon + '.svg'" width="160" height="160" [alt]="skill.name" />
-            <span class="skill-name">{{ skill.name }}</span>
-          </div>
-          <div class="card-back">
-            @if (skill.learning) {
-              <span class="skill-banner">{{ 'skills.learning' | translate }}</span>
-            }
-            <img class="skill-icon" [ngSrc]="'./img/skills/svgs/' + skill.icon + '.svg'" width="160" height="160" [alt]="skill.name" />
-            <span class="skill-name">{{ skill.name }}</span>
-          </div>
-        </div>
-      </div>
-    }
-  </div>
+<div class="content-container skills-inner">
+  <article class="panel-card" appReveal>
+    <p class="card-eyebrow">{{ 'skills.eyebrow' | translate }}</p>
+    <h2 class="card-title">{{ 'skills.title' | translate }}</h2>
+
+    <ul class="stack-pills" appRevealStagger revealSelector=".stack-pill">
+      @for (skill of skills; track skill) {
+        <li class="stack-pill">{{ skill }}</li>
+      }
+    </ul>
+  </article>
 </div>

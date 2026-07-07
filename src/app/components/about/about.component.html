@@ -1,160 +1,36 @@
-<div class="about-container">
-  <div class="content-container">
-    <h2 class="about-section-title" appReveal>{{ 'about.title' | translate }}</h2>
-    <div class="metro-grid" [class.collapsed]="!isExpanded()" appRevealStagger revealSelector=".fact-card">
-      <div class="fact-card tile-image">
-        <div class="image-rotator">
-          @for (img of images; track img; let i = $index) {
-            <img [ngSrc]="img" fill alt="Jens Baumann Profile" class="tile-img" [class.is-active]="activeIndex() === i" />
-          }
-        </div>
+<div class="content-container about-inner">
+  <article class="panel-card" appReveal>
+    <p class="card-eyebrow">{{ 'about.eyebrow' | translate }}</p>
+    <h2 class="card-title">{{ 'about.title' | translate }}</h2>
+    <p class="card-text">{{ 'about.text' | translate }}</p>
+    <a routerLink="/cv" class="arrow-link about-link">
+      {{ 'about.link' | translate }}
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </article>
+
+  <div class="path-band" appReveal>
+    <p class="card-eyebrow band-eyebrow">{{ 'about.path_eyebrow' | translate }}</p>
+    <h2 class="band-title">{{ 'about.path_title' | translate }}</h2>
+
+    <div class="path-grid" appRevealStagger revealSelector=".path-item">
+      <div class="path-item">
+        <h3 class="path-item-title">{{ 'about.path1_title' | translate }}</h3>
+        <p class="path-item-sub">{{ 'about.path1_sub' | translate }}</p>
       </div>
-      <div class="fact-card tile-fact" (click)="toggleCard(1)">
-        <div class="card-inner" [class.flipped]="flippedStates()[1]">
-          <div class="card-front">
-            <div class="tile-icon-wrapper">
-              <ng-icon name="lucideBriefcase" size="32px" class="tile-icon"></ng-icon>
-            </div>
-            <div class="tile-front-content">
-              <span class="tile-cat">{{ 'about.facts.role_label' | translate }}</span>
-              <span class="tile-val">{{ 'about.facts.role_val' | translate }}</span>
-              <span class="tile-rule"></span>
-            </div>
-          </div>
-          <div class="card-back">
-            <span class="fact-label">{{ 'about.facts.role_label' | translate }}</span>
-            <span class="fact-subvalue">{{ 'about.facts.role_back' | translate }}</span>
-          </div>
-        </div>
+      <div class="path-item">
+        <h3 class="path-item-title">{{ 'about.path2_title' | translate }}</h3>
+        <p class="path-item-sub">{{ 'about.path2_sub' | translate }}</p>
       </div>
-      <div class="fact-card tile-bio" (click)="toggleCard(2)">
-        <div class="card-inner" [class.flipped]="flippedStates()[2]">
-          <div class="card-front">
-            <div class="tile-icon-wrapper">
-              <ng-icon name="lucideInfo" size="32px" class="tile-icon"></ng-icon>
-            </div>
-            <div class="tile-front-content">
-              <span class="tile-val">{{ 'about.facts.bio1_front' | translate }}</span>
-              <span class="tile-rule"></span>
-            </div>
-          </div>
-          <div class="card-back">
-            <p class="about-paragraph">{{ 'about.p1' | translate }}</p>
-          </div>
-        </div>
-      </div>
-      <div class="fact-card tile-fact" (click)="toggleCard(3)">
-        <div class="card-inner" [class.flipped]="flippedStates()[3]">
-          <div class="card-front">
-            <div class="tile-icon-wrapper">
-              <ng-icon name="lucideMapPin" size="32px" class="tile-icon"></ng-icon>
-            </div>
-            <div class="tile-front-content">
-              <span class="tile-cat">{{ 'about.facts.loc_label' | translate }}</span>
-              <span class="tile-val">{{ 'about.facts.loc_val' | translate }}</span>
-              <span class="tile-rule"></span>
-            </div>
-          </div>
-          <div class="card-back">
-            <span class="fact-label">{{ 'about.facts.loc_label' | translate }}</span>
-            <span class="fact-subvalue">{{ 'about.facts.loc_back' | translate }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="fact-card tile-bio" (click)="toggleCard(4)">
-        <div class="card-inner" [class.flipped]="flippedStates()[4]">
-          <div class="card-front">
-            <div class="tile-icon-wrapper">
-              <ng-icon name="lucideTerminal" size="32px" class="tile-icon"></ng-icon>
-            </div>
-            <div class="tile-front-content">
-              <span class="tile-val">{{ 'about.facts.bio2_front' | translate }}</span>
-              <span class="tile-rule"></span>
-            </div>
-          </div>
-          <div class="card-back">
-            <p class="about-paragraph">{{ 'about.p2' | translate }}</p>
-          </div>
-        </div>
-      </div>
-      <div class="fact-card tile-fact" (click)="toggleCard(5)">
-        <div class="card-inner" [class.flipped]="flippedStates()[5]">
-          <div class="card-front">
-            <div class="tile-icon-wrapper">
-              <ng-icon name="lucideAward" size="32px" class="tile-icon"></ng-icon>
-            </div>
-            <div class="tile-front-content">
-              <span class="tile-cat">{{ 'about.facts.exp_label' | translate }}</span>
-              <span class="tile-val">{{ 'about.facts.exp_val' | translate }}</span>
-              <span class="tile-rule"></span>
-            </div>
-          </div>
-          <div class="card-back">
-            <span class="fact-label">{{ 'about.facts.exp_label' | translate }}</span>
-            <span class="fact-subvalue">{{ 'about.facts.exp_back' | translate }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="fact-card tile-fact" (click)="toggleCard(6)">
-        <div class="card-inner" [class.flipped]="flippedStates()[6]">
-          <div class="card-front">
-            <div class="tile-icon-wrapper">
-              <ng-icon name="lucideHammer" size="32px" class="tile-icon"></ng-icon>
-            </div>
-            <div class="tile-front-content">
-              <span class="tile-cat">{{ 'about.facts.fun_label' | translate }}</span>
-              <span class="tile-val">{{ 'about.facts.fun_val' | translate }}</span>
-              <span class="tile-rule"></span>
-            </div>
-          </div>
-          <div class="card-back">
-            <span class="fact-label">{{ 'about.facts.fun_label' | translate }}</span>
-            <span class="fact-subvalue">{{ 'about.facts.fun_back' | translate }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="fact-card tile-fact" (click)="toggleCard(7)">
-        <div class="card-inner" [class.flipped]="flippedStates()[7]">
-          <div class="card-front">
-            <div class="tile-icon-wrapper">
-              <ng-icon name="lucideGlobe" size="32px" class="tile-icon"></ng-icon>
-            </div>
-            <div class="tile-front-content">
-              <span class="tile-cat">{{ 'about.facts.lang_label' | translate }}</span>
-              <span class="tile-val">{{ 'about.facts.lang_val' | translate }}</span>
-              <span class="tile-rule"></span>
-            </div>
-          </div>
-          <div class="card-back">
-            <span class="fact-label">{{ 'about.facts.lang_label' | translate }}</span>
-            <span class="fact-subvalue">{{ 'about.facts.lang_back' | translate }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="fact-card tile-fact" (click)="toggleCard(8)">
-        <div class="card-inner" [class.flipped]="flippedStates()[8]">
-          <div class="card-front">
-            <div class="tile-icon-wrapper">
-              <ng-icon name="lucideSparkles" size="32px" class="tile-icon"></ng-icon>
-            </div>
-            <div class="tile-front-content">
-              <span class="tile-cat">{{ 'about.facts.int_label' | translate }}</span>
-              <span class="tile-val">{{ 'about.facts.int_val' | translate }}</span>
-              <span class="tile-rule"></span>
-            </div>
-          </div>
-          <div class="card-back">
-            <span class="fact-label">{{ 'about.facts.int_label' | translate }}</span>
-            <span class="fact-subvalue">{{ 'about.facts.int_back' | translate }}</span>
-          </div>
-        </div>
+      <div class="path-item">
+        <h3 class="path-item-title">{{ 'about.path3_title' | translate }}</h3>
+        <p class="path-item-sub">{{ 'about.path3_sub' | translate }}</p>
       </div>
     </div>
-    <div class="expand-toggle-wrapper">
-      <button class="expand-toggle-btn" (click)="toggleExpand()">
-        <span class="toggle-text">{{ (isExpanded() ? 'about.less_about_me' : 'about.more_about_me') | translate }}</span>
-        <ng-icon [name]="isExpanded() ? 'lucideChevronUp' : 'lucideChevronDown'" size="24px" class="toggle-icon"></ng-icon>
-      </button>
-    </div>
+
+    <a routerLink="/cv" class="arrow-link band-link">
+      {{ 'about.path_link' | translate }}
+      <span aria-hidden="true">&rarr;</span>
+    </a>
   </div>
 </div>
