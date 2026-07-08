@@ -23,7 +23,7 @@
 .path-band {
   background-color: abs.$color-bg-dark-1;
   border: 1px solid var(--color-border);
-  border-radius: abs.rem(16);
+  border-radius: abs.$radius-lg;
   padding: abs.rem(64) abs.rem(48);
 }
 
@@ -85,7 +85,7 @@
 .skill-tag {
   padding: abs.rem(6) abs.rem(16);
   border: 1px solid var(--color-border);
-  border-radius: abs.rem(8);
+  border-radius: abs.$radius-sm;
   font-family: abs.$font-family-mono;
   font-size: abs.$font-size-base;
   color: var(--color-text);

@@ -220,7 +220,7 @@
     color: var(--color-text);
     border: 1px solid var(--color-border);
     padding: abs.rem(8) abs.rem(14);
-    border-radius: abs.rem(8);
+    border-radius: abs.$radius-sm;
     text-transform: uppercase;
     letter-spacing: abs.rem(0.5);
   }

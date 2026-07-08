@@ -1,5 +1,9 @@
 <section class="hero">
   <div class="content-container hero-inner">
+    <p class="hero-status">
+      <span class="status-dot" aria-hidden="true"></span>
+      {{ 'hero.status' | translate }}
+    </p>
     <p class="hero-eyebrow">{{ 'hero.eyebrow' | translate }}</p>
     <h1 class="hero-title">{{ 'hero.title' | translate }}</h1>
     <p class="hero-subtitle">{{ 'hero.subtitle' | translate }}</p>
@@ -14,7 +18,7 @@
 
     <div class="hero-media">
       <img ngSrc="/img/hero/hero_bg.webp" fill priority [alt]="'hero.image_alt' | translate" class="hero-bg-img" />
-      <img ngSrc="/img/hero/Logo-Photoroom.png" width="280" height="280" [alt]="'hero.profile_alt' | translate" class="hero-profile-img" />
+      <img ngSrc="/img/hero/profile.png" width="280" height="280" [alt]="'hero.profile_alt' | translate" class="hero-profile-img" />
 
       <div class="hero-socials">
         <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="hero-social-link" aria-label="GitHub">
@@ -31,5 +35,7 @@
         </a>
       </div>
     </div>
+
+    <p class="hero-caption">{{ 'hero.location_caption' | translate }}</p>
   </div>
 </section>

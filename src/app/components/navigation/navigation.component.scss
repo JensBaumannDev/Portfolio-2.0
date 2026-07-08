@@ -43,7 +43,7 @@
   @include abs.flex(row, nowrap, center, center);
   width: abs.rem(36);
   height: abs.rem(36);
-  border-radius: abs.rem(8);
+  border-radius: abs.$radius-sm;
   background-color: var(--color-bg-inverse);
   color: var(--color-text-inverse);
   font-weight: abs.$font-weight-heading;
@@ -89,7 +89,7 @@
   @include abs.flex(row, nowrap, center, center);
   width: abs.rem(40);
   height: abs.rem(40);
-  border-radius: abs.rem(8);
+  border-radius: abs.$radius-sm;
   border: 1px solid var(--color-border);
   background-color: transparent;
   color: var(--color-text);

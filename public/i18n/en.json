@@ -7,13 +7,15 @@
     "theme": "Toggle color scheme"
   },
   "hero": {
+    "status": "Available from Q4 2026",
     "eyebrow": "Fullstack developer in training · Emden",
     "title": "Builds the whole thing.",
     "subtitle": "Career changer, midway through a 12-month fullstack program. These are the projects where I learn the craft — from database to pixel.",
     "cta_projects": "View projects",
     "cta_cv": "CV",
-    "image_alt": "Jens Baumann at his workspace",
-    "profile_alt": "Profile picture of Jens Baumann"
+    "image_alt": "The North Sea near Emden",
+    "profile_alt": "Profile picture of Jens Baumann",
+    "location_caption": "Emden, East Frisia — working remote from here"
   },
   "about": {
     "eyebrow": "About me",

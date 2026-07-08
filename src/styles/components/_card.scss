@@ -3,7 +3,7 @@
 .panel-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: abs.rem(16);
+  border-radius: abs.$radius-lg;
   padding: abs.rem(48);
 }
 

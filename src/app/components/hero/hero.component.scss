@@ -10,6 +10,40 @@
   margin: 0 auto;
 }
 
+.hero-status {
+  @include abs.flex(row, nowrap, flex-start, center);
+  gap: abs.rem(10);
+  margin: 0 0 abs.rem(24);
+  padding: abs.rem(6) abs.rem(16);
+  border: 1px solid var(--color-border);
+  border-radius: abs.$radius-sm;
+  font-family: abs.$font-family-mono;
+  font-size: abs.$font-size-base;
+  text-transform: uppercase;
+  letter-spacing: abs.rem(1.5);
+  color: var(--color-text-secondary);
+}
+
+.status-dot {
+  width: abs.rem(8);
+  height: abs.rem(8);
+  border-radius: 50%;
+  background-color: abs.$color-available;
+  animation: status-pulse 2.4s ease-out infinite;
+}
+
+@keyframes status-pulse {
+  0% {
+    box-shadow: 0 0 0 0 abs.$color-available-fade;
+  }
+  70% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
 .hero-eyebrow {
   margin: 0;
   font-family: abs.$font-family-mono;
@@ -48,10 +82,10 @@
   width: 100%;
   aspect-ratio: 16 / 7;
   margin-top: abs.rem(80);
-  border-radius: abs.rem(16);
+  border-radius: abs.$radius-lg;
 
   .hero-bg-img {
-    border-radius: abs.rem(16);
+    border-radius: abs.$radius-lg;
     object-fit: cover;
   }
 
@@ -64,7 +98,7 @@
     transform: none;
     width: abs.rem(220);
     height: abs.rem(220);
-    border-radius: abs.rem(16);
+    border-radius: abs.$radius-lg;
     
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -134,8 +168,26 @@
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: abs.rem(4) abs.rem(12);
-    border-radius: abs.rem(32);
+    border-radius: abs.$radius-sm;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.hero-caption {
+  @include abs.flex(row, nowrap, flex-start, center);
+  gap: abs.rem(12);
+  margin: abs.rem(16) 0 0;
+  font-family: abs.$font-family-mono;
+  font-size: abs.$font-size-base;
+  text-transform: uppercase;
+  letter-spacing: abs.rem(1.5);
+  color: var(--color-text-muted);
+
+  &::before {
+    content: '';
+    width: abs.rem(24);
+    height: 2px;
+    background-color: abs.$color-accent;
   }
 }
 
@@ -194,6 +246,12 @@
         }
       }
     }
+  }
+
+  .hero-caption {
+    @include abs.flex(row, nowrap, center, center);
+    margin-top: abs.rem(64);
+    align-self: center;
   }
 }
 /* #endregion */

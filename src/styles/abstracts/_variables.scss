@@ -8,11 +8,17 @@ $z-index-base: 1;
 $z-index-header-sidebar: 100;
 $z-index-dialog: 110;
 
+$radius-sm: fn.rem(5);
+$radius-md: fn.rem(12);
+$radius-lg: fn.rem(16);
+
 $color-black: #000000;
 $color-white: #ffffff;
 $color-button-bg: #141414;
 
 $color-error: #d32f2f;
+$color-available: #16a34a;
+$color-available-fade: rgba(22, 163, 74, 0.4);
 
 $color-accent: #e8482b;
 $color-accent-dark: #e8482b;

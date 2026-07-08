@@ -7,13 +7,15 @@
     "theme": "Farbschema umschalten"
   },
   "hero": {
+    "status": "Verfügbar ab Q4 2026",
     "eyebrow": "Fullstack-Entwickler in Fortbildung · Emden",
     "title": "Baut das ganze Ding.",
     "subtitle": "Quereinsteiger, mitten in einer 12-monatigen Fullstack-Fortbildung. Hier die Projekte, an denen ich das Handwerk lerne — von der Datenbank bis zum Pixel.",
     "cta_projects": "Projekte ansehen",
     "cta_cv": "Lebenslauf",
-    "image_alt": "Jens Baumann an seinem Arbeitsplatz",
-    "profile_alt": "Profilbild von Jens Baumann"
+    "image_alt": "Die Nordsee bei Emden",
+    "profile_alt": "Profilbild von Jens Baumann",
+    "location_caption": "Emden, Ostfriesland — von hier aus remote"
   },
   "about": {
     "eyebrow": "Über mich",
