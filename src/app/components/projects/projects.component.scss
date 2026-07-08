@@ -45,7 +45,7 @@
   }
 
   .featured-dark & {
-    color: abs.$color-accent;
+    color: abs.$color-accent-dark-text;
   }
 }
 
@@ -100,6 +100,10 @@
   text-transform: uppercase;
   letter-spacing: abs.rem(1.5);
   color: var(--color-text-muted);
+
+  .featured-dark & {
+    color: abs.$color-text-dark-muted;
+  }
 }
 
 .featured-media {
@@ -127,6 +131,10 @@
   text-transform: uppercase;
   letter-spacing: abs.rem(1.5);
   color: var(--color-text-muted);
+
+  .featured-dark & {
+    color: abs.$color-text-dark-muted;
+  }
 }
 
 .featured-links {
@@ -142,7 +150,7 @@
   cursor: pointer;
 
   .featured-dark & {
-    color: abs.$color-accent;
+    color: abs.$color-accent-dark-text;
   }
 }
 

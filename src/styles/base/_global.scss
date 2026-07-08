@@ -23,10 +23,10 @@
   --color-bg-inverse: #{abs.$color-bg-light-2};
   --color-text: #{abs.$color-text-dark-primary};
   --color-text-secondary: #{abs.$color-text-dark-secondary};
-  --color-text-muted: #{abs.$color-text-muted};
+  --color-text-muted: #{abs.$color-text-dark-muted};
   --color-text-inverse: #{abs.$color-text-primary};
   --color-accent: #{abs.$color-accent-dark};
-  --color-accent-text: #{abs.$color-accent-dark};
+  --color-accent-text: #{abs.$color-accent-dark-text};
   --color-border: #{abs.$color-border-dark};
 }
 
