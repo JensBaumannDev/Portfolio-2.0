@@ -2,7 +2,7 @@
 
 .hero {
   background-color: var(--color-bg);
-  padding: abs.rem(160) 0 abs.rem(96);
+  padding: abs.rem(120) 0 abs.rem(96);
 }
 
 .hero-inner {
@@ -81,7 +81,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 7;
-  margin-top: abs.rem(80);
+  margin-top: abs.rem(48);
   border-radius: abs.$radius-lg;
 
   .hero-bg-img {
