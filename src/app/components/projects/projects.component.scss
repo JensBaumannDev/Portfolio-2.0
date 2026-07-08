@@ -177,7 +177,7 @@
 
 .more-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: abs.rem(32);
   margin-top: abs.rem(48);
 }
@@ -188,6 +188,7 @@
   border-radius: abs.$radius-sm;
   border: 1px solid var(--color-border);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 0;
 
   &:hover {
     transform: translateY(-6px);
@@ -216,6 +217,7 @@
 .more-card-body {
   @include abs.flex(column, nowrap, flex-start, stretch);
   padding: abs.rem(32);
+  min-width: 0;
 }
 
 .more-card-trigger {
@@ -226,6 +228,7 @@
   padding: 0;
   cursor: pointer;
   text-align: left;
+  width: 100%;
 
   &:hover .more-card-arrow {
     transform: translateX(4px);
@@ -242,12 +245,15 @@
   font-weight: abs.$font-weight-heading;
   letter-spacing: abs.rem(-0.5);
   color: var(--color-text);
+  flex: 1 1 auto;
+  word-break: break-word;
 }
 
 .more-card-arrow {
   font-size: abs.$font-size-xl;
   color: var(--color-accent-text);
   transition: transform 0.2s ease;
+  flex: 0 0 auto;
 }
 
 .more-card-desc {
@@ -255,6 +261,9 @@
   font-size: abs.$font-size-md;
   line-height: 1.5;
   color: var(--color-text-secondary);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .more-card-tech {
@@ -264,6 +273,9 @@
   text-transform: uppercase;
   letter-spacing: abs.rem(1);
   color: var(--color-text-muted);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .more-cta {
@@ -313,7 +325,7 @@
   }
 
   .more-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: abs.rem(24);
   }
 
