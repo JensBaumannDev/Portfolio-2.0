@@ -293,13 +293,33 @@
     font-size: abs.$font-size-h1;
   }
 
+  .featured-inner {
+    @include abs.flex(column, nowrap, flex-start, stretch);
+  }
+
+  .featured-eyebrow {
+    letter-spacing: abs.rem(1);
+
+    &::before {
+      display: none;
+    }
+  }
+
   .featured-stats {
-    gap: abs.rem(32);
+    @include abs.flex(column, nowrap, flex-start, stretch);
+    gap: abs.rem(16);
     margin-top: abs.rem(40);
+    order: 1;
+  }
+
+  .featured-stat {
+    @include abs.flex(row, nowrap, flex-start, baseline);
+    gap: abs.rem(16);
   }
 
   .featured-stat-value {
-    font-size: abs.$font-size-h2;
+    font-size: abs.$font-size-h3;
+    min-width: abs.rem(80);
   }
 
   .featured-media {
@@ -309,11 +329,13 @@
 
   .featured-footer {
     @include abs.flex(column, nowrap, flex-start, flex-start);
+    gap: abs.rem(24);
+    order: 2;
   }
 
   .featured-links {
     @include abs.flex(column, nowrap, flex-start, flex-start);
-    gap: abs.rem(16);
+    gap: abs.rem(12);
   }
 
   .more-projects {
