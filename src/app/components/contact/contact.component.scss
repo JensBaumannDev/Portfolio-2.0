@@ -178,6 +178,16 @@
   color: var(--color-text);
 }
 
+.form-error {
+  font-weight: abs.$font-weight-medium;
+  color: abs.$color-error;
+
+  a {
+    color: abs.$color-error;
+    text-decoration: underline;
+  }
+}
+
 .form-submit {
   margin-left: auto;
 }

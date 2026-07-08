@@ -121,6 +121,7 @@
     "error_email": "Bitte gib eine gültige E-Mail-Adresse ein.",
     "error_message": "Bitte gib mindestens 4 Zeichen ein.",
     "error_privacy": "Bitte stimme der Datenschutzerklärung zu.",
+    "error_send": "Senden fehlgeschlagen — schreib mir gern direkt an",
     "success": "Vielen Dank! Deine Nachricht wurde gesendet.",
     "success_short": "Gesendet",
     "email_value": "info@jensbaumann.com"

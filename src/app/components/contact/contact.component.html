@@ -76,12 +76,17 @@
       </div>
       <span class="field-error" role="alert">
         @if (invalid('privacy')) { {{ 'contact.error_privacy' | translate }} }
-
       </span>
 
       <div class="form-footer">
         @if (sent()) {
           <span class="form-success" role="status">{{ 'contact.success' | translate }}</span>
+        }
+        @if (failed()) {
+          <span class="form-error" role="alert">
+            {{ 'contact.error_send' | translate }}
+            <a href="mailto:info@jensbaumann.com">info&#64;jensbaumann.com</a>
+          </span>
         }
         <button type="submit" class="button form-submit" [class.is-sent]="sent()" [disabled]="form.invalid || sending()">
           <ng-icon [name]="sent() ? 'lucideCheck' : 'lucideMail'" size="20px"></ng-icon>

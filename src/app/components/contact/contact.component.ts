@@ -21,6 +21,7 @@ export class Contact {
 
   protected readonly sent = signal(false);
   protected readonly sending = signal(false);
+  protected readonly failed = signal(false);
 
   protected readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(4)]],
@@ -36,6 +37,7 @@ export class Contact {
     }
 
     this.sending.set(true);
+    this.failed.set(false);
 
     this.http.post('send_mail.php', this.form.getRawValue()).subscribe({
       next: () => {
@@ -46,6 +48,7 @@ export class Contact {
       },
       error: () => {
         this.sending.set(false);
+        this.failed.set(true);
       }
     });
   }
