@@ -5,6 +5,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideMail, lucideCheck } from '@ng-icons/lucide';
 import { RevealStagger } from '../../directives/reveal-stagger.directive';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -16,8 +17,10 @@ import { RevealStagger } from '../../directives/reveal-stagger.directive';
 })
 export class Contact {
   private readonly fb = inject(FormBuilder);
+  private readonly http = inject(HttpClient);
 
   protected readonly sent = signal(false);
+  protected readonly sending = signal(false);
 
   protected readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(4)]],
@@ -27,15 +30,24 @@ export class Contact {
   });
 
   protected onSubmit(): void {
-    if (this.form.invalid) {
+    if (this.form.invalid || this.sending()) {
       this.form.markAllAsTouched();
       return;
     }
 
-    this.sent.set(true);
-    this.form.reset();
+    this.sending.set(true);
 
-    setTimeout(() => this.sent.set(false), 4000);
+    this.http.post('send_mail.php', this.form.getRawValue()).subscribe({
+      next: () => {
+        this.sent.set(true);
+        this.sending.set(false);
+        this.form.reset();
+        setTimeout(() => this.sent.set(false), 4000);
+      },
+      error: () => {
+        this.sending.set(false);
+      }
+    });
   }
 
   protected invalid(controlName: string): boolean {
