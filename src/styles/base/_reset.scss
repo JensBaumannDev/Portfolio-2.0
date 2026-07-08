@@ -75,6 +75,7 @@ button {
   outline-offset: 4px;
 }
 
+/* #region RESPONSIVE */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
@@ -89,3 +90,4 @@ button {
     scroll-behavior: auto;
   }
 }
+/* #endregion */

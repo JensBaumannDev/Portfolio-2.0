@@ -16,6 +16,7 @@
   filter: blur(0);
 }
 
+/* #region RESPONSIVE */
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     transition: none;
@@ -24,3 +25,4 @@
     filter: none;
   }
 }
+/* #endregion */

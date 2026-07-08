@@ -7,7 +7,6 @@ import { RevealStagger } from '../../directives/reveal-stagger.directive';
 
 export interface Project {
   key: string;
-  number: string;
   featured: boolean;
   statValues: string[];
   tags: string[];
@@ -28,7 +27,6 @@ export class Projects {
   protected readonly projects = signal<Project[]>([
     {
       key: 'dabubble',
-      number: '01',
       featured: true,
       statValues: ['RT', 'Auth', 'DM'],
       tags: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
@@ -39,7 +37,6 @@ export class Projects {
     },
     {
       key: 'join',
-      number: '02',
       featured: true,
       statValues: ['D&D', 'CRUD', 'Team'],
       tags: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
@@ -50,7 +47,6 @@ export class Projects {
     },
     {
       key: 'el_pollo_loco',
-      number: '03',
       featured: true,
       statValues: ['OOP', 'Loop', 'SFX'],
       tags: ['HTML', 'CSS', 'JavaScript'],
@@ -61,7 +57,6 @@ export class Projects {
     },
     {
       key: 'pokedex',
-      number: '04',
       featured: false,
       statValues: [],
       tags: ['HTML', 'CSS', 'JavaScript', 'API'],
@@ -72,7 +67,6 @@ export class Projects {
     },
     {
       key: 'portfolio',
-      number: '05',
       featured: false,
       statValues: [],
       tags: ['Angular', 'TypeScript', 'SCSS'],

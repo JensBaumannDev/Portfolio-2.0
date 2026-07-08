@@ -145,8 +145,6 @@
 
 .burger-btn {
   display: none;
-  flex-direction: column;
-  justify-content: center;
   gap: abs.rem(5);
   width: abs.rem(40);
   height: abs.rem(40);
@@ -246,7 +244,7 @@
   }
 
   .burger-btn {
-    display: flex;
+    @include abs.flex(column, nowrap, center, stretch);
   }
 
   .mobile-menu {

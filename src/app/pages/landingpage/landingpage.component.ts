@@ -8,7 +8,6 @@ import { Contact } from '../../components/contact/contact.component';
   selector: 'app-landingpage',
   imports: [Hero, About, Projects, Contact],
   templateUrl: './landingpage.component.html',
-  styleUrl: './landingpage.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Landingpage {}
