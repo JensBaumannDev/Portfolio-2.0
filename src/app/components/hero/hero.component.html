@@ -9,11 +9,27 @@
         {{ 'hero.cta_projects' | translate }}
         <span aria-hidden="true">&rarr;</span>
       </a>
-      <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="button button-outline">GitHub</a>
+      <a routerLink="/cv" class="button button-outline">{{ 'hero.cta_cv' | translate }}</a>
     </div>
 
     <div class="hero-media">
-      <img ngSrc="/img/hero/hero_bg.webp" fill priority [alt]="'hero.image_alt' | translate" />
+      <img ngSrc="/img/hero/hero_bg.webp" fill priority [alt]="'hero.image_alt' | translate" class="hero-bg-img" />
+      <img ngSrc="/img/hero/Logo-Photoroom.png" width="280" height="280" [alt]="'hero.profile_alt' | translate" class="hero-profile-img" />
+
+      <div class="hero-socials">
+        <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="hero-social-link" aria-label="GitHub">
+          <ng-icon name="lucideGithub" class="icon-github"></ng-icon>
+          <span class="social-label">GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener" class="hero-social-link" aria-label="LinkedIn">
+          <ng-icon name="lucideLinkedin" class="icon-linkedin"></ng-icon>
+          <span class="social-label">LinkedIn</span>
+        </a>
+        <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener" class="hero-social-link" aria-label="YouTube">
+          <ng-icon name="lucideYoutube" class="icon-youtube"></ng-icon>
+          <span class="social-label">YouTube</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>

@@ -14,15 +14,15 @@ import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { lucideSun, lucideMoon } from '@ng-icons/lucide';
+import { lucideSun, lucideMoon, lucideMonitor } from '@ng-icons/lucide';
 import { ThemeService } from '../../services/theme.service';
 
-const SECTION_IDS = ['home', 'projects', 'about', 'skills', 'contact'];
+const SECTION_IDS = ['home', 'projects', 'about', 'contact'];
 
 @Component({
   selector: 'app-navigation',
   imports: [TranslatePipe, NgIconComponent],
-  providers: [provideIcons({ lucideSun, lucideMoon })],
+  providers: [provideIcons({ lucideSun, lucideMoon, lucideMonitor })],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -48,7 +48,7 @@ export class Navigation implements OnInit, OnDestroy {
   protected readonly currentActiveSection = computed(
     () => this.forceActive() ?? (this.isLandingPage() ? this.activeSection() : '')
   );
-  protected readonly isDark = computed(() => this.themeService.theme() === 'dark');
+  protected readonly themeMode = this.themeService.mode;
 
   ngOnInit(): void {
     this.checkRoute();

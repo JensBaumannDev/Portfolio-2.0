@@ -26,8 +26,11 @@
 }
 
 .contact-title {
-  margin: abs.rem(24) 0 0;
-  font-size: abs.$font-size-display;
+  margin: abs.rem(16) 0 0;
+  font-size: clamp(#{abs.rem(48)}, 8vw, #{abs.rem(105)});
+  font-weight: abs.$font-weight-heading;
+  letter-spacing: abs.rem(-2);
+  line-height: 1;
   color: abs.$color-white;
 }
 
@@ -51,9 +54,9 @@
   color: abs.$color-white;
 
   &:hover {
-    background-color: abs.$color-black;
-    border-color: abs.$color-black;
-    color: abs.$color-white;
+    background-color: abs.$color-white;
+    border-color: abs.$color-white;
+    color: abs.$color-button-bg;
   }
 }
 
@@ -62,9 +65,8 @@
   color: abs.$color-text-primary;
 
   &:hover {
-    border-color: abs.$color-black;
-    color: abs.$color-black;
-    background-color: transparent;
+    border-color: abs.$color-white;
+    color: abs.$color-white;
   }
 }
 
@@ -120,8 +122,8 @@
 }
 
 .field-textarea {
-  resize: vertical;
-  min-height: abs.rem(96);
+  resize: none;
+  min-height: abs.rem(160);
 }
 
 .field-error {
@@ -189,6 +191,8 @@
 
   .contact-title {
     font-size: abs.$font-size-display-sm;
+    word-break: break-word;
+    hyphens: auto;
   }
 
   .contact-form {

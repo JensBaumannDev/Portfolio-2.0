@@ -4,8 +4,6 @@
   @for (project of featuredProjects(); track project.key; let i = $index) {
     <article class="featured" [class.featured-dark]="i % 2 === 0">
       <div class="content-container featured-inner" appReveal>
-        <span class="featured-number" aria-hidden="true">{{ project.number }}</span>
-
         <p class="featured-eyebrow">{{ 'projects.' + project.key + '.eyebrow' | translate }}</p>
         <h3 class="featured-title">{{ 'projects.' + project.key + '.name' | translate }}</h3>
         <p class="featured-desc">{{ 'projects.' + project.key + '.description' | translate }}</p>
@@ -52,7 +50,6 @@
       @for (project of moreProjects(); track project.key) {
         <article class="more-card">
           <div class="more-card-media">
-            <span class="more-card-number">{{ project.number }}</span>
             <img [ngSrc]="project.image" fill [alt]="project.imageAlt" />
           </div>
           <div class="more-card-body">

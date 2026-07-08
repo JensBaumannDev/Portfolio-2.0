@@ -11,4 +11,15 @@ import { RevealStagger } from '../../directives/reveal-stagger.directive';
   styleUrl: './about.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class About {}
+export class About {
+  frontendSkills = [
+    'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Angular',
+    'Supabase', 'Git', 'REST-API', 'Scrum', 'Material Design'
+  ];
+
+  learningSkills = [
+    'Linux', 'Terminal', 'Python', 'Django',
+    'SQLite', 'Redis', 'PostgreSQL',
+    'Docker', 'Cloud', 'Heroku'
+  ];
+}

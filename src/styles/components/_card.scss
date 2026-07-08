@@ -51,3 +51,15 @@
     outline-offset: 4px;
   }
 }
+
+/* #region RESPONSIVE */
+@include abs.mobile {
+  .panel-card {
+    padding: abs.rem(24);
+  }
+
+  .card-title {
+    font-size: abs.$font-size-h2;
+  }
+}
+/* #endregion */

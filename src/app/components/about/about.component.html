@@ -1,13 +1,37 @@
 <div class="content-container about-inner">
-  <article class="panel-card" appReveal>
-    <p class="card-eyebrow">{{ 'about.eyebrow' | translate }}</p>
-    <h2 class="card-title">{{ 'about.title' | translate }}</h2>
-    <p class="card-text">{{ 'about.text' | translate }}</p>
-    <a routerLink="/cv" class="arrow-link about-link">
-      {{ 'about.link' | translate }}
-      <span aria-hidden="true">&rarr;</span>
-    </a>
-  </article>
+  <div class="about-top-row">
+    <article class="panel-card" appReveal>
+      <p class="card-eyebrow">{{ 'about.eyebrow' | translate }}</p>
+      <h2 class="card-title">{{ 'about.title' | translate }}</h2>
+      <p class="card-text">{{ 'about.text' | translate }}</p>
+      <a routerLink="/cv" class="arrow-link about-link">
+        {{ 'about.link' | translate }}
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+    </article>
+
+    <article class="panel-card" appReveal>
+      <p class="card-eyebrow">{{ 'skills.eyebrow' | translate }}</p>
+      <h2 class="card-title">{{ 'skills.title' | translate }}</h2>
+      <div class="skills-group">
+        <h3 class="skills-subtitle">{{ 'skills.frontend' | translate }}</h3>
+        <div class="skills-tags">
+          @for(skill of frontendSkills; track skill) {
+            <span class="skill-tag">{{ skill }}</span>
+          }
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <h3 class="skills-subtitle">{{ 'skills.learning' | translate }}</h3>
+        <div class="skills-tags">
+          @for(skill of learningSkills; track skill) {
+            <span class="skill-tag skill-learning">{{ skill }}</span>
+          }
+        </div>
+      </div>
+    </article>
+  </div>
 
   <div class="path-band" appReveal>
     <p class="card-eyebrow band-eyebrow">{{ 'about.path_eyebrow' | translate }}</p>
@@ -17,10 +41,6 @@
       <div class="path-item">
         <h3 class="path-item-title">{{ 'about.path1_title' | translate }}</h3>
         <p class="path-item-sub">{{ 'about.path1_sub' | translate }}</p>
-      </div>
-      <div class="path-item">
-        <h3 class="path-item-title">{{ 'about.path2_title' | translate }}</h3>
-        <p class="path-item-sub">{{ 'about.path2_sub' | translate }}</p>
       </div>
       <div class="path-item">
         <h3 class="path-item-title">{{ 'about.path3_title' | translate }}</h3>

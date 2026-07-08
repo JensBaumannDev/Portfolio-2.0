@@ -1,13 +1,20 @@
 <footer class="footer-container">
   <div class="content-container footer-inner">
-    <p class="footer-copyright">{{ 'footer.copyright' | translate }}</p>
+    <p class="footer-copyright">
+      <ng-icon name="lucideCopyright" size="1.1em"></ng-icon>
+      {{ 'footer.copyright' | translate }}
+    </p>
 
     <nav class="footer-links" aria-label="Footer">
-      <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="footer-link">GitHub</a>
-      <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
-      <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener" class="footer-link">YouTube</a>
-      <a routerLink="/legal-notice" class="footer-link">{{ 'footer.imprint' | translate }}</a>
-      <a routerLink="/privacy-policy" class="footer-link">{{ 'footer.privacy' | translate }}</a>
+      <div class="footer-link-group">
+        <a routerLink="/legal-notice" class="footer-link">{{ 'footer.imprint' | translate }}</a>
+        <a routerLink="/privacy-policy" class="footer-link">{{ 'footer.privacy' | translate }}</a>
+      </div>
+      <div class="footer-link-group footer-social-group">
+        <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+        <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener" class="footer-link">YouTube</a>
+      </div>
     </nav>
   </div>
 </footer>

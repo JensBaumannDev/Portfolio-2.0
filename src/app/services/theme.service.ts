@@ -1,35 +1,48 @@
 import { Injectable, effect, signal } from '@angular/core';
 
-export type Theme = 'light' | 'dark';
+export type ThemeMode = 'light' | 'dark' | 'system';
 
 const STORAGE_KEY = 'theme';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-  private readonly currentTheme = signal<Theme>(initialTheme());
+  private readonly currentMode = signal<ThemeMode>(initialThemeMode());
+  private readonly systemPrefersDark = signal<boolean>(window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-  readonly theme = this.currentTheme.asReadonly();
+  readonly mode = this.currentMode.asReadonly();
 
   constructor() {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      this.systemPrefersDark.set(e.matches);
+    });
+
     effect(() => {
-      document.documentElement.setAttribute('data-theme', this.currentTheme());
+      const mode = this.currentMode();
+      let effectiveTheme = mode;
+      if (mode === 'system') {
+        effectiveTheme = this.systemPrefersDark() ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', effectiveTheme);
     });
   }
 
   toggle(): void {
-    this.setTheme(this.currentTheme() === 'dark' ? 'light' : 'dark');
+    const current = this.currentMode();
+    if (current === 'light') this.setThemeMode('dark');
+    else if (current === 'dark') this.setThemeMode('system');
+    else this.setThemeMode('light');
   }
 
-  setTheme(theme: Theme): void {
-    this.currentTheme.set(theme);
-    localStorage.setItem(STORAGE_KEY, theme);
+  setThemeMode(mode: ThemeMode): void {
+    this.currentMode.set(mode);
+    localStorage.setItem(STORAGE_KEY, mode);
   }
 }
 
-function initialTheme(): Theme {
+function initialThemeMode(): ThemeMode {
   const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored === 'dark' || stored === 'light') {
-    return stored;
+  if (stored === 'dark' || stored === 'light' || stored === 'system') {
+    return stored as ThemeMode;
   }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return 'system';
 }

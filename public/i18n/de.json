@@ -1,17 +1,19 @@
 {
   "nav": {
+    "home": "Start",
     "about": "Über",
     "projects": "Arbeit",
-    "skills": "Stack",
     "contact": "Kontakt",
     "theme": "Farbschema umschalten"
   },
   "hero": {
-    "eyebrow": "Fullstack-Entwickler in Ausbildung · Emden",
+    "eyebrow": "Fullstack-Entwickler in Fortbildung · Emden",
     "title": "Baut das ganze Ding.",
     "subtitle": "Quereinsteiger, mitten in einer 12-monatigen Fullstack-Fortbildung. Hier die Projekte, an denen ich das Handwerk lerne — von der Datenbank bis zum Pixel.",
     "cta_projects": "Projekte ansehen",
-    "image_alt": "Jens Baumann an seinem Arbeitsplatz"
+    "cta_cv": "Lebenslauf",
+    "image_alt": "Jens Baumann an seinem Arbeitsplatz",
+    "profile_alt": "Profilbild von Jens Baumann"
   },
   "about": {
     "eyebrow": "Über mich",
@@ -22,15 +24,15 @@
     "path_title": "Vom Quereinstieg zum Code.",
     "path1_title": "Fullstack-Fortbildung",
     "path1_sub": "Developer Akademie · Vollzeit · 2025–26",
-    "path2_title": "Grundlagen im Selbststudium",
-    "path2_sub": "HTML · CSS · JS · 2024",
-    "path3_title": "Quereinstieg",
-    "path3_sub": "Zuvor 6 Jahre Abteilungsleiter Telekommunikation",
+    "path3_title": "Abteilungsleitung",
+    "path3_sub": "Expert Bening · 2011–2016",
     "path_link": "Ganzer Lebenslauf"
   },
   "skills": {
-    "eyebrow": "Der Stack",
-    "title": "Das lerne ich gerade."
+    "eyebrow": "Mein Stack",
+    "title": "Technologien & Fokus.",
+    "frontend": "Frontend (Abgeschlossen)",
+    "learning": "Backend & DevOps (Aktueller Fokus)"
   },
   "projects": {
     "title": "Projekte",
@@ -124,7 +126,7 @@
   "footer": {
     "imprint": "Impressum",
     "privacy": "Datenschutz",
-    "copyright": "© 2026 Jens Baumann"
+    "copyright": "2026 Jens Baumann"
   },
   "cv": {
     "back": "Zurück zur Startseite",
@@ -148,9 +150,9 @@
     "exp_lead_text": "Leitung der Abteilung Telekommunikation mit Verantwortung für Team, Beratung und Verkauf. Hier habe ich Kommunikationsstärke, Strukturiertheit und Lösungsorientierung entwickelt, die mir heute in der Entwicklung zugutekommen.",
     "education_title": "Ausbildung & Weiterbildung",
     "edu_da_range": "Nov 2025 – Nov 2026",
-    "edu_da_title": "Weiterbildung zum Fullstack-Entwickler",
+    "edu_da_title": "Fortbildung zum Fullstack-Entwickler",
     "edu_da_place": "Developer Akademie",
-    "edu_da_text": "Zwölfmonatige Intensiv-Weiterbildung in moderner Webentwicklung: die ersten sechs Monate mit Fokus auf Frontend (JavaScript, Angular, TypeScript), die zweiten sechs Monate auf Backend. Praxisnah anhand realer Projekte und Gruppenarbeiten.",
+    "edu_da_text": "12-monatige Fortbildung in moderner Webentwicklung an der Developer Akademie: Ich habe die ersten 6 Monate mit Fokus auf Frontend (JavaScript, Angular, TypeScript) erfolgreich abgeschlossen und habe nun mit dem Backend begonnen. Praxisnah anhand realer Projekte und Gruppenarbeiten.",
     "edu_telekom_range": "2007 – 2010",
     "edu_telekom_title": "Ausbildung Kaufmann im Einzelhandel",
     "edu_telekom_place": "Deutsche Telekom",

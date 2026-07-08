@@ -1,8 +1,8 @@
 {
   "nav": {
+    "home": "Home",
     "about": "About",
     "projects": "Work",
-    "skills": "Stack",
     "contact": "Contact",
     "theme": "Toggle color scheme"
   },
@@ -11,7 +11,9 @@
     "title": "Builds the whole thing.",
     "subtitle": "Career changer, midway through a 12-month fullstack program. These are the projects where I learn the craft — from database to pixel.",
     "cta_projects": "View projects",
-    "image_alt": "Jens Baumann at his workspace"
+    "cta_cv": "CV",
+    "image_alt": "Jens Baumann at his workspace",
+    "profile_alt": "Profile picture of Jens Baumann"
   },
   "about": {
     "eyebrow": "About me",
@@ -20,17 +22,17 @@
     "link": "More about me",
     "path_eyebrow": "My path",
     "path_title": "From career change to code.",
-    "path1_title": "Fullstack program",
-    "path1_sub": "Developer Akademie · full-time · 2025–26",
-    "path2_title": "Self-taught basics",
-    "path2_sub": "HTML · CSS · JS · 2024",
-    "path3_title": "Career change",
-    "path3_sub": "Previously 6 years head of telecommunications department",
+    "path1_title": "Fullstack Training",
+    "path1_sub": "Developer Akademie · Full-time · 2025–26",
+    "path3_title": "Head of Department",
+    "path3_sub": "Expert Bening · 2011–2016",
     "path_link": "Full CV"
   },
   "skills": {
-    "eyebrow": "The stack",
-    "title": "What I'm learning right now."
+    "eyebrow": "My Stack",
+    "title": "Technologies & Focus.",
+    "frontend": "Frontend (Proficient)",
+    "learning": "Backend & DevOps (Current Focus)"
   },
   "projects": {
     "title": "Projects",
@@ -124,7 +126,7 @@
   "footer": {
     "imprint": "Legal Notice",
     "privacy": "Privacy Policy",
-    "copyright": "© 2026 Jens Baumann"
+    "copyright": "2026 Jens Baumann"
   },
   "cv": {
     "back": "Back to home",
@@ -150,7 +152,7 @@
     "edu_da_range": "Nov 2025 – Nov 2026",
     "edu_da_title": "Fullstack Developer Training",
     "edu_da_place": "Developer Akademie",
-    "edu_da_text": "Twelve-month intensive training in modern web development: the first six months focused on frontend (JavaScript, Angular, TypeScript), the second six months on backend. Hands-on through real projects and group work.",
+    "edu_da_text": "12-month intensive training program in modern web development at the Developer Akademie: I have successfully completed the first 6 months focusing on frontend (JavaScript, Angular, TypeScript) and have now started with backend development. Practical learning through real-world projects and group work.",
     "edu_telekom_range": "2007 – 2010",
     "edu_telekom_title": "Apprenticeship as Retail Salesman",
     "edu_telekom_place": "Deutsche Telekom",
