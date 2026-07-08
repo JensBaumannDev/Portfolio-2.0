@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: https://jensbaumann.com");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
@@ -23,7 +23,7 @@ if (!$data) {
     exit;
 }
 
-$name = $data["name"] ?? "";
+$name = str_replace(["\r", "\n"], "", $data["name"] ?? "");
 $email = $data["email"] ?? "";
 $message = $data["message"] ?? "";
 $privacy = $data["privacy"] ?? false;
