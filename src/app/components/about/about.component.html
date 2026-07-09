@@ -4,6 +4,10 @@
       <p class="card-eyebrow">{{ 'about.eyebrow' | translate }}</p>
       <h2 class="card-title">{{ 'about.title' | translate }}</h2>
       <p class="card-text">{{ 'about.text' | translate }}</p>
+      <p class="about-location">
+        <ng-icon name="lucideMapPin" class="location-icon" aria-hidden="true"></ng-icon>
+        {{ 'about.location' | translate }}
+      </p>
       <a routerLink="/cv" class="arrow-link about-link">
         {{ 'about.link' | translate }}
         <span aria-hidden="true">&rarr;</span>
@@ -16,8 +20,15 @@
       <div class="skills-group">
         <h3 class="skills-subtitle">{{ 'skills.frontend' | translate }}</h3>
         <div class="skills-tags">
-          @for(skill of frontendSkills; track skill) {
-            <span class="skill-tag">{{ skill }}</span>
+          @for(skill of frontendSkills; track skill.label) {
+            <span class="skill-tag">
+              @if (skill.img) {
+                <img [ngSrc]="skill.img" width="18" height="18" alt="" class="skill-icon" [class.skill-icon-invert]="skill.invertOnDark" />
+              } @else if (skill.icon) {
+                <ng-icon [name]="skill.icon" class="skill-icon" aria-hidden="true"></ng-icon>
+              }
+              {{ skill.label }}
+            </span>
           }
         </div>
       </div>
@@ -25,8 +36,15 @@
       <div class="skills-group">
         <h3 class="skills-subtitle">{{ 'skills.learning' | translate }}</h3>
         <div class="skills-tags">
-          @for(skill of learningSkills; track skill) {
-            <span class="skill-tag skill-learning">{{ skill }}</span>
+          @for(skill of learningSkills; track skill.label) {
+            <span class="skill-tag skill-learning">
+              @if (skill.img) {
+                <img [ngSrc]="skill.img" width="18" height="18" alt="" class="skill-icon" [class.skill-icon-invert]="skill.invertOnDark" />
+              } @else if (skill.icon) {
+                <ng-icon [name]="skill.icon" class="skill-icon" aria-hidden="true"></ng-icon>
+              }
+              {{ skill.label }}
+            </span>
           }
         </div>
       </div>
