@@ -1,18 +1,18 @@
 <section class="hero">
   <div class="content-container hero-inner">
-    <p class="hero-status">
-      <span class="status-dot" aria-hidden="true"></span>
-      {{ 'hero.status' | translate }}
-    </p>
     <p class="hero-eyebrow">{{ 'hero.eyebrow' | translate }}</p>
     <h1 class="hero-title">{{ 'hero.title' | translate }}</h1>
-    <p class="hero-subtitle">{{ 'hero.subtitle' | translate }}</p>
+    <p class="hero-subtitle">
+      {{ 'hero.subtitle' | translate }}
+      <span class="subtitle-status">{{ 'hero.status' | translate }}.</span>
+    </p>
 
     <div class="hero-actions">
       <a href="#projects" class="button">
         {{ 'hero.cta_projects' | translate }}
         <span aria-hidden="true">&rarr;</span>
       </a>
+      <a href="#contact" class="button button-outline">{{ 'hero.cta_contact' | translate }}</a>
       <a routerLink="/cv" class="button button-outline">{{ 'hero.cta_cv' | translate }}</a>
     </div>
 
@@ -21,21 +21,19 @@
       <img ngSrc="/img/hero/profile.png" width="280" height="280" [alt]="'hero.profile_alt' | translate" class="hero-profile-img" />
 
       <div class="hero-socials">
-        <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="hero-social-link" aria-label="GitHub">
+        <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="button hero-social-link" aria-label="GitHub">
           <ng-icon name="lucideGithub" class="icon-github"></ng-icon>
           <span class="social-label">GitHub</span>
         </a>
-        <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener" class="hero-social-link" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener" class="button hero-social-link" aria-label="LinkedIn">
           <ng-icon name="lucideLinkedin" class="icon-linkedin"></ng-icon>
           <span class="social-label">LinkedIn</span>
         </a>
-        <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener" class="hero-social-link" aria-label="YouTube">
+        <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener" class="button hero-social-link" aria-label="YouTube">
           <ng-icon name="lucideYoutube" class="icon-youtube"></ng-icon>
           <span class="social-label">YouTube</span>
         </a>
       </div>
     </div>
-
-    <p class="hero-caption">{{ 'hero.location_caption' | translate }}</p>
   </div>
 </section>
