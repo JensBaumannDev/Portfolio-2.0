@@ -12,16 +12,17 @@
     "title": "I build the whole thing.",
     "subtitle": "Career changer with one goal: web applications that work from database to pixel — built on code that's still readable tomorrow. These are the projects along the way.",
     "cta_projects": "View projects",
+    "cta_contact": "Get in touch",
     "cta_cv": "CV",
     "image_alt": "The North Sea near Emden",
-    "profile_alt": "Profile picture of Jens Baumann",
-    "location_caption": "Emden, East Frisia — working remote from here"
+    "profile_alt": "Profile picture of Jens Baumann"
   },
   "about": {
     "eyebrow": "About me",
     "title": "Career changer with a plan.",
     "text": "After years in a different profession I'm switching deliberately: a 12-month full-time fullstack program. What drives me — building things that work, and understanding the whole journey from idea to deploy.",
     "link": "More about me",
+    "location": "Emden, East Frisia — working remote from here",
     "path_eyebrow": "My path",
     "path_title": "From career change to code.",
     "path1_title": "Fullstack Training",
@@ -177,7 +178,9 @@
     "liability_links_title": "Liability for links",
     "liability_links_text": "My website contains links to external third-party websites over whose content I have no influence. Therefore, I cannot accept any liability for this external content. The respective provider or operator of the linked pages is always responsible for their content. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognisable at the time of linking. However, permanent monitoring of the content of the linked pages is not reasonable without concrete evidence of an infringement. Upon becoming aware of legal violations, I will remove such links immediately.",
     "copyright_title": "Copyright",
-    "copyright_text": "The content and works created by the site operator on these pages are subject to German copyright law. Duplication, processing, distribution and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use. Insofar as the content on this site was not created by the operator, the copyrights of third parties are respected. Should you nevertheless become aware of a copyright infringement, please inform me accordingly. Upon becoming aware of legal violations, I will remove such content immediately."
+    "copyright_text": "The content and works created by the site operator on these pages are subject to German copyright law. Duplication, processing, distribution and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use. Insofar as the content on this site was not created by the operator, the copyrights of third parties are respected. Should you nevertheless become aware of a copyright infringement, please inform me accordingly. Upon becoming aware of legal violations, I will remove such content immediately.",
+    "credits_title": "Image credits",
+    "credits_text": "The Tux mascot was created by Larry Ewing using The GIMP (lewing@isc.tamu.edu). All other logos and trademarks shown are the property of their respective owners and are used solely to identify the respective technologies."
   },
   "privacy": {
     "back": "Back to home",

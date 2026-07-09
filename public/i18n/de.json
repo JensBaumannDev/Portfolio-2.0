@@ -12,16 +12,17 @@
     "title": "Ich baue das ganze Ding.",
     "subtitle": "Quereinsteiger mit einem Ziel: Webanwendungen, die von der Datenbank bis zum Pixel funktionieren — mit Code, der auch morgen noch lesbar ist. Das hier sind die Projekte auf dem Weg dahin.",
     "cta_projects": "Projekte ansehen",
+    "cta_contact": "Kontakt aufnehmen",
     "cta_cv": "Lebenslauf",
     "image_alt": "Die Nordsee bei Emden",
-    "profile_alt": "Profilbild von Jens Baumann",
-    "location_caption": "Emden, Ostfriesland — von hier aus remote"
+    "profile_alt": "Profilbild von Jens Baumann"
   },
   "about": {
     "eyebrow": "Über mich",
     "title": "Quereinsteiger mit einem Plan.",
     "text": "Nach Jahren in einem anderen Beruf steige ich bewusst um: 12 Monate Fullstack-Fortbildung in Vollzeit. Was mich antreibt — Dinge bauen, die funktionieren, und den ganzen Weg von der Idee bis zum Deploy verstehen.",
     "link": "Mehr über mich",
+    "location": "Emden, Ostfriesland — von hier aus remote",
     "path_eyebrow": "Mein Weg",
     "path_title": "Vom Quereinstieg zum Code.",
     "path1_title": "Fullstack-Fortbildung",
@@ -177,7 +178,9 @@
     "liability_links_title": "Haftung für Links",
     "liability_links_text": "Meine Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.",
     "copyright_title": "Urheberrecht",
-    "copyright_text": "Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Solltest du trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen."
+    "copyright_text": "Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Solltest du trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.",
+    "credits_title": "Bildnachweise",
+    "credits_text": "Das Tux-Maskottchen wurde von Larry Ewing mit The GIMP erstellt (lewing@isc.tamu.edu). Alle weiteren gezeigten Logos und Markenzeichen sind Eigentum ihrer jeweiligen Inhaber und dienen ausschließlich der Kennzeichnung der jeweiligen Technologien."
   },
   "privacy": {
     "back": "Zurück zur Startseite",
