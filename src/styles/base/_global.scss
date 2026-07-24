@@ -11,7 +11,9 @@
   --color-text-muted: #{abs.$color-text-muted};
   --color-text-inverse: #{abs.$color-text-dark-primary};
   --color-accent: #{abs.$color-accent};
+  --color-accent-deep: #{abs.$color-accent-deep};
   --color-accent-text: #{abs.$color-accent-text};
+  --color-hero-sky: #{abs.$color-sky-light};
   --color-border: #{abs.$color-border-light};
 }
 
@@ -26,7 +28,9 @@
   --color-text-muted: #{abs.$color-text-dark-muted};
   --color-text-inverse: #{abs.$color-text-primary};
   --color-accent: #{abs.$color-accent-dark};
+  --color-accent-deep: #{abs.$color-accent-deep};
   --color-accent-text: #{abs.$color-accent-dark-text};
+  --color-hero-sky: #{abs.$color-sky-night-top};
   --color-border: #{abs.$color-border-dark};
 }
 
