@@ -1,5 +1,9 @@
 @use 'src/styles/abstracts' as abs;
 
+:host {
+  display: block;
+}
+
 .projects-container {
   padding-top: abs.rem(48);
 }

@@ -91,14 +91,26 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
   }
 }
 
+:host {
+  display: block;
+}
+
 .hero {
+  --hero-overscan: 0px;
   @include abs.flex(column, nowrap, center, stretch);
   position: relative;
-  height: 100vh;
-  height: 100dvh;
   min-height: abs.rem(600);
+  height: 100vh;
+  height: calc(100dvh + var(--hero-overscan));
   background-color: var(--color-bg);
-  padding: clamp(#{abs.rem(88)}, 11vh, #{abs.rem(120)}) 0 clamp(#{abs.rem(32)}, 5vh, #{abs.rem(72)});
+  padding: clamp(#{abs.rem(88)}, 11vh, #{abs.rem(120)}) 0
+    calc(clamp(#{abs.rem(32)}, 5vh, #{abs.rem(72)}) + var(--hero-overscan));
+}
+
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    --hero-overscan: #{abs.rem(64)};
+  }
 }
 
 .hero-scene {
