@@ -21,6 +21,11 @@ $color-available: #16a34a;
 $color-available-fade: rgba(22, 163, 74, 0.4);
 
 $color-accent: #4a9bc2;
+$color-accent-deep: #2f6f8f;
+$color-sky-light: #dcedf7;
+$color-sky-night-top: #0e0d22;
+$color-sky-night-bottom: #1e2c48;
+$color-star: #e6ebff;
 $color-accent-dark: #4a9bc2;
 $color-accent-dark-text: #68b0d1;
 $color-accent-fade: rgba(74, 155, 194, 0.1);
@@ -43,12 +48,12 @@ $color-text-dark-muted: #8a8a82;
 $color-border-light: #e5e5e2;
 $color-border-dark: #2a2a26;
 
-$font-family-base: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$font-family-base: 'Signika', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 $font-family-mono: 'DM Mono', 'Cascadia Code', Consolas, monospace;
 
 $font-weight-medium: 500;
 $font-weight-bold: 700;
-$font-weight-heading: 800;
+$font-weight-heading: 700;
 
 $font-size-base: fn.rem(16);
 $font-size-md: fn.rem(18);

@@ -10,19 +10,31 @@
 
       <div class="hero-avatar">
         <div class="hero-portrait">
+          <div class="hero-stars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="hero-clouds" aria-hidden="true"></div>
+          <div class="hero-water" aria-hidden="true"></div>
           <img ngSrc="/img/hero/profile.png" width="800" height="800" priority [alt]="'hero.profile_alt' | translate" class="hero-portrait-img" />
         </div>
         <p class="hero-greeting">{{ 'hero.greeting' | translate }}</p>
 
         <div class="hero-socials">
           <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="button hero-social-link" aria-label="GitHub">
-            <ng-icon name="lucideGithub" class="icon-github"></ng-icon>
+            <ng-icon name="faBrandGithub"></ng-icon>
           </a>
           <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener" class="button hero-social-link" aria-label="LinkedIn">
-            <ng-icon name="lucideLinkedin" class="icon-linkedin"></ng-icon>
+            <ng-icon name="faBrandLinkedinIn"></ng-icon>
           </a>
           <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener" class="button hero-social-link" aria-label="YouTube">
-            <ng-icon name="lucideYoutube" class="icon-youtube"></ng-icon>
+            <ng-icon name="faBrandYoutube"></ng-icon>
           </a>
         </div>
       </div>

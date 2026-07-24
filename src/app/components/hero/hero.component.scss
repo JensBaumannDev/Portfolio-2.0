@@ -1,8 +1,21 @@
+@use 'sass:math';
 @use 'src/styles/abstracts' as abs;
 
 $ease-out: cubic-bezier(0.2, 0, 0, 1);
 $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
+$arc-angle: 40deg;
 
+$star: radial-gradient(
+  circle closest-side,
+  abs.$color-star 55%,
+  rgba(abs.$color-star, 0.45) 78%,
+  rgba(abs.$color-star, 0) 100%
+);
+$star-group: $star, $star, $star, $star;
+
+$cloud-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 44' preserveAspectRatio='none'%3E%3Cg fill='%23ffffff'%3E%3Cellipse cx='55' cy='34' rx='28' ry='7'/%3E%3Ccircle cx='42' cy='29' r='8'/%3E%3Ccircle cx='56' cy='24' r='11'/%3E%3Ccircle cx='70' cy='30' r='7'/%3E%3Cellipse cx='150' cy='36' rx='21' ry='6'/%3E%3Ccircle cx='140' cy='32' r='7'/%3E%3Ccircle cx='151' cy='28' r='9'/%3E%3Ccircle cx='162' cy='33' r='6'/%3E%3C/g%3E%3C/svg%3E");
+
+$wave-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0 22c25-18 75-18 100 0s75 18 100 0V100H0Z'/%3E%3C/svg%3E");
 
 @keyframes hero-rise {
   from {
@@ -29,11 +42,20 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
 @keyframes social-fly {
   from {
     opacity: 0;
-    transform: rotate(var(--angle)) translateY(calc(var(--arc-r) * 0.4)) rotate(calc(var(--angle) * -1)) scale(0.3);
+    transform: scale(0.3);
   }
   to {
     opacity: 1;
-    transform: rotate(var(--angle)) translateY(var(--arc-r)) rotate(calc(var(--angle) * -1)) scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes icon-flip {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
   }
 }
 
@@ -49,6 +71,31 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  35% {
+    opacity: 0.4;
+  }
+  55% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes wave-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-25%);
   }
 }
 
@@ -108,8 +155,8 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
 .hero-scene {
-  --avatar-d: clamp(#{abs.rem(200)}, min(34vw, 39vh), #{abs.rem(460)});
-  --arc-r: calc(var(--avatar-d) / 2 + #{abs.rem(50)});
+  --avatar-d: round(clamp(#{abs.rem(200)}, min(34vw, 39vh), #{abs.rem(460)}), 2px);
+  --arc-r: round(calc(var(--avatar-d) / 2 + #{abs.rem(58)}), 1px);
   position: relative;
   width: var(--avatar-d);
   height: var(--avatar-d);
@@ -170,9 +217,17 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: var(--color-bg-alt);
+  background-color: var(--color-hero-sky);
   border: 10px solid var(--color-text);
   animation: avatar-in 0.8s $ease-back 0.3s backwards;
+
+  :host-context([data-theme='dark']) & {
+    background-image: linear-gradient(
+      180deg,
+      #{abs.$color-sky-night-top} 0%,
+      #{abs.$color-sky-night-bottom} 100%
+    );
+  }
 
   &::after {
     content: '';
@@ -191,13 +246,148 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
     clip-path: circle(50%);
   }
 
+  .hero-stars {
+    display: none;
+    position: absolute;
+    inset: 0;
+
+    :host-context([data-theme='dark']) & {
+      display: block;
+    }
+
+    span {
+      position: absolute;
+      inset: 0;
+      background-image: $star-group;
+      background-repeat: no-repeat;
+    }
+
+    span:nth-child(1) {
+      background-size: 1.1% 1.1%;
+      background-position: 47% 7%, 28% 16%, 16% 22%, 60% 39%;
+      animation: star-twinkle 3.2s ease-in-out -0.4s infinite;
+    }
+
+    span:nth-child(2) {
+      background-size: 0.9% 0.9%;
+      background-position: 58% 10%, 44% 14%, 33% 24%, 8% 38%;
+      animation: star-twinkle 3.9s ease-in-out -1.7s infinite;
+    }
+
+    span:nth-child(3) {
+      background-size: 1.2% 1.2%;
+      background-position: 36% 11%, 71% 15%, 49% 21%, 73% 42%;
+      animation: star-twinkle 4.6s ease-in-out -2.6s infinite;
+    }
+
+    span:nth-child(4) {
+      background-size: 1% 1%;
+      background-position: 66% 12%, 55% 18%, 62% 25%, 20% 41%;
+      animation: star-twinkle 5.3s ease-in-out -0.9s infinite;
+    }
+
+    span:nth-child(5) {
+      background-size: 1.3% 1.3%;
+      background-position: 22% 19%, 76% 23%, 11% 31%, 86% 38%;
+      animation: star-twinkle 6.1s ease-in-out -3.3s infinite;
+    }
+
+    span:nth-child(6) {
+      background-size: 0.85% 0.85%;
+      background-position: 79% 18%, 87% 26%, 29% 33%, 34% 37%;
+      animation: star-twinkle 6.8s ease-in-out -2.1s infinite;
+    }
+
+    span:nth-child(7) {
+      background-size: 1.15% 1.15%;
+      background-position: 25% 26%, 43% 29%, 90% 31%, 47% 43%;
+      animation: star-twinkle 7.4s ease-in-out -4.5s infinite;
+    }
+
+    span:nth-child(8) {
+      background-size: 0.95% 0.95%;
+      background-position: 57% 32%, 70% 30%, 84% 33%, 93% 41%;
+      animation: star-twinkle 8.2s ease-in-out -1.2s infinite;
+    }
+  }
+
+  .hero-clouds {
+    position: absolute;
+    inset: 0;
+
+    :host-context([data-theme='dark']) & {
+      display: none;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: -150%;
+      width: 400%;
+      height: 22%;
+      mask-image: $cloud-mask;
+      mask-size: 25% 100%;
+      mask-repeat: repeat-x;
+      background-color: abs.$color-white;
+      will-change: transform;
+      animation: wave-drift 34s linear infinite;
+    }
+
+    &::before {
+      top: -5%;
+      opacity: 0.55;
+      animation-duration: 52s;
+      animation-delay: -23s;
+    }
+
+    &::after {
+      top: 15%;
+      opacity: 0.9;
+    }
+  }
+
+  .hero-water {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 44%;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -150%;
+      width: 400%;
+      mask-image: $wave-mask;
+      mask-size: 25% 100%;
+      mask-repeat: repeat-x;
+      will-change: transform;
+      animation: wave-drift 7s linear infinite;
+    }
+
+    &::before {
+      height: 122%;
+      background-color: var(--color-accent);
+      opacity: 0.4;
+      animation-duration: 10s;
+      animation-direction: reverse;
+    }
+
+    &::after {
+      height: 100%;
+      background: linear-gradient(180deg, var(--color-accent), var(--color-accent-deep));
+    }
+  }
+
   .hero-portrait-img {
     position: absolute;
-    top: 0;
+    top: 1%;
     left: -6%;
     width: 112%;
-    height: 114%;
-    object-fit: contain;
+    height: auto;
   }
 
   .hero-greeting {
@@ -236,33 +426,45 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
   }
 
   .hero-social-link {
-    --angle: 0deg;
+    --dx: 0px;
+    --dy: var(--arc-r);
     @include abs.flex(row, nowrap, center, center);
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: abs.rem(56);
-    height: abs.rem(56);
-    margin: abs.rem(-28) 0 0 abs.rem(-28);
+    top: round(calc(50% + var(--dy)), 1px);
+    left: round(calc(50% + var(--dx)), 1px);
+    width: abs.rem(72);
+    height: abs.rem(72);
+    margin: abs.rem(-36) 0 0 abs.rem(-36);
     padding: 0;
-    font-size: abs.rem(24);
+    font-size: abs.rem(32);
+    border: 0;
     border-radius: 50%;
     background-color: var(--color-bg-inverse);
-    border-color: var(--color-bg-inverse);
+    background-image: linear-gradient(to top, var(--color-accent-text) 50%, transparent 50%);
+    background-size: 100% 200%;
+    background-position: 0 0;
+    box-shadow: inset 0 0 0 5px var(--color-bg-inverse);
     color: var(--color-text-inverse);
-    transform: rotate(var(--angle)) translateY(var(--arc-r)) rotate(calc(var(--angle) * -1));
-    transition: transform 0.3s $ease-back, background-color 0.25s $ease-out, border-color 0.25s $ease-out, color 0.25s $ease-out;
+    transition: background-position 0.5s $ease-out, color 0.5s $ease-out;
     animation: social-fly 0.55s $ease-back var(--fly-delay) backwards;
 
     &:hover {
-      background-color: var(--color-accent-text);
-      border-color: var(--color-accent-text);
+      background-color: var(--color-bg-inverse);
+      color: var(--color-text-inverse);
+      background-position: 0 100%;
+
+      ng-icon {
+        animation: icon-flip 0.6s $ease-out;
+      }
+    }
+
+    :host-context([data-theme='dark']) &:hover {
       color: abs.$color-white;
-      transform: rotate(var(--angle)) translateY(var(--arc-r)) rotate(calc(var(--angle) * -1)) scale(1.14);
     }
 
     &:nth-child(1) {
-      --angle: 40deg;
+      --dx: calc(var(--arc-r) * #{-1 * math.sin($arc-angle)});
+      --dy: calc(var(--arc-r) * #{math.cos($arc-angle)});
       --fly-delay: 0.72s;
     }
 
@@ -271,13 +473,13 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
     }
 
     &:nth-child(3) {
-      --angle: -40deg;
+      --dx: calc(var(--arc-r) * #{math.sin($arc-angle)});
+      --dy: calc(var(--arc-r) * #{math.cos($arc-angle)});
       --fly-delay: 0.9s;
     }
 
-    .icon-linkedin,
-    .icon-youtube {
-      transform: scale(1.1);
+    ng-icon {
+      backface-visibility: hidden;
     }
   }
 }
@@ -298,7 +500,7 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
 @include abs.tablet-lg {
   .hero-scene {
     --avatar-d: clamp(#{abs.rem(200)}, min(40vw, 36vh), #{abs.rem(380)});
-    --arc-r: calc(var(--avatar-d) / 2 + #{abs.rem(46)});
+    --arc-r: calc(var(--avatar-d) / 2 + #{abs.rem(52)});
     margin: clamp(#{abs.rem(24)}, 4vh, #{abs.rem(56)}) 0 clamp(#{abs.rem(82)}, 11vh, #{abs.rem(112)});
   }
 }
@@ -315,7 +517,7 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
 
   .hero-scene {
     --avatar-d: clamp(#{abs.rem(170)}, min(58vw, 26vh), #{abs.rem(300)});
-    --arc-r: calc(var(--avatar-d) / 2 + #{abs.rem(38)});
+    --arc-r: calc(var(--avatar-d) / 2 + #{abs.rem(44)});
     margin: clamp(#{abs.rem(20)}, 3.5vh, #{abs.rem(48)}) 0 clamp(#{abs.rem(74)}, 10vh, #{abs.rem(96)});
   }
 
@@ -351,10 +553,10 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
     }
 
     .hero-social-link {
-      width: abs.rem(48);
-      height: abs.rem(48);
-      margin: abs.rem(-24) 0 0 abs.rem(-24);
-      font-size: abs.rem(20);
+      width: abs.rem(60);
+      height: abs.rem(60);
+      margin: abs.rem(-30) 0 0 abs.rem(-30);
+      font-size: abs.rem(28);
     }
   }
 }
@@ -366,7 +568,12 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
   .hero-actions,
   .hero-lighthouse,
   .hero-avatar .hero-greeting,
-  .hero-avatar .hero-social-link {
+  .hero-avatar .hero-social-link,
+  .hero-avatar .hero-water::before,
+  .hero-avatar .hero-water::after,
+  .hero-avatar .hero-clouds::before,
+  .hero-avatar .hero-clouds::after,
+  .hero-avatar .hero-stars span {
     animation: none;
   }
 
@@ -375,10 +582,10 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
   }
 
   .hero-avatar .hero-social-link {
-    transition: background-color 0.25s $ease-out, border-color 0.25s $ease-out, color 0.25s $ease-out;
+    transition: background-position 0.25s $ease-out, color 0.25s $ease-out;
 
-    &:hover {
-      transform: rotate(var(--angle)) translateY(var(--arc-r)) rotate(calc(var(--angle) * -1));
+    &:hover ng-icon {
+      animation: none;
     }
   }
 }
