@@ -1,11 +1,30 @@
 <section class="hero">
   <div class="content-container hero-inner">
-    <p class="hero-eyebrow">{{ 'hero.eyebrow' | translate }}</p>
-    <h1 class="hero-title">{{ 'hero.title' | translate }}</h1>
-    <p class="hero-subtitle">
-      {{ 'hero.subtitle' | translate }}
-      <span class="subtitle-status">{{ 'hero.status' | translate }}.</span>
-    </p>
+    <div class="hero-intro">
+      <h1 class="hero-title">{{ 'hero.title' | translate }}</h1>
+      <p class="hero-status">{{ 'hero.status' | translate }}</p>
+    </div>
+
+    <div class="hero-scene">
+      <img ngSrc="/img/hero/lighthouse.svg" width="120" height="260" class="hero-lighthouse" aria-hidden="true" priority alt="Pilsumer Leuchtturm" />
+
+      <div class="hero-avatar">
+        <img ngSrc="/img/hero/profile.png" width="800" height="800" priority [alt]="'hero.profile_alt' | translate" class="hero-portrait" />
+        <p class="hero-greeting">{{ 'hero.greeting' | translate }}</p>
+
+        <div class="hero-socials">
+          <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="button hero-social-link" aria-label="GitHub">
+            <ng-icon name="lucideGithub" class="icon-github"></ng-icon>
+          </a>
+          <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener" class="button hero-social-link" aria-label="LinkedIn">
+            <ng-icon name="lucideLinkedin" class="icon-linkedin"></ng-icon>
+          </a>
+          <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener" class="button hero-social-link" aria-label="YouTube">
+            <ng-icon name="lucideYoutube" class="icon-youtube"></ng-icon>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <div class="hero-actions">
       <a href="#projects" class="button">
@@ -14,26 +33,6 @@
       </a>
       <a href="#contact" class="button button-outline">{{ 'hero.cta_contact' | translate }}</a>
       <a routerLink="/cv" class="button button-outline">{{ 'hero.cta_cv' | translate }}</a>
-    </div>
-
-    <div class="hero-media">
-      <img ngSrc="/img/hero/hero_bg.webp" fill priority [alt]="'hero.image_alt' | translate" class="hero-bg-img" />
-      <img ngSrc="/img/hero/profile.png" width="280" height="280" [alt]="'hero.profile_alt' | translate" class="hero-profile-img" />
-
-      <div class="hero-socials">
-        <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="button hero-social-link" aria-label="GitHub">
-          <ng-icon name="lucideGithub" class="icon-github"></ng-icon>
-          <span class="social-label">GitHub</span>
-        </a>
-        <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener" class="button hero-social-link" aria-label="LinkedIn">
-          <ng-icon name="lucideLinkedin" class="icon-linkedin"></ng-icon>
-          <span class="social-label">LinkedIn</span>
-        </a>
-        <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener" class="button hero-social-link" aria-label="YouTube">
-          <ng-icon name="lucideYoutube" class="icon-youtube"></ng-icon>
-          <span class="social-label">YouTube</span>
-        </a>
-      </div>
     </div>
   </div>
 </section>
