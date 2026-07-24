@@ -498,6 +498,7 @@ $wave-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 .hero-actions {
   @include abs.flex(row, wrap, center, center);
   gap: abs.rem(16);
+  padding-top: abs.rem(24);
   animation: hero-rise 0.45s $ease-out 0.5s backwards;
 }
 
@@ -534,7 +535,6 @@ $wave-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 
   .hero-actions {
     gap: abs.rem(10);
-    padding-top: abs.rem(24);
 
     .button {
       padding: abs.rem(12) abs.rem(20);
