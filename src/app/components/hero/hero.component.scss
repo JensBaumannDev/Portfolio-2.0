@@ -107,12 +107,6 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
     calc(clamp(#{abs.rem(32)}, 5vh, #{abs.rem(72)}) + var(--hero-overscan));
 }
 
-@supports (-webkit-touch-callout: none) {
-  .hero {
-    --hero-overscan: #{abs.rem(64)};
-  }
-}
-
 .hero-scene {
   --avatar-d: clamp(#{abs.rem(200)}, min(34vw, 39vh), #{abs.rem(460)});
   --arc-r: calc(var(--avatar-d) / 2 + #{abs.rem(50)});
@@ -177,17 +171,33 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
   height: 100%;
   border-radius: 50%;
   background-color: var(--color-bg-alt);
-  border: 8px solid var(--color-text);
-  box-shadow: inset 0 0 0 2px var(--color-text);
+  border: 10px solid var(--color-text);
   animation: avatar-in 0.8s $ease-back 0.3s backwards;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 3px var(--color-text);
+    pointer-events: none;
+    z-index: abs.$z-index-base;
+  }
 
   .hero-portrait {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    border-radius: 50%;
     clip-path: circle(50%);
+  }
+
+  .hero-portrait-img {
+    position: absolute;
+    top: 0;
+    left: -6%;
+    width: 112%;
+    height: 114%;
+    object-fit: contain;
   }
 
   .hero-greeting {
@@ -195,14 +205,14 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
     top: 8%;
     left: 86%;
     margin: 0;
-    padding: abs.rem(12) abs.rem(22);
+    padding: abs.rem(15) abs.rem(28);
     background-color: var(--color-text);
     border-radius: abs.$radius-md;
-    font-size: clamp(#{abs.rem(16)}, 1.6vw, #{abs.rem(22)});
+    font-size: clamp(#{abs.rem(19)}, 2vw, #{abs.rem(27)});
     font-weight: abs.$font-weight-bold;
     color: var(--color-bg);
     white-space: nowrap;
-    transform-origin: abs.rem(28) 100%;
+    transform-origin: abs.rem(32) 100%;
     z-index: abs.$z-index-base;
     animation: bubble-pop 0.6s $ease-back 1.15s backwards, bubble-nudge 6s ease-in-out 2.2s infinite;
 
@@ -210,10 +220,10 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
       content: '';
       position: absolute;
       top: 100%;
-      left: abs.rem(20);
+      left: abs.rem(23);
       margin-top: abs.rem(-1);
-      width: abs.rem(24);
-      height: abs.rem(22);
+      width: abs.rem(28);
+      height: abs.rem(26);
       background-color: var(--color-text);
       clip-path: polygon(100% 0, 30% 0, 0 100%);
     }
@@ -279,6 +289,12 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
 /* #region RESPONSIVE */
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    --hero-overscan: #{abs.rem(64)};
+  }
+}
+
 @include abs.tablet-lg {
   .hero-scene {
     --avatar-d: clamp(#{abs.rem(200)}, min(40vw, 36vh), #{abs.rem(380)});
@@ -319,18 +335,18 @@ $ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
   }
 
   .hero-avatar {
-    border-width: 6px;
+    border-width: 8px;
 
     .hero-greeting {
       top: 4%;
       left: 80%;
-      padding: abs.rem(9) abs.rem(16);
-      transform-origin: abs.rem(22) 100%;
+      padding: abs.rem(11) abs.rem(20);
+      transform-origin: abs.rem(26) 100%;
 
       &::after {
-        left: abs.rem(16);
-        width: abs.rem(20);
-        height: abs.rem(18);
+        left: abs.rem(18);
+        width: abs.rem(24);
+        height: abs.rem(22);
       }
     }
 

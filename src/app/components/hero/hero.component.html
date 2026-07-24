@@ -9,7 +9,9 @@
       <img ngSrc="/img/hero/lighthouse.svg" width="120" height="260" class="hero-lighthouse" aria-hidden="true" priority alt="Pilsumer Leuchtturm" />
 
       <div class="hero-avatar">
-        <img ngSrc="/img/hero/profile.png" width="800" height="800" priority [alt]="'hero.profile_alt' | translate" class="hero-portrait" />
+        <div class="hero-portrait">
+          <img ngSrc="/img/hero/profile.png" width="800" height="800" priority [alt]="'hero.profile_alt' | translate" class="hero-portrait-img" />
+        </div>
         <p class="hero-greeting">{{ 'hero.greeting' | translate }}</p>
 
         <div class="hero-socials">
