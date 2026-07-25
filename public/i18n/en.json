@@ -9,6 +9,11 @@
   "hero": {
     "status": "Available from Q4 2026",
     "title": "Junior Fullstack Developer",
+    "tags": {
+      "architecture": "Clean architecture",
+      "accessibility": "Accessibility-first",
+      "maintainability": "Maintainable code"
+    },
     "greeting": "Moin",
     "cta_projects": "View projects",
     "cta_contact": "Get in touch",
