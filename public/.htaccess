@@ -25,8 +25,14 @@
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 
-  # Ungehashte Bilder/Fonts -> kurz cachen (1 Tag).
-  <FilesMatch "\.(png|jpe?g|webp|gif|svg|ico|woff2?|ttf|eot)$">
-    Header set Cache-Control "public, max-age=86400"
+  # Fonts aendern sich praktisch nie -> ein Jahr, unveraenderlich.
+  <FilesMatch "\.(woff2?|ttf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Ungehashte Bilder -> 30 Tage. Laenger nur, wenn beim Austausch der Dateiname
+  # (oder ein ?v=-Suffix) mitgeaendert wird, sonst sehen Besucher das alte Bild.
+  <FilesMatch "\.(png|jpe?g|webp|gif|svg|ico)$">
+    Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
 </IfModule>
