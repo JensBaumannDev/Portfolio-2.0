@@ -39,6 +39,8 @@
   },
   "projects": {
     "title": "Projekte",
+    "subtitle": "Meine bisherigen Projekte",
+    "live_cta": "Projekt Live ansehen",
     "more_title": "Weitere Projekte",
     "more_sub": "Aus der Fortbildung · 2025–2026",
     "all_github": "Alle Projekte auf GitHub",
