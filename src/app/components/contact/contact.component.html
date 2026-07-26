@@ -1,13 +1,66 @@
 <div class="contact-container">
+  <div class="content-container contact-section-head-wrap">
+    <header class="contact-section-head" appReveal>
+      <h2 class="contact-heading">{{ 'contact.section_title' | translate }}<span class="contact-heading-dot">.</span></h2>
+      <p class="contact-heading-sub">{{ 'contact.section_sub' | translate }}</p>
+    </header>
+  </div>
+
   <div class="content-container contact-inner" appRevealStagger revealSelector=".contact-header, .contact-form">
     <div class="contact-header">
       <p class="contact-eyebrow">{{ 'contact.eyebrow' | translate }}</p>
       <h2 class="contact-title">{{ 'contact.title' | translate }}</h2>
       <p class="contact-subtitle">{{ 'contact.subtitle' | translate }}</p>
 
-      <div class="contact-ctas">
-        <a class="button contact-mail" [href]="'mailto:' + ('contact.email_value' | translate)">{{ 'contact.email_value' | translate }}</a>
-        <a class="button button-outline contact-github" href="https://github.com/JensBaumannDev" target="_blank" rel="noopener">GitHub</a>
+      <div class="contact-compass" role="group" [attr.aria-label]="'contact.compass_group' | translate">
+        <span class="compass-dial" aria-hidden="true">
+          @for (tick of ticks; track tick) {
+            <span class="compass-tick" [style.--t]="tick"></span>
+          }
+          <span class="compass-letter compass-letter--n">{{ 'contact.compass_n' | translate }}</span>
+          <span class="compass-letter compass-letter--e">{{ 'contact.compass_e' | translate }}</span>
+          <span class="compass-letter compass-letter--s">{{ 'contact.compass_s' | translate }}</span>
+          <span class="compass-letter compass-letter--w">{{ 'contact.compass_w' | translate }}</span>
+          <span class="compass-needle">
+            <span class="compass-needle-body"></span>
+          </span>
+          <span class="compass-cap"></span>
+        </span>
+
+        <a
+          [href]="'mailto:' + ('contact.email_value' | translate)"
+          class="button compass-social compass-social--mail"
+          [attr.aria-label]="'contact.email_value' | translate"
+        >
+          <ng-icon name="lucideMail"></ng-icon>
+        </a>
+        <a
+          href="https://github.com/JensBaumannDev"
+          target="_blank"
+          rel="noopener"
+          class="button compass-social compass-social--github"
+          aria-label="GitHub"
+        >
+          <ng-icon name="faBrandGithub"></ng-icon>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/jens-baumann-7a6866315/"
+          target="_blank"
+          rel="noopener"
+          class="button compass-social compass-social--linkedin"
+          aria-label="LinkedIn"
+        >
+          <ng-icon name="faBrandLinkedinIn"></ng-icon>
+        </a>
+        <a
+          href="https://www.youtube.com/@jensbaumann_music"
+          target="_blank"
+          rel="noopener"
+          class="button compass-social compass-social--youtube"
+          aria-label="YouTube"
+        >
+          <ng-icon name="faBrandYoutube"></ng-icon>
+        </a>
       </div>
     </div>
 

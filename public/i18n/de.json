@@ -107,8 +107,15 @@
     "featured": "Featured Project"
   },
   "contact": {
+    "section_title": "Kontakt",
+    "section_sub": "Lass uns schnacken.",
+    "compass_group": "Social-Profile",
+    "compass_n": "N",
+    "compass_e": "O",
+    "compass_s": "S",
+    "compass_w": "W",
     "eyebrow": "Junior Fullstack · Verfügbar ab Q4 2026",
-    "title": "Sprechen wir.",
+    "title": "Den richtigen Weg finden.",
     "subtitle": "Offen für Praktikum, Werkstudium oder eine Junior-Rolle, gern remote, hybrid oder vor Ort in Ostfriesland.",
     "name_label": "Wie lautet dein Name?",
     "name_placeholder": "Dein Name kommt hier hin",
