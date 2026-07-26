@@ -2,6 +2,7 @@
 
 :root {
   color-scheme: light;
+  --header-h: #{abs.rem(72)};
   --color-bg: #{abs.$color-bg-light-1};
   --color-bg-alt: #{abs.$color-bg-light-2};
   --color-surface: #{abs.$color-white};
@@ -15,6 +16,8 @@
   --color-accent-text: #{abs.$color-accent-text};
   --color-hero-sky: #{abs.$color-sky-light};
   --color-border: #{abs.$color-border-light};
+  --color-panel-strong: #{abs.$color-panel-strong-light};
+  --color-panel-soft: #{abs.$color-panel-soft-light};
 }
 
 :root[data-theme='dark'] {
@@ -32,12 +35,21 @@
   --color-accent-text: #{abs.$color-accent-dark-text};
   --color-hero-sky: #{abs.$color-sky-night-top};
   --color-border: #{abs.$color-border-dark};
+  --color-panel-strong: #{abs.$color-panel-strong-dark};
+  --color-panel-soft: #{abs.$color-panel-soft-dark};
 }
 
 html {
   scroll-behavior: smooth;
+  // anchor jumps stop exactly below the fixed header — sections size themselves to
+  // the remaining viewport (100dvh - header) and center their own content
+  scroll-padding-top: var(--header-h);
   background-color: var(--color-bg);
   overflow-x: clip;
+}
+
+section[id] {
+  scroll-margin-top: var(--header-h);
 }
 
 body {

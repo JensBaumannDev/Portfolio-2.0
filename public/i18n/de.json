@@ -23,17 +23,13 @@
   },
   "about": {
     "eyebrow": "Über mich",
+    "section_title": "Über mich",
+    "section_sub": "Meine Skills und Ich",
     "title": "Quereinsteiger mit einem Plan.",
     "text": "Ich komme eigentlich aus dem Vertrieb, habe aber vor kurzem beschlossen, mich voll auf das Programmieren zu konzentrieren. Deswegen mache ich gerade eine einjährige Fullstack-Fortbildung. Es macht mir wahnsinnig Spaß, Ideen von Grund auf in Code zu übersetzen und am Ende ein funktionierendes Projekt vor mir zu haben. Genau deshalb fuchse ich mich so gerne in neue Themen rein und lerne jeden Tag dazu, auch wenn es manchmal komplizierter ist, als es scheint.",
     "link": "Mehr über mich",
-    "location": "Emden, Ostfriesland. Von hier aus remote.",
-    "path_eyebrow": "Mein Weg",
-    "path_title": "Vom Quereinstieg zum Code.",
-    "path1_title": "Fullstack-Fortbildung",
-    "path1_sub": "Developer Akademie · Vollzeit · 2025–26",
-    "path3_title": "Abteilungsleitung",
-    "path3_sub": "Expert Bening · 2011–2016",
-    "path_link": "Ganzer Lebenslauf"
+    "location": "Emden, Ostfriesland. Offen für Remote oder Büropräsenz.",
+    "ring_group": "Tech-Stack umschalten"
   },
   "skills": {
     "eyebrow": "Mein Stack",
