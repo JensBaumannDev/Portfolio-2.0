@@ -23,17 +23,13 @@
   },
   "about": {
     "eyebrow": "About me",
+    "section_title": "About me",
+    "section_sub": "My skills and me",
     "title": "Career changer with a plan.",
     "text": "I actually have a background in sales, but recently decided to fully commit to coding. That's why I'm currently doing a one-year fullstack bootcamp. I just really enjoy turning ideas into code and having a working project in front of me at the end of the day. That's exactly why I love diving into new topics and learning something new every single day, even if things turn out to be more complicated than they seem.",
     "link": "More about me",
-    "location": "Emden, East Frisia. Working remote from here.",
-    "path_eyebrow": "My path",
-    "path_title": "From career change to code.",
-    "path1_title": "Fullstack Training",
-    "path1_sub": "Developer Akademie · Full-time · 2025–26",
-    "path3_title": "Head of Department",
-    "path3_sub": "Expert Bening · 2011–2016",
-    "path_link": "Full CV"
+    "location": "Emden, East Frisia. Open to remote or on-site.",
+    "ring_group": "Switch tech stack"
   },
   "skills": {
     "eyebrow": "My Stack",
@@ -43,6 +39,8 @@
   },
   "projects": {
     "title": "Projects",
+    "subtitle": "My previous projects",
+    "live_cta": "View project live",
     "more_title": "More projects",
     "more_sub": "From the training program · 2025–2026",
     "all_github": "All projects on GitHub",
@@ -109,8 +107,15 @@
     "featured": "Featured Project"
   },
   "contact": {
+    "section_title": "Contact",
+    "section_sub": "Let's have a chat.",
+    "compass_group": "Social profiles",
+    "compass_n": "N",
+    "compass_e": "E",
+    "compass_s": "S",
+    "compass_w": "W",
     "eyebrow": "Junior fullstack · Available from Q4 2026",
-    "title": "Let's talk.",
+    "title": "Finding the right path.",
     "subtitle": "Open to an internship, working student position or a junior role, remote, hybrid or on-site in East Frisia.",
     "name_label": "What is your name?",
     "name_placeholder": "Your name goes here",

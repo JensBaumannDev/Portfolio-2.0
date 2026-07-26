@@ -1,75 +1,31 @@
-<div class="projects-container">
-  <h2 class="sr-only">{{ 'projects.title' | translate }}</h2>
+<div class="work content-container">
+  <header class="work-header" appReveal>
+    <h2 class="work-title">{{ 'projects.title' | translate }}<span class="work-title-dot">.</span></h2>
+    <p class="work-sub">{{ 'projects.subtitle' | translate }}</p>
+  </header>
 
-  @for (project of featuredProjects(); track project.key; let i = $index) {
-    <article class="featured" [class.featured-dark]="i % 2 === 0">
-      <div class="content-container featured-inner" appReveal>
-        <p class="featured-eyebrow">{{ 'projects.' + project.key + '.eyebrow' | translate }}</p>
-        <h3 class="featured-title">{{ 'projects.' + project.key + '.name' | translate }}</h3>
-        <p class="featured-desc">{{ 'projects.' + project.key + '.description' | translate }}</p>
+  <div class="work-grid" appRevealStagger revealSelector=".work-card">
+    @for (project of projects(); track project.key) {
+      <article class="work-card">
+        <button
+          type="button"
+          class="work-card-visual"
+          (click)="openDialog(project.key)"
+          [attr.aria-label]="('projects.' + project.key + '.name' | translate) + ' — ' + ('projects.detail_cta' | translate)"
+        >
+          <span class="work-card-visual-inner">
+            <img [ngSrc]="project.image" fill [alt]="project.imageAlt" sizes="(max-width: 768px) 90vw, 33vw" />
+          </span>
+        </button>
 
-        <div class="featured-stats">
-          @for (value of project.statValues; track $index; let s = $index) {
-            <div class="featured-stat">
-              <span class="featured-stat-value">{{ value }}</span>
-              <span class="featured-stat-label">{{ 'projects.' + project.key + '.stat' + (s + 1) + '_lbl' | translate }}</span>
-            </div>
-          }
+        <div class="work-card-body">
+          <h3 class="work-card-name">{{ 'projects.' + project.key + '.name' | translate }}</h3>
+          <a class="work-card-link" [href]="project.live" target="_blank" rel="noopener">
+            {{ 'projects.live_cta' | translate }}
+          </a>
         </div>
-
-        <div class="featured-media">
-          <img [ngSrc]="project.image" fill [alt]="project.imageAlt" />
-        </div>
-
-        <div class="featured-footer">
-          <span class="featured-tech">{{ 'projects.' + project.key + '.tech' | translate }}</span>
-          <div class="featured-links">
-            <a [href]="project.github" target="_blank" rel="noopener" class="arrow-link featured-link">
-              {{ 'projects.github' | translate }}
-              <span aria-hidden="true">&rarr;</span>
-            </a>
-            <a [href]="project.live" target="_blank" rel="noopener" class="arrow-link featured-link">
-              {{ 'projects.live' | translate }}
-              <span aria-hidden="true">&rarr;</span>
-            </a>
-            <button type="button" class="arrow-link featured-link" (click)="openDialog(project.key)">
-              {{ 'projects.detail_cta' | translate }}
-              <span aria-hidden="true">&rarr;</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </article>
-  }
-
-  <div class="content-container more-projects">
-    <h3 class="more-title" appReveal>{{ 'projects.more_title' | translate }}</h3>
-    <p class="more-sub">{{ 'projects.more_sub' | translate }}</p>
-
-    <div class="more-grid" appRevealStagger revealSelector=".more-card">
-      @for (project of moreProjects(); track project.key) {
-        <article class="more-card">
-          <div class="more-card-media">
-            <img [ngSrc]="project.image" fill [alt]="project.imageAlt" />
-          </div>
-          <div class="more-card-body">
-            <button type="button" class="more-card-trigger" (click)="openDialog(project.key)">
-              <span class="more-card-title">{{ 'projects.' + project.key + '.name' | translate }}</span>
-              <span class="more-card-arrow" aria-hidden="true">&rarr;</span>
-            </button>
-            <p class="more-card-desc">{{ 'projects.' + project.key + '.description' | translate }}</p>
-            <p class="more-card-tech">{{ 'projects.' + project.key + '.tech' | translate }}</p>
-          </div>
-        </article>
-      }
-    </div>
-
-    <div class="more-cta">
-      <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="button button-outline">
-        {{ 'projects.all_github' | translate }}
-        <span aria-hidden="true">&rarr;</span>
-      </a>
-    </div>
+      </article>
+    }
   </div>
 </div>
 

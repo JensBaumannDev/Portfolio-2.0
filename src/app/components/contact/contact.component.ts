@@ -4,13 +4,15 @@ import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideMail, lucideCheck } from '@ng-icons/lucide';
+import { faBrandGithub, faBrandLinkedinIn, faBrandYoutube } from '@ng-icons/font-awesome/brands';
 import { RevealStagger } from '../../directives/reveal-stagger.directive';
+import { Reveal } from '../../directives/reveal.directive';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule, RouterLink, TranslatePipe, NgIcon, RevealStagger],
-  providers: [provideIcons({ lucideMail, lucideCheck })],
+  imports: [ReactiveFormsModule, RouterLink, TranslatePipe, NgIcon, RevealStagger, Reveal],
+  providers: [provideIcons({ lucideMail, lucideCheck, faBrandGithub, faBrandLinkedinIn, faBrandYoutube })],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,6 +20,8 @@ import { HttpClient } from '@angular/common/http';
 export class Contact {
   private readonly fb = inject(FormBuilder);
   private readonly http = inject(HttpClient);
+
+  protected readonly ticks = Array.from({ length: 16 }, (_, i) => i);
 
   protected readonly sent = signal(false);
   protected readonly sending = signal(false);

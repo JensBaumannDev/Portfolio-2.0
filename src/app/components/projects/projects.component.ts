@@ -8,7 +8,6 @@ import { RevealStagger } from '../../directives/reveal-stagger.directive';
 export interface Project {
   key: string;
   featured: boolean;
-  statValues: string[];
   tags: string[];
   image: string;
   imageAlt: string;
@@ -28,7 +27,6 @@ export class Projects {
     {
       key: 'dabubble',
       featured: true,
-      statValues: ['RT', 'Auth', 'DM'],
       tags: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
       image: './img/projects/webp/dabubble_project.webp',
       imageAlt: 'DABubble Project',
@@ -38,7 +36,6 @@ export class Projects {
     {
       key: 'join',
       featured: true,
-      statValues: ['D&D', 'CRUD', 'Team'],
       tags: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
       image: './img/projects/webp/join_project.webp',
       imageAlt: 'Join Project',
@@ -48,7 +45,6 @@ export class Projects {
     {
       key: 'el_pollo_loco',
       featured: true,
-      statValues: ['OOP', 'Loop', 'SFX'],
       tags: ['HTML', 'CSS', 'JavaScript'],
       image: './img/projects/webp/el_pollo_loco_project.webp',
       imageAlt: 'El Pollo Loco Game',
@@ -58,7 +54,6 @@ export class Projects {
     {
       key: 'pokedex',
       featured: false,
-      statValues: [],
       tags: ['HTML', 'CSS', 'JavaScript', 'API'],
       image: './img/projects/webp/pokedex_project.webp',
       imageAlt: 'Pokedex Project',
@@ -68,7 +63,6 @@ export class Projects {
     {
       key: 'portfolio',
       featured: false,
-      statValues: [],
       tags: ['Angular', 'TypeScript', 'SCSS'],
       image: './img/projects/webp/portfolio_project.webp',
       imageAlt: 'Portfolio Website',
@@ -76,9 +70,6 @@ export class Projects {
       live: 'https://jensbaumann.com/projects/portfolio/',
     },
   ]);
-
-  protected readonly featuredProjects = computed(() => this.projects().filter((project) => project.featured));
-  protected readonly moreProjects = computed(() => this.projects().filter((project) => !project.featured));
 
   protected readonly selectedIndex = signal<number | null>(null);
   protected readonly selectedProject = computed<Project | null>(() => {
