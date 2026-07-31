@@ -243,7 +243,7 @@
 }
 
 /* #region RESPONSIVE */
-@media (min-width: #{abs.$breakpoint-desktop + 1px}) {
+@media (min-width: #{abs.$breakpoint-tablet + 1px}) {
   .contact-container {
     @include abs.flex(column, nowrap, flex-start, stretch);
     min-height: calc(100dvh - var(--header-h));
@@ -253,13 +253,14 @@
   .contact-inner {
     @include abs.flex(row, nowrap, space-between, stretch);
     flex: 0 0 auto;
-    gap: abs.rem(64);
+    gap: clamp(#{abs.rem(32)}, 4vw, #{abs.rem(64)});
     width: 100%;
     margin-block: auto;
   }
 
   .contact-header {
-    flex: 0 0 abs.rem(560);
+    flex: 1 1 abs.rem(320);
+    min-width: abs.rem(280);
     max-width: abs.rem(560);
     align-items: flex-start;
     text-align: left;
@@ -279,7 +280,7 @@
   }
 
   .contact-form {
-    flex: 1 1 auto;
+    flex: 1 1 abs.rem(460);
     max-width: none;
     margin-top: 0;
   }
