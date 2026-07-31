@@ -125,12 +125,6 @@
   "contact": {
     "section_title": "Contact",
     "section_sub": "Let's have a chat.",
-    "compass_group": "Social profiles",
-    "compass_n": "N",
-    "compass_e": "E",
-    "compass_s": "S",
-    "compass_w": "W",
-    "eyebrow": "Junior fullstack · Available from Q4 2026",
     "title": "Finding the right path.",
     "subtitle": "Open to an internship, working student position or a junior role, remote, hybrid or on-site in East Frisia.",
     "name_label": "What is your name?",
@@ -150,7 +144,9 @@
     "error_send": "Sending failed. Feel free to email me directly at",
     "success": "Thank you! Your message has been sent.",
     "success_short": "Sent",
-    "email_value": "info@jensbaumann.com"
+    "email_value": "info@jensbaumann.com",
+    "link_mail": "Email",
+    "note": "I reply within 24 hours. I am available from Q4 2026."
   },
   "footer": {
     "imprint": "Legal Notice",
