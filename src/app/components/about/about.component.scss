@@ -2,6 +2,12 @@
 
 :host {
   display: block;
+  background-color: var(--color-bg);
+  background-image: linear-gradient(to bottom, var(--color-panel-soft), var(--color-bg));
+}
+
+:host-context([data-theme='dark']) {
+  background-image: linear-gradient(to top, var(--color-bg), var(--color-panel-soft));
 }
 
 .about {

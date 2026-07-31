@@ -18,6 +18,20 @@
   &.menu-open {
     border-bottom-color: var(--color-border);
   }
+
+  &.scrolled {
+    background-color: rgba(abs.$color-white, 0.7);
+    backdrop-filter: blur(16px) saturate(170%);
+  }
+
+  &.menu-open {
+    background-color: var(--color-bg);
+    backdrop-filter: none;
+  }
+}
+
+:host-context([data-theme='dark']) .navbar.scrolled {
+  background-color: rgba(abs.$color-bg-dark-1, 0.62);
 }
 
 .navbar-content {

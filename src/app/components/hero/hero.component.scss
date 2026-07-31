@@ -162,7 +162,12 @@ $wave-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
   @include abs.flex(column, nowrap, center, stretch);
   position: relative;
   background-color: var(--color-bg);
+  background-image: linear-gradient(to bottom, var(--color-panel-soft), var(--color-bg));
   padding: clamp(#{abs.rem(88)}, 11vh, #{abs.rem(120)}) 0 abs.$section-padding;
+}
+
+:host-context([data-theme='dark']) .hero {
+  background-image: linear-gradient(to top, var(--color-bg), var(--color-panel-soft));
 }
 
 .hero-scene {

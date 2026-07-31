@@ -4,8 +4,8 @@ $ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
 :host {
   display: block;
-  background-color: var(--color-panel-soft);
-  background-image: linear-gradient(to bottom, rgba(abs.$color-accent, 0), rgba(abs.$color-accent, 0.05));
+  background-color: var(--color-bg);
+  background-image: linear-gradient(to bottom, var(--color-panel-soft), var(--color-bg));
 }
 
 :host-context([data-theme='dark']) {
