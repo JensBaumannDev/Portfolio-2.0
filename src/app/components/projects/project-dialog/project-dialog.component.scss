@@ -26,36 +26,26 @@
 }
 
 .dialog-body {
-  @include abs.flex(row, nowrap, space-between, flex-start);
-  @include abs.maxWidth;
-  gap: abs.rem(64);
-  margin: 0 auto;
-  padding: abs.rem(120) abs.rem(16) abs.rem(64);
-}
-
-.dialog-left {
-  flex: 1 1 50%;
-}
-
-.dialog-right {
   @include abs.flex(column, nowrap, flex-start, stretch);
-  flex: 1 1 50%;
-  gap: abs.rem(24);
+  @include abs.maxWidth;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: abs.rem(120) abs.rem(16) abs.rem(96);
 }
 
 .back-btn {
   @include abs.flex(row, nowrap, flex-start, center);
-  gap: abs.rem(8);
-  border: none;
-  background: transparent;
+  gap: abs.rem(10);
+  align-self: flex-start;
   padding: 0;
-  font-family: abs.$font-family-mono;
+  border: none;
+  background: none;
+  font-family: abs.$font-family-base;
   font-size: abs.$font-size-base;
-  text-transform: uppercase;
-  letter-spacing: abs.rem(1.5);
+  font-weight: abs.$font-weight-medium;
   color: var(--color-text-secondary);
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 
   &:hover {
     color: var(--color-accent-text);
@@ -67,99 +57,153 @@
   }
 }
 
+.dialog-head {
+  @include abs.flex(row, wrap, flex-start, baseline);
+  gap: abs.rem(8) abs.rem(20);
+  margin-top: abs.rem(40);
+}
+
 .dialog-title {
-  margin: abs.rem(32) 0 0;
-  font-size: abs.$font-size-display-sm;
+  margin: 0;
+  font-size: clamp(#{abs.rem(36)}, 6vw, #{abs.rem(56)});
+  font-weight: abs.$font-weight-heading;
+  letter-spacing: abs.rem(-1.5);
+  line-height: 1;
   color: var(--color-text);
 }
 
-.dialog-heading {
-  margin: abs.rem(40) 0 0;
-  font-family: abs.$font-family-mono;
-  font-size: abs.$font-size-base;
-  font-weight: abs.$font-weight-medium;
-  text-transform: uppercase;
-  letter-spacing: abs.rem(2);
-  color: var(--color-text-muted);
+.dialog-title-dot {
+  color: var(--color-accent-text);
 }
 
-.dialog-text {
-  margin: abs.rem(12) 0 0;
-  font-size: abs.$font-size-md;
-  line-height: 1.6;
+.dialog-sub {
+  margin: 0;
+  font-size: abs.$font-size-lg;
+  line-height: 1.5;
   color: var(--color-text-secondary);
 }
 
-.dialog-duration {
-  margin: abs.rem(32) 0 0;
-  font-size: abs.$font-size-md;
-  color: var(--color-text-secondary);
-
-  strong {
-    color: var(--color-text);
-  }
-}
-
-.dialog-tags {
-  @include abs.flex(row, wrap, flex-start, center);
-  gap: abs.rem(8);
-  margin-top: abs.rem(24);
-}
-
-.dialog-tag {
-  padding: abs.rem(6) abs.rem(14);
-  border: 1px solid var(--color-border);
-  border-radius: abs.$radius-sm;
-  font-family: abs.$font-family-mono;
-  font-size: abs.$font-size-base;
-  color: var(--color-text);
-}
-
-.dialog-img-wrapper {
+.dialog-media {
   position: relative;
-  aspect-ratio: 16 / 10;
-  border-radius: abs.$radius-sm;
-}
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: abs.rem(520);
+  margin: abs.rem(40) 0 0;
+  border-radius: abs.$radius-lg;
+  background-color: var(--color-panel-strong);
 
-.dialog-img {
-  border-radius: abs.$radius-sm;
-  object-fit: contain;
+  img {
+    object-fit: contain;
+    padding: abs.rem(24);
+  }
 }
 
 .dialog-featured {
   position: absolute;
-  top: abs.rem(16);
-  right: abs.rem(16);
+  top: abs.rem(20);
+  right: abs.rem(20);
   z-index: abs.$z-index-base;
-  padding: abs.rem(4) abs.rem(12);
+  padding: abs.rem(6) abs.rem(14);
   border-radius: abs.$radius-sm;
   background-color: abs.$color-accent-text;
-  color: abs.$color-white;
-  font-family: abs.$font-family-mono;
   font-size: abs.$font-size-base;
-  text-transform: uppercase;
-  letter-spacing: abs.rem(1);
+  font-weight: abs.$font-weight-medium;
+  color: abs.$color-white;
+}
+
+.dialog-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: abs.rem(48);
+  margin-top: abs.rem(56);
+}
+
+.dialog-block {
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: abs.rem(16);
+  padding-top: abs.rem(28);
+  border-top: 1px solid var(--color-border);
+}
+
+.dialog-heading {
+  margin: 0;
+  font-size: clamp(#{abs.rem(22)}, 2.2vw, #{abs.rem(26)});
+  font-weight: abs.$font-weight-heading;
+  letter-spacing: abs.rem(-0.4);
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.dialog-text {
+  margin: 0;
+  font-size: abs.$font-size-md;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+.dialog-meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: abs.rem(24) abs.rem(48);
+  margin: abs.rem(48) 0 abs.rem(56);
+  padding-top: abs.rem(28);
+  border-top: 1px solid var(--color-border);
+}
+
+.dialog-meta-item {
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: abs.rem(6);
+}
+
+.dialog-meta-label {
+  font-size: abs.$font-size-base;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.dialog-meta-value {
+  margin: 0;
+  font-size: abs.$font-size-lg;
+  font-weight: abs.$font-weight-medium;
+  line-height: 1.4;
+  color: var(--color-text);
+}
+
+.dialog-footer {
+  @include abs.flex(row, wrap, space-between, center);
+  gap: abs.rem(24);
+  margin-top: auto;
+  padding-top: abs.rem(32);
+  border-top: 1px solid var(--color-border);
 }
 
 .dialog-actions {
   @include abs.flex(row, wrap, flex-start, center);
-  gap: abs.rem(16);
+  gap: abs.rem(12);
+}
+
+.dialog-action {
+  padding: abs.rem(12) abs.rem(22);
 }
 
 .next-btn {
   @include abs.flex(row, nowrap, flex-end, center);
-  gap: abs.rem(8);
-  align-self: flex-end;
-  border: none;
-  background: transparent;
+  gap: abs.rem(10);
   padding: 0;
+  border: none;
+  background: none;
+  font-family: abs.$font-family-base;
   font-size: abs.$font-size-md;
   font-weight: abs.$font-weight-bold;
   color: var(--color-accent-text);
   cursor: pointer;
 
-  &:hover {
-    text-decoration: underline;
+  ng-icon {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover ng-icon {
+    transform: translateX(#{abs.rem(6)});
   }
 
   &:focus-visible {
@@ -171,9 +215,59 @@
 /* #region RESPONSIVE */
 @include abs.tablet-lg {
   .dialog-body {
-    @include abs.flex(column, nowrap, flex-start, stretch);
-    gap: abs.rem(40);
     padding-top: abs.rem(104);
+  }
+
+  .dialog-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: abs.rem(32);
+    margin-top: abs.rem(48);
+  }
+}
+
+@include abs.mobile {
+  .dialog-body {
+    padding-bottom: abs.rem(64);
+  }
+
+  .dialog-head {
+    margin-top: abs.rem(32);
+  }
+
+  .dialog-media {
+    aspect-ratio: 16 / 10;
+    margin-top: abs.rem(28);
+
+    img {
+      padding: abs.rem(16);
+    }
+  }
+
+  .dialog-meta {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: abs.rem(40);
+  }
+
+  .dialog-footer {
+    @include abs.flex(column, nowrap, flex-start, stretch);
+    margin-top: abs.rem(40);
+  }
+
+  .dialog-action {
+    flex: 1 1 100%;
+    padding: abs.rem(14) abs.rem(22);
+  }
+
+  .next-btn {
+    align-self: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .back-btn,
+  .next-btn ng-icon {
+    transition: none;
   }
 }
 /* #endregion */

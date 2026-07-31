@@ -1,29 +1,21 @@
 @use 'src/styles/abstracts' as abs;
 
-// fills the viewport below the fixed header and centers its content in it;
-// the symmetric padding only kicks in once the content outgrows that space
 :host {
   display: block;
-  padding-top: abs.rem(64);
-  padding-bottom: abs.rem(64);
 }
 
-// the orbit labels stick out ~9px below the ring box, so the gap below the ring
-// carries that much more padding to look the same as the gap above it
-.about-inner {
+.about {
   @include abs.flex(column, nowrap, flex-start, stretch);
-  gap: abs.rem(32);
-  margin: 0 auto;
-  padding-top: abs.rem(72);
+  padding-block: abs.$section-padding;
 }
 
 .about-header {
   @include abs.flex(row, wrap, center, baseline);
   gap: abs.rem(20);
-  margin-bottom: abs.rem(32);
+  margin-bottom: abs.$section-head-gap;
 }
 
-.about-heading {
+.about-title {
   margin: 0;
   font-size: clamp(#{abs.rem(36)}, 6vw, #{abs.rem(56)});
   font-weight: abs.$font-weight-heading;
@@ -32,418 +24,278 @@
   color: var(--color-text);
 }
 
-.about-heading-dot {
+.about-title-dot,
+.stack-title-dot {
   color: var(--color-accent-text);
 }
 
-.about-heading-sub {
+.about-sub {
   margin: 0;
   font-size: abs.$font-size-lg;
   line-height: 1.5;
   color: var(--color-text-secondary);
 }
 
-$ring-ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
-$ring-ease-out: cubic-bezier(0.2, 0, 0, 1);
-
-.tech-ring-wrap {
-  @include abs.flex(row, nowrap, center, center);
-  padding-top: abs.rem(48);
-}
-
-.ring-scene {
-  --ring-d: round(clamp(#{abs.rem(340)}, 46vw, #{abs.rem(500)}), 2px);
-  --hub-d: round(calc(var(--ring-d) * 0.4), 1px);
-  --node-d: #{abs.rem(64)};
-  --ring-r: round(calc(var(--ring-d) / 2 - #{abs.rem(50)}), 1px);
-  position: relative;
-  width: var(--ring-d);
-  height: var(--ring-d);
-}
-
-.ring-hub {
-  @include abs.flex(column, nowrap, stretch, stretch);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: var(--hub-d);
-  height: var(--hub-d);
-  margin: calc(var(--hub-d) / -2) 0 0 calc(var(--hub-d) / -2);
-  border-radius: 50%;
-  background-color: var(--color-hero-sky);
-  box-shadow: 0 abs.rem(4) abs.rem(18) rgba(abs.$color-black, 0.1);
-  overflow: clip;
-}
-
-/* Water inside the buoy — bottom half, straight edge = the divider */
-.ring-sea {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 50%;
-  background-color: var(--color-accent);
-  pointer-events: none;
-}
-
-/* The lifebuoy ring itself — alternating segments, punched-out center */
-.ring-buoy {
-  --buoy-red: #{abs.$color-buoy-red};
-  --buoy-band: #{abs.$color-white};
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: conic-gradient(from -22.5deg,
-    var(--buoy-red) 0 45deg,
-    var(--buoy-band) 45deg 90deg,
-    var(--buoy-red) 90deg 135deg,
-    var(--buoy-band) 135deg 180deg,
-    var(--buoy-red) 180deg 225deg,
-    var(--buoy-band) 225deg 270deg,
-    var(--buoy-red) 270deg 315deg,
-    var(--buoy-band) 315deg 360deg);
-  mask-image: radial-gradient(circle closest-side, transparent 0 76%, #000 77%);
-  pointer-events: none;
-}
-
-.ring-half {
-  @include abs.flex(row, nowrap, center, center);
-  position: relative;
-  z-index: abs.$z-index-base;
-  flex: 1;
-  padding: 0;
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
-
-// both labels are placed by their own center, symmetrically around the hub center
-// and as a share of --hub-d, so they keep the same distance at every ring size
-.ring-half-label {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: abs.$font-family-base;
-  font-size: abs.$font-size-base;
-  font-weight: abs.$font-weight-medium;
-  color: var(--color-text);
-  opacity: 0.55;
-  transition: opacity 0.35s ease;
-
-  .ring-half--top & {
-    top: calc(100% - var(--hub-d) * 0.14);
-  }
-
-  .ring-half--bottom & {
-    top: calc(var(--hub-d) * 0.14);
-    color: abs.$color-white;
-  }
-
-  .ring-half.is-active & {
-    opacity: 1;
-    font-weight: abs.$font-weight-bold;
-  }
-}
-
-.ring-orbit {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  pointer-events: none;
-}
-
-// only the node sits on the orbit — the label is pulled out of the flow so its
-// height cannot shift the node off the circle
-.ring-item {
-  --angle: calc(var(--i) * 1turn / var(--ring-count) - 0.25turn);
-  position: absolute;
-  top: calc(50% + var(--ring-r) * sin(var(--angle)));
-  left: calc(50% + var(--ring-r) * cos(var(--angle)));
-  width: var(--node-d);
-  height: var(--node-d);
-  transform: translate(-50%, -50%);
-  animation: ring-pop 0.4s $ring-ease-back backwards;
-  animation-delay: calc(var(--i) * 35ms);
-}
-
-.ring-node {
-  @include abs.flex(row, nowrap, center, center);
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: rgba(abs.$color-accent, 0.12);
-  // same rising fill as the hero socials: a half-transparent gradient at double
-  // height, slid up on hover
-  background-image: linear-gradient(to top, var(--color-accent-text) 50%, transparent 50%);
-  background-size: 100% 200%;
-  background-position: 0 0;
-  pointer-events: auto;
-  transition: background-position 0.5s $ring-ease-out;
-
-  &:hover {
-    background-position: 0 100%;
-  }
-
-  &:hover .ring-icon {
-    animation: ring-flip 0.6s $ring-ease-out;
-    color: var(--color-text-inverse);
-  }
-}
-
-:host-context([data-theme='dark']) .ring-node:hover .ring-icon {
-  color: abs.$color-white;
-}
-
-.ring-icon {
-  font-size: abs.rem(30);
-  color: var(--color-accent-text);
-  transition: color 0.5s $ring-ease-out;
-}
-
-img.ring-icon {
-  width: abs.rem(30);
-  height: abs.rem(30);
-}
-
-@keyframes ring-flip {
-  from {
-    transform: rotateY(0deg);
-  }
-
-  to {
-    transform: rotateY(360deg);
-  }
-}
-
-.ring-label {
-  position: absolute;
-  top: calc(100% + #{abs.rem(8)});
-  left: 50%;
-  transform: translateX(-50%);
-  // wraps at word boundaries instead of shrinking below 16px — two-word labels
-  // become two lines and stay narrow enough for neighbouring nodes down to 320px
-  max-width: abs.rem(80);
-  font-family: abs.$font-family-base;
-  font-size: abs.$font-size-base;
-  font-weight: abs.$font-weight-medium;
-  line-height: 1.2;
-  text-align: center;
-  color: var(--color-text-secondary);
-}
-
-@keyframes ring-pop {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.4);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-// same entrance for the grid fallback, where the items are not centered on the orbit
-@keyframes ring-pop-flat {
-  from {
-    opacity: 0;
-    transform: scale(0.4);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.about-top-row {
+.about-intro {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: abs.rem(32);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr);
+  gap: abs.rem(32) abs.rem(64);
+  align-items: start;
+  padding-bottom: abs.rem(136);
 }
 
-.about-card {
+.about-facts {
   @include abs.flex(column, nowrap, flex-start, stretch);
-  border-radius: abs.$radius-md;
-  overflow: clip;
-}
-
-.about-card-head {
-  @include abs.flex(row, nowrap, space-between, flex-start);
   gap: abs.rem(24);
-  padding: abs.rem(24) abs.rem(40);
+  margin: 0;
+  padding: abs.rem(32);
+  border-radius: abs.$radius-lg;
   background-color: var(--color-panel-strong);
 }
 
-.about-card-body {
-  @include abs.flex(column, nowrap, flex-start, flex-start);
-  padding: abs.rem(28) abs.rem(40);
-  background-color: var(--color-panel-soft);
+.about-fact {
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: abs.rem(4);
 }
 
-.about-link {
-  margin-top: abs.rem(24);
-}
-
-.about-location {
-  @include abs.flex(row, nowrap, flex-start, flex-start);
-  gap: abs.rem(8);
-  margin: 0;
-  align-self: flex-end;
-  max-width: abs.rem(240);
-  font-family: abs.$font-family-base;
+.about-fact-label {
   font-size: abs.$font-size-base;
   line-height: 1.4;
   color: var(--color-text-muted);
 }
 
-.location-icon {
+.about-fact-value {
+  margin: 0;
+  font-size: abs.$font-size-lg;
+  font-weight: abs.$font-weight-medium;
+  line-height: 1.4;
+  color: var(--color-text);
+}
+
+.about-body {
+  @include abs.flex(column, nowrap, flex-start, flex-start);
+}
+
+.about-text {
+  margin: 0;
+  max-width: abs.rem(680);
+  font-size: abs.$font-size-md;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+.about-text + .about-text {
+  margin-top: abs.rem(20);
+}
+
+.about-more {
+  display: none;
+  gap: abs.rem(8);
+  align-self: center;
+  margin-top: abs.rem(20);
+  padding: abs.rem(8);
+  border: none;
+  background: none;
+  font-family: abs.$font-family-base;
+  font-size: abs.$font-size-base;
+  font-weight: abs.$font-weight-bold;
+  color: var(--color-accent-text);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-text);
+    outline-offset: 2px;
+  }
+}
+
+.about-more-icon {
+  transition: transform 0.3s ease;
+}
+
+.about-more.is-expanded .about-more-icon {
+  transform: rotate(180deg);
+}
+
+.about-link {
+  align-self: flex-start;
+  margin-top: abs.rem(32);
+  padding: abs.rem(12) abs.rem(22);
+}
+
+.stack-head {
+  @include abs.flex(row, wrap, center, baseline);
+  gap: abs.rem(20);
+  margin-bottom: abs.$section-head-gap;
+}
+
+.stack-title {
+  margin: 0;
+  font-size: clamp(#{abs.rem(36)}, 6vw, #{abs.rem(56)});
+  font-weight: abs.$font-weight-heading;
+  letter-spacing: abs.rem(-1.5);
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.stack-sub {
+  margin: 0;
+  font-size: abs.$font-size-lg;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.stack-groups {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stack-group {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 2fr);
+  gap: abs.rem(20) abs.rem(48);
+  align-items: start;
+  padding: abs.rem(32) abs.rem(4);
+  border-top: 1px solid var(--color-border);
+
+  &:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+}
+
+.stack-group-head {
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: abs.rem(8);
+}
+
+.stack-group-title {
+  margin: 0;
+  font-size: clamp(#{abs.rem(22)}, 2.2vw, #{abs.rem(26)});
+  font-weight: abs.$font-weight-heading;
+  letter-spacing: abs.rem(-0.4);
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.stack-group-note {
+  margin: 0;
+  font-size: abs.$font-size-base;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.stack-items {
+  @include abs.flex(row, wrap, flex-start, center);
+  gap: abs.rem(16) abs.rem(36);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stack-item {
+  @include abs.flex(row, nowrap, flex-start, center);
+  gap: abs.rem(10);
+}
+
+.stack-icon {
   flex-shrink: 0;
-  margin-top: abs.rem(3);
-  font-size: abs.rem(18);
+  font-size: abs.rem(24);
   color: var(--color-accent-text);
 }
 
-:host-context([data-theme='dark']) .skill-icon-invert {
+img.stack-icon {
+  width: abs.rem(24);
+  height: abs.rem(24);
+}
+
+.stack-label {
+  font-size: abs.$font-size-md;
+  line-height: 1.3;
+  color: var(--color-text-secondary);
+  transition: color 0.3s ease;
+}
+
+.stack-item:hover .stack-label {
+  color: var(--color-text);
+}
+
+:host-context([data-theme='dark']) .stack-icon-invert {
   filter: brightness(0) invert(1);
 }
 
-:host-context([data-theme='dark']) {
-  .ring-node {
-    background-color: abs.$color-white;
-  }
-
-  // node is white on dark, so keep the original (dark) logo instead of inverting it
-  .ring-node .skill-icon-invert {
-    filter: none;
-  }
-}
-
 /* #region RESPONSIVE */
-@media (min-width: #{abs.$breakpoint-desktop + 1px}) {
-  :host {
-    @include abs.flex(column, nowrap, center, stretch);
-    min-height: calc(100dvh - var(--header-h));
+@include abs.tablet-lg {
+  .about-intro {
+    grid-template-columns: minmax(0, 1fr);
+    gap: abs.rem(24);
+    padding-bottom: abs.rem(104);
+  }
+
+  .about-text {
+    max-width: none;
+  }
+
+  .about-copy {
+    max-height: abs.rem(224);
+    overflow: clip;
+    mask-image: linear-gradient(to bottom, abs.$color-black 55%, transparent 100%);
+    transition: max-height 0.5s ease;
+  }
+
+  .about-copy.is-expanded {
+    max-height: abs.rem(900);
+    mask-image: none;
+  }
+
+  .about-more {
+    @include abs.flex(row, nowrap, center, center);
+  }
+
+  .about-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(#{abs.rem(240)}, 1fr));
+    gap: abs.rem(24) abs.rem(40);
+  }
+
+  .stack-group {
+    grid-template-columns: minmax(0, 1fr);
+    gap: abs.rem(20);
   }
 }
 
 @include abs.mobile {
-  :host {
-    padding-top: abs.rem(24);
+  .about {
+    padding-block: abs.$section-padding-mobile;
   }
 
-  .about-inner {
-    padding-top: abs.rem(48);
+  .about-header,
+  .stack-head {
+    margin-bottom: abs.$section-head-gap-mobile;
   }
 
-  .tech-ring-wrap {
-    padding-top: abs.rem(24);
+  .about-intro {
+    padding-bottom: abs.rem(80);
   }
 
-  .ring-scene {
-    // the lower bound stays below 88vw of a 320px viewport so the scene never
-    // outgrows the content container on the narrowest supported screen
-    --ring-d: round(clamp(#{abs.rem(264)}, 88vw, #{abs.rem(360)}), 2px);
-    // slightly bigger hub so the 16px labels still fit inside the punched-out center
-    --hub-d: round(calc(var(--ring-d) * 0.46), 1px);
-    --node-d: #{abs.rem(50)};
-    --ring-r: round(calc(var(--ring-d) / 2 - #{abs.rem(37)}), 1px);
+  .stack-group {
+    padding: abs.rem(28) 0;
   }
 
-  .ring-icon {
-    font-size: abs.rem(26);
+  .stack-items {
+    gap: abs.rem(16) abs.rem(28);
   }
 
-  img.ring-icon {
-    width: abs.rem(26);
-    height: abs.rem(26);
-  }
-
-  .about-card-head,
-  .about-card-body {
-    padding: abs.rem(28) abs.rem(24);
-  }
-
-  .about-card-head {
-    flex-direction: column;
-    gap: abs.rem(16);
-  }
-
-  .about-location {
-    align-self: flex-start;
-    text-align: left;
-    white-space: normal;
+  .about-facts {
+    padding: abs.rem(24);
   }
 }
 
-// below ~400px the orbit cannot hold 16px labels — 10 nodes leave ~65px of arc
-// while a label needs 70-95px. The buoy stays as the stack switch and the nodes
-// fall out of the circle into a grid underneath it.
-@include abs.mobile-sm {
-  .ring-scene {
-    @include abs.flex(column, nowrap, flex-start, center);
-    --hub-d: #{abs.rem(160)};
-    width: 100%;
-    height: auto;
-  }
-
-  // stays relative: the sea and the buoy are absolute children with inset: 0 and
-  // need the hub as their containing block
-  .ring-hub {
-    position: relative;
-    top: auto;
-    left: auto;
-    flex-shrink: 0;
-    margin: 0;
-  }
-
-  .ring-orbit {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(#{abs.rem(88)}, 1fr));
-    gap: abs.rem(24) abs.rem(16);
-    position: static;
-    width: 100%;
-    margin-top: abs.rem(32);
-    pointer-events: auto;
-  }
-
-  .ring-item {
-    @include abs.flex(column, nowrap, flex-start, center);
-    gap: abs.rem(8);
-    position: static;
-    width: auto;
-    height: auto;
-    transform: none;
-    animation-name: ring-pop-flat;
-  }
-
-  .ring-node {
-    flex-shrink: 0;
-    width: var(--node-d);
-    height: var(--node-d);
-  }
-
-  .ring-label {
-    position: static;
-    max-width: none;
-    transform: none;
-  }
-}
-
-// last in the region so it also wins over the grid fallback's animation-name
 @media (prefers-reduced-motion: reduce) {
-  .ring-item {
-    animation: none;
-  }
 
-  .ring-node {
-    transition: background-position 0.25s $ring-ease-out;
-  }
-
-  .ring-node:hover .ring-icon {
-    animation: none;
+  .stack-label,
+  .about-copy,
+  .about-more-icon {
+    transition: none;
   }
 }
 /* #endregion */

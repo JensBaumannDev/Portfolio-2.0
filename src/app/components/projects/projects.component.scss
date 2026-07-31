@@ -1,22 +1,20 @@
 @use 'src/styles/abstracts' as abs;
 
+$ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
 :host {
   display: block;
 }
 
-// fills the viewport below the fixed header and centers its content in it;
-// the symmetric padding only kicks in once the content outgrows that space
 .work {
-  @include abs.flex(column, nowrap, center, stretch);
-  min-height: calc(100dvh - var(--header-h));
-  padding-top: abs.rem(64);
-  padding-bottom: abs.rem(64);
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  padding-block: abs.$section-padding;
 }
 
 .work-header {
   @include abs.flex(row, wrap, center, baseline);
   gap: abs.rem(20);
-  margin-bottom: abs.rem(64);
+  margin-bottom: abs.$section-head-gap;
 }
 
 .work-title {
@@ -39,29 +37,38 @@
   color: var(--color-text-secondary);
 }
 
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: abs.rem(32);
+.work-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.work-card {
-  @include abs.flex(column, nowrap, flex-start, stretch);
-  min-width: 0;
-  border-radius: abs.$radius-md;
-  overflow: clip;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+.work-item {
+  border-top: 1px solid var(--color-border);
 
-  &:hover {
-    transform: translateY(-6px);
+  &:last-child {
+    border-bottom: 1px solid var(--color-border);
   }
 }
 
-.work-card-visual {
-  @include abs.flex(row, nowrap, center, center);
-  padding: abs.rem(32);
+.work-item-heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.work-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr) minmax(0, 1.1fr) auto;
+  grid-template-areas: 'name type stack toggle';
+  align-items: center;
+  gap: abs.rem(8) abs.rem(32);
+  width: 100%;
+  padding: abs.rem(26) abs.rem(4);
   border: none;
-  background-color: var(--color-panel-strong);
+  background: none;
+  font-family: inherit;
+  text-align: left;
   cursor: pointer;
 
   &:focus-visible {
@@ -70,66 +77,210 @@
   }
 }
 
-.work-card-visual-inner {
+.work-name {
+  grid-area: name;
+  font-size: clamp(#{abs.rem(22)}, 2.6vw, #{abs.rem(30)});
+  font-weight: abs.$font-weight-heading;
+  letter-spacing: abs.rem(-0.6);
+  line-height: 1.15;
+  color: var(--color-text);
+  transition: color 0.3s ease;
+}
+
+.work-type {
+  grid-area: type;
+  font-size: abs.$font-size-base;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+.work-meta {
+  grid-area: stack;
+  font-size: abs.$font-size-base;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.work-toggle {
+  @include abs.flex(row, nowrap, center, center);
+  grid-area: toggle;
+  width: abs.rem(24);
+  height: abs.rem(24);
+  color: var(--color-text-muted);
+  transition: transform 0.4s $ease-out, color 0.3s ease;
+}
+
+.work-row:hover {
+
+  .work-name,
+  .work-toggle {
+    color: var(--color-accent-text);
+  }
+}
+
+.work-item-open {
+
+  .work-name {
+    color: var(--color-accent-text);
+  }
+
+  .work-toggle {
+    transform: rotate(135deg);
+    color: var(--color-accent-text);
+  }
+}
+
+.work-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.55s $ease-out;
+}
+
+.work-item-open .work-panel {
+  grid-template-rows: 1fr;
+}
+
+.work-panel-clip {
+  min-height: 0;
+  overflow: clip;
+}
+
+.work-panel-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: abs.rem(48);
+  align-items: stretch;
+  padding: abs.rem(8) abs.rem(4) abs.rem(48);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.work-item-open .work-panel-inner {
+  opacity: 1;
+  transition-delay: 0.12s;
+}
+
+.work-panel-media {
   position: relative;
-  display: block;
+  align-self: start;
   width: 100%;
   aspect-ratio: 16 / 10;
+  border-radius: abs.$radius-lg;
+  background-color: var(--color-panel-strong);
 
   img {
     object-fit: contain;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: abs.rem(24);
   }
 }
 
-.work-card-body {
-  @include abs.flex(column, nowrap, flex-start, flex-start);
-  gap: abs.rem(6);
-  padding: abs.rem(20) abs.rem(24);
-  background-color: var(--color-panel-soft);
+.work-panel-text {
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: abs.rem(20);
 }
 
-.work-card-name {
+.work-lead {
   margin: 0;
   font-size: abs.$font-size-md;
-  font-weight: abs.$font-weight-heading;
-  letter-spacing: abs.rem(-0.3);
+  line-height: 1.6;
   color: var(--color-text);
 }
 
-.work-card-link {
-  font-size: abs.$font-size-base;
-  font-weight: abs.$font-weight-bold;
-  color: var(--color-accent-text);
-  text-decoration: none;
+.work-highlights {
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  gap: abs.rem(12);
+  margin-block: auto;
+  margin-inline: 0;
+  padding: 0;
+  list-style: none;
 
-  &:focus-visible {
-    outline: 2px solid var(--color-accent-text);
-    outline-offset: 2px;
+  li {
+    font-size: abs.$font-size-md;
+    line-height: 1.4;
+    color: var(--color-text-secondary);
   }
+}
+
+.work-actions {
+  @include abs.flex(row, wrap, flex-start, stretch);
+  gap: abs.rem(12);
+}
+
+.work-action {
+  padding: abs.rem(12) abs.rem(22);
 }
 
 /* #region RESPONSIVE */
 @include abs.tablet-lg {
-  .work-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .work-panel-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: abs.rem(36);
+  }
+
+  .work-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: 'name toggle' 'type toggle';
+    gap: abs.rem(6) abs.rem(24);
+  }
+
+  .work-meta {
+    display: none;
   }
 }
 
 @include abs.mobile {
   .work {
-    min-height: 0;
-    padding-top: abs.rem(24);
-    padding-bottom: abs.rem(64);
+    padding-block: abs.$section-padding-mobile;
   }
 
   .work-header {
-    margin-bottom: abs.rem(32);
+    margin-bottom: abs.$section-head-gap-mobile;
   }
 
-  .work-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: abs.rem(24);
+  .work-row {
+    gap: abs.rem(4) abs.rem(12);
+    padding: abs.rem(20) 0;
+  }
+
+  .work-toggle {
+    width: abs.rem(20);
+    height: abs.rem(20);
+  }
+
+  .work-panel-inner {
+    padding: abs.rem(8) 0 abs.rem(48);
+  }
+
+  .work-panel-media img {
+    padding: abs.rem(12);
+  }
+
+  .work-panel-text {
+    gap: abs.rem(28);
+  }
+
+  .work-highlights {
+    gap: abs.rem(16);
+  }
+
+  .work-actions {
+    gap: abs.rem(14);
+  }
+
+  .work-action {
+    flex: 1 1 100%;
+    padding: abs.rem(14) abs.rem(22);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+
+  .work-panel,
+  .work-panel-inner,
+  .work-toggle,
+  .work-name {
+    transition: none;
+  }
+}
+
 /* #endregion */

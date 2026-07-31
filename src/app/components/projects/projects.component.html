@@ -4,29 +4,70 @@
     <p class="work-sub">{{ 'projects.subtitle' | translate }}</p>
   </header>
 
-  <div class="work-grid" appRevealStagger revealSelector=".work-card">
+  <ul class="work-list" appRevealStagger revealSelector=".work-item">
     @for (project of projects(); track project.key) {
-      <article class="work-card">
-        <button
-          type="button"
-          class="work-card-visual"
-          (click)="openDialog(project.key)"
-          [attr.aria-label]="('projects.' + project.key + '.name' | translate) + ' — ' + ('projects.detail_cta' | translate)"
-        >
-          <span class="work-card-visual-inner">
-            <img [ngSrc]="project.image" fill [alt]="project.imageAlt" sizes="(max-width: 768px) 90vw, 33vw" />
-          </span>
-        </button>
+      <li class="work-item" [class.work-item-open]="isOpen(project.key)">
+        <h3 class="work-item-heading">
+          <button
+            type="button"
+            class="work-row"
+            [id]="'project-row-' + project.key"
+            [attr.aria-expanded]="isOpen(project.key)"
+            [attr.aria-controls]="'project-panel-' + project.key"
+            (click)="toggle(project.key)"
+          >
+            <span class="work-name">{{ 'projects.' + project.key + '.name' | translate }}</span>
+            <span class="work-type">{{ 'projects.' + project.key + '.eyebrow' | translate }}</span>
+            <span class="work-meta">{{ project.tags.join(' · ') }}</span>
+            <span class="work-toggle" aria-hidden="true">
+              <ng-icon name="lucidePlus" size="20px"></ng-icon>
+            </span>
+          </button>
+        </h3>
 
-        <div class="work-card-body">
-          <h3 class="work-card-name">{{ 'projects.' + project.key + '.name' | translate }}</h3>
-          <a class="work-card-link" [href]="project.live" target="_blank" rel="noopener">
-            {{ 'projects.live_cta' | translate }}
-          </a>
+        <div
+          class="work-panel"
+          [id]="'project-panel-' + project.key"
+          role="region"
+          [attr.aria-labelledby]="'project-row-' + project.key"
+          [attr.inert]="isOpen(project.key) ? null : ''"
+        >
+          <div class="work-panel-clip">
+            <div class="work-panel-inner">
+              <div class="work-panel-media">
+                <img [ngSrc]="project.image" fill [alt]="project.imageAlt" sizes="(max-width: 1024px) 90vw, 45vw" />
+              </div>
+
+              <div class="work-panel-text">
+                <p class="work-lead">{{ 'projects.' + project.key + '.description' | translate }}</p>
+
+                <ul class="work-highlights">
+                  <li>{{ 'projects.' + project.key + '.stat1_lbl' | translate }}</li>
+                  <li>{{ 'projects.' + project.key + '.stat2_lbl' | translate }}</li>
+                  <li>{{ 'projects.' + project.key + '.stat3_lbl' | translate }}</li>
+                </ul>
+
+                <div class="work-actions">
+                  <button type="button" class="button work-action" (click)="openDialog(project.key)">
+                    <span class="text">{{ 'projects.detail_cta' | translate }}</span>
+                    <ng-icon name="lucideArrowRight" size="18px" aria-hidden="true"></ng-icon>
+                  </button>
+                  <a [href]="project.github" target="_blank" rel="noopener" class="button button-outline work-action">
+                    <ng-icon name="lucideGithub" size="18px" aria-hidden="true"></ng-icon>
+                    <span class="text">{{ 'projects.github' | translate }}</span>
+                  </a>
+                  <a [href]="project.live" target="_blank" rel="noopener" class="button button-outline work-action">
+                    <ng-icon name="lucideExternalLink" size="18px" aria-hidden="true"></ng-icon>
+                    <span class="text">{{ 'projects.live' | translate }}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </article>
+      </li>
     }
-  </div>
+  </ul>
 </div>
 
 @if (selectedProject(); as project) {

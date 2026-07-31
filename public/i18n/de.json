@@ -22,20 +22,27 @@
     "profile_alt": "Profilbild von Jens Baumann"
   },
   "about": {
-    "eyebrow": "Über mich",
     "section_title": "Über mich",
     "section_sub": "Meine Skills und Ich",
-    "title": "Quereinsteiger mit einem Plan.",
-    "text": "Ich komme eigentlich aus dem Vertrieb, habe aber vor kurzem beschlossen, mich voll auf das Programmieren zu konzentrieren. Deswegen mache ich gerade eine einjährige Fullstack-Fortbildung. Es macht mir wahnsinnig Spaß, Ideen von Grund auf in Code zu übersetzen und am Ende ein funktionierendes Projekt vor mir zu haben. Genau deshalb fuchse ich mich so gerne in neue Themen rein und lerne jeden Tag dazu, auch wenn es manchmal komplizierter ist, als es scheint.",
+    "fact_location_label": "Standort",
+    "fact_location": "Emden, Ostfriesland. Remote oder vor Ort.",
+    "fact_available_label": "Verfügbar",
+    "fact_available": "Ab Q4 2026",
+    "fact_focus_label": "Aktuell",
+    "fact_focus": "Einjährige Fullstack-Fortbildung bei der Developer Akademie",
+    "fact_languages_label": "Sprachen",
+    "fact_languages": "Deutsch, Englisch, Plattdeutsch",
+    "text": "Ich komme aus dem Einzelhandel und Vertrieb und habe irgendwann gemerkt, dass mich das Erstellen mehr interessiert als das Verkaufen. Deswegen mache ich gerade eine einjährige Fullstack-Fortbildung und sitze daneben jeden Abend an eigenen Projekten. Was mir dabei am meisten liegt, ist mich in ein neues Thema reinzufuchsen, bis ich wirklich verstanden habe, warum etwas funktioniert.",
+    "text2": "Ordnung und Struktur sind mir dabei extrem wichtig, im Alltag genauso wie im Code. Ich sehe sofort, wenn etwas nicht sauber sortiert ist, und kann es dann schlecht so liegen lassen. Beim Programmieren ist genau das ein Vorteil: verständliche Namen, eine klare Ordnerstruktur, Komponenten, die genau eine Sache machen. So finde ich mich nach Wochen in meinem eigenen Code noch zurecht, und andere im Team auch.",
+    "read_more": "Mehr lesen",
+    "read_less": "Weniger anzeigen",
     "link": "Mehr über mich",
-    "location": "Emden, Ostfriesland. Offen für Remote oder Büropräsenz.",
-    "ring_group": "Tech-Stack umschalten"
-  },
-  "skills": {
-    "eyebrow": "Mein Stack",
-    "title": "Technologien & Fokus.",
-    "frontend": "Frontend (Abgeschlossen)",
-    "learning": "Backend & DevOps (Aktueller Fokus)"
+    "stack_title": "Tech-Stack",
+    "stack_sub": "Womit ich täglich arbeite",
+    "stack_frontend": "Frontend",
+    "stack_frontend_note": "Darauf habe ich mich spezialisiert",
+    "stack_backend": "Backend",
+    "stack_backend_note": "Baue ich gerade aus, Schritt für Schritt."
   },
   "projects": {
     "title": "Projekte",
@@ -82,6 +89,10 @@
     },
     "pokedex": {
       "name": "Pokedex",
+      "eyebrow": "Einzelprojekt · API-Lexikon",
+      "stat1_lbl": "Live-Daten aus der PokeAPI",
+      "stat2_lbl": "Such- & Filterlogik",
+      "stat3_lbl": "Detailansicht mit Stats",
       "description": "Eine Art Lexikon für Pokémon. Die Daten kommen live aus der PokeAPI. Man kann durch alle Pokémon scrollen, filtern und sich die genauen Stats ansehen.",
       "learnings": "Da die API teilweise extrem viele Einzelanfragen erfordert, wurde die Seite anfangs sehr langsam. Ich musste also lernen, wie man Requests intelligent bündelt und die Ladezeiten optimiert.",
       "umsetzung": "Hauptsächlich asynchrones JavaScript (Fetch), um die Daten abzurufen, kombiniert mit einer Such- und Filterlogik fürs Frontend.",
@@ -90,6 +101,10 @@
     },
     "portfolio": {
       "name": "Portfolio",
+      "eyebrow": "Einzelprojekt · Figma-Umsetzung",
+      "stat1_lbl": "Figma-Vorlage umgesetzt",
+      "stat2_lbl": "CSS-Keyframe-Animationen",
+      "stat3_lbl": "Wiederverwendbare Komponenten",
       "description": "Ein Übungsprojekt aus der Fortbildung. Wir haben ein fertiges Figma-Design bekommen und ich habe versucht, das mit Angular so genau wie möglich nachzubauen – inklusive der ganzen kleinen Animationen, die vorgegeben waren.",
       "learnings": "Da das Design sehr viele Animationen vorgesehen hat, musste ich aufpassen, dass die Seite nicht ruckelt. Ich habe mich ziemlich intensiv damit beschäftigt, wie man CSS-Keyframes effizient nutzt, ohne den Browser zu überlasten.",
       "umsetzung": "Ganz klassisch Angular mit SCSS. Bei den Animationen habe ich darauf geachtet, dass sie als wiederverwendbare CSS-Klassen vorliegen.",
@@ -103,6 +118,7 @@
     "label_learnings": "Herausforderungen & Erkenntnisse",
     "label_implementation": "Umsetzung",
     "label_duration": "Dauer",
+    "label_stack": "Stack",
     "next_project": "Nächstes Projekt",
     "featured": "Featured Project"
   },
