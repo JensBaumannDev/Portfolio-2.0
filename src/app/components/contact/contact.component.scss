@@ -1,7 +1,7 @@
 @use 'src/styles/abstracts' as abs;
 
 .contact-container {
-  background-color: abs.$color-accent;
+  background-color: var(--color-bg);
   padding-block: abs.$section-padding;
 }
 
@@ -22,18 +22,18 @@
   font-weight: abs.$font-weight-heading;
   letter-spacing: abs.rem(-1.5);
   line-height: 1;
-  color: abs.$color-white;
+  color: var(--color-text);
 }
 
 .contact-heading-dot {
-  color: abs.$color-button-bg;
+  color: var(--color-accent-text);
 }
 
 .contact-heading-sub {
   margin: 0;
   font-size: abs.$font-size-lg;
   line-height: 1.5;
-  color: abs.$color-text-primary;
+  color: var(--color-text-secondary);
 }
 
 .contact-header {
@@ -41,22 +41,13 @@
   text-align: center;
 }
 
-.contact-eyebrow {
-  margin: 0;
-  font-family: abs.$font-family-mono;
-  font-size: abs.$font-size-base;
-  text-transform: uppercase;
-  letter-spacing: abs.rem(3);
-  color: abs.$color-text-primary;
-}
-
 .contact-title {
-  margin: abs.rem(16) 0 0;
-  font-size: clamp(#{abs.rem(48)}, 8vw, #{abs.rem(105)});
+  margin: 0;
+  font-size: clamp(#{abs.rem(30)}, 4vw, #{abs.rem(44)});
   font-weight: abs.$font-weight-heading;
-  letter-spacing: abs.rem(-2);
-  line-height: 1;
-  color: abs.$color-white;
+  letter-spacing: abs.rem(-1);
+  line-height: 1.1;
+  color: var(--color-text);
 }
 
 .contact-subtitle {
@@ -64,221 +55,70 @@
   max-width: abs.rem(560);
   font-size: abs.$font-size-lg;
   line-height: 1.5;
-  color: abs.$color-text-primary;
+  color: var(--color-text-secondary);
 }
 
-$compass-ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
-$compass-ease-out: cubic-bezier(0.2, 0, 0, 1);
-
-.contact-compass {
-  --dial-d: #{abs.rem(196)};
-  --orbit-r: #{abs.rem(164)};
-  --social-d: #{abs.rem(72)};
-  --needle-bearing: 0deg;
-  position: relative;
-  width: calc(var(--orbit-r) * 2 + var(--social-d));
-  height: calc(var(--orbit-r) * 2 + var(--social-d));
-  margin-top: abs.rem(40);
-
-  &:has(.compass-social--mail:hover),
-  &:has(.compass-social--mail:focus-visible) {
-    --needle-bearing: 0deg;
-  }
-
-  &:has(.compass-social--github:hover),
-  &:has(.compass-social--github:focus-visible) {
-    --needle-bearing: 90deg;
-  }
-
-  &:has(.compass-social--linkedin:hover),
-  &:has(.compass-social--linkedin:focus-visible) {
-    --needle-bearing: 180deg;
-  }
-
-  &:has(.compass-social--youtube:hover),
-  &:has(.compass-social--youtube:focus-visible) {
-    --needle-bearing: 270deg;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: calc(var(--orbit-r) * 2);
-    height: calc(var(--orbit-r) * 2);
-    margin: calc(var(--orbit-r) * -1) 0 0 calc(var(--orbit-r) * -1);
-    border: 2px dashed rgba(abs.$color-white, 0.34);
-    border-radius: 50%;
-  }
-}
-
-.compass-dial {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: var(--dial-d);
-  height: var(--dial-d);
-  margin: calc(var(--dial-d) / -2) 0 0 calc(var(--dial-d) / -2);
-  border-radius: 50%;
-  background-image: radial-gradient(circle at 50% 28%, rgba(abs.$color-white, 0.26), rgba(abs.$color-white, 0) 62%);
-  box-shadow: inset 0 0 0 2px rgba(abs.$color-white, 0.6), 0 14px 34px rgba(abs.$color-black, 0.24);
-}
-
-.compass-tick {
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  width: 2px;
-  height: calc(var(--dial-d) / 2);
-  margin-left: -1px;
-  transform-origin: 50% 100%;
-  transform: rotate(calc(var(--t) * 22.5deg));
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: abs.rem(7);
-    left: 0;
-    width: 100%;
-    height: abs.rem(5);
-    background-color: rgba(abs.$color-white, 0.45);
-  }
-
-  &:nth-child(4n + 3)::before {
-    height: abs.rem(11);
-    background-color: rgba(abs.$color-white, 0.8);
-  }
-
-  &:nth-child(4n + 1)::before {
-    display: none;
-  }
-}
-
-.compass-letter {
-  position: absolute;
-  font-family: abs.$font-family-mono;
-  font-size: abs.rem(18);
-  font-weight: abs.$font-weight-bold;
-  line-height: 1;
-  color: abs.$color-white;
-}
-
-.compass-letter--n {
-  top: abs.rem(7);
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.compass-letter--s {
-  bottom: abs.rem(7);
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.compass-letter--e {
-  top: 50%;
-  right: abs.rem(9);
-  transform: translateY(-50%);
-}
-
-.compass-letter--w {
-  top: 50%;
-  left: abs.rem(9);
-  transform: translateY(-50%);
-}
-
-.compass-needle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: abs.rem(16);
-  height: calc(var(--dial-d) * 0.54);
-  margin: calc(var(--dial-d) * -0.27) 0 0 abs.rem(-8);
-  transform: rotate(var(--needle-bearing));
-  transform-origin: 50% 50%;
-  transition: transform 0.7s $compass-ease-back;
-}
-
-.compass-needle-body {
-  display: block;
+.contact-links {
+  @include abs.flex(column, nowrap, flex-start, stretch);
   width: 100%;
-  height: 100%;
-  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-  background: linear-gradient(to bottom, abs.$color-buoy-red 0 50%, abs.$color-white 50% 100%);
-  transform-origin: 50% 50%;
-  animation: needle-drift 7s ease-in-out infinite;
-}
-
-@keyframes needle-drift {
-  0%,
-  100% {
-    transform: rotate(-3.5deg);
-  }
-
-  50% {
-    transform: rotate(3.5deg);
-  }
-}
-
-.compass-cap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: abs.rem(16);
-  height: abs.rem(16);
-  margin: abs.rem(-8) 0 0 abs.rem(-8);
-  border-radius: 50%;
-  background-color: abs.$color-button-bg;
-  box-shadow: 0 0 0 3px rgba(abs.$color-white, 0.85);
-}
-
-.compass-social {
-  --pos: 0deg;
-  --angle: calc(var(--pos) - 90deg);
-  @include abs.flex(row, nowrap, center, center);
-  position: absolute;
-  top: round(calc(50% + var(--orbit-r) * sin(var(--angle))), 1px);
-  left: round(calc(50% + var(--orbit-r) * cos(var(--angle))), 1px);
-  width: var(--social-d);
-  height: var(--social-d);
-  margin: calc(var(--social-d) / -2) 0 0 calc(var(--social-d) / -2);
+  max-width: abs.rem(420);
+  margin: abs.rem(40) auto 0;
   padding: 0;
-  font-size: abs.rem(30);
-  border: 0;
-  border-radius: 50%;
-  background-color: abs.$color-white;
-  background-image: linear-gradient(to top, abs.$color-accent-text 50%, transparent 50%);
-  background-size: 100% 200%;
-  background-position: 0 0;
-  box-shadow: inset 0 0 0 5px abs.$color-white, 0 8px 20px rgba(abs.$color-black, 0.2);
-  color: abs.$color-button-bg;
-  transition: background-position 0.5s $compass-ease-out, color 0.5s $compass-ease-out,
-    transform 0.4s $compass-ease-back;
+  list-style: none;
+}
+
+.contact-link {
+  @include abs.flex(row, nowrap, flex-start, center);
+  gap: abs.rem(16);
+  padding: abs.rem(20) abs.rem(16);
+  border-top: 1px solid var(--color-border);
+  background-image: linear-gradient(to right, var(--color-panel-strong) 50%, transparent 50%);
+  background-size: 200% calc(100% - #{abs.rem(14)});
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  font-size: abs.$font-size-md;
+  font-weight: abs.$font-weight-medium;
+  color: var(--color-text);
+  transition: background-position 0.45s ease, color 0.3s ease;
 
   &:hover,
   &:focus-visible {
-    background-color: abs.$color-white;
-    color: abs.$color-white;
-    background-position: 0 100%;
-    transform: scale(1.12);
+    background-position: 0 50%;
+    color: var(--color-accent-text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-text);
+    outline-offset: 2px;
   }
 }
 
-.compass-social--mail {
-  --pos: 0deg;
+.contact-links li:last-child .contact-link {
+  border-bottom: 1px solid var(--color-border);
 }
 
-.compass-social--github {
-  --pos: 90deg;
+.contact-link-icon {
+  flex-shrink: 0;
+  font-size: abs.rem(24);
+  color: var(--color-accent-text);
 }
 
-.compass-social--linkedin {
-  --pos: 180deg;
+.contact-link-text {
+  @include abs.flex(column, nowrap, flex-start, flex-start);
+  gap: abs.rem(2);
 }
 
-.compass-social--youtube {
-  --pos: 270deg;
+.contact-link-value {
+  font-size: abs.$font-size-base;
+  font-weight: abs.$font-weight-regular;
+  color: var(--color-text-muted);
+}
+
+.contact-note {
+  margin: abs.rem(32) 0 0;
+  font-size: abs.$font-size-base;
+  line-height: 1.6;
+  color: var(--color-text-muted);
 }
 
 .contact-form {
@@ -286,10 +126,9 @@ $compass-ease-out: cubic-bezier(0.2, 0, 0, 1);
   width: 100%;
   max-width: abs.rem(640);
   margin-top: abs.rem(64);
-  padding: abs.rem(48);
+  padding: abs.rem(40);
   border-radius: abs.$radius-lg;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background-color: var(--color-panel-strong);
 }
 
 .form-field {
@@ -426,25 +265,17 @@ $compass-ease-out: cubic-bezier(0.2, 0, 0, 1);
     text-align: left;
   }
 
-  .contact-compass {
-    --dial-d: #{abs.rem(216)};
-    --orbit-r: #{abs.rem(184)};
-    --social-d: #{abs.rem(72)};
-    align-self: center;
+  .contact-links {
+    margin-inline: 0;
+  }
+
+  .contact-note {
     margin-top: auto;
-    margin-bottom: auto;
-  }
-
-  .compass-social {
-    font-size: abs.rem(30);
-  }
-
-  .compass-letter {
-    font-size: abs.rem(19);
+    padding-top: abs.rem(32);
   }
 
   .contact-title {
-    font-size: clamp(#{abs.rem(40)}, 3.4vw, #{abs.rem(52)});
+    font-size: clamp(#{abs.rem(30)}, 3.4vw, #{abs.rem(44)});
   }
 
   .contact-form {
@@ -464,21 +295,8 @@ $compass-ease-out: cubic-bezier(0.2, 0, 0, 1);
   }
 
   .contact-title {
-    font-size: abs.$font-size-display-sm;
     word-break: break-word;
     hyphens: auto;
-  }
-
-  .contact-compass {
-    --social-d: #{abs.rem(56)};
-    --compass-w: round(clamp(#{abs.rem(252)}, 84vw, #{abs.rem(320)}), 2px);
-    --orbit-r: round(calc((var(--compass-w) - var(--social-d)) / 2), 1px);
-    --dial-d: round(calc(var(--compass-w) * 0.5), 1px);
-    margin-top: abs.rem(32);
-  }
-
-  .compass-social {
-    font-size: abs.rem(24);
   }
 
   .contact-form {
@@ -488,17 +306,8 @@ $compass-ease-out: cubic-bezier(0.2, 0, 0, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .compass-needle {
+  .contact-link {
     transition: none;
-  }
-
-  .compass-needle-body {
-    animation: none;
-  }
-
-  .compass-social:hover,
-  .compass-social:focus-visible {
-    transform: none;
   }
 }
 /* #endregion */

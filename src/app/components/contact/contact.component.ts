@@ -21,7 +21,6 @@ export class Contact {
   private readonly fb = inject(FormBuilder);
   private readonly http = inject(HttpClient);
 
-  protected readonly ticks = Array.from({ length: 16 }, (_, i) => i);
 
   protected readonly sent = signal(false);
   protected readonly sending = signal(false);
