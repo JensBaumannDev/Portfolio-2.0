@@ -2,7 +2,7 @@
 
 .app-layout {
   @include abs.flex(column, nowrap, flex-start, stretch);
-  min-height: 100vh;
+  min-height: 100svh;
 }
 
 .main-content {

@@ -1,8 +1,8 @@
 @use 'src/styles/abstracts' as abs;
 
 .contact-container {
-  background-color: var(--color-bg);
   padding-block: abs.$section-padding;
+  background-color: var(--color-panel-soft);
 }
 
 .contact-inner {

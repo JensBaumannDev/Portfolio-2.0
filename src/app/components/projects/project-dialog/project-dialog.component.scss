@@ -28,7 +28,7 @@
 .dialog-body {
   @include abs.flex(column, nowrap, flex-start, stretch);
   @include abs.maxWidth;
-  min-height: 100dvh;
+  min-height: 100svh;
   margin: 0 auto;
   padding: abs.rem(120) abs.rem(16) abs.rem(96);
 }

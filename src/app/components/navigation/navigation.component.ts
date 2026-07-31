@@ -8,7 +8,9 @@ import {
   input,
   output,
   computed,
+  effect,
 } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -34,6 +36,7 @@ export class Navigation implements OnInit, OnDestroy {
   private readonly translate = inject(TranslateService);
   private readonly router = inject(Router);
   private readonly themeService = inject(ThemeService);
+  private readonly document = inject(DOCUMENT);
   private routeSub?: Subscription;
   private scrollRafId?: number;
 
@@ -63,7 +66,17 @@ export class Navigation implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.routeSub?.unsubscribe();
     if (this.scrollRafId !== undefined) cancelAnimationFrame(this.scrollRafId);
+    for (const element of [this.document.documentElement, this.document.body]) {
+      element?.classList.remove('no-scroll');
+    }
   }
+
+  private readonly menuScrollLock = effect(() => {
+    const open = this.isMenuOpen();
+    for (const element of [this.document.documentElement, this.document.body]) {
+      element?.classList.toggle('no-scroll', open);
+    }
+  });
 
   protected toggleMenu(): void {
     this.isMenuOpen.update((val) => !val);

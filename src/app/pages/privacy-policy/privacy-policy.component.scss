@@ -2,7 +2,7 @@
 
 .legal-page {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100svh;
   background-color: var(--color-bg);
   @include abs.flex(row, nowrap, center, flex-start);
   padding: abs.rem(64) abs.rem(16) abs.rem(96);
