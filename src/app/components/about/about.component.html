@@ -1,72 +1,85 @@
-<div class="about-header-wrap content-container">
+<div class="about content-container">
   <header class="about-header" appReveal>
-    <h2 class="about-heading">{{ 'about.section_title' | translate }}<span class="about-heading-dot">.</span></h2>
-    <p class="about-heading-sub">{{ 'about.section_sub' | translate }}</p>
+    <h2 class="about-title">{{ 'about.section_title' | translate }}<span class="about-title-dot">.</span></h2>
+    <p class="about-sub">{{ 'about.section_sub' | translate }}</p>
   </header>
-</div>
 
-<div class="tech-ring-wrap content-container" appReveal>
-  <div class="ring-scene" [style.--ring-count]="activeSkills().length">
-    <div class="ring-hub" role="group" [attr.aria-label]="'about.ring_group' | translate">
-      <div class="ring-sea" aria-hidden="true"></div>
-      <div class="ring-buoy" aria-hidden="true"></div>
+  <div class="about-intro" appReveal>
+    <div class="about-body">
+      <div id="about-copy" class="about-copy" [class.is-expanded]="textExpanded()">
+        <p class="about-text">{{ 'about.text' | translate }}</p>
+        <p class="about-text">{{ 'about.text2' | translate }}</p>
+      </div>
+
       <button
         type="button"
-        class="ring-half ring-half--top"
-        [class.is-active]="activeStack() === 'frontend'"
-        [attr.aria-pressed]="activeStack() === 'frontend'"
-        (click)="selectStack('frontend')"
+        class="about-more"
+        [class.is-expanded]="textExpanded()"
+        aria-controls="about-copy"
+        [attr.aria-expanded]="textExpanded()"
+        (click)="toggleText()"
       >
-        <span class="ring-half-label">Frontend</span>
+        <span>
+          @if (textExpanded()) {
+            {{ 'about.read_less' | translate }}
+          } @else {
+            {{ 'about.read_more' | translate }}
+          }
+        </span>
+        <ng-icon name="lucideChevronDown" size="18px" class="about-more-icon" aria-hidden="true"></ng-icon>
       </button>
-      <button
-        type="button"
-        class="ring-half ring-half--bottom"
-        [class.is-active]="activeStack() === 'backend'"
-        [attr.aria-pressed]="activeStack() === 'backend'"
-        (click)="selectStack('backend')"
-      >
-        <span class="ring-half-label">Backend</span>
-      </button>
+
+      <a routerLink="/cv" class="button about-link">
+        <span class="text">{{ 'about.link' | translate }}</span>
+        <ng-icon name="lucideArrowRight" size="18px" aria-hidden="true"></ng-icon>
+      </a>
     </div>
 
-    <ul class="ring-orbit" [attr.aria-label]="'about.ring_group' | translate">
-      @for (skill of activeSkills(); track skill.label; let i = $index) {
-        <li class="ring-item" [style.--i]="i">
-          <span class="ring-node">
-            @if (skill.img) {
-              <img [ngSrc]="skill.img" width="30" height="30" alt="" class="ring-icon" [class.skill-icon-invert]="skill.invertOnDark" />
-            } @else if (skill.icon) {
-              <ng-icon [name]="skill.icon" class="ring-icon" aria-hidden="true"></ng-icon>
+    <dl class="about-facts">
+      @for (fact of facts; track fact) {
+        <div class="about-fact">
+          <dt class="about-fact-label">{{ 'about.fact_' + fact + '_label' | translate }}</dt>
+          <dd class="about-fact-value">{{ 'about.fact_' + fact | translate }}</dd>
+        </div>
+      }
+    </dl>
+  </div>
+
+  <div class="about-stack">
+    <div class="stack-head" appReveal>
+      <h3 class="stack-title">{{ 'about.stack_title' | translate }}<span class="stack-title-dot">.</span></h3>
+      <p class="stack-sub">{{ 'about.stack_sub' | translate }}</p>
+    </div>
+
+    <ul class="stack-groups" appRevealStagger revealSelector=".stack-group">
+      @for (group of stackGroups; track group.key) {
+        <li class="stack-group">
+          <div class="stack-group-head">
+            <h4 class="stack-group-title">{{ 'about.stack_' + group.key | translate }}</h4>
+            <p class="stack-group-note">{{ 'about.stack_' + group.key + '_note' | translate }}</p>
+          </div>
+
+          <ul class="stack-items">
+            @for (skill of group.skills; track skill.label) {
+              <li class="stack-item">
+                @if (skill.img) {
+                  <img
+                    [ngSrc]="skill.img"
+                    width="24"
+                    height="24"
+                    alt=""
+                    class="stack-icon"
+                    [class.stack-icon-invert]="skill.invertOnDark"
+                  />
+                } @else if (skill.icon) {
+                  <ng-icon [name]="skill.icon" class="stack-icon" aria-hidden="true"></ng-icon>
+                }
+                <span class="stack-label">{{ skill.label }}</span>
+              </li>
             }
-          </span>
-          <span class="ring-label">{{ skill.label }}</span>
+          </ul>
         </li>
       }
     </ul>
-  </div>
-</div>
-
-<div class="about-inner content-container">
-  <div class="about-top-row">
-    <article class="about-card" appReveal>
-      <div class="about-card-head">
-        <div class="about-card-head-main">
-          <p class="card-eyebrow">{{ 'about.eyebrow' | translate }}</p>
-          <h2 class="card-title">{{ 'about.title' | translate }}</h2>
-        </div>
-        <p class="about-location">
-          <ng-icon name="lucideMapPin" class="location-icon" aria-hidden="true"></ng-icon>
-          {{ 'about.location' | translate }}
-        </p>
-      </div>
-      <div class="about-card-body">
-        <p class="card-text">{{ 'about.text' | translate }}</p>
-        <a routerLink="/cv" class="arrow-link about-link">
-          {{ 'about.link' | translate }}
-          <span aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
-    </article>
   </div>
 </div>

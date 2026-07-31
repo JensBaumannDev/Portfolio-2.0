@@ -22,20 +22,27 @@
     "profile_alt": "Profile picture of Jens Baumann"
   },
   "about": {
-    "eyebrow": "About me",
     "section_title": "About me",
     "section_sub": "My skills and me",
-    "title": "Career changer with a plan.",
-    "text": "I actually have a background in sales, but recently decided to fully commit to coding. That's why I'm currently doing a one-year fullstack bootcamp. I just really enjoy turning ideas into code and having a working project in front of me at the end of the day. That's exactly why I love diving into new topics and learning something new every single day, even if things turn out to be more complicated than they seem.",
+    "fact_location_label": "Based in",
+    "fact_location": "Emden, East Frisia. Remote or on-site.",
+    "fact_available_label": "Available",
+    "fact_available": "From Q4 2026",
+    "fact_focus_label": "Currently",
+    "fact_focus": "One-year fullstack bootcamp at Developer Akademie",
+    "fact_languages_label": "Languages",
+    "fact_languages": "German, English, Low German",
+    "text": "I come from retail and sales and realised at some point that creating things interests me far more than selling them. That's why I'm doing a one-year fullstack bootcamp right now, plus my own projects most evenings. What I enjoy most is digging into a new topic until I really understand why something works.",
+    "text2": "Order and structure matter a lot to me, in everyday life just as much as in code. I spot it immediately when something isn't sorted properly, and then I find it hard to leave it that way. When coding, that turns into an advantage: names you can understand, a clear folder structure, components that do one thing and do it well. That's how I still find my way around my own code weeks later, and how the rest of the team does too.",
+    "read_more": "Read more",
+    "read_less": "Show less",
     "link": "More about me",
-    "location": "Emden, East Frisia. Open to remote or on-site.",
-    "ring_group": "Switch tech stack"
-  },
-  "skills": {
-    "eyebrow": "My Stack",
-    "title": "Technologies & Focus.",
-    "frontend": "Frontend (Proficient)",
-    "learning": "Backend & DevOps (Current Focus)"
+    "stack_title": "Tech stack",
+    "stack_sub": "What I work with every day",
+    "stack_frontend": "Frontend",
+    "stack_frontend_note": "What I've specialised in",
+    "stack_backend": "Backend",
+    "stack_backend_note": "Growing step by step right now."
   },
   "projects": {
     "title": "Projects",
@@ -82,6 +89,10 @@
     },
     "pokedex": {
       "name": "Pokedex",
+      "eyebrow": "Solo project · API encyclopedia",
+      "stat1_lbl": "Live data from PokeAPI",
+      "stat2_lbl": "Search & filter logic",
+      "stat3_lbl": "Detail view with stats",
       "description": "A kind of encyclopedia for Pokémon. The data is pulled live from the PokeAPI. You can scroll through all Pokémon, filter them, and view their exact stats.",
       "learnings": "Since the API requires an enormous amount of individual requests for certain things, the page was initially very slow. I had to learn how to smartly batch requests and optimize loading times.",
       "umsetzung": "Mostly asynchronous JavaScript (Fetch) to retrieve the data, combined with search and filter logic for the frontend.",
@@ -90,6 +101,10 @@
     },
     "portfolio": {
       "name": "Portfolio",
+      "eyebrow": "Solo project · Figma build",
+      "stat1_lbl": "Figma design rebuilt",
+      "stat2_lbl": "CSS keyframe animations",
+      "stat3_lbl": "Reusable components",
       "description": "A practice project from the bootcamp. We were given a finished Figma design, and I tried to recreate it as closely as possible using Angular – including all the little animations that were in the mockup.",
       "learnings": "Because the design included so many animations, I had to be careful to keep the page from lagging. I spent quite a bit of time figuring out how to use CSS keyframes efficiently without overloading the browser.",
       "umsetzung": "Just classic Angular with SCSS. For the animations, I made sure to extract them into reusable CSS classes.",
@@ -103,6 +118,7 @@
     "label_learnings": "Challenges & Learnings",
     "label_implementation": "Implementation",
     "label_duration": "Duration",
+    "label_stack": "Stack",
     "next_project": "Next Project",
     "featured": "Featured Project"
   },

@@ -41,8 +41,6 @@
 
 html {
   scroll-behavior: smooth;
-  // anchor jumps stop exactly below the fixed header — sections size themselves to
-  // the remaining viewport (100dvh - header) and center their own content
   scroll-padding-top: var(--header-h);
   background-color: var(--color-bg);
   overflow-x: clip;

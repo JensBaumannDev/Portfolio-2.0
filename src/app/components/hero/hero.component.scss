@@ -159,14 +159,10 @@ $wave-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 }
 
 .hero {
-  --hero-overscan: 0px;
   @include abs.flex(column, nowrap, center, stretch);
   position: relative;
-  min-height: abs.rem(600);
-  height: 100vh;
-  height: calc(100dvh + var(--hero-overscan));
   background-color: var(--color-bg);
-  padding: clamp(#{abs.rem(88)}, 11vh, #{abs.rem(120)}) 0 calc(clamp(#{abs.rem(32)}, 5vh, #{abs.rem(72)}) + var(--hero-overscan));
+  padding: clamp(#{abs.rem(88)}, 11vh, #{abs.rem(120)}) 0 abs.$section-padding;
 }
 
 .hero-scene {
@@ -524,17 +520,9 @@ $wave-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 }
 
 /* #region RESPONSIVE */
-@supports (-webkit-touch-callout: none) {
+@media (min-width: #{abs.$breakpoint-desktop + 1px}) {
   .hero {
-    --hero-overscan: #{abs.rem(64)};
-  }
-}
-
-@media (max-height: 740px) {
-  .hero {
-    height: auto;
-    min-height: calc(100dvh + var(--hero-overscan));
-    justify-content: flex-start;
+    min-height: calc(100dvh - var(--header-h));
   }
 }
 
@@ -548,7 +536,7 @@ $wave-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 
 @include abs.mobile {
   .hero {
-    padding: clamp(#{abs.rem(84)}, 12vh, #{abs.rem(120)}) 0 clamp(#{abs.rem(28)}, 5vh, #{abs.rem(64)});
+    padding: clamp(#{abs.rem(84)}, 12vh, #{abs.rem(120)}) 0 abs.$section-padding-mobile;
   }
 
   .hero-title {
