@@ -77,7 +77,6 @@
       "learnings": "Die größte Herausforderung war eigentlich die Zusammenarbeit zu viert an demselben Code. Da merkt man schnell, wie wichtig klare Git-Absprachen sind. Gegen Ende habe ich mir dann nochmal Zeit genommen, um den Code ordentlich aufzuräumen und zu strukturieren.",
       "umsetzung": "Ich habe mich hauptsächlich um das Übersichts-Dashboard gekümmert. Außerdem habe ich die Drag-and-drop-Logik für das Board eingebaut und die rechtlichen Pflichtseiten erstellt.",
       "duration": "5 Wochen",
-      "tech": "HTML, CSS, JavaScript",
       "image_alt": "Das Kanban-Board von Join mit den Spalten To Do, In Progress und Done"
     },
     "dabubble": {
@@ -90,7 +89,6 @@
       "learnings": "Richtig knifflig wurde es, als ich sicherstellen musste, dass Sidebar, Chat und geöffnete Threads immer synchron bleiben, ohne dass sich die Komponenten gegenseitig stören, wenn neue Nachrichten reinkommen.",
       "umsetzung": "Ich habe das gesamte Chat-Interface gebaut. Wir haben Angular fürs Frontend genutzt und Supabase als Datenbank angehängt, für den Chat die Realtime-Subscriptions. Ansonsten habe ich noch Auth, Profile und eine Suchfunktion eingebaut.",
       "duration": "2 Wochen",
-      "tech": "Angular, TypeScript, SCSS, Supabase",
       "image_alt": "Die Chat-Oberfläche von DABubble mit Channel-Liste, Nachrichtenverlauf und offenem Thread"
     },
     "el_pollo_loco": {
@@ -103,7 +101,6 @@
       "learnings": "Am meisten Kopfzerbrechen hat mir die Kollisionserkennung bereitet. Wann springt man auf den Gegner, und wann wird man selbst getroffen? Das Ganze wirklich fehlerfrei in Objekten und Klassen zu kapseln, war eine super Übung.",
       "umsetzung": "Alles ist from scratch in Vanilla JavaScript geschrieben. Es gibt eine eigene Game-Loop, Objekt-Hierarchien für die Gegner und ein rudimentäres State-Management für die Spielphasen.",
       "duration": "3 Wochen",
-      "tech": "HTML, CSS, JavaScript, OOP",
       "image_alt": "Eine Spielszene aus El Pollo Loco mit Spielfigur, Münzanzeige und Gegnern"
     },
     "pokedex": {
@@ -116,7 +113,6 @@
       "learnings": "Da die API teilweise extrem viele Einzelanfragen erfordert, wurde die Seite anfangs sehr langsam. Ich musste also lernen, wie man Requests intelligent bündelt und die Ladezeiten optimiert.",
       "umsetzung": "Hauptsächlich asynchrones JavaScript (Fetch), um die Daten abzurufen, kombiniert mit einer Such- und Filterlogik fürs Frontend.",
       "duration": "2 Wochen",
-      "tech": "HTML, CSS, JavaScript, REST-API",
       "image_alt": "Die Übersicht des Pokedex mit Pokémon-Karten und Suchfeld"
     },
     "github": "Code auf GitHub",

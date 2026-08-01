@@ -1,0 +1,25 @@
+# Jens Baumann — Junior Fullstack Developer
+
+> Portfolio von Jens Baumann, Junior Fullstack Developer aus Emden in Ostfriesland. Quereinsteiger aus Einzelhandel und Vertrieb, aktuell in einer einjährigen Fullstack-Fortbildung an der Developer Akademie. Verfügbar ab Q4 2026 für Praktikum, Werkstudium oder eine Junior-Rolle, remote, hybrid oder vor Ort.
+
+Die Website ist eine Angular-Single-Page-Application mit deutscher und englischer Oberfläche. Inhaltliche Schwerpunkte sind die Projekte aus der Fortbildung, der Lebenslauf und ein Kontaktformular. Es werden keine Tracking-Cookies gesetzt und keine Analysedienste eingebunden.
+
+## Seiten
+
+- [Startseite](https://jensbaumann.com/): Vorstellung, Projektübersicht, Tech-Stack und Kontaktformular
+- [Lebenslauf](https://jensbaumann.com/cv): Berufserfahrung, Ausbildung, Weiterbildung und Skills
+- [Impressum](https://jensbaumann.com/legal-notice): Anbieterkennzeichnung nach § 5 DDG
+- [Datenschutzerklärung](https://jensbaumann.com/privacy-policy): Hosting, Server-Logfiles, Kontaktformular und Rechte nach DSGVO
+
+## Projekte
+
+- [DABubble](https://github.com/JensBaumannDev/DABubble): Echtzeit-Chat im Slack-Stil mit Channels und Threads, Gruppenprojekt. Angular, TypeScript, SCSS, Supabase
+- [Join](https://github.com/JensBaumannDev/Join): Kanban-Board zur Aufgabenverwaltung mit Drag-and-drop, Gruppenprojekt. Angular, TypeScript, SCSS, Supabase
+- [El Pollo Loco](https://github.com/JensBaumannDev/El-Pollo-Loco): Jump-and-run mit eigener Game-Loop und Kollisionserkennung, Einzelprojekt. HTML, CSS, JavaScript
+- [Pokedex](https://github.com/JensBaumannDev/Pokedex): Pokémon-Lexikon auf Basis der PokeAPI mit Such- und Filterlogik, Einzelprojekt. HTML, CSS, JavaScript, API
+
+## Kontakt
+
+- [E-Mail](mailto:info@jensbaumann.com)
+- [GitHub](https://github.com/JensBaumannDev)
+- [LinkedIn](https://www.linkedin.com/in/jens-baumann-7a6866315/)

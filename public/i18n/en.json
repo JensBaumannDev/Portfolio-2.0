@@ -77,7 +77,6 @@
       "learnings": "The biggest challenge was actually working with four people on the same codebase. You quickly realize how important clear Git workflows are. Towards the end, I took some time to properly clean up and structure the code.",
       "umsetzung": "I mainly took care of the summary dashboard. I also built the drag and drop logic for the board and created the required legal pages.",
       "duration": "5 Weeks",
-      "tech": "HTML, CSS, JavaScript",
       "image_alt": "The Join kanban board with the columns To Do, In Progress and Done"
     },
     "dabubble": {
@@ -90,7 +89,6 @@
       "learnings": "It got really tricky when I had to make sure that the sidebar, chat area, and open threads always stayed in sync without interfering with each other when new messages arrived.",
       "umsetzung": "I built the entire chat interface. We used Angular for the frontend and hooked up Supabase as the database, with the chat relying on Supabase's real-time subscriptions. Aside from that, I also built the auth, profiles, and a search feature.",
       "duration": "2 Weeks",
-      "tech": "Angular, TypeScript, SCSS, Supabase",
       "image_alt": "The DABubble chat interface with channel list, message history and an open thread"
     },
     "el_pollo_loco": {
@@ -103,7 +101,6 @@
       "learnings": "Collision detection definitely gave me the biggest headache. When exactly do you jump on an enemy, and when do you take damage yourself? Encapsulating all of this flawlessly in objects and classes was a great exercise.",
       "umsetzung": "Everything was built from scratch in vanilla JavaScript. It features a custom game loop, object hierarchies for the enemies, and some basic state management for the game phases.",
       "duration": "3 Weeks",
-      "tech": "HTML, CSS, JavaScript, OOP",
       "image_alt": "A gameplay scene from El Pollo Loco with the player character, coin counter and enemies"
     },
     "pokedex": {
@@ -116,7 +113,6 @@
       "learnings": "Since the API requires an enormous amount of individual requests for certain things, the page was initially very slow. I had to learn how to smartly batch requests and optimize loading times.",
       "umsetzung": "Mostly asynchronous JavaScript (Fetch) to retrieve the data, combined with search and filter logic for the frontend.",
       "duration": "2 Weeks",
-      "tech": "HTML, CSS, JavaScript, REST-API",
       "image_alt": "The Pokedex overview with Pokémon cards and a search field"
     },
     "github": "Code on GitHub",
