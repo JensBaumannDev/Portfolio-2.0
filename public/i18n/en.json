@@ -6,6 +6,27 @@
     "contact": "Contact",
     "theme": "Toggle color scheme"
   },
+  "a11y": {
+    "skip_to_content": "Skip to content"
+  },
+  "seo": {
+    "home_title": "Jens Baumann — Junior Fullstack Developer",
+    "home_desc": "Jens Baumann — Junior Fullstack Developer based in Emden, East Frisia. Career changer working with Angular, TypeScript and SCSS. Open to an internship, working student position or a junior role from Q4 2026.",
+    "cv_title": "CV — Jens Baumann",
+    "cv_desc": "CV of Jens Baumann: fullstack developer training at Developer Akademie, work experience in retail and sales, skills and contact details.",
+    "legal_title": "Legal Notice — Jens Baumann",
+    "legal_desc": "Legal notice and provider identification pursuant to § 5 DDG for jensbaumann.com.",
+    "privacy_title": "Privacy Policy — Jens Baumann",
+    "privacy_desc": "Privacy policy for jensbaumann.com: hosting, server log files, contact form, local storage and your rights under the GDPR.",
+    "notfound_title": "Page not found — Jens Baumann",
+    "notfound_desc": "This page does not exist."
+  },
+  "notfound": {
+    "code": "404",
+    "title": "This page doesn't exist.",
+    "text": "The link is either out of date or there's a typo in the address.",
+    "back": "Back to home"
+  },
   "hero": {
     "status": "Available from Q4 2026",
     "title": "Junior Fullstack Developer",
@@ -18,7 +39,6 @@
     "cta_projects": "View projects",
     "cta_contact": "Get in touch",
     "cta_cv": "CV",
-    "image_alt": "The North Sea near Emden",
     "profile_alt": "Profile picture of Jens Baumann"
   },
   "about": {
@@ -47,10 +67,6 @@
   "projects": {
     "title": "Projects",
     "subtitle": "My previous projects",
-    "live_cta": "View project live",
-    "more_title": "More projects",
-    "more_sub": "From the training program · 2025–2026",
-    "all_github": "All projects on GitHub",
     "join": {
       "name": "Join",
       "eyebrow": "Group project · Kanban board",
@@ -61,7 +77,8 @@
       "learnings": "The biggest challenge was actually working with four people on the same codebase. You quickly realize how important clear Git workflows are. Towards the end, I took some time to properly clean up and structure the code.",
       "umsetzung": "I mainly took care of the summary dashboard. I also built the drag and drop logic for the board and created the required legal pages.",
       "duration": "5 Weeks",
-      "tech": "HTML, CSS, JavaScript"
+      "tech": "HTML, CSS, JavaScript",
+      "image_alt": "The Join kanban board with the columns To Do, In Progress and Done"
     },
     "dabubble": {
       "name": "DABubble",
@@ -70,10 +87,11 @@
       "stat2_lbl": "Login & profiles",
       "stat3_lbl": "Channels & threads",
       "description": "A sort of Slack clone for teams. You can chat in channels or directly with each other and reply to messages in threads – all in real time, of course.",
-      "learnings": "I built the entire chat interface. It got really tricky when I had to make sure that the sidebar, chat area, and open threads always stayed in sync without interfering with each other when new messages arrived.",
-      "umsetzung": "We used Angular for the frontend and hooked up Supabase as the database. The chat relies on Supabase's real-time subscriptions. Aside from that, I also built the auth, profiles, and a search feature.",
+      "learnings": "It got really tricky when I had to make sure that the sidebar, chat area, and open threads always stayed in sync without interfering with each other when new messages arrived.",
+      "umsetzung": "I built the entire chat interface. We used Angular for the frontend and hooked up Supabase as the database, with the chat relying on Supabase's real-time subscriptions. Aside from that, I also built the auth, profiles, and a search feature.",
       "duration": "2 Weeks",
-      "tech": "Angular, TypeScript, SCSS, Supabase"
+      "tech": "Angular, TypeScript, SCSS, Supabase",
+      "image_alt": "The DABubble chat interface with channel list, message history and an open thread"
     },
     "el_pollo_loco": {
       "name": "El Pollo Loco",
@@ -85,7 +103,8 @@
       "learnings": "Collision detection definitely gave me the biggest headache. When exactly do you jump on an enemy, and when do you take damage yourself? Encapsulating all of this flawlessly in objects and classes was a great exercise.",
       "umsetzung": "Everything was built from scratch in vanilla JavaScript. It features a custom game loop, object hierarchies for the enemies, and some basic state management for the game phases.",
       "duration": "3 Weeks",
-      "tech": "HTML, CSS, JavaScript, OOP"
+      "tech": "HTML, CSS, JavaScript, OOP",
+      "image_alt": "A gameplay scene from El Pollo Loco with the player character, coin counter and enemies"
     },
     "pokedex": {
       "name": "Pokedex",
@@ -97,19 +116,8 @@
       "learnings": "Since the API requires an enormous amount of individual requests for certain things, the page was initially very slow. I had to learn how to smartly batch requests and optimize loading times.",
       "umsetzung": "Mostly asynchronous JavaScript (Fetch) to retrieve the data, combined with search and filter logic for the frontend.",
       "duration": "2 Weeks",
-      "tech": "HTML, CSS, JavaScript, REST-API"
-    },
-    "portfolio": {
-      "name": "Portfolio",
-      "eyebrow": "Solo project · Figma build",
-      "stat1_lbl": "Figma design rebuilt",
-      "stat2_lbl": "CSS keyframe animations",
-      "stat3_lbl": "Reusable components",
-      "description": "A practice project from the bootcamp. We were given a finished Figma design, and I tried to recreate it as closely as possible using Angular – including all the little animations that were in the mockup.",
-      "learnings": "Because the design included so many animations, I had to be careful to keep the page from lagging. I spent quite a bit of time figuring out how to use CSS keyframes efficiently without overloading the browser.",
-      "umsetzung": "Just classic Angular with SCSS. For the animations, I made sure to extract them into reusable CSS classes.",
-      "duration": "3 Weeks",
-      "tech": "Angular, TypeScript, SCSS"
+      "tech": "HTML, CSS, JavaScript, REST-API",
+      "image_alt": "The Pokedex overview with Pokémon cards and a search field"
     },
     "github": "Code on GitHub",
     "live": "Live demo",
@@ -151,7 +159,7 @@
   "footer": {
     "imprint": "Legal Notice",
     "privacy": "Privacy Policy",
-    "copyright": "2026 Jens Baumann"
+    "copyright": "{{year}} Jens Baumann"
   },
   "cv": {
     "back": "Back to home",
@@ -227,6 +235,7 @@
     "s5_title": "5. Contact form and contact by email",
     "s5_p1": "If you send me an enquiry via the contact form, the data you enter in the form (name, email address and your message) will be transmitted to a script on the server and forwarded to my email address (info@jensbaumann.com) for the purpose of processing your enquiry. I do not pass this data on without your consent.",
     "s5_p2": "The processing of this data is based on Art. 6 (1) (a) GDPR (consent, which you grant via the checkbox) and Art. 6 (1) (b) GDPR if your request is related to the performance of a contract or pre-contractual measures. The data you enter will remain with me until you ask me to delete it, revoke your consent, or the purpose for data storage no longer applies (e.g. after your request has been processed). Mandatory legal provisions – in particular retention periods – remain unaffected.",
+    "s5_p3": "To protect against automated spam requests, the script checks whether an additional field that is invisible to humans has been filled in and how long it took to complete the form. In addition, an irreversible check value (hash) of your IP address is stored on the server for a maximum of one hour in order to limit the number of requests per sender. After that, the entry is deleted automatically. The legal basis is Art. 6 (1) (f) GDPR (legitimate interest in preventing misuse).",
     "s7_title": "6. Local storage",
     "s7_text": "This website stores your preferences for the color scheme (light, dark or system) and the selected language in your browser's local storage (a functional storage technology, not a tracking cookie). This data remains on your device, is not transmitted to me, and can be deleted at any time via your browser settings. The legal basis is Art. 6 (1) (f) GDPR (legitimate interest in a user-friendly presentation of the website).",
     "s8_title": "7. SSL/TLS encryption",

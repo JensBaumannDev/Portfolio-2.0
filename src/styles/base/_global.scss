@@ -18,6 +18,7 @@
   --color-border: #{abs.$color-border-light};
   --color-panel-strong: #{abs.$color-panel-strong-light};
   --color-panel-soft: #{abs.$color-panel-soft-light};
+  --color-glass: #{abs.$color-glass-light};
 }
 
 :root[data-theme='dark'] {
@@ -37,6 +38,7 @@
   --color-border: #{abs.$color-border-dark};
   --color-panel-strong: #{abs.$color-panel-strong-dark};
   --color-panel-soft: #{abs.$color-panel-soft-dark};
+  --color-glass: #{abs.$color-glass-dark};
 }
 
 html {

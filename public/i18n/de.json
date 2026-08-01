@@ -6,6 +6,27 @@
     "contact": "Kontakt",
     "theme": "Farbschema umschalten"
   },
+  "a11y": {
+    "skip_to_content": "Zum Inhalt springen"
+  },
+  "seo": {
+    "home_title": "Jens Baumann — Junior Fullstack Developer",
+    "home_desc": "Jens Baumann — Junior Fullstack Developer aus Emden, Ostfriesland. Quereinsteiger mit Angular, TypeScript und SCSS. Offen für Praktikum, Werkstudium oder eine Junior-Rolle ab Q4 2026.",
+    "cv_title": "Lebenslauf — Jens Baumann",
+    "cv_desc": "Lebenslauf von Jens Baumann: Fortbildung zum Fullstack-Entwickler an der Developer Akademie, Berufserfahrung im Einzelhandel und Vertrieb, Skills und Kontaktdaten.",
+    "legal_title": "Impressum — Jens Baumann",
+    "legal_desc": "Impressum und Anbieterkennzeichnung gemäß § 5 DDG für jensbaumann.com.",
+    "privacy_title": "Datenschutzerklärung — Jens Baumann",
+    "privacy_desc": "Datenschutzerklärung für jensbaumann.com: Hosting, Server-Logfiles, Kontaktformular, Local Storage und deine Rechte nach DSGVO.",
+    "notfound_title": "Seite nicht gefunden — Jens Baumann",
+    "notfound_desc": "Diese Seite existiert nicht."
+  },
+  "notfound": {
+    "code": "404",
+    "title": "Diese Seite gibt es nicht.",
+    "text": "Der Link ist entweder veraltet oder es hat sich ein Tippfehler eingeschlichen.",
+    "back": "Zurück zur Startseite"
+  },
   "hero": {
     "status": "Verfügbar ab Q4 2026",
     "title": "Junior Fullstack Developer",
@@ -18,7 +39,6 @@
     "cta_projects": "Projekte ansehen",
     "cta_contact": "Kontakt aufnehmen",
     "cta_cv": "Lebenslauf",
-    "image_alt": "Die Nordsee bei Emden",
     "profile_alt": "Profilbild von Jens Baumann"
   },
   "about": {
@@ -47,10 +67,6 @@
   "projects": {
     "title": "Projekte",
     "subtitle": "Meine bisherigen Projekte",
-    "live_cta": "Projekt Live ansehen",
-    "more_title": "Weitere Projekte",
-    "more_sub": "Aus der Fortbildung · 2025–2026",
-    "all_github": "Alle Projekte auf GitHub",
     "join": {
       "name": "Join",
       "eyebrow": "Gruppenprojekt · Kanban-Board",
@@ -61,7 +77,8 @@
       "learnings": "Die größte Herausforderung war eigentlich die Zusammenarbeit zu viert an demselben Code. Da merkt man schnell, wie wichtig klare Git-Absprachen sind. Gegen Ende habe ich mir dann nochmal Zeit genommen, um den Code ordentlich aufzuräumen und zu strukturieren.",
       "umsetzung": "Ich habe mich hauptsächlich um das Übersichts-Dashboard gekümmert. Außerdem habe ich die Drag-and-drop-Logik für das Board eingebaut und die rechtlichen Pflichtseiten erstellt.",
       "duration": "5 Wochen",
-      "tech": "HTML, CSS, JavaScript"
+      "tech": "HTML, CSS, JavaScript",
+      "image_alt": "Das Kanban-Board von Join mit den Spalten To Do, In Progress und Done"
     },
     "dabubble": {
       "name": "DABubble",
@@ -70,10 +87,11 @@
       "stat2_lbl": "Login & Profile",
       "stat3_lbl": "Channels & Threads",
       "description": "Eine Art Slack-Klon für Teams. Man kann in Channels oder direkt miteinander schreiben und auf Nachrichten in Threads antworten – natürlich alles in Echtzeit.",
-      "learnings": "Ich habe das gesamte Chat-Interface gebaut. Richtig knifflig wurde es, als ich sicherstellen musste, dass Sidebar, Chat und geöffnete Threads immer synchron bleiben, ohne dass sich die Komponenten gegenseitig stören, wenn neue Nachrichten reinkommen.",
-      "umsetzung": "Wir haben Angular fürs Frontend genutzt und Supabase als Datenbank angehängt. Für den Chat nutzen wir die Realtime-Subscriptions von Supabase. Ansonsten habe ich noch Auth, Profile und eine Suchfunktion eingebaut.",
+      "learnings": "Richtig knifflig wurde es, als ich sicherstellen musste, dass Sidebar, Chat und geöffnete Threads immer synchron bleiben, ohne dass sich die Komponenten gegenseitig stören, wenn neue Nachrichten reinkommen.",
+      "umsetzung": "Ich habe das gesamte Chat-Interface gebaut. Wir haben Angular fürs Frontend genutzt und Supabase als Datenbank angehängt, für den Chat die Realtime-Subscriptions. Ansonsten habe ich noch Auth, Profile und eine Suchfunktion eingebaut.",
       "duration": "2 Wochen",
-      "tech": "Angular, TypeScript, SCSS, Supabase"
+      "tech": "Angular, TypeScript, SCSS, Supabase",
+      "image_alt": "Die Chat-Oberfläche von DABubble mit Channel-Liste, Nachrichtenverlauf und offenem Thread"
     },
     "el_pollo_loco": {
       "name": "El Pollo Loco",
@@ -85,7 +103,8 @@
       "learnings": "Am meisten Kopfzerbrechen hat mir die Kollisionserkennung bereitet. Wann springt man auf den Gegner, und wann wird man selbst getroffen? Das Ganze wirklich fehlerfrei in Objekten und Klassen zu kapseln, war eine super Übung.",
       "umsetzung": "Alles ist from scratch in Vanilla JavaScript geschrieben. Es gibt eine eigene Game-Loop, Objekt-Hierarchien für die Gegner und ein rudimentäres State-Management für die Spielphasen.",
       "duration": "3 Wochen",
-      "tech": "HTML, CSS, JavaScript, OOP"
+      "tech": "HTML, CSS, JavaScript, OOP",
+      "image_alt": "Eine Spielszene aus El Pollo Loco mit Spielfigur, Münzanzeige und Gegnern"
     },
     "pokedex": {
       "name": "Pokedex",
@@ -97,19 +116,8 @@
       "learnings": "Da die API teilweise extrem viele Einzelanfragen erfordert, wurde die Seite anfangs sehr langsam. Ich musste also lernen, wie man Requests intelligent bündelt und die Ladezeiten optimiert.",
       "umsetzung": "Hauptsächlich asynchrones JavaScript (Fetch), um die Daten abzurufen, kombiniert mit einer Such- und Filterlogik fürs Frontend.",
       "duration": "2 Wochen",
-      "tech": "HTML, CSS, JavaScript, REST-API"
-    },
-    "portfolio": {
-      "name": "Portfolio",
-      "eyebrow": "Einzelprojekt · Figma-Umsetzung",
-      "stat1_lbl": "Figma-Vorlage umgesetzt",
-      "stat2_lbl": "CSS-Keyframe-Animationen",
-      "stat3_lbl": "Wiederverwendbare Komponenten",
-      "description": "Ein Übungsprojekt aus der Fortbildung. Wir haben ein fertiges Figma-Design bekommen und ich habe versucht, das mit Angular so genau wie möglich nachzubauen – inklusive der ganzen kleinen Animationen, die vorgegeben waren.",
-      "learnings": "Da das Design sehr viele Animationen vorgesehen hat, musste ich aufpassen, dass die Seite nicht ruckelt. Ich habe mich ziemlich intensiv damit beschäftigt, wie man CSS-Keyframes effizient nutzt, ohne den Browser zu überlasten.",
-      "umsetzung": "Ganz klassisch Angular mit SCSS. Bei den Animationen habe ich darauf geachtet, dass sie als wiederverwendbare CSS-Klassen vorliegen.",
-      "duration": "3 Wochen",
-      "tech": "Angular, TypeScript, SCSS"
+      "tech": "HTML, CSS, JavaScript, REST-API",
+      "image_alt": "Die Übersicht des Pokedex mit Pokémon-Karten und Suchfeld"
     },
     "github": "Code auf GitHub",
     "live": "Live-Demo",
@@ -151,7 +159,7 @@
   "footer": {
     "imprint": "Impressum",
     "privacy": "Datenschutz",
-    "copyright": "2026 Jens Baumann"
+    "copyright": "{{year}} Jens Baumann"
   },
   "cv": {
     "back": "Zurück zur Startseite",
@@ -227,6 +235,7 @@
     "s5_title": "5. Kontaktformular und Kontakt per E-Mail",
     "s5_p1": "Wenn du mir über das Kontaktformular eine Anfrage zukommen lässt, werden die von dir im Formular eingegebenen Daten (Name, E-Mail-Adresse und deine Nachricht) an ein Skript auf dem Server übermittelt und zum Zweck der Bearbeitung deiner Anfrage an meine E-Mail-Adresse (info@jensbaumann.com) weitergeleitet. Diese Daten gebe ich nicht ohne deine Einwilligung weiter.",
     "s5_p2": "Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO (Einwilligung, die du über die Checkbox erteilst) sowie Art. 6 Abs. 1 lit. b DSGVO, sofern deine Anfrage mit der Erfüllung eines Vertrags oder vorvertraglichen Maßnahmen zusammenhängt. Die von dir eingegebenen Daten verbleiben bei mir, bis du mich zur Löschung aufforderst, deine Einwilligung widerrufst oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung deiner Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.",
+    "s5_p3": "Zum Schutz vor automatisierten Spam-Anfragen prüft das Skript, ob ein für Menschen unsichtbares Zusatzfeld ausgefüllt wurde und wie lange das Ausfüllen des Formulars gedauert hat. Zusätzlich wird ein nicht rückrechenbarer Prüfwert (Hash) deiner IP-Adresse für maximal eine Stunde auf dem Server gespeichert, um die Anzahl der Anfragen pro Absender zu begrenzen. Danach wird der Eintrag automatisch gelöscht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Abwehr von Missbrauch).",
     "s7_title": "6. Lokaler Speicher (Local Storage)",
     "s7_text": "Diese Website speichert deine Einstellungen für das Farbschema (hell, dunkel oder systemabhängig) und die gewählte Sprache im Local Storage deines Browsers (eine funktionale Speichertechnik, kein Tracking-Cookie). Diese Daten verbleiben auf deinem Gerät, werden nicht an mich übermittelt und können jederzeit über deine Browser-Einstellungen gelöscht werden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer nutzerfreundlichen Darstellung der Website).",
     "s8_title": "7. SSL- bzw. TLS-Verschlüsselung",

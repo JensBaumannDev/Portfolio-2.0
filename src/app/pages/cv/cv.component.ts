@@ -1,7 +1,8 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Reveal } from '../../directives/reveal.directive';
+import { SeoService } from '../../services/seo.service';
 
 interface TimelineEntry {
   rangeKey: string;
@@ -18,6 +19,8 @@ interface TimelineEntry {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Cv {
+  private readonly seo = inject(SeoService);
+
   protected readonly experience = signal<TimelineEntry[]>([
     {
       rangeKey: 'cv.exp_agency_range',
@@ -59,4 +62,12 @@ export class Cv {
     'Git',
     'Supabase',
   ]);
+
+  constructor() {
+    this.seo.apply({
+      titleKey: 'seo.cv_title',
+      descriptionKey: 'seo.cv_desc',
+      path: '/cv',
+    });
+  }
 }

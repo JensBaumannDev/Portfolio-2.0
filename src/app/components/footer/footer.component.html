@@ -2,7 +2,7 @@
   <div class="content-container footer-inner">
     <p class="footer-copyright">
       <ng-icon name="lucideCopyright" size="1.1em"></ng-icon>
-      {{ 'footer.copyright' | translate }}
+      {{ 'footer.copyright' | translate: { year: currentYear } }}
     </p>
 
     <nav class="footer-links" aria-label="Footer">

@@ -5,6 +5,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideGithub, lucideExternalLink, lucideArrowRight, lucideArrowLeft } from '@ng-icons/lucide';
 import { Navigation } from '../../navigation/navigation.component';
+import { ScrollLockService } from '../../../services/scroll-lock.service';
 import type { Project } from '../projects.component';
 
 @Component({
@@ -21,13 +22,14 @@ import type { Project } from '../projects.component';
   templateUrl: './project-dialog.component.html',
   styleUrl: './project-dialog.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    '(document:keydown.escape)': 'close.emit()',
-  },
 })
 export class ProjectDialog implements OnInit, OnDestroy {
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly document = inject(DOCUMENT);
+  private readonly scrollLock = inject(ScrollLockService);
+  private readonly lockToken = Symbol('project-dialog');
+  private readonly previouslyFocused = this.document.activeElement as HTMLElement | null;
+  private dialogElement?: HTMLDialogElement;
 
   readonly project = input.required<Project>();
   readonly close = output<void>();
@@ -35,35 +37,25 @@ export class ProjectDialog implements OnInit, OnDestroy {
 
   constructor() {
     afterNextRender(() => {
-      this.host.nativeElement.querySelector<HTMLElement>('.dialog')?.focus();
+      this.dialogElement = this.host.nativeElement.querySelector('dialog') ?? undefined;
+      this.dialogElement?.showModal();
     });
   }
 
   ngOnInit(): void {
-    if (this.document?.documentElement) {
-      this.document.documentElement.classList.add('no-scroll');
-    }
-    if (this.document?.body) {
-      this.document.body.classList.add('no-scroll');
-    }
+    this.scrollLock.lock(this.lockToken);
   }
 
   ngOnDestroy(): void {
-    if (this.document?.documentElement) {
-      this.document.documentElement.classList.remove('no-scroll');
-    }
-    if (this.document?.body) {
-      this.document.body.classList.remove('no-scroll');
-    }
+    this.scrollLock.release(this.lockToken);
+    this.dialogElement?.close();
+    this.previouslyFocused?.focus();
   }
 
   protected onNavLinkClick(section: string): void {
     this.close.emit();
     setTimeout(() => {
-      const element = this.document.getElementById(section);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      this.document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
     }, 0);
   }
 }

@@ -13,7 +13,7 @@ import {
 })
 export class RevealStagger implements AfterViewInit, OnDestroy {
   readonly revealSelector = input('');
-  readonly revealStep = input(110);
+  readonly revealStep = input(70);
   readonly revealThreshold = input(0.15);
 
   private readonly elementRef = inject(ElementRef<HTMLElement>);
