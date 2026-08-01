@@ -12,4 +12,6 @@ import { lucideCopyright } from '@ng-icons/lucide';
   styleUrl: './footer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Footer {}
+export class Footer {
+  protected readonly currentYear = new Date().getFullYear();
+}

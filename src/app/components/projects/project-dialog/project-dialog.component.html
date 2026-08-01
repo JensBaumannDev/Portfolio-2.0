@@ -1,16 +1,12 @@
-<div class="dialog-backdrop" (click)="close.emit()"></div>
-
-<div
+<dialog
   class="dialog"
-  role="dialog"
-  aria-modal="true"
-  tabindex="-1"
   [attr.aria-label]="'projects.' + project().key + '.name' | translate"
+  (cancel)="close.emit()"
 >
   <app-navigation [forceActive]="'projects'" (linkClick)="onNavLinkClick($event)"></app-navigation>
 
   <div class="dialog-body">
-    <button type="button" class="back-btn" (click)="close.emit()">
+    <button type="button" class="back-btn" autofocus (click)="close.emit()">
       <ng-icon name="lucideArrowLeft" size="20px" aria-hidden="true"></ng-icon>
       <span>{{ 'projects.back' | translate }}</span>
     </button>
@@ -23,7 +19,12 @@
     </header>
 
     <div class="dialog-media">
-      <img [ngSrc]="project().image" fill [alt]="project().imageAlt" sizes="(max-width: 1024px) 92vw, 70vw" />
+      <img
+        [ngSrc]="project().image"
+        fill
+        [alt]="'projects.' + project().key + '.image_alt' | translate"
+        sizes="(max-width: 1024px) 92vw, 70vw"
+      />
       @if (project().featured) {
         <span class="dialog-featured">{{ 'projects.featured' | translate }}</span>
       }
@@ -71,4 +72,4 @@
       </button>
     </div>
   </div>
-</div>
+</dialog>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -8,6 +8,8 @@ import { faBrandGithub, faBrandLinkedinIn, faBrandYoutube } from '@ng-icons/font
 import { RevealStagger } from '../../directives/reveal-stagger.directive';
 import { Reveal } from '../../directives/reveal.directive';
 import { HttpClient } from '@angular/common/http';
+
+const FIELD_ORDER = ['name', 'email', 'message', 'privacy'] as const;
 
 @Component({
   selector: 'app-contact',
@@ -20,7 +22,8 @@ import { HttpClient } from '@angular/common/http';
 export class Contact {
   private readonly fb = inject(FormBuilder);
   private readonly http = inject(HttpClient);
-
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly renderedAt = Date.now();
 
   protected readonly sent = signal(false);
   protected readonly sending = signal(false);
@@ -31,18 +34,24 @@ export class Contact {
     email: ['', [Validators.required, Validators.email]],
     message: ['', [Validators.required, Validators.minLength(4)]],
     privacy: [false, [Validators.requiredTrue]],
+    website: [''],
   });
 
   protected onSubmit(): void {
-    if (this.form.invalid || this.sending()) {
+    if (this.sending()) return;
+
+    if (this.form.invalid) {
       this.form.markAllAsTouched();
+      this.focusFirstInvalid();
       return;
     }
 
     this.sending.set(true);
     this.failed.set(false);
 
-    this.http.post('send_mail.php', this.form.getRawValue()).subscribe({
+    const payload = { ...this.form.getRawValue(), elapsed: Date.now() - this.renderedAt };
+
+    this.http.post('send_mail.php', payload).subscribe({
       next: () => {
         this.sent.set(true);
         this.sending.set(false);
@@ -52,12 +61,21 @@ export class Contact {
       error: () => {
         this.sending.set(false);
         this.failed.set(true);
-      }
+      },
     });
   }
 
   protected invalid(controlName: string): boolean {
     const control = this.form.get(controlName);
     return !!control && control.invalid && control.touched;
+  }
+
+  private focusFirstInvalid(): void {
+    const name = FIELD_ORDER.find((field) => this.form.get(field)?.invalid);
+    if (!name) return;
+
+    const element = this.host.nativeElement.querySelector<HTMLElement>(`#contact-${name}`);
+    element?.focus();
+    element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }

@@ -5,6 +5,32 @@
   min-height: 100svh;
 }
 
+.skip-link {
+  position: fixed;
+  top: abs.rem(8);
+  left: abs.rem(8);
+  z-index: abs.$z-index-dialog;
+  padding: abs.rem(12) abs.rem(20);
+  border-radius: abs.$radius-sm;
+  background-color: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  font-size: abs.$font-size-base;
+  font-weight: abs.$font-weight-medium;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+
+  &:focus {
+    outline: 2px solid var(--color-accent-text);
+    outline-offset: 2px;
+    transform: translateY(0);
+  }
+}
+
 .main-content {
   flex-grow: 1;
+
+  &:focus-visible {
+    outline: none;
+  }
 }

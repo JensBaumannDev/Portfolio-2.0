@@ -1,0 +1,44 @@
+@use 'src/styles/abstracts' as abs;
+
+:host {
+  display: block;
+}
+
+.not-found {
+  @include abs.flex(column, nowrap, center, center);
+  @include abs.maxWidth;
+  gap: abs.rem(16);
+  margin: 0 auto;
+  min-height: 100svh;
+  padding: abs.rem(120) abs.rem(16) abs.rem(96);
+  text-align: center;
+}
+
+.not-found-code {
+  margin: 0;
+  font-size: abs.$font-size-display-fluid;
+  font-weight: abs.$font-weight-heading;
+  line-height: 1;
+  letter-spacing: abs.rem(-3);
+  color: var(--color-accent-text);
+}
+
+.not-found-title {
+  margin: 0;
+  font-size: abs.$font-size-h2;
+  font-weight: abs.$font-weight-heading;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.not-found-text {
+  margin: 0;
+  max-width: abs.rem(460);
+  font-size: abs.$font-size-md;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.not-found-link {
+  margin-top: abs.rem(16);
+}

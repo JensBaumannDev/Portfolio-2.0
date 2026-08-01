@@ -12,7 +12,6 @@ export interface Project {
   featured: boolean;
   tags: string[];
   image: string;
-  imageAlt: string;
   github: string;
   live: string;
 }
@@ -39,7 +38,6 @@ export class Projects {
       featured: true,
       tags: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
       image: './img/projects/webp/dabubble_project.webp',
-      imageAlt: 'DABubble Project',
       github: 'https://github.com/JensBaumannDev/DABubble',
       live: 'https://jensbaumann.com/projects/dabubble',
     },
@@ -48,7 +46,6 @@ export class Projects {
       featured: true,
       tags: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
       image: './img/projects/webp/join_project.webp',
-      imageAlt: 'Join Project',
       github: 'https://github.com/JensBaumannDev/Join',
       live: 'https://jensbaumann.com/projects/join/',
     },
@@ -57,7 +54,6 @@ export class Projects {
       featured: true,
       tags: ['HTML', 'CSS', 'JavaScript'],
       image: './img/projects/webp/el_pollo_loco_project.webp',
-      imageAlt: 'El Pollo Loco Game',
       github: 'https://github.com/JensBaumannDev/El-Pollo-Loco',
       live: 'https://jensbaumann.com/projects/el_pollo_loco/',
     },
@@ -66,18 +62,8 @@ export class Projects {
       featured: false,
       tags: ['HTML', 'CSS', 'JavaScript', 'API'],
       image: './img/projects/webp/pokedex_project.webp',
-      imageAlt: 'Pokedex Project',
       github: 'https://github.com/JensBaumannDev/Pokedex',
       live: 'https://jensbaumann.com/projects/pokedex/',
-    },
-    {
-      key: 'portfolio',
-      featured: false,
-      tags: ['Angular', 'TypeScript', 'SCSS'],
-      image: './img/projects/webp/portfolio_project.webp',
-      imageAlt: 'Portfolio Website',
-      github: 'https://github.com/JensBaumannDev/Portfolio',
-      live: 'https://jensbaumann.com/projects/portfolio/',
     },
   ]);
 

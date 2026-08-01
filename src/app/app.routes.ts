@@ -1,14 +1,22 @@
 import { Routes } from '@angular/router';
 import { Landingpage } from './pages/landingpage/landingpage.component';
-import { LegalNotice } from './pages/legal-notice/legal-notice.component';
-import { PrivacyPolicy } from './pages/privacy-policy/privacy-policy.component';
-import { Cv } from './pages/cv/cv.component';
 
 export const routes: Routes = [
   { path: '', component: Landingpage },
-  { path: 'cv', component: Cv },
-  { path: 'legal-notice', component: LegalNotice },
-  { path: 'privacy-policy', component: PrivacyPolicy },
-  { path: '**', redirectTo: '' }
+  {
+    path: 'cv',
+    loadComponent: () => import('./pages/cv/cv.component').then((m) => m.Cv),
+  },
+  {
+    path: 'legal-notice',
+    loadComponent: () => import('./pages/legal-notice/legal-notice.component').then((m) => m.LegalNotice),
+  },
+  {
+    path: 'privacy-policy',
+    loadComponent: () => import('./pages/privacy-policy/privacy-policy.component').then((m) => m.PrivacyPolicy),
+  },
+  {
+    path: '**',
+    loadComponent: () => import('./pages/not-found/not-found.component').then((m) => m.NotFound),
+  },
 ];
-

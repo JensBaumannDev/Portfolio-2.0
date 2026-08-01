@@ -8,9 +8,8 @@
 
   <div class="content-container contact-inner" appRevealStagger revealSelector=".contact-header, .contact-form">
     <div class="contact-header">
-      <h2 class="contact-title">{{ 'contact.title' | translate }}</h2>
+      <p class="contact-title">{{ 'contact.title' | translate }}</p>
       <p class="contact-subtitle">{{ 'contact.subtitle' | translate }}</p>
-
 
       <ul class="contact-links">
         <li>
@@ -64,11 +63,13 @@
           type="text"
           formControlName="name"
           class="field-input"
+          autocomplete="name"
           [class.invalid]="invalid('name')"
           [attr.aria-invalid]="invalid('name')"
+          [attr.aria-describedby]="invalid('name') ? 'contact-name-error' : null"
           [placeholder]="'contact.name_placeholder' | translate"
         />
-        <span class="field-error" role="alert">
+        <span id="contact-name-error" class="field-error" role="alert">
           @if (invalid('name')) { {{ 'contact.error_name' | translate }} }
         </span>
       </div>
@@ -82,11 +83,13 @@
           type="email"
           formControlName="email"
           class="field-input"
+          autocomplete="email"
           [class.invalid]="invalid('email')"
           [attr.aria-invalid]="invalid('email')"
+          [attr.aria-describedby]="invalid('email') ? 'contact-email-error' : null"
           [placeholder]="'contact.email_placeholder' | translate"
         />
-        <span class="field-error" role="alert">
+        <span id="contact-email-error" class="field-error" role="alert">
           @if (invalid('email')) { {{ 'contact.error_email' | translate }} }
         </span>
       </div>
@@ -102,22 +105,35 @@
           rows="3"
           [class.invalid]="invalid('message')"
           [attr.aria-invalid]="invalid('message')"
+          [attr.aria-describedby]="invalid('message') ? 'contact-message-error' : null"
           [placeholder]="'contact.message_placeholder' | translate"
         ></textarea>
-        <span class="field-error" role="alert">
+        <span id="contact-message-error" class="field-error" role="alert">
           @if (invalid('message')) { {{ 'contact.error_message' | translate }} }
         </span>
       </div>
 
+      <div class="form-honeypot" aria-hidden="true">
+        <label for="contact-website">Website</label>
+        <input id="contact-website" type="text" formControlName="website" tabindex="-1" autocomplete="off" />
+      </div>
+
       <div class="form-privacy">
-        <input id="contact-privacy" type="checkbox" formControlName="privacy" class="privacy-checkbox" />
+        <input
+          id="contact-privacy"
+          type="checkbox"
+          formControlName="privacy"
+          class="privacy-checkbox"
+          [attr.aria-invalid]="invalid('privacy')"
+          [attr.aria-describedby]="invalid('privacy') ? 'contact-privacy-error' : null"
+        />
         <label class="privacy-label" for="contact-privacy">
           {{ 'contact.privacy_pre' | translate }}
           <a routerLink="/privacy-policy" class="privacy-link">{{ 'contact.privacy_link' | translate }}</a>
           {{ 'contact.privacy_post' | translate }}
         </label>
       </div>
-      <span class="field-error" role="alert">
+      <span id="contact-privacy-error" class="field-error" role="alert">
         @if (invalid('privacy')) { {{ 'contact.error_privacy' | translate }} }
       </span>
 
@@ -131,7 +147,7 @@
             <a href="mailto:info@jensbaumann.com">info&#64;jensbaumann.com</a>
           </span>
         }
-        <button type="submit" class="button form-submit" [class.is-sent]="sent()" [disabled]="form.invalid || sending()">
+        <button type="submit" class="button form-submit" [class.is-sent]="sent()" [disabled]="sending()">
           <ng-icon [name]="sent() ? 'lucideCheck' : 'lucideMail'" size="20px"></ng-icon>
           <span class="text">{{ (sent() ? 'contact.success_short' : 'contact.submit') | translate }}</span>
         </button>

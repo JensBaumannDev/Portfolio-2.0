@@ -193,6 +193,13 @@
   color: abs.$color-error;
 }
 
+.form-honeypot {
+  position: absolute;
+  left: abs.rem(-9999);
+  width: abs.rem(1);
+  height: abs.rem(1);
+}
+
 .form-privacy {
   @include abs.flex(row, nowrap, flex-start, flex-start);
   gap: abs.rem(12);

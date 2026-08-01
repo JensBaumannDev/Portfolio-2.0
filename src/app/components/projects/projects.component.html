@@ -35,7 +35,12 @@
           <div class="work-panel-clip">
             <div class="work-panel-inner">
               <div class="work-panel-media">
-                <img [ngSrc]="project.image" fill [alt]="project.imageAlt" sizes="(max-width: 1024px) 90vw, 45vw" />
+                <img
+                  [ngSrc]="project.image"
+                  fill
+                  [alt]="'projects.' + project.key + '.image_alt' | translate"
+                  sizes="(max-width: 1024px) 90vw, 45vw"
+                />
               </div>
 
               <div class="work-panel-text">

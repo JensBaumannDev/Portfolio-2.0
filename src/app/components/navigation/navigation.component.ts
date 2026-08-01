@@ -11,13 +11,16 @@ import {
   effect,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideSun, lucideMoon, lucideMonitor } from '@ng-icons/lucide';
 import { ThemeService } from '../../services/theme.service';
+import { LanguageService, AppLanguage } from '../../services/language.service';
+import { ScrollLockService } from '../../services/scroll-lock.service';
+import { NAVBAR_HEIGHT } from '../../constants/layout.constants';
 
 const SECTION_IDS = ['home', 'projects', 'about', 'contact'];
 
@@ -33,10 +36,12 @@ const SECTION_IDS = ['home', 'projects', 'about', 'contact'];
   },
 })
 export class Navigation implements OnInit, OnDestroy {
-  private readonly translate = inject(TranslateService);
   private readonly router = inject(Router);
   private readonly themeService = inject(ThemeService);
+  private readonly languageService = inject(LanguageService);
+  private readonly scrollLock = inject(ScrollLockService);
   private readonly document = inject(DOCUMENT);
+  private readonly lockToken = Symbol('mobile-menu');
   private routeSub?: Subscription;
   private scrollRafId?: number;
 
@@ -46,7 +51,7 @@ export class Navigation implements OnInit, OnDestroy {
   protected readonly isMenuOpen = signal<boolean>(false);
   protected readonly isScrolled = signal<boolean>(false);
   protected readonly isLandingPage = signal<boolean>(true);
-  protected readonly currentLang = this.translate.currentLang;
+  protected readonly currentLang = this.languageService.current;
   protected readonly activeSection = signal<string>('home');
   protected readonly currentActiveSection = computed(
     () => this.forceActive() ?? (this.isLandingPage() ? this.activeSection() : '')
@@ -66,15 +71,14 @@ export class Navigation implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.routeSub?.unsubscribe();
     if (this.scrollRafId !== undefined) cancelAnimationFrame(this.scrollRafId);
-    for (const element of [this.document.documentElement, this.document.body]) {
-      element?.classList.remove('no-scroll');
-    }
+    this.scrollLock.release(this.lockToken);
   }
 
   private readonly menuScrollLock = effect(() => {
-    const open = this.isMenuOpen();
-    for (const element of [this.document.documentElement, this.document.body]) {
-      element?.classList.toggle('no-scroll', open);
+    if (this.isMenuOpen()) {
+      this.scrollLock.lock(this.lockToken);
+    } else {
+      this.scrollLock.release(this.lockToken);
     }
   });
 
@@ -90,9 +94,8 @@ export class Navigation implements OnInit, OnDestroy {
     this.themeService.toggle();
   }
 
-  protected changeLanguage(lang: string): void {
-    this.translate.use(lang);
-    localStorage.setItem('lang', lang);
+  protected changeLanguage(lang: AppLanguage): void {
+    this.languageService.use(lang);
   }
 
   protected setActiveSection(section: string): void {
@@ -120,20 +123,19 @@ export class Navigation implements OnInit, OnDestroy {
 
     if (!this.isLandingPage()) return;
 
-    const navbarHeight = 73;
     let activeId = 'home';
 
     for (const id of SECTION_IDS) {
-      const element = document.getElementById(id);
+      const element = this.document.getElementById(id);
       if (!element) continue;
 
       const rect = element.getBoundingClientRect();
-      if (rect.top <= navbarHeight && rect.bottom > navbarHeight) {
+      if (rect.top <= NAVBAR_HEIGHT && rect.bottom > NAVBAR_HEIGHT) {
         activeId = id;
         break;
       }
 
-      if (rect.bottom <= navbarHeight) {
+      if (rect.bottom <= NAVBAR_HEIGHT) {
         activeId = id;
       }
     }
