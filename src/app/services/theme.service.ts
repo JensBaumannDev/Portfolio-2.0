@@ -2,6 +2,8 @@ import { Injectable, effect, signal } from '@angular/core';
 
 export type ThemeMode = 'light' | 'dark' | 'system';
 
+type ResolvedTheme = Exclude<ThemeMode, 'system'>;
+
 const STORAGE_KEY = 'theme';
 
 @Injectable({ providedIn: 'root' })
@@ -18,11 +20,12 @@ export class ThemeService {
 
     effect(() => {
       const mode = this.currentMode();
-      let effectiveTheme = mode;
+      let effectiveTheme: ResolvedTheme = mode === 'system' ? 'light' : mode;
       if (mode === 'system') {
         effectiveTheme = this.systemPrefersDark() ? 'dark' : 'light';
       }
       document.documentElement.setAttribute('data-theme', effectiveTheme);
+      applyFavicon(effectiveTheme);
     });
   }
 
@@ -37,6 +40,16 @@ export class ThemeService {
     this.currentMode.set(mode);
     localStorage.setItem(STORAGE_KEY, mode);
   }
+}
+
+function applyFavicon(theme: ResolvedTheme): void {
+  document.querySelectorAll('link[rel="icon"]').forEach((link) => link.remove());
+
+  const link = document.createElement('link');
+  link.rel = 'icon';
+  link.type = 'image/svg+xml';
+  link.href = `favicon-${theme}.svg?v=3`;
+  document.head.appendChild(link);
 }
 
 function initialThemeMode(): ThemeMode {
