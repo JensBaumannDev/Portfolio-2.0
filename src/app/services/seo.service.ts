@@ -8,6 +8,7 @@ export interface PageSeo {
   titleKey: string;
   descriptionKey: string;
   path: string;
+  noindex?: boolean;
 }
 
 const SITE_ORIGIN = 'https://jensbaumann.com';
@@ -26,7 +27,7 @@ export class SeoService implements OnDestroy {
     this.subscription = this.translate
       .stream([page.titleKey, page.descriptionKey])
       .subscribe((values: Record<string, string>) => {
-        this.render(values[page.titleKey], values[page.descriptionKey], page.path);
+        this.render(page, values[page.titleKey], values[page.descriptionKey]);
       });
   }
 
@@ -34,11 +35,15 @@ export class SeoService implements OnDestroy {
     this.subscription?.unsubscribe();
   }
 
-  private render(title: string, description: string, path: string): void {
-    const url = `${SITE_ORIGIN}${path}`;
+  private render(page: PageSeo, title: string, description: string): void {
+    const url = `${SITE_ORIGIN}${page.path}`;
     const lang = this.translate.currentLang() ?? 'de';
 
     this.title.setTitle(title);
+    this.meta.updateTag({
+      name: 'robots',
+      content: page.noindex ? 'noindex, nofollow' : 'index, follow',
+    });
     this.meta.updateTag({ name: 'description', content: description });
     this.meta.updateTag({ property: 'og:title', content: title });
     this.meta.updateTag({ property: 'og:description', content: description });

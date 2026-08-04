@@ -25,6 +25,7 @@ export class NotFound {
       titleKey: 'seo.notfound_title',
       descriptionKey: 'seo.notfound_desc',
       path: '/404',
+      noindex: true,
     });
   }
 }

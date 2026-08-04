@@ -4,16 +4,17 @@
     "about": "Über",
     "projects": "Projekte",
     "contact": "Kontakt",
-    "theme": "Farbschema umschalten"
+    "theme": "Farbschema umschalten",
+    "themeLight": "Hell",
+    "themeDark": "Dunkel",
+    "themeSystem": "System"
   },
   "a11y": {
     "skip_to_content": "Zum Inhalt springen"
   },
   "seo": {
     "home_title": "Jens Baumann — Junior Fullstack Developer",
-    "home_desc": "Jens Baumann — Junior Fullstack Developer aus Emden, Ostfriesland. Quereinsteiger mit Angular, TypeScript und SCSS. Offen für Praktikum, Werkstudium oder eine Junior-Rolle ab Q4 2026.",
-    "cv_title": "Lebenslauf — Jens Baumann",
-    "cv_desc": "Lebenslauf von Jens Baumann: Fortbildung zum Fullstack-Entwickler an der Developer Akademie, Berufserfahrung im Einzelhandel und Vertrieb, Skills und Kontaktdaten.",
+    "home_desc": "Jens Baumann — Junior Fullstack Developer aus Emden, Ostfriesland. Quereinsteiger mit Angular, TypeScript, Python und Django. Offen für Praktikum, Werkstudium oder eine Junior-Rolle ab Q4 2026.",
     "legal_title": "Impressum — Jens Baumann",
     "legal_desc": "Impressum und Anbieterkennzeichnung gemäß § 5 DDG für jensbaumann.com.",
     "privacy_title": "Datenschutzerklärung — Jens Baumann",
@@ -37,7 +38,6 @@
     },
     "greeting": "Moin",
     "cta_projects": "Projekte ansehen",
-    "cta_contact": "Kontakt aufnehmen",
     "cta_cv": "Lebenslauf",
     "profile_alt": "Profilbild von Jens Baumann"
   },
@@ -56,7 +56,7 @@
     "text2": "Ordnung und Struktur sind mir dabei extrem wichtig, im Alltag genauso wie im Code. Ich sehe sofort, wenn etwas nicht sauber sortiert ist, und kann es dann schlecht so liegen lassen. Beim Programmieren ist genau das ein Vorteil: verständliche Namen, eine klare Ordnerstruktur, Komponenten, die genau eine Sache machen. So finde ich mich nach Wochen in meinem eigenen Code noch zurecht, und andere im Team auch.",
     "read_more": "Mehr lesen",
     "read_less": "Weniger anzeigen",
-    "link": "Mehr über mich",
+    "link": "Lebenslauf herunterladen",
     "stack_title": "Tech-Stack",
     "stack_sub": "Womit ich täglich arbeite",
     "stack_frontend": "Frontend",
@@ -152,41 +152,14 @@
     "link_mail": "E-Mail",
     "note": "Ich antworte innerhalb von 24 Stunden. Verfügbar bin ich ab Q4 2026."
   },
+  "cv": {
+    "download_file": "cv/Lebenslauf-Jens-Baumann.pdf",
+    "download_name": "Lebenslauf-Jens-Baumann.pdf"
+  },
   "footer": {
     "imprint": "Impressum",
     "privacy": "Datenschutz",
     "copyright": "{{year}} Jens Baumann"
-  },
-  "cv": {
-    "back": "Zurück zur Startseite",
-    "eyebrow": "Lebenslauf",
-    "name": "Jens Baumann",
-    "role": "Fullstack-Entwickler",
-    "location": "Emden, Ostfriesland · Remote & Hybrid",
-    "download": "Als PDF herunterladen",
-    "download_file": "cv/Lebenslauf-Jens-Baumann.pdf",
-    "download_name": "Lebenslauf-Jens-Baumann.pdf",
-    "profile_title": "Profil",
-    "profile_text": "Das Coden hat mich schon immer fasziniert. Nach einigen Jahren im Berufsleben habe ich mich deshalb entschieden, den Schritt in die Softwareentwicklung zu wagen. Ich bringe viel Erfahrung im Umgang mit Menschen und Projekten mit, fuchse mich schnell in neue Technologien ein und lege großen Wert darauf, dass mein Code nicht nur funktioniert, sondern auch gut strukturiert ist.",
-    "experience_title": "Berufserfahrung",
-    "exp_agency_range": "2024 · 6 Monate",
-    "exp_agency_title": "Vertrieb",
-    "exp_agency_place": "Meershare GmbH · Social-Media-Agentur",
-    "exp_agency_text": "Sechs Monate im Vertrieb einer Social-Media-Agentur. Wertvoller Einblick in den Agenturalltag und die Welt des digitalen Marketings.",
-    "exp_lead_range": "2011 – 2016",
-    "exp_lead_title": "Abteilungsleiter Telekommunikation",
-    "exp_lead_place": "Expert Bening GmbH & Co. KG",
-    "exp_lead_text": "Leitung der Abteilung Telekommunikation mit Verantwortung für Team, Beratung und Verkauf. Hier habe ich Kommunikationsstärke, Strukturiertheit und Lösungsorientierung entwickelt, die mir heute in der Entwicklung zugutekommen.",
-    "education_title": "Ausbildung & Weiterbildung",
-    "edu_da_range": "Nov 2025 – Nov 2026",
-    "edu_da_title": "Fortbildung zum Fullstack-Entwickler",
-    "edu_da_place": "Developer Akademie",
-    "edu_da_text": "12-monatige Fortbildung in moderner Webentwicklung an der Developer Akademie: Ich habe die ersten 6 Monate mit Fokus auf Frontend (JavaScript, Angular, TypeScript) erfolgreich abgeschlossen und habe nun mit dem Backend begonnen. Praxisnah anhand realer Projekte und Gruppenarbeiten.",
-    "edu_telekom_range": "2007 – 2010",
-    "edu_telekom_title": "Ausbildung Kaufmann im Einzelhandel",
-    "edu_telekom_place": "Deutsche Telekom",
-    "edu_telekom_text": "Ausbildung mit Schwerpunkt Verkauf und Kundenberatung im T-Shop (Wilhelmshaven und Emden). Sechs Monate davon bei der DTKS in Leer (Kundenservice für Komplett-Wechsler).",
-    "skills_title": "Skills"
   },
   "legal": {
     "back": "Zurück zur Startseite",
@@ -210,7 +183,7 @@
   "privacy": {
     "back": "Zurück zur Startseite",
     "title": "Datenschutzerklärung",
-    "date": "Stand: Juli 2026",
+    "date": "Stand: August 2026",
     "country": "Deutschland",
     "email_label": "E-Mail:",
     "s1_title": "1. Datenschutz auf einen Blick",

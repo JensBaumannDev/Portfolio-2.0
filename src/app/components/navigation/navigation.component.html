@@ -14,17 +14,17 @@
 
     <div class="nav-actions">
       <button
-        class="theme-toggle"
+        class="theme-toggle desktop-only"
         type="button"
         (click)="toggleTheme()"
         [attr.aria-label]="'nav.theme' | translate"
       >
         @if (themeMode() === 'light') {
-          <ng-icon name="lucideSun" size="18px"></ng-icon>
+          <ng-icon name="lucideSun" size="16px"></ng-icon>
         } @else if (themeMode() === 'dark') {
-          <ng-icon name="lucideMoon" size="18px"></ng-icon>
+          <ng-icon name="lucideMoon" size="16px"></ng-icon>
         } @else {
-          <ng-icon name="lucideMonitor" size="18px"></ng-icon>
+          <ng-icon name="lucideMonitor" size="16px"></ng-icon>
         }
       </button>
 
@@ -49,11 +49,48 @@
       <a href="#about" class="mobile-nav-link" [class.active]="currentActiveSection() === 'about'" (click)="setActiveSection('about'); closeMenu()">{{ 'nav.about' | translate }}</a>
       <a href="#contact" class="mobile-nav-link" [class.active]="currentActiveSection() === 'contact'" (click)="setActiveSection('contact'); closeMenu()">{{ 'nav.contact' | translate }}</a>
 
-      <div class="mobile-lang-selector">
-        <button class="mobile-lang-btn" [class.active]="currentLang() === 'de'" (click)="changeLanguage('de')" aria-label="Deutsch">DE</button>
-        <span class="mobile-lang-separator" aria-hidden="true">/</span>
-        <button class="mobile-lang-btn" [class.active]="currentLang() === 'en'" (click)="changeLanguage('en')" aria-label="English">EN</button>
+      <div class="mobile-footer">
+        <div class="mobile-socials">
+          <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="mobile-social" aria-label="GitHub">
+            <ng-icon name="faBrandGithub" size="32px"></ng-icon>
+          </a>
+          <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener" class="mobile-social" aria-label="LinkedIn">
+            <ng-icon name="faBrandLinkedinIn" size="32px"></ng-icon>
+          </a>
+          <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener" class="mobile-social" aria-label="YouTube">
+            <ng-icon name="faBrandYoutube" size="32px"></ng-icon>
+          </a>
+        </div>
+
+        <div class="mobile-meta">
+          <a routerLink="/legal-notice" class="mobile-meta-link" (click)="closeMenu()">{{ 'footer.imprint' | translate }}</a>
+          <a routerLink="/privacy-policy" class="mobile-meta-link" (click)="closeMenu()">{{ 'footer.privacy' | translate }}</a>
+        </div>
+
+        <div class="mobile-bottom-row">
+          <button
+            class="mobile-theme-icon-btn"
+            type="button"
+            (click)="toggleTheme()"
+            [attr.aria-label]="'nav.theme' | translate"
+          >
+            @if (themeMode() === 'light') {
+              <ng-icon name="lucideSun" size="20px"></ng-icon>
+            } @else if (themeMode() === 'dark') {
+              <ng-icon name="lucideMoon" size="20px"></ng-icon>
+            } @else {
+              <ng-icon name="lucideMonitor" size="20px"></ng-icon>
+            }
+          </button>
+
+          <div class="mobile-lang-selector">
+            <button class="mobile-lang-btn" [class.active]="currentLang() === 'de'" (click)="changeLanguage('de')" aria-label="Deutsch">DE</button>
+            <span class="mobile-lang-separator" aria-hidden="true">/</span>
+            <button class="mobile-lang-btn" [class.active]="currentLang() === 'en'" (click)="changeLanguage('en')" aria-label="English">EN</button>
+          </div>
+        </div>
       </div>
     </nav>
   </div>
 </header>
+

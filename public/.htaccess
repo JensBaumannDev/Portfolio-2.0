@@ -1,6 +1,6 @@
 # --- SPA-Routing (Angular) ---
 # Vorhandene Dateien/Ordner direkt ausliefern, alles andere an index.html,
-# damit Reloads auf Routen wie /cv oder /legal-notice nicht 404 liefern.
+# damit Reloads auf Routen wie /legal-notice oder /privacy-policy nicht 404 liefern.
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /

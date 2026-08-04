@@ -1,7 +1,7 @@
 @use 'src/styles/abstracts' as abs;
 
 .contact-container {
-  padding-block: abs.$section-padding;
+  padding-block: var(--section-py);
   background-color: var(--color-bg);
   background-image: linear-gradient(to bottom, var(--color-panel-soft), var(--color-bg));
 }
@@ -264,7 +264,6 @@
   .contact-container {
     @include abs.flex(column, nowrap, flex-start, stretch);
     min-height: calc(100dvh - var(--header-h));
-    padding-block: abs.$section-padding;
   }
 
   .contact-inner {
@@ -304,10 +303,6 @@
 }
 
 @include abs.mobile {
-  .contact-container {
-    padding-block: abs.$section-padding-mobile;
-  }
-
   .contact-section-head {
     margin-bottom: abs.$section-head-gap-mobile;
   }

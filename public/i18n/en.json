@@ -4,16 +4,17 @@
     "about": "About",
     "projects": "Projects",
     "contact": "Contact",
-    "theme": "Toggle color scheme"
+    "theme": "Toggle color scheme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System"
   },
   "a11y": {
     "skip_to_content": "Skip to content"
   },
   "seo": {
     "home_title": "Jens Baumann — Junior Fullstack Developer",
-    "home_desc": "Jens Baumann — Junior Fullstack Developer based in Emden, East Frisia. Career changer working with Angular, TypeScript and SCSS. Open to an internship, working student position or a junior role from Q4 2026.",
-    "cv_title": "CV — Jens Baumann",
-    "cv_desc": "CV of Jens Baumann: fullstack developer training at Developer Akademie, work experience in retail and sales, skills and contact details.",
+    "home_desc": "Jens Baumann — Junior Fullstack Developer based in Emden, East Frisia. Career changer working with Angular, TypeScript, Python and Django. Open to an internship, working student position or a junior role from Q4 2026.",
     "legal_title": "Legal Notice — Jens Baumann",
     "legal_desc": "Legal notice and provider identification pursuant to § 5 DDG for jensbaumann.com.",
     "privacy_title": "Privacy Policy — Jens Baumann",
@@ -37,7 +38,6 @@
     },
     "greeting": "Moin",
     "cta_projects": "View projects",
-    "cta_contact": "Get in touch",
     "cta_cv": "CV",
     "profile_alt": "Profile picture of Jens Baumann"
   },
@@ -56,7 +56,7 @@
     "text2": "Order and structure matter a lot to me, in everyday life just as much as in code. I spot it immediately when something isn't sorted properly, and then I find it hard to leave it that way. When coding, that turns into an advantage: names you can understand, a clear folder structure, components that do one thing and do it well. That's how I still find my way around my own code weeks later, and how the rest of the team does too.",
     "read_more": "Read more",
     "read_less": "Show less",
-    "link": "More about me",
+    "link": "Download CV",
     "stack_title": "Tech stack",
     "stack_sub": "What I work with every day",
     "stack_frontend": "Frontend",
@@ -152,41 +152,14 @@
     "link_mail": "Email",
     "note": "I reply within 24 hours. I am available from Q4 2026."
   },
+  "cv": {
+    "download_file": "cv/CV-Jens-Baumann.pdf",
+    "download_name": "CV-Jens-Baumann.pdf"
+  },
   "footer": {
     "imprint": "Legal Notice",
     "privacy": "Privacy Policy",
     "copyright": "{{year}} Jens Baumann"
-  },
-  "cv": {
-    "back": "Back to home",
-    "eyebrow": "Résumé",
-    "name": "Jens Baumann",
-    "role": "Fullstack Developer",
-    "location": "Emden, East Frisia · Remote & Hybrid",
-    "download": "Download as PDF",
-    "download_file": "cv/CV-Jens-Baumann.pdf",
-    "download_name": "CV-Jens-Baumann.pdf",
-    "profile_title": "Profile",
-    "profile_text": "Coding has always fascinated me. After a few years in a different career path, I finally decided to make the jump into software development. I bring a lot of real-world experience in dealing with people and projects, I pick up new technologies quickly, and I really care about writing code that isn't just functional, but also clean and maintainable.",
-    "experience_title": "Experience",
-    "exp_agency_range": "2024 · 6 months",
-    "exp_agency_title": "Sales",
-    "exp_agency_place": "Meershare GmbH · Social media agency",
-    "exp_agency_text": "Six months in sales at a social media agency. A valuable look behind the scenes of agency life and the world of digital marketing.",
-    "exp_lead_range": "2011 – 2016",
-    "exp_lead_title": "Department Manager Telecommunications",
-    "exp_lead_place": "Expert Bening GmbH & Co. KG",
-    "exp_lead_text": "Leading the telecommunications department with responsibility for the team, consulting and sales. Here I developed communication skills, structure and a solution-oriented mindset that benefit me in development today.",
-    "education_title": "Education & Training",
-    "edu_da_range": "Nov 2025 – Nov 2026",
-    "edu_da_title": "Fullstack Developer Training",
-    "edu_da_place": "Developer Akademie",
-    "edu_da_text": "12-month intensive training program in modern web development at the Developer Akademie: I have successfully completed the first 6 months focusing on frontend (JavaScript, Angular, TypeScript) and have now started with backend development. Practical learning through real-world projects and group work.",
-    "edu_telekom_range": "2007 – 2010",
-    "edu_telekom_title": "Apprenticeship as Retail Salesman",
-    "edu_telekom_place": "Deutsche Telekom",
-    "edu_telekom_text": "Apprenticeship focused on sales and customer consulting in the T-Shop (Wilhelmshaven and Emden). Six months of which at DTKS in Leer (customer service for full-provider switchers).",
-    "skills_title": "Skills"
   },
   "legal": {
     "back": "Back to home",
@@ -210,7 +183,7 @@
   "privacy": {
     "back": "Back to home",
     "title": "Privacy Policy",
-    "date": "Status: July 2026",
+    "date": "Status: August 2026",
     "country": "Germany",
     "email_label": "Email:",
     "s1_title": "1. Data protection at a glance",

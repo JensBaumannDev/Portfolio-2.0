@@ -2,7 +2,9 @@
 
 :root {
   color-scheme: light;
-  --header-h: #{abs.rem(72)};
+  --header-h: #{abs.rem(60)};
+  --section-py: #{abs.$section-padding};
+  --anchor-gap: #{abs.rem(48)};
   --color-bg: #{abs.$color-bg-light-1};
   --color-bg-alt: #{abs.$color-bg-light-2};
   --color-surface: #{abs.$color-white};
@@ -49,7 +51,11 @@ html {
 }
 
 section[id] {
-  scroll-margin-top: var(--header-h);
+  scroll-margin-top: calc(var(--anchor-gap) - var(--section-py));
+}
+
+#home {
+  scroll-margin-top: calc(-1 * var(--header-h));
 }
 
 body {
@@ -89,3 +95,11 @@ body.no-scroll {
   white-space: nowrap;
   border: 0;
 }
+
+/* #region RESPONSIVE */
+@include abs.mobile {
+  :root {
+    --section-py: #{abs.$section-padding-mobile};
+  }
+}
+/* #endregion */

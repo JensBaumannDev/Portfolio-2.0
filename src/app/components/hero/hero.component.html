@@ -11,7 +11,8 @@
     </div>
 
     <div class="hero-scene">
-      <img ngSrc="/img/hero/lighthouse.svg" width="120" height="260" class="hero-lighthouse" aria-hidden="true" priority alt="" />
+      <img ngSrc="/img/hero/lighthouse.svg" width="120" height="260" class="hero-lighthouse" aria-hidden="true" priority
+        alt="" />
 
       <div class="hero-avatar">
         <div class="hero-portrait">
@@ -27,18 +28,22 @@
           </div>
           <div class="hero-clouds" aria-hidden="true"></div>
           <div class="hero-water" aria-hidden="true"></div>
-          <img ngSrc="/img/hero/profile.webp" width="520" height="520" priority [alt]="'hero.profile_alt' | translate" class="hero-portrait-img" />
+          <img ngSrc="/img/hero/profile.webp" width="520" height="520" priority [alt]="'hero.profile_alt' | translate"
+            class="hero-portrait-img" />
         </div>
         <p class="hero-greeting">{{ 'hero.greeting' | translate }}</p>
 
         <div class="hero-socials">
-          <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="button hero-social-link" aria-label="GitHub">
+          <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="button hero-social-link"
+            aria-label="GitHub">
             <ng-icon name="faBrandGithub"></ng-icon>
           </a>
-          <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener" class="button hero-social-link" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener"
+            class="button hero-social-link" aria-label="LinkedIn">
             <ng-icon name="faBrandLinkedinIn"></ng-icon>
           </a>
-          <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener" class="button hero-social-link" aria-label="YouTube">
+          <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener"
+            class="button hero-social-link" aria-label="YouTube">
             <ng-icon name="faBrandYoutube"></ng-icon>
           </a>
         </div>
@@ -50,8 +55,11 @@
         {{ 'hero.cta_projects' | translate }}
         <span aria-hidden="true">&rarr;</span>
       </a>
-      <a href="#contact" class="button button-outline">{{ 'hero.cta_contact' | translate }}</a>
-      <a routerLink="/cv" class="button button-outline">{{ 'hero.cta_cv' | translate }}</a>
+      <a class="button button-outline" [href]="'cv.download_file' | translate" [attr.download]="'cv.download_name' | translate"
+        target="_blank" rel="noopener">
+        <span class="text">{{ 'hero.cta_cv' | translate }}</span>
+        <ng-icon name="lucideDownload" size="18px" aria-hidden="true"></ng-icon>
+      </a>
     </div>
   </div>
 </section>

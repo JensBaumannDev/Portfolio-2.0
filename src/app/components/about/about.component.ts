@@ -1,10 +1,9 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
-  lucideArrowRight,
+  lucideDownload,
   lucideChevronDown,
   lucideWebhook,
   lucideUsers,
@@ -28,10 +27,10 @@ interface StackGroup {
 
 @Component({
   selector: 'app-about',
-  imports: [TranslatePipe, RouterLink, NgOptimizedImage, NgIcon, Reveal, RevealStagger],
+  imports: [TranslatePipe, NgOptimizedImage, NgIcon, Reveal, RevealStagger],
   providers: [
     provideIcons({
-      lucideArrowRight,
+      lucideDownload,
       lucideChevronDown,
       lucideWebhook,
       lucideUsers,

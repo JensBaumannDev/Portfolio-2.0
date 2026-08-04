@@ -161,6 +161,7 @@ $wave-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 .hero {
   @include abs.flex(column, nowrap, center, stretch);
   position: relative;
+  min-height: calc(100lvh + 10vh);
   background-color: var(--color-bg);
   background-image: linear-gradient(to bottom, var(--color-panel-soft), var(--color-bg));
   padding: clamp(#{abs.rem(88)}, 11vh, #{abs.rem(120)}) 0 abs.$section-padding;
@@ -518,10 +519,20 @@ $wave-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 }
 
 .hero-actions {
-  @include abs.flex(row, wrap, center, center);
+  --action-w: #{abs.rem(220)};
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--action-w), 100%), 1fr));
   gap: abs.rem(16);
+  width: min(calc(var(--action-w) * 2 + #{abs.rem(16)}), 100%);
+  margin-inline: auto;
   padding-top: abs.rem(24);
   animation: hero-rise 0.45s $ease-out 0.5s backwards;
+
+  .button {
+    justify-self: center;
+    width: 100%;
+    max-width: var(--action-w);
+  }
 }
 
 /* #region RESPONSIVE */

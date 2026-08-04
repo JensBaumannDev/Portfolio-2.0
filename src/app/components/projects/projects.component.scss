@@ -14,7 +14,7 @@ $ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
 .work {
   @include abs.flex(column, nowrap, flex-start, stretch);
-  padding-block: abs.$section-padding;
+  padding-block: var(--section-py);
 }
 
 .work-header {
@@ -235,10 +235,6 @@ $ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @include abs.mobile {
-  .work {
-    padding-block: abs.$section-padding-mobile;
-  }
-
   .work-header {
     margin-bottom: abs.$section-head-gap-mobile;
   }

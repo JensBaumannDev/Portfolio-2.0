@@ -3,6 +3,7 @@
 .app-layout {
   @include abs.flex(column, nowrap, flex-start, stretch);
   min-height: 100svh;
+  background-color: var(--color-bg);
 }
 
 .skip-link {
@@ -34,3 +35,4 @@
     outline: none;
   }
 }
+

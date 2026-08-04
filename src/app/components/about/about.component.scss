@@ -12,7 +12,7 @@
 
 .about {
   @include abs.flex(column, nowrap, flex-start, stretch);
-  padding-block: abs.$section-padding;
+  padding-block: var(--section-py);
 }
 
 .about-header {
@@ -118,14 +118,14 @@
   transition: transform 0.3s ease;
 }
 
-.about-more.is-expanded .about-more-icon {
-  transform: rotate(180deg);
-}
-
 .about-link {
   align-self: flex-start;
   margin-top: abs.rem(32);
   padding: abs.rem(12) abs.rem(22);
+}
+
+.about-more.is-expanded .about-more-icon {
+  transform: rotate(180deg);
 }
 
 .stack-head {
@@ -270,10 +270,6 @@ img.stack-icon {
 }
 
 @include abs.mobile {
-  .about {
-    padding-block: abs.$section-padding-mobile;
-  }
-
   .about-header,
   .stack-head {
     margin-bottom: abs.$section-head-gap-mobile;

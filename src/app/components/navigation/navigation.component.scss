@@ -64,33 +64,33 @@ $ease-retract: cubic-bezier(0.4, 0, 0.2, 1);
 
 .brand-mark {
   @include abs.flex(row, nowrap, center, center);
-  width: abs.rem(36);
-  height: abs.rem(36);
+  width: abs.rem(30);
+  height: abs.rem(30);
   border-radius: abs.$radius-sm;
   background-color: var(--color-bg-inverse);
   color: var(--color-text-inverse);
   font-weight: abs.$font-weight-heading;
-  font-size: abs.$font-size-xl;
+  font-size: abs.$font-size-lg;
   letter-spacing: -0.02em;
   -webkit-text-stroke: abs.rem(1) currentColor;
 }
 
 .brand-name {
   font-weight: abs.$font-weight-bold;
-  font-size: abs.$font-size-md;
+  font-size: abs.$font-size-base;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
 .nav-links {
   @include abs.flex(row, nowrap, center, center);
-  gap: abs.rem(32);
+  gap: abs.rem(28);
 }
 
 .nav-link {
   position: relative;
   font-family: abs.$font-family-base;
-  font-size: abs.$font-size-md;
+  font-size: abs.$font-size-base;
   font-weight: abs.$font-weight-medium;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -129,13 +129,13 @@ $ease-retract: cubic-bezier(0.4, 0, 0.2, 1);
 
 .nav-actions {
   @include abs.flex(row, nowrap, flex-end, center);
-  gap: abs.rem(16);
+  gap: abs.rem(14);
 }
 
 .theme-toggle {
   @include abs.flex(row, nowrap, center, center);
-  width: abs.rem(40);
-  height: abs.rem(40);
+  width: abs.rem(34);
+  height: abs.rem(34);
   border-radius: abs.$radius-sm;
   border: 1px solid var(--color-border);
   background-color: transparent;
@@ -165,7 +165,7 @@ $ease-retract: cubic-bezier(0.4, 0, 0.2, 1);
   background: transparent;
   padding: abs.rem(4);
   font-family: abs.$font-family-base;
-  font-size: abs.$font-size-md;
+  font-size: abs.$font-size-base;
   color: var(--color-text-secondary);
   cursor: pointer;
   transition: color 0.2s ease;
@@ -268,7 +268,7 @@ $ease-retract: cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateY(0);
   transition: opacity 0.35s ease, transform 0.35s $ease-drop;
 
-  @for $i from 1 through 5 {
+  @for $i from 1 through 7 {
     &:nth-child(#{$i}) {
       transition-delay: #{0.1 + $i * 0.05}s;
     }
@@ -297,18 +297,128 @@ $ease-retract: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
-.mobile-lang-selector {
-  @include abs.flex(row, nowrap, center, center);
-  gap: abs.rem(4);
-  margin-top: abs.rem(24);
+.mobile-footer {
+  @include abs.flex(column, nowrap, center, center);
+  gap: abs.rem(10);
+  width: 100%;
+  margin-top: auto;
   padding-top: abs.rem(24);
   border-top: 1px solid var(--color-border);
 }
 
+.mobile-socials {
+  @include abs.flex(row, nowrap, center, center);
+  gap: abs.rem(32);
+}
+
+.mobile-social {
+  @include abs.flex(row, nowrap, center, center);
+  width: abs.rem(48);
+  height: abs.rem(48);
+  color: var(--color-text);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-accent-text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-text);
+    outline-offset: 4px;
+  }
+}
+
+.mobile-meta {
+  @include abs.flex(row, wrap, center, center);
+  gap: abs.rem(10) abs.rem(28);
+}
+
+.mobile-meta-link {
+  @include abs.flex(row, nowrap, center, center);
+  min-height: abs.rem(44);
+  padding: 0 abs.rem(4);
+  font-family: abs.$font-family-base;
+  font-size: abs.$font-size-lg;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-accent-text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-text);
+    outline-offset: 2px;
+  }
+}
+
+.mobile-lang-selector {
+  @include abs.flex(row, nowrap, center, center);
+  gap: abs.rem(8);
+}
+
+.mobile-lang-btn {
+  min-width: abs.rem(48);
+  min-height: abs.rem(44);
+  font-size: abs.$font-size-lg;
+}
+
+.mobile-lang-separator {
+  font-size: abs.$font-size-lg;
+}
+
+.mobile-bottom-row {
+  @include abs.flex(row, nowrap, center, center);
+  gap: abs.rem(20);
+  width: 100%;
+  padding-top: abs.rem(4);
+}
+
+.mobile-theme-icon-btn {
+  @include abs.flex(row, nowrap, center, center);
+  width: abs.rem(40);
+  height: abs.rem(40);
+  border-radius: abs.$radius-sm;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-accent-text);
+    color: var(--color-accent-text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-text);
+    outline-offset: 2px;
+  }
+}
+
 /* #region RESPONSIVE */
-@include abs.mobile {
+@media (min-width: 560px) and (max-width: #{abs.$breakpoint-desktop}) {
+  .nav-links {
+    gap: abs.rem(20);
+  }
+
+  .navbar-content {
+    gap: abs.rem(14);
+  }
+
+  .brand-name {
+    display: none;
+  }
+}
+
+@media (max-width: 559px) {
   .nav-links,
   .lang-selector {
+    display: none;
+  }
+
+  .desktop-only {
     display: none;
   }
 
@@ -318,10 +428,6 @@ $ease-retract: cubic-bezier(0.4, 0, 0.2, 1);
 
   .mobile-menu {
     display: block;
-  }
-
-  .brand-name {
-    font-size: abs.$font-size-base;
   }
 }
 @media (prefers-reduced-motion: reduce) {
