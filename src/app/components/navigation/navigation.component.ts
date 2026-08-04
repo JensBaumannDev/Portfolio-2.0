@@ -9,25 +9,35 @@ import {
   output,
   computed,
   effect,
+  ElementRef,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideSun, lucideMoon, lucideMonitor } from '@ng-icons/lucide';
+import { faBrandGithub, faBrandLinkedinIn, faBrandYoutube } from '@ng-icons/font-awesome/brands';
 import { ThemeService } from '../../services/theme.service';
 import { LanguageService, AppLanguage } from '../../services/language.service';
 import { ScrollLockService } from '../../services/scroll-lock.service';
-import { NAVBAR_HEIGHT } from '../../constants/layout.constants';
 
 const SECTION_IDS = ['home', 'projects', 'about', 'contact'];
 
 @Component({
   selector: 'app-navigation',
-  imports: [TranslatePipe, NgIcon],
-  providers: [provideIcons({ lucideSun, lucideMoon, lucideMonitor })],
+  imports: [TranslatePipe, NgIcon, RouterLink],
+  providers: [
+    provideIcons({
+      lucideSun,
+      lucideMoon,
+      lucideMonitor,
+      faBrandGithub,
+      faBrandLinkedinIn,
+      faBrandYoutube,
+    }),
+  ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -41,6 +51,7 @@ export class Navigation implements OnInit, OnDestroy {
   private readonly languageService = inject(LanguageService);
   private readonly scrollLock = inject(ScrollLockService);
   private readonly document = inject(DOCUMENT);
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly lockToken = Symbol('mobile-menu');
   private routeSub?: Subscription;
   private scrollRafId?: number;
@@ -124,18 +135,20 @@ export class Navigation implements OnInit, OnDestroy {
     if (!this.isLandingPage()) return;
 
     let activeId = 'home';
+    const navbarHeight =
+      this.host.nativeElement.querySelector('.navbar')?.getBoundingClientRect().height ?? 0;
 
     for (const id of SECTION_IDS) {
       const element = this.document.getElementById(id);
       if (!element) continue;
 
       const rect = element.getBoundingClientRect();
-      if (rect.top <= NAVBAR_HEIGHT && rect.bottom > NAVBAR_HEIGHT) {
+      if (rect.top <= navbarHeight && rect.bottom > navbarHeight) {
         activeId = id;
         break;
       }
 
-      if (rect.bottom <= NAVBAR_HEIGHT) {
+      if (rect.bottom <= navbarHeight) {
         activeId = id;
       }
     }

@@ -29,9 +29,15 @@
         <ng-icon name="lucideChevronDown" size="18px" class="about-more-icon" aria-hidden="true"></ng-icon>
       </button>
 
-      <a routerLink="/cv" class="button about-link">
+      <a
+        class="button about-link"
+        [href]="'cv.download_file' | translate"
+        [attr.download]="'cv.download_name' | translate"
+        target="_blank"
+        rel="noopener"
+      >
         <span class="text">{{ 'about.link' | translate }}</span>
-        <ng-icon name="lucideArrowRight" size="18px" aria-hidden="true"></ng-icon>
+        <ng-icon name="lucideDownload" size="18px" aria-hidden="true"></ng-icon>
       </a>
     </div>
 

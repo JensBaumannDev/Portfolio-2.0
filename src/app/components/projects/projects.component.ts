@@ -6,15 +6,7 @@ import { lucideGithub, lucideExternalLink, lucidePlus, lucideArrowRight } from '
 import { ProjectDialog } from './project-dialog/project-dialog.component';
 import { Reveal } from '../../directives/reveal.directive';
 import { RevealStagger } from '../../directives/reveal-stagger.directive';
-
-export interface Project {
-  key: string;
-  featured: boolean;
-  tags: string[];
-  image: string;
-  github: string;
-  live: string;
-}
+import { PROJECTS, Project } from '../../constants/projects.constants';
 
 @Component({
   selector: 'app-projects',
@@ -32,40 +24,7 @@ export interface Project {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Projects {
-  protected readonly projects = signal<Project[]>([
-    {
-      key: 'dabubble',
-      featured: true,
-      tags: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
-      image: './img/projects/webp/dabubble_project.webp',
-      github: 'https://github.com/JensBaumannDev/DABubble',
-      live: 'https://jensbaumann.com/projects/dabubble',
-    },
-    {
-      key: 'join',
-      featured: true,
-      tags: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
-      image: './img/projects/webp/join_project.webp',
-      github: 'https://github.com/JensBaumannDev/Join',
-      live: 'https://jensbaumann.com/projects/join/',
-    },
-    {
-      key: 'el_pollo_loco',
-      featured: true,
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      image: './img/projects/webp/el_pollo_loco_project.webp',
-      github: 'https://github.com/JensBaumannDev/El-Pollo-Loco',
-      live: 'https://jensbaumann.com/projects/el_pollo_loco/',
-    },
-    {
-      key: 'pokedex',
-      featured: false,
-      tags: ['HTML', 'CSS', 'JavaScript', 'API'],
-      image: './img/projects/webp/pokedex_project.webp',
-      github: 'https://github.com/JensBaumannDev/Pokedex',
-      live: 'https://jensbaumann.com/projects/pokedex/',
-    },
-  ]);
+  protected readonly projects = signal<readonly Project[]>(PROJECTS);
 
   private readonly openKey = signal<string | null>('dabubble');
 

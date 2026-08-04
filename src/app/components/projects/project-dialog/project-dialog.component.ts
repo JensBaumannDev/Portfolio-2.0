@@ -6,7 +6,7 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideGithub, lucideExternalLink, lucideArrowRight, lucideArrowLeft } from '@ng-icons/lucide';
 import { Navigation } from '../../navigation/navigation.component';
 import { ScrollLockService } from '../../../services/scroll-lock.service';
-import type { Project } from '../projects.component';
+import type { Project } from '../../../constants/projects.constants';
 
 @Component({
   selector: 'app-project-dialog',

@@ -4,10 +4,6 @@ import { Landingpage } from './pages/landingpage/landingpage.component';
 export const routes: Routes = [
   { path: '', component: Landingpage },
   {
-    path: 'cv',
-    loadComponent: () => import('./pages/cv/cv.component').then((m) => m.Cv),
-  },
-  {
     path: 'legal-notice',
     loadComponent: () => import('./pages/legal-notice/legal-notice.component').then((m) => m.LegalNotice),
   },
