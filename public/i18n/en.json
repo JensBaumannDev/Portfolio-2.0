@@ -13,8 +13,8 @@
     "skip_to_content": "Skip to content"
   },
   "seo": {
-    "home_title": "Jens Baumann — Junior Fullstack Developer",
-    "home_desc": "Jens Baumann — Junior Fullstack Developer based in Emden, East Frisia. Career changer working with Angular, TypeScript, Python and Django. Open to an internship, working student position or a junior role from Q4 2026.",
+    "home_title": "Jens Baumann — Fullstack Developer",
+    "home_desc": "Jens Baumann — Fullstack Developer based in Emden, East Frisia. Career changer working with Angular, TypeScript, Python and Django. Open to an internship, working student position or a junior role from Q4 2026.",
     "legal_title": "Legal Notice — Jens Baumann",
     "legal_desc": "Legal notice and provider identification pursuant to § 5 DDG for jensbaumann.com.",
     "privacy_title": "Privacy Policy — Jens Baumann",
@@ -30,7 +30,7 @@
   },
   "hero": {
     "status": "Available from Q4 2026",
-    "title": "Junior Fullstack Developer",
+    "title": "Fullstack Developer",
     "tags": {
       "architecture": "Clean architecture",
       "accessibility": "Accessibility-first",

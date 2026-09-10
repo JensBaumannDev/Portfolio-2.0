@@ -13,8 +13,8 @@
     "skip_to_content": "Zum Inhalt springen"
   },
   "seo": {
-    "home_title": "Jens Baumann — Junior Fullstack Developer",
-    "home_desc": "Jens Baumann — Junior Fullstack Developer aus Emden, Ostfriesland. Quereinsteiger mit Angular, TypeScript, Python und Django. Offen für Praktikum, Werkstudium oder eine Junior-Rolle ab Q4 2026.",
+    "home_title": "Jens Baumann — Fullstack Developer",
+    "home_desc": "Jens Baumann — Fullstack Developer aus Emden, Ostfriesland. Quereinsteiger mit Angular, TypeScript, Python und Django. Offen für Praktikum, Werkstudium oder eine Junior-Rolle ab Q4 2026.",
     "legal_title": "Impressum — Jens Baumann",
     "legal_desc": "Impressum und Anbieterkennzeichnung gemäß § 5 DDG für jensbaumann.com.",
     "privacy_title": "Datenschutzerklärung — Jens Baumann",
@@ -30,7 +30,7 @@
   },
   "hero": {
     "status": "Verfügbar ab Q4 2026",
-    "title": "Junior Fullstack Developer",
+    "title": "Fullstack Developer",
     "tags": {
       "architecture": "Klare Architektur",
       "accessibility": "Barrierefrei",
