@@ -1,22 +1,25 @@
-import { Injectable, effect, signal } from '@angular/core';
+import { Injectable, OnDestroy, effect, signal } from '@angular/core';
 
 export type ThemeMode = 'light' | 'dark' | 'system';
 
 type ResolvedTheme = Exclude<ThemeMode, 'system'>;
 
 const STORAGE_KEY = 'theme';
+const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)';
 
 @Injectable({ providedIn: 'root' })
-export class ThemeService {
+export class ThemeService implements OnDestroy {
   private readonly currentMode = signal<ThemeMode>(initialThemeMode());
-  private readonly systemPrefersDark = signal<boolean>(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  private readonly colorSchemeQuery = getColorSchemeQuery();
+  private readonly systemPrefersDark = signal(this.colorSchemeQuery?.matches ?? false);
+  private readonly onColorSchemeChange = (event: MediaQueryListEvent): void => {
+    this.systemPrefersDark.set(event.matches);
+  };
 
   readonly mode = this.currentMode.asReadonly();
 
   constructor() {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      this.systemPrefersDark.set(e.matches);
-    });
+    this.colorSchemeQuery?.addEventListener('change', this.onColorSchemeChange);
 
     effect(() => {
       const mode = this.currentMode();
@@ -27,6 +30,10 @@ export class ThemeService {
       document.documentElement.setAttribute('data-theme', effectiveTheme);
       applyFavicon(effectiveTheme);
     });
+  }
+
+  ngOnDestroy(): void {
+    this.colorSchemeQuery?.removeEventListener('change', this.onColorSchemeChange);
   }
 
   toggle(): void {
@@ -40,6 +47,11 @@ export class ThemeService {
     this.currentMode.set(mode);
     localStorage.setItem(STORAGE_KEY, mode);
   }
+}
+
+function getColorSchemeQuery(): MediaQueryList | null {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return null;
+  return window.matchMedia(COLOR_SCHEME_QUERY);
 }
 
 function applyFavicon(theme: ResolvedTheme): void {

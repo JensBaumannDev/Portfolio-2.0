@@ -4,6 +4,9 @@
     "about": "About",
     "projects": "Projects",
     "contact": "Contact",
+    "menu_open": "Open menu",
+    "menu_close": "Close menu",
+    "menu_label": "Mobile navigation",
     "theme": "Toggle color scheme",
     "themeLight": "Light",
     "themeDark": "Dark",
@@ -65,8 +68,39 @@
     "stack_backend_note": "Growing step by step right now."
   },
   "projects": {
+    "filters": {
+      "label": "Filter projects by category",
+      "all": "All",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "empty": "No backend projects have been added yet. Explore my frontend projects in the meantime."
+    },
     "title": "Projects",
     "subtitle": "My previous projects",
+    "live_unavailable": "Coming soon",
+    "label_focus": "Technical focus",
+    "coderr": {
+      "name": "Coderr",
+      "image_alt": "The Coderr homepage with an IT services search and platform statistics",
+      "eyebrow": "Backend · Freelancer marketplace",
+      "stat1_lbl": "Offers & orders",
+      "stat2_lbl": "Profiles & reviews",
+      "stat3_lbl": "Token authentication",
+      "description": "The backend for a digital services marketplace. It manages user profiles, offers, orders and reviews and provides the data through a REST API.",
+      "umsetzung": "Built with Python, Django and Django REST Framework. Separate apps handle authentication and profiles, offers, orders, reviews and platform statistics. SQLite stores data locally. The matching frontend is provided by Developer Akademie.",
+      "learnings": "The focus is on the relationships between offers, orders and reviews, with serializers, views and permissions organised separately. Registration and login use token authentication; pytest and pytest-django are included for testing."
+    },
+    "kanmind": {
+      "name": "KanMind",
+      "image_alt": "The KanMind dashboard with a task overview, status chart and board list",
+      "eyebrow": "Backend · Kanban board",
+      "stat1_lbl": "Boards & tasks",
+      "stat2_lbl": "Assignments & comments",
+      "stat3_lbl": "Token authentication",
+      "description": "The backend for a Kanban-style project management tool. Its REST API manages boards, tasks and comments and provides assigned tasks and tasks awaiting review.",
+      "umsetzung": "Built with Python, Django and Django REST Framework. An authentication app handles registration and login, while a Kanban app groups boards, tasks, comments and permissions. Data is stored locally in SQLite. The matching frontend is provided by Developer Akademie.",
+      "learnings": "The API models the relationships between boards, tasks and comments. Other areas of focus include token authentication, access permissions and dedicated endpoints for assigned tasks and reviews."
+    },
     "join": {
       "name": "Join",
       "eyebrow": "Group project · Kanban board",

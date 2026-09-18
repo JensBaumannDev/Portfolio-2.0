@@ -54,3 +54,61 @@
   @include abs.flex(row, nowrap, center, center);
   color: inherit;
 }
+
+.button-unavailable {
+  position: relative;
+  opacity: 0.5;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: var(--color-bg-inverse);
+    border-color: var(--color-bg-inverse);
+    color: var(--color-text-inverse);
+  }
+
+  &.button-outline:hover {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+
+  &:hover .button-tooltip,
+  &:focus-visible .button-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+  }
+}
+
+.button-tooltip {
+  position: absolute;
+  bottom: calc(100% + #{abs.rem(10)});
+  left: 50%;
+  z-index: abs.$z-index-base;
+  width: max-content;
+  max-width: min(#{abs.rem(200)}, 90vw);
+  padding: abs.rem(7) abs.rem(11);
+  border-radius: abs.$radius-sm;
+  background-color: var(--color-bg-inverse);
+  box-shadow: 0 abs.rem(4) abs.rem(12) rgb(0 0 0 / 18%);
+  color: var(--color-text-inverse);
+  font-size: abs.rem(14);
+  font-weight: abs.$font-weight-medium;
+  line-height: 1.4;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, #{abs.rem(4)});
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: abs.rem(8);
+    height: abs.rem(8);
+    background-color: inherit;
+    content: '';
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}

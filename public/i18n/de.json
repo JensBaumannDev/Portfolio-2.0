@@ -4,6 +4,9 @@
     "about": "Über",
     "projects": "Projekte",
     "contact": "Kontakt",
+    "menu_open": "Menü öffnen",
+    "menu_close": "Menü schließen",
+    "menu_label": "Mobile Navigation",
     "theme": "Farbschema umschalten",
     "themeLight": "Hell",
     "themeDark": "Dunkel",
@@ -65,8 +68,39 @@
     "stack_backend_note": "Baue ich gerade aus, Schritt für Schritt."
   },
   "projects": {
+    "filters": {
+      "label": "Projekte nach Bereich filtern",
+      "all": "Alle",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "empty": "Hier sind noch keine Backend-Projekte hinterlegt. Entdecke in der Zwischenzeit meine Frontend-Projekte."
+    },
     "title": "Projekte",
     "subtitle": "Meine bisherigen Projekte",
+    "live_unavailable": "Bald verfügbar",
+    "label_focus": "Technische Schwerpunkte",
+    "coderr": {
+      "name": "Coderr",
+      "image_alt": "Die Coderr-Startseite mit Suche nach IT-Dienstleistungen und Plattformstatistiken",
+      "eyebrow": "Backend · Freelancer-Plattform",
+      "stat1_lbl": "Angebote & Bestellungen",
+      "stat2_lbl": "Profile & Bewertungen",
+      "stat3_lbl": "Token-Authentifizierung",
+      "description": "Das Backend für einen Marktplatz für digitale Dienstleistungen. Es verwaltet Nutzerprofile, Angebote, Bestellungen und Bewertungen und stellt die Daten über eine REST-API bereit.",
+      "umsetzung": "Das Backend ist mit Python, Django und Django REST Framework umgesetzt. Eigene Apps trennen Anmeldung und Profile, Angebote, Bestellungen, Bewertungen und Plattformstatistiken. Die lokale Datenhaltung erfolgt mit SQLite. Das zugehörige Frontend wird von der Developer Akademie bereitgestellt.",
+      "learnings": "Im Mittelpunkt stehen die Beziehungen zwischen Angeboten, Bestellungen und Bewertungen sowie die Trennung der API in Serializer, Views und Berechtigungen. Registrierung und Login verwenden Token-Authentifizierung; zum Testen sind pytest und pytest-django eingebunden."
+    },
+    "kanmind": {
+      "name": "KanMind",
+      "image_alt": "Das KanMind-Dashboard mit Aufgabenübersicht, Statusdiagramm und Board-Liste",
+      "eyebrow": "Backend · Kanban-Board",
+      "stat1_lbl": "Boards & Aufgaben",
+      "stat2_lbl": "Zuweisungen & Kommentare",
+      "stat3_lbl": "Token-Authentifizierung",
+      "description": "Das Backend für ein Projektmanagement-Tool im Kanban-Stil. Über die REST-API lassen sich Boards, Aufgaben und Kommentare verwalten sowie zugewiesene Aufgaben und anstehende Reviews abrufen.",
+      "umsetzung": "Python, Django und Django REST Framework bilden die Grundlage. Eine Auth-App übernimmt Registrierung und Login, eine Kanban-App bündelt Boards, Aufgaben, Kommentare und Berechtigungen. Die Daten liegen lokal in SQLite. Das zugehörige Frontend wird von der Developer Akademie bereitgestellt.",
+      "learnings": "Die API bildet die Beziehungen zwischen Boards, Aufgaben und Kommentaren ab. Weitere Schwerpunkte sind Token-Authentifizierung, Zugriffsberechtigungen und eigene Endpunkte für zugewiesene Aufgaben und Reviews."
+    },
     "join": {
       "name": "Join",
       "eyebrow": "Gruppenprojekt · Kanban-Board",

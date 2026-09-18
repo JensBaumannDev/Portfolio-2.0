@@ -23,7 +23,6 @@
         [ngSrc]="project().image"
         fill
         [alt]="'projects.' + project().key + '.image_alt' | translate"
-        sizes="(max-width: 1024px) 92vw, 70vw"
       />
       @if (project().featured) {
         <span class="dialog-featured">{{ 'projects.featured' | translate }}</span>
@@ -37,7 +36,7 @@
       </section>
 
       <section class="dialog-block">
-        <h3 class="dialog-heading">{{ 'projects.label_learnings' | translate }}</h3>
+        <h3 class="dialog-heading">{{ (project().category === 'backend' ? 'projects.label_focus' : 'projects.label_learnings') | translate }}</h3>
         <p class="dialog-text">{{ 'projects.' + project().key + '.learnings' | translate }}</p>
       </section>
     </div>
@@ -48,10 +47,12 @@
         <dd class="dialog-meta-value">{{ project().tags.join(' · ') }}</dd>
       </div>
 
+      @if (project().hasDuration !== false) {
       <div class="dialog-meta-item">
         <dt class="dialog-meta-label">{{ 'projects.label_duration' | translate }}</dt>
         <dd class="dialog-meta-value">{{ 'projects.' + project().key + '.duration' | translate }}</dd>
       </div>
+      }
     </dl>
 
     <div class="dialog-footer">
@@ -60,10 +61,24 @@
           <ng-icon name="lucideGithub" size="18px" aria-hidden="true"></ng-icon>
           <span class="text">{{ 'projects.github' | translate }}</span>
         </a>
-        <a [href]="project().live" target="_blank" rel="noopener" class="button dialog-action">
+        @if (project().live; as live) {
+        <a [href]="live" target="_blank" rel="noopener" class="button dialog-action">
           <ng-icon name="lucideExternalLink" size="18px" aria-hidden="true"></ng-icon>
           <span class="text">{{ 'projects.live' | translate }}</span>
         </a>
+        } @else {
+          <span
+            class="button dialog-action button-unavailable"
+            role="button"
+            aria-disabled="true"
+            tabindex="0"
+            [attr.aria-label]="('projects.live' | translate) + ': ' + ('projects.live_unavailable' | translate)"
+          >
+            <ng-icon name="lucideExternalLink" size="18px" aria-hidden="true"></ng-icon>
+            <span class="text">{{ 'projects.live' | translate }}</span>
+            <span class="button-tooltip" role="tooltip">{{ 'projects.live_unavailable' | translate }}</span>
+          </span>
+        }
       </div>
 
       <button type="button" class="next-btn" (click)="next.emit()">

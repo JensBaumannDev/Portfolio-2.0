@@ -12,6 +12,13 @@ Die Website ist eine Angular-Single-Page-Application mit deutscher und englische
 
 ## Projekte
 
+### Backend
+
+- [Coderr](https://github.com/JensBaumannDev/Coderr): REST-API für einen Marktplatz für digitale Dienstleistungen mit Nutzerprofilen, Angeboten, Bestellungen, Bewertungen und Token-Authentifizierung. Python, Django, Django REST Framework, SQLite. Das Frontend wird von der Developer Akademie bereitgestellt; eine öffentliche Live-Demo folgt.
+- [KanMind](https://github.com/JensBaumannDev/KanMind): REST-API für ein Kanban-Projektmanagement-Tool mit Boards, Aufgaben, Zuweisungen, Kommentaren, Reviews und Token-Authentifizierung. Python, Django, Django REST Framework, SQLite. Das Frontend wird von der Developer Akademie bereitgestellt; eine öffentliche Live-Demo folgt.
+
+### Frontend
+
 - [DABubble](https://github.com/JensBaumannDev/DABubble): Echtzeit-Chat im Slack-Stil mit Channels und Threads, Gruppenprojekt. Angular, TypeScript, SCSS, Supabase
 - [Join](https://github.com/JensBaumannDev/Join): Kanban-Board zur Aufgabenverwaltung mit Drag-and-drop, Gruppenprojekt. Angular, TypeScript, SCSS, Supabase
 - [El Pollo Loco](https://github.com/JensBaumannDev/El-Pollo-Loco): Jump-and-run mit eigener Game-Loop und Kollisionserkennung, Einzelprojekt. HTML, CSS, JavaScript
@@ -22,3 +29,4 @@ Die Website ist eine Angular-Single-Page-Application mit deutscher und englische
 - [E-Mail](mailto:info@jensbaumann.com)
 - [GitHub](https://github.com/JensBaumannDev)
 - [LinkedIn](https://www.linkedin.com/in/jens-baumann-7a6866315/)
+- [YouTube](https://www.youtube.com/@jensbaumann_music)
