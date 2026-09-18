@@ -4,6 +4,39 @@
     <p class="work-sub">{{ 'projects.subtitle' | translate }}</p>
   </header>
 
+  <div class="work-filters" role="group" [attr.aria-label]="'projects.filters.label' | translate">
+    @for (filter of filters; track filter) {
+      <button
+        type="button"
+        class="button"
+        [class.button-outline]="activeFilter() !== filter"
+        [attr.aria-pressed]="activeFilter() === filter"
+        aria-controls="project-results"
+        (click)="setFilter(filter)"
+      >
+        <span class="text">{{ 'projects.filters.' + filter | translate }}</span>
+      </button>
+    }
+  </div>
+
+  <div class="work-filter-mobile">
+    <label for="project-category">{{ 'projects.filters.label' | translate }}</label>
+    <select
+      #categorySelect
+      id="project-category"
+      class="work-select"
+      [value]="activeFilter()"
+      aria-controls="project-results"
+      (change)="selectFilter(categorySelect.value)"
+    >
+      @for (filter of filters; track filter) {
+        <option [value]="filter">{{ 'projects.filters.' + filter | translate }}</option>
+      }
+    </select>
+  </div>
+
+  <div id="project-results">
+  @if (projects().length) {
   <ul class="work-list" appRevealStagger revealSelector=".work-item">
     @for (project of projects(); track project.key) {
       <li class="work-item" [class.work-item-open]="isOpen(project.key)">
@@ -39,7 +72,6 @@
                   [ngSrc]="project.image"
                   fill
                   [alt]="'projects.' + project.key + '.image_alt' | translate"
-                  sizes="(max-width: 1024px) 90vw, 45vw"
                 />
               </div>
 
@@ -61,10 +93,24 @@
                     <ng-icon name="lucideGithub" size="18px" aria-hidden="true"></ng-icon>
                     <span class="text">{{ 'projects.github' | translate }}</span>
                   </a>
-                  <a [href]="project.live" target="_blank" rel="noopener" class="button button-outline work-action">
+                  @if (project.live; as live) {
+                  <a [href]="live" target="_blank" rel="noopener" class="button button-outline work-action">
                     <ng-icon name="lucideExternalLink" size="18px" aria-hidden="true"></ng-icon>
                     <span class="text">{{ 'projects.live' | translate }}</span>
                   </a>
+                  } @else {
+                    <span
+                      class="button button-outline work-action button-unavailable"
+                      role="button"
+                      aria-disabled="true"
+                      tabindex="0"
+                      [attr.aria-label]="('projects.live' | translate) + ': ' + ('projects.live_unavailable' | translate)"
+                    >
+                      <ng-icon name="lucideExternalLink" size="18px" aria-hidden="true"></ng-icon>
+                      <span class="text">{{ 'projects.live' | translate }}</span>
+                      <span class="button-tooltip" role="tooltip">{{ 'projects.live_unavailable' | translate }}</span>
+                    </span>
+                  }
                 </div>
               </div>
             </div>
@@ -73,6 +119,10 @@
       </li>
     }
   </ul>
+  } @else {
+    <p class="work-empty" role="status">{{ 'projects.filters.empty' | translate }}</p>
+  }
+  </div>
 </div>
 
 @if (selectedProject(); as project) {

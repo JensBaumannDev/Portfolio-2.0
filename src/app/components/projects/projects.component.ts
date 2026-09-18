@@ -6,7 +6,9 @@ import { lucideGithub, lucideExternalLink, lucidePlus, lucideArrowRight } from '
 import { ProjectDialog } from './project-dialog/project-dialog.component';
 import { Reveal } from '../../directives/reveal.directive';
 import { RevealStagger } from '../../directives/reveal-stagger.directive';
-import { PROJECTS, Project } from '../../constants/projects.constants';
+import { PROJECTS, Project, ProjectCategory } from '../../constants/projects.constants';
+
+type ProjectFilter = 'all' | ProjectCategory;
 
 @Component({
   selector: 'app-projects',
@@ -24,9 +26,14 @@ import { PROJECTS, Project } from '../../constants/projects.constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Projects {
-  protected readonly projects = signal<readonly Project[]>(PROJECTS);
+  protected readonly filters: readonly ProjectFilter[] = ['all', 'frontend', 'backend'];
+  protected readonly activeFilter = signal<ProjectFilter>('all');
+  protected readonly projects = computed(() => {
+    const filter = this.activeFilter();
+    return filter === 'all' ? PROJECTS : PROJECTS.filter((project) => project.category === filter);
+  });
 
-  private readonly openKey = signal<string | null>('dabubble');
+  private readonly openKey = signal<string | null>('coderr');
 
   protected readonly selectedIndex = signal<number | null>(null);
   protected readonly selectedProject = computed<Project | null>(() => {
@@ -36,6 +43,19 @@ export class Projects {
 
   protected isOpen(key: string): boolean {
     return this.openKey() === key;
+  }
+
+  protected selectFilter(value: string): void {
+    const filter = this.filters.find((filter) => filter === value);
+    if (filter) this.setFilter(filter);
+  }
+
+  protected setFilter(filter: ProjectFilter): void {
+    if (filter === this.activeFilter()) return;
+
+    this.closeDialog();
+    this.activeFilter.set(filter);
+    this.openKey.set(this.projects()[0]?.key ?? null);
   }
 
   protected toggle(key: string): void {

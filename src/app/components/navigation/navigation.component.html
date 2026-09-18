@@ -34,7 +34,15 @@
         <button class="lang-btn" [class.active]="currentLang() === 'en'" (click)="changeLanguage('en')" aria-label="English">EN</button>
       </div>
 
-      <button class="burger-btn" [class.active]="isMenuOpen()" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen()" aria-label="Menü umschalten">
+      <button
+        type="button"
+        class="burger-btn"
+        [class.active]="isMenuOpen()"
+        [attr.aria-expanded]="isMenuOpen()"
+        [attr.aria-label]="(isMenuOpen() ? 'nav.menu_close' : 'nav.menu_open') | translate"
+        aria-controls="mobile-menu"
+        (click)="toggleMenu()"
+      >
         <span class="burger-line"></span>
         <span class="burger-line"></span>
         <span class="burger-line"></span>
@@ -42,12 +50,21 @@
     </div>
   </div>
 
-  <div class="mobile-menu" [class.open]="isMenuOpen()">
+  <div
+    id="mobile-menu"
+    class="mobile-menu"
+    role="dialog"
+    [class.open]="isMenuOpen()"
+    [attr.aria-modal]="isMenuOpen() ? 'true' : null"
+    [attr.aria-hidden]="isMenuOpen() ? null : 'true'"
+    [attr.aria-label]="'nav.menu_label' | translate"
+    (keydown)="trapMenuFocus($event)"
+  >
     <nav class="mobile-nav-links">
-      <a href="#home" class="mobile-nav-link" [class.active]="currentActiveSection() === 'home'" (click)="setActiveSection('home'); closeMenu()">{{ 'nav.home' | translate }}</a>
-      <a href="#projects" class="mobile-nav-link" [class.active]="currentActiveSection() === 'projects'" (click)="setActiveSection('projects'); closeMenu()">{{ 'nav.projects' | translate }}</a>
-      <a href="#about" class="mobile-nav-link" [class.active]="currentActiveSection() === 'about'" (click)="setActiveSection('about'); closeMenu()">{{ 'nav.about' | translate }}</a>
-      <a href="#contact" class="mobile-nav-link" [class.active]="currentActiveSection() === 'contact'" (click)="setActiveSection('contact'); closeMenu()">{{ 'nav.contact' | translate }}</a>
+      <a href="#home" class="mobile-nav-link" [class.active]="currentActiveSection() === 'home'" (click)="setActiveSection('home'); closeMenu(true)">{{ 'nav.home' | translate }}</a>
+      <a href="#projects" class="mobile-nav-link" [class.active]="currentActiveSection() === 'projects'" (click)="setActiveSection('projects'); closeMenu(true)">{{ 'nav.projects' | translate }}</a>
+      <a href="#about" class="mobile-nav-link" [class.active]="currentActiveSection() === 'about'" (click)="setActiveSection('about'); closeMenu(true)">{{ 'nav.about' | translate }}</a>
+      <a href="#contact" class="mobile-nav-link" [class.active]="currentActiveSection() === 'contact'" (click)="setActiveSection('contact'); closeMenu(true)">{{ 'nav.contact' | translate }}</a>
 
       <div class="mobile-footer">
         <div class="mobile-socials">
@@ -63,8 +80,8 @@
         </div>
 
         <div class="mobile-meta">
-          <a routerLink="/legal-notice" class="mobile-meta-link" (click)="closeMenu()">{{ 'footer.imprint' | translate }}</a>
-          <a routerLink="/privacy-policy" class="mobile-meta-link" (click)="closeMenu()">{{ 'footer.privacy' | translate }}</a>
+          <a routerLink="/legal-notice" class="mobile-meta-link" (click)="closeMenu(true)">{{ 'footer.imprint' | translate }}</a>
+          <a routerLink="/privacy-policy" class="mobile-meta-link" (click)="closeMenu(true)">{{ 'footer.privacy' | translate }}</a>
         </div>
 
         <div class="mobile-bottom-row">

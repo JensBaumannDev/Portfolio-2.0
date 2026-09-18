@@ -24,6 +24,8 @@ import { LanguageService, AppLanguage } from '../../services/language.service';
 import { ScrollLockService } from '../../services/scroll-lock.service';
 
 const SECTION_IDS = ['home', 'projects', 'about', 'contact'];
+const MOBILE_MENU_MAX_WIDTH = 559;
+const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 @Component({
   selector: 'app-navigation',
@@ -43,6 +45,8 @@ const SECTION_IDS = ['home', 'projects', 'about', 'contact'];
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '(window:scroll)': 'onWindowScroll()',
+    '(window:resize)': 'onWindowResize()',
+    '(document:keydown.escape)': 'onEscape()',
   },
 })
 export class Navigation implements OnInit, OnDestroy {
@@ -55,6 +59,8 @@ export class Navigation implements OnInit, OnDestroy {
   private readonly lockToken = Symbol('mobile-menu');
   private routeSub?: Subscription;
   private scrollRafId?: number;
+  private focusTimerId?: ReturnType<typeof setTimeout>;
+  private menuTrigger?: HTMLElement;
 
   readonly forceActive = input<string | undefined>(undefined);
   readonly linkClick = output<string>();
@@ -82,11 +88,16 @@ export class Navigation implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.routeSub?.unsubscribe();
     if (this.scrollRafId !== undefined) cancelAnimationFrame(this.scrollRafId);
+    if (this.focusTimerId !== undefined) clearTimeout(this.focusTimerId);
+    this.setBackgroundInert(false);
     this.scrollLock.release(this.lockToken);
   }
 
   private readonly menuScrollLock = effect(() => {
-    if (this.isMenuOpen()) {
+    const isOpen = this.isMenuOpen();
+    this.setBackgroundInert(isOpen);
+
+    if (isOpen) {
       this.scrollLock.lock(this.lockToken);
     } else {
       this.scrollLock.release(this.lockToken);
@@ -94,11 +105,58 @@ export class Navigation implements OnInit, OnDestroy {
   });
 
   protected toggleMenu(): void {
-    this.isMenuOpen.update((val) => !val);
+    if (this.isMenuOpen()) {
+      this.closeMenu();
+      return;
+    }
+
+    const activeElement = this.document.activeElement;
+    this.menuTrigger = activeElement instanceof HTMLElement ? activeElement : undefined;
+    this.isMenuOpen.set(true);
+    this.clearFocusTimer();
+    this.focusTimerId = setTimeout(() => {
+      this.focusTimerId = undefined;
+      this.menuFocusableElements()[0]?.focus();
+    });
   }
 
-  protected closeMenu(): void {
+  protected closeMenu(restoreFocus = false): void {
+    if (!this.isMenuOpen()) return;
+    this.clearFocusTimer();
     this.isMenuOpen.set(false);
+
+    if (restoreFocus && this.menuTrigger) {
+      const trigger = this.menuTrigger;
+      this.focusTimerId = setTimeout(() => {
+        this.focusTimerId = undefined;
+        trigger.focus();
+      });
+    }
+
+    this.menuTrigger = undefined;
+  }
+
+  protected onEscape(): void {
+    this.closeMenu(true);
+  }
+
+  protected trapMenuFocus(event: KeyboardEvent): void {
+    if (event.key !== 'Tab' || !this.isMenuOpen()) return;
+
+    const elements = this.menuFocusableElements();
+    if (!elements.length) return;
+
+    const first = elements[0];
+    const last = elements[elements.length - 1];
+    const active = this.document.activeElement;
+
+    if (event.shiftKey && active === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && active === last) {
+      event.preventDefault();
+      first.focus();
+    }
   }
 
   protected toggleTheme(): void {
@@ -120,6 +178,29 @@ export class Navigation implements OnInit, OnDestroy {
       this.scrollRafId = undefined;
       this.updateScrollState();
     });
+  }
+
+  protected onWindowResize(): void {
+    if (window.innerWidth > MOBILE_MENU_MAX_WIDTH) this.closeMenu();
+  }
+
+  private menuFocusableElements(): HTMLElement[] {
+    const menu = this.host.nativeElement.querySelector<HTMLElement>('.mobile-menu');
+    return menu ? Array.from(menu.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)) : [];
+  }
+
+  private clearFocusTimer(): void {
+    if (this.focusTimerId === undefined) return;
+    clearTimeout(this.focusTimerId);
+    this.focusTimerId = undefined;
+  }
+
+  private setBackgroundInert(inert: boolean): void {
+    if (this.host.nativeElement.closest('dialog')) return;
+
+    for (const element of this.document.querySelectorAll<HTMLElement>('#main-content, app-footer')) {
+      element.inert = inert;
+    }
   }
 
   private checkRoute(): void {
