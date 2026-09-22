@@ -20,6 +20,7 @@ export const PROJECTS: readonly Project[] = [
     hasDuration: false,
     tags: ['Python', 'Django', 'Django REST Framework', 'SQLite'],
     github: 'https://github.com/JensBaumannDev/Coderr',
+     live: 'https://coderr.jensbaumann.com',
   },
   {
     key: 'kanmind',
