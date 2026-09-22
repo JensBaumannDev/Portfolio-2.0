@@ -19,8 +19,8 @@ export const PROJECTS: readonly Project[] = [
     featured: false,
     hasDuration: false,
     tags: ['Python', 'Django', 'Django REST Framework', 'SQLite'],
-    github: 'https://github.com/JensBaumannDev/Coderr',
-     live: 'https://coderr.jensbaumann.com',
+    github: 'https://github.com/JensBaumannDev/Coderr_Backend',
+    live: 'https://coderr.jensbaumann.com',
   },
   {
     key: 'kanmind',
@@ -38,7 +38,7 @@ export const PROJECTS: readonly Project[] = [
     tags: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
     image: './img/projects/webp/dabubble_project.webp',
     github: 'https://github.com/JensBaumannDev/DABubble',
-    live: 'https://jensbaumann.com/projects/dabubble',
+    live: 'https://dabubble.jensbaumann.com',
   },
   {
     key: 'join',
@@ -47,7 +47,7 @@ export const PROJECTS: readonly Project[] = [
     tags: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
     image: './img/projects/webp/join_project.webp',
     github: 'https://github.com/JensBaumannDev/Join',
-    live: 'https://jensbaumann.com/projects/join/',
+    live: 'https://join.jensbaumann.com',
   },
   {
     key: 'el_pollo_loco',
@@ -56,7 +56,7 @@ export const PROJECTS: readonly Project[] = [
     tags: ['HTML', 'CSS', 'JavaScript'],
     image: './img/projects/webp/el_pollo_loco_project.webp',
     github: 'https://github.com/JensBaumannDev/El-Pollo-Loco',
-    live: 'https://jensbaumann.com/projects/el_pollo_loco/',
+    live: 'https://el-pollo-loco.jensbaumann.com',
   },
   {
     key: 'pokedex',
@@ -65,6 +65,6 @@ export const PROJECTS: readonly Project[] = [
     tags: ['HTML', 'CSS', 'JavaScript', 'API'],
     image: './img/projects/webp/pokedex_project.webp',
     github: 'https://github.com/JensBaumannDev/Pokedex',
-    live: 'https://jensbaumann.com/projects/pokedex/',
+    live: 'https://pokedex.jensbaumann.com',
   },
 ];
