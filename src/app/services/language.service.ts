@@ -15,14 +15,16 @@ export class LanguageService {
   readonly current = this.translate.currentLang;
 
   constructor() {
-    this.translate.use(readStoredLanguage());
-
     effect(() => {
       const lang = this.current();
       if (lang) {
         this.document.documentElement.lang = lang;
       }
     });
+  }
+
+  initialize() {
+    return this.translate.use(readStoredLanguage());
   }
 
   use(lang: AppLanguage): void {
