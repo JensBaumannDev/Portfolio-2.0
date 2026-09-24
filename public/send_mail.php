@@ -1,18 +1,12 @@
 <?php
-header("Access-Control-Allow-Origin: https://jensbaumann.com");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
 
 const MIN_FILL_TIME_MS = 3000;
+const MAX_NAME_LENGTH = 120;
+const MAX_EMAIL_LENGTH = 254;
 const MAX_MESSAGE_LENGTH = 5000;
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW = 3600;
-
-if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
-    http_response_code(200);
-    exit;
-}
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     http_response_code(405);
@@ -22,15 +16,42 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-if (!$data) {
+if (!is_array($data)) {
     http_response_code(400);
     echo json_encode(["error" => "Invalid JSON"]);
     exit;
 }
 
-if (!empty($data["website"]) || (int) ($data["elapsed"] ?? 0) < MIN_FILL_TIME_MS) {
+if (!empty($data["website"]) || !is_numeric($data["elapsed"] ?? null) || $data["elapsed"] < MIN_FILL_TIME_MS) {
     http_response_code(200);
     echo json_encode(["success" => true]);
+    exit;
+}
+
+$name = $data["name"] ?? null;
+$email = $data["email"] ?? "";
+$message = $data["message"] ?? "";
+$privacy = $data["privacy"] ?? false;
+
+if (!is_string($name) || !is_string($email) || !is_string($message) || $privacy !== true) {
+    http_response_code(400);
+    echo json_encode(["error" => "Missing required fields"]);
+    exit;
+}
+
+$name = trim($name);
+$email = trim($email);
+$message = trim($message);
+
+if (text_length($name) < 4 || text_length($name) > MAX_NAME_LENGTH || text_length($message) < 4 || text_length($message) > MAX_MESSAGE_LENGTH || strlen($email) > MAX_EMAIL_LENGTH) {
+    http_response_code(400);
+    echo json_encode(["error" => "Invalid field length"]);
+    exit;
+}
+
+if (preg_match('/[\r\n]/', $name) || preg_match('/[\r\n]/', $email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400);
+    echo json_encode(["error" => "Invalid contact details"]);
     exit;
 }
 
@@ -40,39 +61,18 @@ if (!allow_request()) {
     exit;
 }
 
-$name = str_replace(["\r", "\n"], "", $data["name"] ?? "");
-$email = $data["email"] ?? "";
-$message = $data["message"] ?? "";
-$privacy = $data["privacy"] ?? false;
-
-if (empty($name) || empty($email) || empty($message) || !$privacy) {
-    http_response_code(400);
-    echo json_encode(["error" => "Missing required fields"]);
-    exit;
-}
-
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(400);
-    echo json_encode(["error" => "Invalid email format"]);
-    exit;
-}
-
-if (mb_strlen($message) > MAX_MESSAGE_LENGTH) {
-    http_response_code(400);
-    echo json_encode(["error" => "Message too long"]);
-    exit;
-}
-
 $recipient = "info@jensbaumann.com";
-$subject = "Neue Kontaktanfrage (Portfolio) von $name";
+$subject = "Neue Kontaktanfrage (Portfolio)";
 
 $email_content = "Name: $name\n";
 $email_content .= "E-Mail: $email\n\n";
 $email_content .= "Nachricht:\n$message\n";
 
-$headers = "From: noreply@jensbaumann.com\r\n";
-$headers .= "Reply-To: $email\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion();
+$headers = [
+    "From" => "noreply@jensbaumann.com",
+    "Reply-To" => $email,
+    "Content-Type" => "text/plain; charset=UTF-8",
+];
 
 if (mail($recipient, $subject, $email_content, $headers)) {
     http_response_code(200);
@@ -122,4 +122,9 @@ function allow_request(): bool
     fclose($handle);
 
     return $allowed;
+}
+
+function text_length(string $value): int
+{
+    return function_exists("mb_strlen") ? mb_strlen($value, "UTF-8") : (int) preg_match_all('/./us', $value);
 }

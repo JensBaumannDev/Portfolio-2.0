@@ -1,79 +1,33 @@
-import { Component, ChangeDetectionStrategy, signal, computed } from '@angular/core';
+import { Component, ChangeDetectionStrategy, computed, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideGithub, lucideExternalLink, lucidePlus, lucideArrowRight } from '@ng-icons/lucide';
-import { ProjectDialog } from './project-dialog/project-dialog.component';
-import { Reveal } from '../../directives/reveal.directive';
-import { RevealStagger } from '../../directives/reveal-stagger.directive';
-import { PROJECTS, Project, ProjectCategory } from '../../constants/projects.constants';
+import { SHOWCASE_PROJECTS, TECHNOLOGY_ICONS, ShowcaseProject, ShowcaseProjectCategory } from '../../constants/showcase-projects.constants';
 
-type ProjectFilter = 'all' | ProjectCategory;
+type ProjectFilter = 'all' | ShowcaseProjectCategory;
 
 @Component({
   selector: 'app-projects',
-  imports: [NgOptimizedImage, TranslatePipe, NgIcon, ProjectDialog, Reveal, RevealStagger],
-  providers: [
-    provideIcons({
-      lucideGithub,
-      lucideExternalLink,
-      lucidePlus,
-      lucideArrowRight,
-    })
-  ],
+  imports: [NgOptimizedImage, RouterLink, TranslatePipe],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Projects {
-  protected readonly filters: readonly ProjectFilter[] = ['all', 'frontend', 'backend'];
+  protected readonly projects = SHOWCASE_PROJECTS;
+  protected readonly technologyIcons = TECHNOLOGY_ICONS;
+  protected readonly selectedProject = signal<ShowcaseProject>(SHOWCASE_PROJECTS[0]);
   protected readonly activeFilter = signal<ProjectFilter>('all');
-  protected readonly projects = computed(() => {
-    const filter = this.activeFilter();
-    return filter === 'all' ? PROJECTS : PROJECTS.filter((project) => project.category === filter);
-  });
+  protected readonly filteredProjects = computed(() => this.activeFilter() === 'all' ? this.projects : this.projects.filter((project) => project.category === this.activeFilter()));
+  protected readonly selectedProjectIndex = computed(() => String(this.filteredProjects().findIndex((project) => project.slug === this.selectedProject().slug) + 1).padStart(2, '0'));
 
-  private readonly openKey = signal<string | null>('coderr');
-
-  protected readonly selectedIndex = signal<number | null>(null);
-  protected readonly selectedProject = computed<Project | null>(() => {
-    const index = this.selectedIndex();
-    return index === null ? null : this.projects()[index];
-  });
-
-  protected isOpen(key: string): boolean {
-    return this.openKey() === key;
+  protected selectProject(project: ShowcaseProject): void {
+    this.selectedProject.set(project);
   }
 
-  protected selectFilter(value: string): void {
-    const filter = this.filters.find((filter) => filter === value);
-    if (filter) this.setFilter(filter);
-  }
-
-  protected setFilter(filter: ProjectFilter): void {
-    if (filter === this.activeFilter()) return;
-
-    this.closeDialog();
+  protected selectFilter(filter: ProjectFilter): void {
     this.activeFilter.set(filter);
-    this.openKey.set(this.projects()[0]?.key ?? null);
-  }
-
-  protected toggle(key: string): void {
-    this.openKey.update((current) => (current === key ? null : key));
-  }
-
-  protected openDialog(key: string): void {
-    const index = this.projects().findIndex((project) => project.key === key);
-    if (index !== -1) {
-      this.selectedIndex.set(index);
-    }
-  }
-
-  protected closeDialog(): void {
-    this.selectedIndex.set(null);
-  }
-
-  protected nextProject(): void {
-    this.selectedIndex.update((index) => (index === null ? null : (index + 1) % this.projects().length));
+    const [firstProject] = filter === 'all' ? this.projects : this.projects.filter((project) => project.category === filter);
+    if (firstProject) this.selectedProject.set(firstProject);
   }
 }

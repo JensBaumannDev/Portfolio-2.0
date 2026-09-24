@@ -1,65 +1,35 @@
-<section class="hero">
+<section class="hero" aria-labelledby="hero-title">
   <div class="content-container hero-inner">
-    <div class="hero-intro">
-      <h1 class="hero-title"><span class="sr-only">Jens Baumann — </span>{{ 'hero.title' | translate }}</h1>
-      <p class="hero-status">{{ 'hero.status' | translate }}</p>
-      <ul class="hero-tags">
-        <li>{{ 'hero.tags.architecture' | translate }}</li>
-        <li>{{ 'hero.tags.accessibility' | translate }}</li>
-        <li>{{ 'hero.tags.maintainability' | translate }}</li>
-      </ul>
-    </div>
-
-    <div class="hero-scene">
-      <img ngSrc="/img/hero/lighthouse.svg" width="120" height="260" class="hero-lighthouse" aria-hidden="true" priority
-        alt="" />
-
-      <div class="hero-avatar">
-        <div class="hero-portrait">
-          <div class="hero-stars" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="hero-clouds" aria-hidden="true"></div>
-          <div class="hero-water" aria-hidden="true"></div>
-          <img ngSrc="/img/hero/profile.webp" width="520" height="520" priority [alt]="'hero.profile_alt' | translate"
-            class="hero-portrait-img" />
-        </div>
-        <p class="hero-greeting">{{ 'hero.greeting' | translate }}</p>
-
-        <div class="hero-socials">
-          <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="button hero-social-link"
-            aria-label="GitHub">
-            <ng-icon name="faBrandGithub"></ng-icon>
-          </a>
-          <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener"
-            class="button hero-social-link" aria-label="LinkedIn">
-            <ng-icon name="faBrandLinkedinIn"></ng-icon>
-          </a>
-          <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener"
-            class="button hero-social-link" aria-label="YouTube">
-            <ng-icon name="faBrandYoutube"></ng-icon>
-          </a>
+    <div class="hero-copy">
+      <div class="hero-heading">
+        <p class="eyebrow">JENS BAUMANN</p>
+        <p class="hero-role">{{ 'portfolio.hero.role' | translate }}</p>
+        <h1 id="hero-title"><span [innerHTML]="'portfolio.hero.slogan' | translate"></span><span
+            class="title-dot">.</span></h1>
+        <p class="intro">{{ 'portfolio.hero.intro' | translate }}</p>
+      </div>
+      <div class="hero-details">
+        <p class="availability">{{ 'portfolio.hero.availability' | translate }}</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#contact">{{ 'portfolio.hero.talk' | translate }}</a>
+          <a class="button button-light" href="#projects">{{ 'portfolio.hero.work' | translate }}</a>
+          <a class="button button-light button-cv" [href]="cvUrl" download>{{ 'portfolio.hero.cv' |
+            translate }} <ng-icon name="lucideDownload" size="1.15em" aria-hidden="true"></ng-icon></a>
         </div>
       </div>
     </div>
-
-    <div class="hero-actions">
-      <a href="#projects" class="button">
-        {{ 'hero.cta_projects' | translate }}
-        <span aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="button button-outline" [href]="'cv.download_file' | translate" [attr.download]="'cv.download_name' | translate"
-        target="_blank" rel="noopener">
-        <span class="text">{{ 'hero.cta_cv' | translate }}</span>
-        <ng-icon name="lucideDownload" size="18px" aria-hidden="true"></ng-icon>
-      </a>
+    <div class="hero-visual">
+      <img ngSrc="/img/about/jens-baumann-about-cutout.png" fill priority [alt]="'hero.profile_alt' | translate" />
+    </div>
+    <div class="hero-footer">
+      <nav class="hero-socials" aria-label="Social links">
+        <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener"><ng-icon name="faBrandGithub"
+            size="1.4em" aria-hidden="true"></ng-icon><span>GitHub</span></a>
+        <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener"><ng-icon
+            name="faBrandLinkedinIn" size="1.4em" aria-hidden="true"></ng-icon><span>LinkedIn</span></a>
+        <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener"><ng-icon
+            name="faBrandYoutube" size="1.4em" aria-hidden="true"></ng-icon><span>YouTube</span></a>
+      </nav>
     </div>
   </div>
 </section>

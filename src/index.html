@@ -34,10 +34,8 @@
     />
     <meta name="twitter:image" content="https://jensbaumann.com/og-image.png?v=2" />
 
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f5f4f0" />
 
-    <link rel="preload" href="/fonts/Signika.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/svg+xml" href="favicon-dark.svg?v=3" media="(prefers-color-scheme: dark)" />
     <link rel="icon" type="image/svg+xml" href="favicon-light.svg?v=3" media="(prefers-color-scheme: light)" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3" />
@@ -54,9 +52,6 @@
               : 'light';
         document.documentElement.setAttribute('data-theme', theme);
 
-        if (document.fonts && document.fonts.load) {
-          document.fonts.load('700 16px Signika');
-        }
       })();
     </script>
     <app-root></app-root>

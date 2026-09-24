@@ -15,6 +15,28 @@
   "a11y": {
     "skip_to_content": "Skip to content"
   },
+  "portfolio": {
+    "nav": { "home": "Home", "projects": "Projects", "skills": "Skills", "about": "About", "contact": "Contact", "language": "Language", "theme": { "label": "Appearance", "system": "System", "light": "Light", "dark": "Dark" } },
+    "hero": { "role": "FULLSTACK DEVELOPER", "slogan": "Frontend<span class=\"headline-dot\">.</span><br />Backend<span class=\"headline-dot\">.</span><br />Performance", "intro": "I build with Angular, TypeScript, JavaScript, Python and Django to create applications that are clear, maintainable and ready to grow.", "work": "My projects", "cv": "Résumé", "talk": "Get in touch", "projects": "Projects", "experience": "Experience", "motivation": "Motivation", "availability": "Available from Q4 2026" },
+    "projects": {
+      "eyebrow": "SELECTED WORK", "heading": "Projects", "heading_line": "with purpose", "intro": "Web applications that solve real problems.<br />From idea to deployment.", "placeholder": "Project preview coming soon", "view": "View Project", "filters": { "label": "Filter projects", "all": "All", "frontend": "Frontend", "backend": "Backend" },
+      "dabubble": { "type": "Real-time chat application", "description": "A Slack-style team chat with channels, direct messages and real-time threads.", "quote": "“With DABubble, the real challenge was keeping channels, direct messages and threads clear at the same time. That balance between functionality and calm became the key task.”", "features": { "authentication": "Authentication", "updates": "Real-time updates", "responsive": "Responsive design" } },
+      "el-pollo-loco": { "type": "Jump-and-run game", "description": "A self-built jump-and-run with a custom game loop, sound and collision detection.", "quote": "“El Pollo Loco showed me how much logic lives in a small game. Collision detection, in particular, requires very precise states.”", "features": { "oop": "Object-oriented programming", "game_loop": "Custom game loop", "collision": "Collision detection" } },
+      "coderr": { "type": "Marketplace REST API", "description": "A Django backend for digital services with profiles, offers, orders and reviews.", "quote": "“Coderr made it clear how important clean data relationships become once users, offers and orders meet in one system.”", "features": { "authentication": "Token authentication", "crud": "CRUD API", "database": "Database models" } },
+      "kanmind": { "type": "Project-management REST API", "description": "A Django backend for Kanban boards, tasks, assignments, comments and reviews.", "quote": "“With KanMind, structure was everything: boards, tasks and comments had to fit together without making the API hard to navigate.”", "features": { "authentication": "Token authentication", "crud": "CRUD API", "database": "Database models" } },
+      "join": { "type": "Task Management Application", "description": "A Kanban-based web application for team organization with a real backend, authentication and real-time features.", "quote": "“The hardest part of JOIN was not a single feature, but working cleanly on the same codebase with four people at once.”", "features": { "authentication": "User Authentication", "updates": "Real-time Updates", "drag_drop": "Drag & Drop", "responsive": "Responsive Design" } },
+      "pokedex": { "type": "Pokémon Encyclopedia", "description": "A clear Pokémon encyclopedia with API integration, search and detailed information.", "quote": "“The data did not always arrive as quickly as the interface needed it. I had to learn how to bundle API requests in a meaningful way.”", "features": { "api": "API Integration", "search": "Search", "responsive": "Responsive Design" } },
+      "django-api": { "type": "Backend API", "description": "A RESTful API for data-driven applications with clean authentication and focused endpoints.", "features": { "authentication": "Authentication", "crud": "CRUD API", "database": "Database Models" } },
+      "expense-tracker": { "type": "Finance Application", "description": "A tool for clearly tracking and evaluating personal expenses.", "features": { "tracking": "Expense Tracking", "categories": "Categories", "responsive": "Responsive Design" } },
+      "weather-app": { "type": "Weather Application", "description": "A weather application with current data and a reduced, clear interface.", "features": { "weather": "Live Weather", "city_search": "City Search", "responsive": "Responsive Design" } },
+      "more-projects": { "type": "More Work", "description": "More projects and experiments are coming soon.", "features": { "clean_code": "Clean Code", "learning": "Learning by Building" } }
+    },
+    "detail": { "all_projects": "All projects", "live_demo": "Live Demo", "technologies": "Technologies", "features": "Features", "preview_alt": "Laptop showing {{name}}" },
+    "about": { "eyebrow": "ABOUT ME", "heading": "Driven", "heading_line_2": "Leadership", "heading_line_3": "Structured", "text": "I come from retail and sales and at some point realized that creating things interests me more than selling them. That is why I am currently completing a one-year full-stack program and spending my evenings working on my own projects. What I enjoy most is digging into a new topic until I truly understand why something works.", "text_2": "Order and structure matter a lot to me, in everyday life as much as in code. I quickly notice when something is not organised properly and find it hard to leave it that way. In development, that is an advantage: clear names, a well-structured codebase and components with one clear purpose. It means I can still find my way around my code weeks later — and so can others on the team.", "cv": "Download résumé", "learning": "Always<br />learning.", "principles": { "musician": { "title": "Musician", "text": "Music is my creative balance" }, "gamer": { "title": "Gamer", "text": "Strategy, focus & teamwork" }, "family": { "title": "Family", "text": "Husband & father" }, "dog": { "title": "Dog Owner", "text": "Balu naturally belongs here" } } },
+    "skills": { "eyebrow": "TECH STACK", "heading": "Tools", "heading_line": "I work with", "text": "A selection of the technologies I use to create real projects.", "frontend": "Frontend", "backend": "Backend", "tools": "Tools & Others" },
+    "contact": { "eyebrow": "CONTACT", "heading": "Simply", "heading_line_2": "say hello", "heading_line_3": "anytime", "text": "Whether it is a job, a project or an idea that is not fully thought through yet — send me a message. I would love to hear from you.", "message": "Send a message", "aside": "Good<br />Code.<br />Better<br />Days." },
+    "footer": { "legal": "Legal Notice", "privacy": "Privacy Policy" }
+  },
   "seo": {
     "home_title": "Jens Baumann — Fullstack Developer",
     "home_desc": "Jens Baumann — Fullstack Developer based in Emden, East Frisia. Career changer working with Angular, TypeScript, Python and Django. Open to an internship, working student position or a junior role from Q4 2026.",
@@ -163,6 +185,10 @@
   "contact": {
     "section_title": "Contact",
     "section_sub": "Let's have a chat.",
+    "form_eyebrow": "GET IN TOUCH",
+    "form_note": "I look forward to hearing from you.",
+    "availability_label": "Available from",
+    "availability_value": "Q4 2026",
     "title": "Finding the right path.",
     "subtitle": "Open to an internship, working student position or a junior role, remote, hybrid or on-site in East Frisia.",
     "name_label": "What is your name?",
@@ -174,12 +200,13 @@
     "privacy_pre": "I have read the",
     "privacy_link": "privacy policy",
     "privacy_post": "and agree to the processing of my data.",
-    "submit": "Send",
+    "submit": "Send message",
+    "sending": "Sending",
     "error_name": "Please enter at least 4 characters.",
     "error_email": "Please enter a valid email address.",
     "error_message": "Please enter at least 4 characters.",
     "error_privacy": "Please agree to the privacy policy.",
-    "error_send": "Sending failed. Feel free to email me directly at",
+    "error_send": "Sending failed. Please try again later.",
     "success": "Thank you! Your message has been sent.",
     "success_short": "Sent",
     "email_value": "info@jensbaumann.com",

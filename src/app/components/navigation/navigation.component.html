@@ -1,113 +1,95 @@
-<header class="navbar" [class.menu-open]="isMenuOpen()" [class.scrolled]="isScrolled()">
-  <div class="navbar-content content-container">
-    <a href="#" class="brand" (click)="closeMenu(); setActiveSection('home')">
-      <span class="brand-mark" aria-hidden="true">JB</span>
-      <span class="brand-name">Jens Baumann</span>
-    </a>
-
-    <nav class="nav-links">
-      <a href="#home" class="nav-link" [class.active]="currentActiveSection() === 'home'" (click)="setActiveSection('home')">{{ 'nav.home' | translate }}</a>
-      <a href="#projects" class="nav-link" [class.active]="currentActiveSection() === 'projects'" (click)="setActiveSection('projects')">{{ 'nav.projects' | translate }}</a>
-      <a href="#about" class="nav-link" [class.active]="currentActiveSection() === 'about'" (click)="setActiveSection('about')">{{ 'nav.about' | translate }}</a>
-      <a href="#contact" class="nav-link" [class.active]="currentActiveSection() === 'contact'" (click)="setActiveSection('contact')">{{ 'nav.contact' | translate }}</a>
-    </nav>
-
-    <div class="nav-actions">
-      <button
-        class="theme-toggle desktop-only"
-        type="button"
-        (click)="toggleTheme()"
-        [attr.aria-label]="'nav.theme' | translate"
-      >
-        @if (themeMode() === 'light') {
-          <ng-icon name="lucideSun" size="16px"></ng-icon>
-        } @else if (themeMode() === 'dark') {
-          <ng-icon name="lucideMoon" size="16px"></ng-icon>
-        } @else {
-          <ng-icon name="lucideMonitor" size="16px"></ng-icon>
-        }
+<header class="navigation" [class.is-scrolling]="isScrolling()" [class.has-scrolled]="hasScrolled()">
+  <nav class="content-container navigation-inner" [class.menu-open]="navigationMenuOpen()"
+    [attr.aria-label]="'portfolio.nav.home' | translate">
+    <a class="brand" href="/#home" [attr.aria-label]="'portfolio.nav.home' | translate"
+      (click)="scrollToSection($event, 'home')">JB</a>
+    <button class="menu-trigger" type="button" aria-label="Menü" aria-controls="mobile-navigation"
+      [attr.aria-expanded]="navigationMenuOpen()" (click)="toggleNavigationMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="links"><a href="/#home" (click)="scrollToSection($event, 'home')">{{ 'portfolio.nav.home' | translate
+        }}</a><a href="/#projects" (click)="scrollToSection($event, 'projects')">{{
+        'portfolio.nav.projects' | translate }}</a><a href="/#about" (click)="scrollToSection($event, 'about')">{{
+        'portfolio.nav.about' | translate }}</a><a href="/#skills" (click)="scrollToSection($event, 'skills')">{{
+        'portfolio.nav.skills' | translate }}</a><a href="/#contact" (click)="scrollToSection($event, 'contact')">{{
+        'portfolio.nav.contact' |
+        translate }}</a></div>
+    <div class="theme-selector">
+      <button class="theme-trigger" type="button" [attr.aria-expanded]="themeMenuOpen()" aria-haspopup="menu"
+        [attr.aria-label]="('portfolio.nav.theme.label' | translate) + ': ' + ('portfolio.nav.theme.' + theme.mode() | translate)"
+        (click)="toggleThemeMenu()">
+        <img ngSrc="/img/icons/theme.svg" width="16" height="16" alt="" aria-hidden="true" />
+        <span>{{ 'portfolio.nav.theme.' + theme.mode() | translate }}</span>
       </button>
-
-      <div class="lang-selector">
-        <button class="lang-btn" [class.active]="currentLang() === 'de'" (click)="changeLanguage('de')" aria-label="Deutsch">DE</button>
-        <span class="lang-separator" aria-hidden="true">/</span>
-        <button class="lang-btn" [class.active]="currentLang() === 'en'" (click)="changeLanguage('en')" aria-label="English">EN</button>
+      @if (themeMenuOpen()) {
+      <div class="theme-menu" role="menu" [attr.aria-label]="'portfolio.nav.theme.label' | translate">
+        <button type="button" role="menuitemradio" [attr.aria-checked]="theme.mode() === 'system'"
+          [class.active]="theme.mode() === 'system'" (click)="changeTheme('system')">{{ 'portfolio.nav.theme.system' |
+          translate }}</button>
+        <button type="button" role="menuitemradio" [attr.aria-checked]="theme.mode() === 'light'"
+          [class.active]="theme.mode() === 'light'" (click)="changeTheme('light')">{{ 'portfolio.nav.theme.light' |
+          translate }}</button>
+        <button type="button" role="menuitemradio" [attr.aria-checked]="theme.mode() === 'dark'"
+          [class.active]="theme.mode() === 'dark'" (click)="changeTheme('dark')">{{ 'portfolio.nav.theme.dark' |
+          translate }}</button>
       </div>
-
-      <button
-        type="button"
-        class="burger-btn"
-        [class.active]="isMenuOpen()"
-        [attr.aria-expanded]="isMenuOpen()"
-        [attr.aria-label]="(isMenuOpen() ? 'nav.menu_close' : 'nav.menu_open') | translate"
-        aria-controls="mobile-menu"
-        (click)="toggleMenu()"
-      >
-        <span class="burger-line"></span>
-        <span class="burger-line"></span>
-        <span class="burger-line"></span>
+      }
+    </div>
+    <div class="languages">
+      <button class="language-trigger" type="button" [attr.aria-expanded]="languageMenuOpen()" aria-haspopup="menu"
+        [attr.aria-label]="'portfolio.nav.language' | translate" (click)="toggleLanguageMenu()">
+        <span>{{ currentLanguage() === 'de' ? 'Deutsch' : 'English' }}</span>
+        <img ngSrc="/img/icons/globe.svg" width="16" height="16" alt="" aria-hidden="true" />
       </button>
+      @if (languageMenuOpen()) {
+      <div class="language-menu" role="menu">
+        <button type="button" role="menuitem" [class.active]="currentLanguage() === 'de'"
+          (click)="changeLanguage('de')">Deutsch</button>
+        <button type="button" role="menuitem" [class.active]="currentLanguage() === 'en'"
+          (click)="changeLanguage('en')">English</button>
+      </div>
+      }
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-navigation" [class.is-open]="navigationMenuOpen()"
+    [attr.aria-hidden]="!navigationMenuOpen()">
+    <nav class="mobile-links" [attr.aria-label]="'portfolio.nav.home' | translate">
+      <a href="/#home" (click)="scrollToSection($event, 'home')">{{ 'portfolio.nav.home' | translate }}</a>
+      <a href="/#projects" (click)="scrollToSection($event, 'projects')">{{ 'portfolio.nav.projects' | translate }}</a>
+      <a href="/#about" (click)="scrollToSection($event, 'about')">{{ 'portfolio.nav.about' | translate }}</a>
+      <a href="/#skills" (click)="scrollToSection($event, 'skills')">{{ 'portfolio.nav.skills' | translate }}</a>
+      <a href="/#contact" (click)="scrollToSection($event, 'contact')">{{ 'portfolio.nav.contact' | translate }}</a>
+    </nav>
+    <div class="mobile-settings">
+      <label for="mobile-theme">{{ 'portfolio.nav.theme.label' | translate }}
+        <select id="mobile-theme" [value]="theme.mode()" (change)="changeMobileTheme($event)">
+          <option value="system">{{ 'portfolio.nav.theme.system' | translate }}</option>
+          <option value="light">{{ 'portfolio.nav.theme.light' | translate }}</option>
+          <option value="dark">{{ 'portfolio.nav.theme.dark' | translate }}</option>
+        </select>
+      </label>
+      <label for="mobile-language">{{ 'portfolio.nav.language' | translate }}
+        <select id="mobile-language" [value]="currentLanguage()" (change)="changeMobileLanguage($event)">
+          <option value="de">Deutsch</option>
+          <option value="en">English</option>
+        </select>
+      </label>
+    </div>
+    <div class="mobile-menu-footer">
+      <nav class="mobile-legal" aria-label="Rechtliches">
+        <a routerLink="/legal-notice" (click)="closeNavigationMenu()">{{ 'portfolio.footer.legal' | translate }}</a>
+        <a routerLink="/privacy-policy" (click)="closeNavigationMenu()">{{ 'portfolio.footer.privacy' | translate }}</a>
+      </nav>
+      <nav class="mobile-socials" aria-label="Social links">
+        <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" aria-label="GitHub"><ng-icon
+            name="faBrandGithub" size="1.25em" aria-hidden="true"></ng-icon><span>GitHub</span></a>
+        <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener"
+          aria-label="LinkedIn"><ng-icon name="faBrandLinkedinIn" size="1.25em"
+            aria-hidden="true"></ng-icon><span>LinkedIn</span></a>
+        <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener"
+          aria-label="YouTube"><ng-icon name="faBrandYoutube" size="1.25em"
+            aria-hidden="true"></ng-icon><span>YouTube</span></a>
+      </nav>
     </div>
   </div>
-
-  <div
-    id="mobile-menu"
-    class="mobile-menu"
-    role="dialog"
-    [class.open]="isMenuOpen()"
-    [attr.aria-modal]="isMenuOpen() ? 'true' : null"
-    [attr.aria-hidden]="isMenuOpen() ? null : 'true'"
-    [attr.aria-label]="'nav.menu_label' | translate"
-    (keydown)="trapMenuFocus($event)"
-  >
-    <nav class="mobile-nav-links">
-      <a href="#home" class="mobile-nav-link" [class.active]="currentActiveSection() === 'home'" (click)="setActiveSection('home'); closeMenu(true)">{{ 'nav.home' | translate }}</a>
-      <a href="#projects" class="mobile-nav-link" [class.active]="currentActiveSection() === 'projects'" (click)="setActiveSection('projects'); closeMenu(true)">{{ 'nav.projects' | translate }}</a>
-      <a href="#about" class="mobile-nav-link" [class.active]="currentActiveSection() === 'about'" (click)="setActiveSection('about'); closeMenu(true)">{{ 'nav.about' | translate }}</a>
-      <a href="#contact" class="mobile-nav-link" [class.active]="currentActiveSection() === 'contact'" (click)="setActiveSection('contact'); closeMenu(true)">{{ 'nav.contact' | translate }}</a>
-
-      <div class="mobile-footer">
-        <div class="mobile-socials">
-          <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="mobile-social" aria-label="GitHub">
-            <ng-icon name="faBrandGithub" size="32px"></ng-icon>
-          </a>
-          <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener" class="mobile-social" aria-label="LinkedIn">
-            <ng-icon name="faBrandLinkedinIn" size="32px"></ng-icon>
-          </a>
-          <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener" class="mobile-social" aria-label="YouTube">
-            <ng-icon name="faBrandYoutube" size="32px"></ng-icon>
-          </a>
-        </div>
-
-        <div class="mobile-meta">
-          <a routerLink="/legal-notice" class="mobile-meta-link" (click)="closeMenu(true)">{{ 'footer.imprint' | translate }}</a>
-          <a routerLink="/privacy-policy" class="mobile-meta-link" (click)="closeMenu(true)">{{ 'footer.privacy' | translate }}</a>
-        </div>
-
-        <div class="mobile-bottom-row">
-          <button
-            class="mobile-theme-icon-btn"
-            type="button"
-            (click)="toggleTheme()"
-            [attr.aria-label]="'nav.theme' | translate"
-          >
-            @if (themeMode() === 'light') {
-              <ng-icon name="lucideSun" size="20px"></ng-icon>
-            } @else if (themeMode() === 'dark') {
-              <ng-icon name="lucideMoon" size="20px"></ng-icon>
-            } @else {
-              <ng-icon name="lucideMonitor" size="20px"></ng-icon>
-            }
-          </button>
-
-          <div class="mobile-lang-selector">
-            <button class="mobile-lang-btn" [class.active]="currentLang() === 'de'" (click)="changeLanguage('de')" aria-label="Deutsch">DE</button>
-            <span class="mobile-lang-separator" aria-hidden="true">/</span>
-            <button class="mobile-lang-btn" [class.active]="currentLang() === 'en'" (click)="changeLanguage('en')" aria-label="English">EN</button>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
 </header>
-

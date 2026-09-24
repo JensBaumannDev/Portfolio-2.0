@@ -13,8 +13,8 @@
   z-index: abs.$z-index-dialog;
   padding: abs.rem(12) abs.rem(20);
   border-radius: abs.$radius-sm;
-  background-color: var(--color-bg-inverse);
-  color: var(--color-text-inverse);
+  background-color: #{abs.$color-black};
+  color: #{abs.$color-white};
   font-size: abs.$font-size-base;
   font-weight: abs.$font-weight-medium;
   text-decoration: none;
@@ -22,7 +22,7 @@
   transition: transform 0.2s ease;
 
   &:focus {
-    outline: 2px solid var(--color-accent-text);
+    outline: 2px solid var(--color-accent);
     outline-offset: 2px;
     transform: translateY(0);
   }
@@ -35,4 +35,3 @@
     outline: none;
   }
 }
-

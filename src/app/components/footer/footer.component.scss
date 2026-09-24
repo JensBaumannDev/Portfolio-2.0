@@ -1,98 +1,107 @@
 @use 'src/styles/abstracts' as abs;
 
-.footer-container {
-  background-color: var(--color-bg);
-  border-top: 1px solid var(--color-border);
-  padding: abs.rem(32) 0;
+.footer {
+    padding: abs.rem(24) 0;
+    background: abs.$color-black;
+    color: abs.$color-nav-menu-muted;
 }
 
 .footer-inner {
-  @include abs.flex(row, wrap, space-between, center);
-  gap: abs.rem(16);
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: abs.rem(18);
+    font-size: abs.rem(16);
 }
 
-.footer-copyright {
-  @include abs.flex(row, nowrap, flex-start, center);
-  gap: abs.rem(8);
-  margin: 0;
-  font-family: abs.$font-family-base;
-  font-size: abs.$font-size-md;
-  font-weight: abs.$font-weight-medium;
-  color: var(--color-text-secondary);
+nav {
+    @include abs.flex(row, wrap, flex-start, center);
+    gap: abs.rem(20);
 }
 
-.footer-links {
-  @include abs.flex(row, wrap, flex-end, center);
-  gap: abs.rem(48);
+.footer-legal a {
+    padding: abs.rem(8) 0;
+    color: abs.$color-nav-muted;
+    font-family: abs.$font-family-base;
+    font-size: abs.rem(16);
+    font-weight: abs.$font-weight-medium;
 }
 
-.footer-link-group {
-  @include abs.flex(row, wrap, flex-start, center);
-  gap: abs.rem(24);
+.footer-legal a:hover {
+    color: abs.$color-accent;
 }
 
-.footer-social-group {
-  position: relative;
+.footer-socials {
+    justify-content: flex-end;
+    gap: abs.rem(22);
+}
 
-  &::before {
-    content: '';
+.footer-socials a {
+    @include abs.flex(row, nowrap, flex-start, center);
+    gap: abs.rem(8);
+    font-weight: abs.$font-weight-medium;
+    transition: color .18s ease, transform .18s ease;
+}
+
+.footer-socials a:hover {
+    color: abs.$color-accent;
+    transform: translateY(-2px);
+}
+
+.footer-socials ng-icon {
+    transition: transform .18s ease;
+}
+
+.footer-socials a:hover ng-icon {
+    transform: rotate(-7deg) scale(1.08);
+}
+
+.footer-socials span {
+    position: relative;
+}
+
+.footer-socials span::after {
     position: absolute;
-    left: abs.rem(-24);
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: abs.rem(16);
-    background-color: var(--color-text-secondary);
-    opacity: 0.5;
-  }
+    right: 0;
+    bottom: abs.rem(-5);
+    left: 0;
+    height: 1px;
+    background: abs.$color-accent;
+    content: '';
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .22s cubic-bezier(.2, .8, .2, 1);
 }
 
-.footer-link {
-  font-family: abs.$font-family-base;
-  font-size: abs.$font-size-md;
-  font-weight: abs.$font-weight-medium;
-  text-decoration: none;
-  color: var(--color-text-secondary);
-  transition: color 0.2s ease;
+.footer-socials a:hover span::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
 
-  &:hover {
-    color: var(--color-accent-text);
-  }
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-  &:focus-visible {
+a:hover {
+    color: abs.$color-white;
+}
+
+a:focus-visible {
     outline: 2px solid abs.$color-accent;
     outline-offset: 4px;
-  }
 }
 
 /* #region RESPONSIVE */
 @include abs.mobile {
-  .footer-inner {
-    @include abs.flex(column, nowrap, center, center);
-    text-align: center;
-    gap: abs.rem(32);
-  }
-
-  .footer-links {
-    @include abs.flex(column, nowrap, center, center);
-    gap: abs.rem(24);
-  }
-
-  .footer-link-group {
-    @include abs.flex(row, wrap, center, center);
-    gap: abs.rem(16) abs.rem(24);
-  }
-
-  .footer-social-group {
-    padding-top: abs.rem(24);
-    border-top: 1px solid var(--color-border);
-    width: 100%;
-    justify-content: center;
-
-    &::before {
-      display: none;
+    .footer-inner {
+        grid-template-columns: 1fr;
+        justify-items: center;
     }
-  }
+
+    .footer-socials {
+        justify-content: center;
+    }
 }
+
 /* #endregion */

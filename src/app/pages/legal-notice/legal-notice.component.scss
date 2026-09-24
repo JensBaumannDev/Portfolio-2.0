@@ -17,20 +17,7 @@
 }
 
 .legal-back {
-  color: var(--color-text-secondary);
-  text-decoration: none;
-  font-size: abs.$font-size-base;
-  width: fit-content;
-  padding: 0;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: var(--color-text);
-  }
+  @include abs.actionButton;
 }
 
 .legal-title {
@@ -60,7 +47,7 @@
   }
 
   a {
-    color: var(--color-accent-text);
+    color: var(--color-accent);
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: abs.rem(3);
@@ -71,11 +58,15 @@
 .legal-date {
   margin: 0;
   font-size: abs.$font-size-base;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 }
 
 /* #region RESPONSIVE */
 @include abs.mobile {
+  .legal-back {
+    @include abs.actionButtonMobile;
+  }
+
   .legal-page {
     padding: abs.rem(48) abs.rem(16) abs.rem(72);
   }
