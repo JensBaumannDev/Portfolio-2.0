@@ -15,6 +15,28 @@
   "a11y": {
     "skip_to_content": "Zum Inhalt springen"
   },
+  "portfolio": {
+    "nav": { "home": "Start", "projects": "Projekte", "skills": "Skills", "about": "Über mich", "contact": "Kontakt", "language": "Sprache", "theme": { "label": "Darstellung", "system": "System", "light": "Hell", "dark": "Dunkel" } },
+    "hero": { "role": "FULLSTACK DEVELOPER", "slogan": "Frontend<span class=\"headline-dot\">.</span><br />Backend<span class=\"headline-dot\">.</span><br />Performance", "intro": "Ich entwickle mit Angular, TypeScript, JavaScript, Python und Django Anwendungen, die klar aufgebaut sind und sich gut weiterentwickeln lassen.", "work": "Meine Projekte", "cv": "Lebenslauf", "talk": "Schreib mir", "projects": "Projekte", "experience": "Erfahrung", "motivation": "Motivation", "availability": "Verfügbar ab Q4 2026" },
+    "projects": {
+      "eyebrow": "AUS MEINER ARBEIT", "heading": "Projekte,", "heading_line": "die ich gern zeige", "intro": "Hier zeige ich Projekte, bei denen ich auch dann noch<br />nach einer besseren Lösung gesucht habe, wenn die erste schon funktioniert hat.", "placeholder": "Projektvorschau folgt", "view": "Projekt ansehen", "filters": { "label": "Projekte filtern", "all": "Alle", "frontend": "Frontend", "backend": "Backend" },
+      "dabubble": { "type": "Echtzeit-Chat-Anwendung", "description": "Ein Slack-ähnlicher Team-Chat mit Channels, Direktnachrichten und Threads in Echtzeit.", "quote": "„Bei DABubble musste die Oberfläche trotz Channels, Direktnachrichten und Threads übersichtlich bleiben. Genau diese Balance aus Funktion und Ruhe war die eigentliche Herausforderung.“", "features": { "authentication": "Authentifizierung", "updates": "Echtzeit-Updates", "responsive": "Responsives Design" } },
+      "el-pollo-loco": { "type": "Jump-and-run-Spiel", "description": "Ein selbst entwickeltes Jump-and-run mit eigener Game-Loop, Sound und Kollisionserkennung.", "quote": "„Bei El Pollo Loco haben mir die Kollisionen gezeigt, wie viel Logik in einem kleinen Spiel steckt – und wie genau man Zustände definieren muss.“", "features": { "oop": "Objektorientierte Programmierung", "game_loop": "Eigene Game-Loop", "collision": "Kollisionserkennung" } },
+      "coderr": { "type": "REST-API für einen Marktplatz", "description": "Ein Django-Backend für digitale Dienstleistungen mit Profilen, Angeboten, Bestellungen und Bewertungen.", "quote": "„Bei Coderr wurde mir klar, wie wichtig saubere Datenbeziehungen sind, sobald Nutzer, Angebote und Bestellungen zusammenkommen.“", "features": { "authentication": "Token-Authentifizierung", "crud": "CRUD-API", "database": "Datenbankmodelle" } },
+      "kanmind": { "type": "REST-API für Projektmanagement", "description": "Ein Django-Backend für Kanban-Boards, Aufgaben, Zuweisungen, Kommentare und Reviews.", "quote": "„Bei KanMind war die Struktur entscheidend: Boards, Aufgaben und Kommentare sollten zusammenpassen, ohne dass die API unübersichtlich wird.“", "features": { "authentication": "Token-Authentifizierung", "crud": "CRUD-API", "database": "Datenbankmodelle" } },
+      "join": { "type": "Anwendung zur Aufgabenverwaltung", "description": "Eine Kanban-basierte Webanwendung zur Teamorganisation mit Backend, Authentifizierung und Echtzeitfunktionen.", "quote": "„Die größte Herausforderung bei JOIN war nicht eine einzelne Funktion, sondern mit vier Leuten gleichzeitig sauber am selben Code zu arbeiten.“", "features": { "authentication": "Benutzerauthentifizierung", "updates": "Echtzeit-Updates", "drag_drop": "Drag & Drop", "responsive": "Responsives Design" } },
+      "pokedex": { "type": "Pokémon-Enzyklopädie", "description": "Eine übersichtliche Pokémon-Enzyklopädie mit API-Anbindung, Suche und detaillierten Informationen.", "quote": "„Die Daten kamen nicht immer so schnell wie die Oberfläche es brauchte. Deshalb musste ich lernen, API-Anfragen sinnvoll zu bündeln.“", "features": { "api": "API-Anbindung", "search": "Suche", "responsive": "Responsive Design" } },
+      "django-api": { "type": "Backend API", "description": "Eine RESTful API für datengetriebene Anwendungen mit sauberer Authentifizierung und klaren Endpunkten.", "features": { "authentication": "Authentifizierung", "crud": "CRUD API", "database": "Datenbankmodelle" } },
+      "expense-tracker": { "type": "Finanzanwendung", "description": "Ein Tool zur klaren Erfassung und Auswertung persönlicher Ausgaben.", "features": { "tracking": "Ausgabentracking", "categories": "Kategorien", "responsive": "Responsive Design" } },
+      "weather-app": { "type": "Wetteranwendung", "description": "Eine Wetteranwendung mit aktuellen Daten und einer reduzierten, klaren Oberfläche.", "features": { "weather": "Live-Wetter", "city_search": "Stadtsuche", "responsive": "Responsive Design" } },
+      "more-projects": { "type": "Weitere Arbeiten", "description": "Weitere Projekte und Experimente folgen in Kürze.", "features": { "clean_code": "Clean Code", "learning": "Lernen durch Praxis" } }
+    },
+    "detail": { "all_projects": "Alle Projekte", "live_demo": "Live Demo", "technologies": "Technologien", "features": "Funktionen", "preview_alt": "Laptop mit einer Ansicht von {{name}}" },
+    "about": { "eyebrow": "ÜBER MICH", "heading": "Zielstrebig", "heading_line_2": "Führungserfahren", "heading_line_3": "Strukturiert", "text": "Ich komme aus dem Einzelhandel und Vertrieb und habe irgendwann gemerkt, dass mich das Erstellen mehr interessiert als das Verkaufen. Deswegen mache ich gerade eine einjährige Fullstack-Fortbildung und sitze daneben jeden Abend an eigenen Projekten. Was mir dabei am meisten liegt, ist mich in ein neues Thema reinzufuchsen, bis ich wirklich verstanden habe, warum etwas funktioniert.", "text_2": "Ordnung und Struktur sind mir dabei extrem wichtig, im Alltag genauso wie im Code. Ich sehe sofort, wenn etwas nicht sauber sortiert ist, und kann es dann schlecht so liegen lassen. Beim Programmieren ist genau das ein Vorteil: verständliche Namen, eine klare Ordnerstruktur, Komponenten, die genau eine Sache machen. So finde ich mich nach Wochen in meinem eigenen Code noch zurecht, und andere im Team auch.", "cv": "Lebenslauf herunterladen", "learning": "Immer<br />lernen.", "principles": { "musician": { "title": "Musiker", "text": "Musik als kreativer Ausgleich" }, "gamer": { "title": "Gamer", "text": "Strategie, Fokus & Teamwork" }, "family": { "title": "Familie", "text": "Ehemann & Vater" }, "dog": { "title": "Hundebesitzer", "text": "Balu gehört natürlich dazu" } } },
+    "skills": { "eyebrow": "TECH STACK", "heading": "Tools", "heading_line": "mit denen ich arbeite", "text": "Eine Auswahl der Technologien, mit denen ich arbeite und reale Projekte umsetze.", "frontend": "Frontend", "backend": "Backend", "tools": "Tools & Anderes" },
+    "contact": { "eyebrow": "KONTAKT", "heading": "Einfach", "heading_line_2": "mal Hallo", "heading_line_3": "sagen", "text": "Ob Job, Projekt oder eine Idee, die noch nicht ganz fertig gedacht ist – schreib mir. Ich freue mich auf den Austausch.", "message": "Nachricht senden", "aside": "Guter<br />Code.<br />Bessere<br />Tage." },
+    "footer": { "legal": "Impressum", "privacy": "Datenschutz" }
+  },
   "seo": {
     "home_title": "Jens Baumann — Fullstack Developer",
     "home_desc": "Jens Baumann — Fullstack Developer aus Emden, Ostfriesland. Quereinsteiger mit Angular, TypeScript, Python und Django. Offen für Praktikum, Werkstudium oder eine Junior-Rolle ab Q4 2026.",
@@ -163,6 +185,10 @@
   "contact": {
     "section_title": "Kontakt",
     "section_sub": "Lass uns schnacken.",
+    "form_eyebrow": "SCHREIB MIR GERN",
+    "form_note": "Ich freue mich auf deine Nachricht.",
+    "availability_label": "Verfügbar ab",
+    "availability_value": "Q4 2026",
     "title": "Den richtigen Weg finden.",
     "subtitle": "Offen für Praktikum, Werkstudium oder eine Junior-Rolle, gern remote, hybrid oder vor Ort in Ostfriesland.",
     "name_label": "Wie lautet dein Name?",
@@ -174,12 +200,13 @@
     "privacy_pre": "Ich habe die",
     "privacy_link": "Datenschutzerklärung",
     "privacy_post": "gelesen und stimme der Verarbeitung meiner Daten zu.",
-    "submit": "Senden",
+    "submit": "Nachricht senden",
+    "sending": "Wird gesendet",
     "error_name": "Bitte gib mindestens 4 Zeichen ein.",
     "error_email": "Bitte gib eine gültige E-Mail-Adresse ein.",
     "error_message": "Bitte gib mindestens 4 Zeichen ein.",
     "error_privacy": "Bitte stimme der Datenschutzerklärung zu.",
-    "error_send": "Senden fehlgeschlagen. Schreib mir gern direkt an",
+    "error_send": "Senden fehlgeschlagen. Bitte versuch es später noch einmal.",
     "success": "Vielen Dank! Deine Nachricht wurde gesendet.",
     "success_short": "Gesendet",
     "email_value": "info@jensbaumann.com",

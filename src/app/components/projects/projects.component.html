@@ -1,130 +1,67 @@
-<div class="work content-container">
-  <header class="work-header" appReveal>
-    <h2 class="work-title">{{ 'projects.title' | translate }}<span class="work-title-dot">.</span></h2>
-    <p class="work-sub">{{ 'projects.subtitle' | translate }}</p>
-  </header>
+<section class="projects" aria-labelledby="projects-title">
+  <div class="content-container projects-inner">
+    <header class="projects-head">
+      <p class="label">{{ 'portfolio.projects.eyebrow' | translate }}</p>
+      <h2 id="projects-title">{{ 'portfolio.projects.heading' | translate }}<br />{{ 'portfolio.projects.heading_line' |
+        translate }}<span>.</span></h2>
+      <p class="intro" [innerHTML]="'portfolio.projects.intro' | translate"></p>
+    </header>
 
-  <div class="work-filters" role="group" [attr.aria-label]="'projects.filters.label' | translate">
-    @for (filter of filters; track filter) {
-      <button
-        type="button"
-        class="button"
-        [class.button-outline]="activeFilter() !== filter"
-        [attr.aria-pressed]="activeFilter() === filter"
-        aria-controls="project-results"
-        (click)="setFilter(filter)"
-      >
-        <span class="text">{{ 'projects.filters.' + filter | translate }}</span>
-      </button>
-    }
-  </div>
-
-  <div class="work-filter-mobile">
-    <label for="project-category">{{ 'projects.filters.label' | translate }}</label>
-    <select
-      #categorySelect
-      id="project-category"
-      class="work-select"
-      [value]="activeFilter()"
-      aria-controls="project-results"
-      (change)="selectFilter(categorySelect.value)"
-    >
-      @for (filter of filters; track filter) {
-        <option [value]="filter">{{ 'projects.filters.' + filter | translate }}</option>
-      }
-    </select>
-  </div>
-
-  <div id="project-results">
-  @if (projects().length) {
-  <ul class="work-list" appRevealStagger revealSelector=".work-item">
-    @for (project of projects(); track project.key) {
-      <li class="work-item" [class.work-item-open]="isOpen(project.key)">
-        <h3 class="work-item-heading">
-          <button
-            type="button"
-            class="work-row"
-            [id]="'project-row-' + project.key"
-            [attr.aria-expanded]="isOpen(project.key)"
-            [attr.aria-controls]="'project-panel-' + project.key"
-            (click)="toggle(project.key)"
-          >
-            <span class="work-name">{{ 'projects.' + project.key + '.name' | translate }}</span>
-            <span class="work-type">{{ 'projects.' + project.key + '.eyebrow' | translate }}</span>
-            <span class="work-meta">{{ project.tags.join(' · ') }}</span>
-            <span class="work-toggle" aria-hidden="true">
-              <ng-icon name="lucidePlus" size="20px"></ng-icon>
-            </span>
-          </button>
-        </h3>
-
-        <div
-          class="work-panel"
-          [id]="'project-panel-' + project.key"
-          role="region"
-          [attr.aria-labelledby]="'project-row-' + project.key"
-          [attr.inert]="isOpen(project.key) ? null : ''"
-        >
-          <div class="work-panel-clip">
-            <div class="work-panel-inner">
-              <div class="work-panel-media">
-                <img
-                  [ngSrc]="project.image"
-                  fill
-                  [alt]="'projects.' + project.key + '.image_alt' | translate"
-                />
-              </div>
-
-              <div class="work-panel-text">
-                <p class="work-lead">{{ 'projects.' + project.key + '.description' | translate }}</p>
-
-                <ul class="work-highlights">
-                  <li>{{ 'projects.' + project.key + '.stat1_lbl' | translate }}</li>
-                  <li>{{ 'projects.' + project.key + '.stat2_lbl' | translate }}</li>
-                  <li>{{ 'projects.' + project.key + '.stat3_lbl' | translate }}</li>
-                </ul>
-
-                <div class="work-actions">
-                  <button type="button" class="button work-action" (click)="openDialog(project.key)">
-                    <span class="text">{{ 'projects.detail_cta' | translate }}</span>
-                    <ng-icon name="lucideArrowRight" size="18px" aria-hidden="true"></ng-icon>
-                  </button>
-                  <a [href]="project.github" target="_blank" rel="noopener" class="button button-outline work-action">
-                    <ng-icon name="lucideGithub" size="18px" aria-hidden="true"></ng-icon>
-                    <span class="text">{{ 'projects.github' | translate }}</span>
-                  </a>
-                  @if (project.live; as live) {
-                  <a [href]="live" target="_blank" rel="noopener" class="button button-outline work-action">
-                    <ng-icon name="lucideExternalLink" size="18px" aria-hidden="true"></ng-icon>
-                    <span class="text">{{ 'projects.live' | translate }}</span>
-                  </a>
-                  } @else {
-                    <span
-                      class="button button-outline work-action button-unavailable"
-                      role="button"
-                      aria-disabled="true"
-                      tabindex="0"
-                      [attr.aria-label]="('projects.live' | translate) + ': ' + ('projects.live_unavailable' | translate)"
-                    >
-                      <ng-icon name="lucideExternalLink" size="18px" aria-hidden="true"></ng-icon>
-                      <span class="text">{{ 'projects.live' | translate }}</span>
-                      <span class="button-tooltip" role="tooltip">{{ 'projects.live_unavailable' | translate }}</span>
-                    </span>
-                  }
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="project-navigation">
+      <div class="project-controls">
+        <p class="counter">{{ selectedProjectIndex() }} / {{ filteredProjects().length.toString().padStart(2, '0') }}
+        </p>
+        <div class="project-filters" role="group" [attr.aria-label]="'portfolio.projects.filters.label' | translate">
+          <button type="button" [class.active]="activeFilter() === 'all'" [attr.aria-pressed]="activeFilter() === 'all'"
+            (click)="selectFilter('all')">{{ 'portfolio.projects.filters.all' | translate }}</button>
+          <button type="button" [class.active]="activeFilter() === 'frontend'"
+            [attr.aria-pressed]="activeFilter() === 'frontend'" (click)="selectFilter('frontend')">{{
+            'portfolio.projects.filters.frontend' | translate }}</button>
+          <button type="button" [class.active]="activeFilter() === 'backend'"
+            [attr.aria-pressed]="activeFilter() === 'backend'" (click)="selectFilter('backend')">{{
+            'portfolio.projects.filters.backend' | translate }}</button>
         </div>
-      </li>
-    }
-  </ul>
-  } @else {
-    <p class="work-empty" role="status">{{ 'projects.filters.empty' | translate }}</p>
-  }
-  </div>
-</div>
+      </div>
+      <ol class="project-list" aria-label="Projektübersicht">
+        @for (project of filteredProjects(); track project.slug) {
+        <li>
+          <button type="button" [class.active]="project.slug === selectedProject().slug"
+            (click)="selectProject(project)">
+            {{ project.name }}
+          </button>
+        </li>
+        }
+      </ol>
+    </div>
 
-@if (selectedProject(); as project) {
-  <app-project-dialog [project]="project" (close)="closeDialog()" (next)="nextProject()" />
-}
+    <article class="project-card">
+      <div class="project-placeholder">
+        <div class="project-visual">
+          <img class="project-preview" [ngSrc]="selectedProject().image" fill alt="" />
+        </div>
+        <div class="project-story">
+          <blockquote class="project-quote">{{ ('portfolio.projects.' + selectedProject().slug + '.quote') | translate
+            }}</blockquote>
+        </div>
+      </div>
+      <div class="project-details">
+        <div class="project-info">
+          <h3>{{ selectedProject().name }}</h3>
+          <p class="description">{{ ('portfolio.projects.' + selectedProject().slug + '.description') | translate }}</p>
+          <ul class="tags" aria-label="Technologien">
+            @for (technology of selectedProject().technologies; track technology) {
+            <li>
+              @if (technologyIcons[technology]; as icon) {
+              <img [ngSrc]="icon" width="16" height="16" alt="" />
+              }
+              <span>{{ technology }}</span>
+            </li>
+            }
+          </ul>
+        </div>
+        <a class="project-link" [routerLink]="['/projects', selectedProject().slug]">{{ 'portfolio.projects.view' |
+          translate }}</a>
+      </div>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,69 @@
+<main class="detail" aria-labelledby="project-title">
+  <div class="content-container detail-inner">
+    <header class="detail-header">
+      <div class="detail-heading">
+        <h1 id="project-title">{{ project().name }}</h1>
+        <p class="subtitle">{{ ('portfolio.projects.' + project().slug + '.type') | translate }}</p>
+      </div>
+      <div class="detail-summary">
+        <p>{{ ('portfolio.projects.' + project().slug + '.description') | translate }}</p>
+        <div class="actions">
+          @if (project().demo; as demo) {
+          <a [href]="demo" target="_blank" rel="noopener noreferrer">{{ 'portfolio.detail.live_demo' | translate }}</a>
+          }
+          @if (project().github; as github) {
+          <a [href]="github" target="_blank" rel="noopener noreferrer">GitHub</a>
+          }
+        </div>
+      </div>
+    </header>
+
+    <div class="detail-visual">
+      <div class="detail-visual-media">
+        <img [ngSrc]="project().image" fill priority
+          [alt]="'portfolio.detail.preview_alt' | translate: { name: project().name }" />
+      </div>
+    </div>
+
+    <div class="detail-info">
+      <section class="detail-technologies" aria-labelledby="technologies-title">
+        <h2 id="technologies-title">{{ 'portfolio.detail.technologies' | translate }}</h2>
+        <ul class="technology-list">
+          @for (technology of project().technologies; track technology) {
+          <li>
+            @if (technologyIcons[technology]; as icon) {
+            <img [ngSrc]="icon" width="36" height="36" alt="" />
+            }
+            <span>{{ technology }}</span>
+          </li>
+          }
+        </ul>
+      </section>
+      <section class="detail-features" aria-labelledby="features-title">
+        <h2 id="features-title">{{ 'portfolio.detail.features' | translate }}</h2>
+        <ul class="feature-list">
+          @for (feature of project().features; track feature) {
+          <li>{{ ('portfolio.projects.' + project().slug + '.features.' + feature) | translate }}</li>
+          }
+        </ul>
+      </section>
+    </div>
+
+    <div class="detail-copy">
+      <section aria-labelledby="implementation-title">
+        <h2 id="implementation-title">{{ 'projects.label_implementation' | translate }}</h2>
+        <p>{{ ('projects.' + projectCopyKey() + '.umsetzung') | translate }}</p>
+      </section>
+      <section aria-labelledby="focus-title">
+        <h2 id="focus-title">{{ (project().category === 'backend' ? 'projects.label_focus' : 'projects.label_learnings')
+          | translate }}</h2>
+        <p>{{ ('projects.' + projectCopyKey() + '.learnings') | translate }}</p>
+      </section>
+    </div>
+
+    <div class="detail-return">
+      <a class="back-link" routerLink="/" fragment="projects"><span aria-hidden="true">←</span>{{
+        'portfolio.detail.all_projects' | translate }}</a>
+    </div>
+  </div>
+</main>

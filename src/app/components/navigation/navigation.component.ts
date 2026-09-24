@@ -1,239 +1,136 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  signal,
-  inject,
-  OnInit,
-  OnDestroy,
-  input,
-  output,
-  computed,
-  effect,
-  ElementRef,
-} from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { ChangeDetectionStrategy, Component, computed, ElementRef, inject, OnDestroy, signal } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
-import { Router, NavigationEnd, RouterLink } from '@angular/router';
-import { filter } from 'rxjs/operators';
-import { Subscription } from 'rxjs';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideSun, lucideMoon, lucideMonitor } from '@ng-icons/lucide';
 import { faBrandGithub, faBrandLinkedinIn, faBrandYoutube } from '@ng-icons/font-awesome/brands';
-import { ThemeService } from '../../services/theme.service';
 import { LanguageService, AppLanguage } from '../../services/language.service';
-import { ScrollLockService } from '../../services/scroll-lock.service';
-
-const SECTION_IDS = ['home', 'projects', 'about', 'contact'];
-const MOBILE_MENU_MAX_WIDTH = 559;
-const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+import { ThemeMode, ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-navigation',
-  imports: [TranslatePipe, NgIcon, RouterLink],
-  providers: [
-    provideIcons({
-      lucideSun,
-      lucideMoon,
-      lucideMonitor,
-      faBrandGithub,
-      faBrandLinkedinIn,
-      faBrandYoutube,
-    }),
-  ],
+  host: {
+    '(window:scroll)': 'onScroll()',
+    '(document:click)': 'onDocumentClick($event)',
+    '(document:keydown.escape)': 'closeMenus()',
+  },
+  imports: [NgIcon, NgOptimizedImage, RouterLink, TranslatePipe],
+  providers: [provideIcons({ faBrandGithub, faBrandLinkedinIn, faBrandYoutube })],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    '(window:scroll)': 'onWindowScroll()',
-    '(window:resize)': 'onWindowResize()',
-    '(document:keydown.escape)': 'onEscape()',
-  },
 })
-export class Navigation implements OnInit, OnDestroy {
+export class Navigation implements OnDestroy {
+  protected readonly language = inject(LanguageService);
+  protected readonly theme = inject(ThemeService);
   private readonly router = inject(Router);
-  private readonly themeService = inject(ThemeService);
-  private readonly languageService = inject(LanguageService);
-  private readonly scrollLock = inject(ScrollLockService);
-  private readonly document = inject(DOCUMENT);
-  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
-  private readonly lockToken = Symbol('mobile-menu');
-  private routeSub?: Subscription;
-  private scrollRafId?: number;
-  private focusTimerId?: ReturnType<typeof setTimeout>;
-  private menuTrigger?: HTMLElement;
+  private readonly elementRef = inject(ElementRef<HTMLElement>);
+  protected readonly languageMenuOpen = signal(false);
+  protected readonly themeMenuOpen = signal(false);
+  protected readonly navigationMenuOpen = signal(false);
+  protected readonly currentLanguage = computed(() => this.language.current() ?? 'en');
+  protected readonly isScrolling = signal(false);
+  protected readonly hasScrolled = signal(false);
+  private scrollEndTimer?: ReturnType<typeof setTimeout>;
 
-  readonly forceActive = input<string | undefined>(undefined);
-  readonly linkClick = output<string>();
+  protected toggleLanguageMenu(): void {
+    this.languageMenuOpen.update((open) => !open);
+    this.themeMenuOpen.set(false);
+  }
 
-  protected readonly isMenuOpen = signal<boolean>(false);
-  protected readonly isScrolled = signal<boolean>(false);
-  protected readonly isLandingPage = signal<boolean>(true);
-  protected readonly currentLang = this.languageService.current;
-  protected readonly activeSection = signal<string>('home');
-  protected readonly currentActiveSection = computed(
-    () => this.forceActive() ?? (this.isLandingPage() ? this.activeSection() : '')
-  );
-  protected readonly themeMode = this.themeService.mode;
+  protected toggleThemeMenu(): void {
+    this.themeMenuOpen.update((open) => !open);
+    this.languageMenuOpen.set(false);
+  }
 
-  ngOnInit(): void {
-    this.checkRoute();
+  protected changeTheme(mode: ThemeMode): void {
+    this.theme.setThemeMode(mode);
+    this.themeMenuOpen.set(false);
+  }
 
-    this.routeSub = this.router.events
-      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.checkRoute();
+  protected changeMobileTheme(event: Event): void {
+    const value = event.target instanceof HTMLSelectElement ? event.target.value : null;
+    if (value === 'system' || value === 'light' || value === 'dark') this.changeTheme(value);
+  }
+
+  protected changeMobileLanguage(event: Event): void {
+    const value = event.target instanceof HTMLSelectElement ? event.target.value : null;
+    if (value === 'de' || value === 'en') this.changeLanguage(value);
+  }
+
+  protected toggleNavigationMenu(): void {
+    this.navigationMenuOpen.update((open) => !open);
+    this.languageMenuOpen.set(false);
+    this.themeMenuOpen.set(false);
+  }
+
+  protected closeNavigationMenu(): void {
+    this.navigationMenuOpen.set(false);
+  }
+
+  protected closeMenus(): void {
+    this.navigationMenuOpen.set(false);
+    this.languageMenuOpen.set(false);
+    this.themeMenuOpen.set(false);
+  }
+
+  protected changeLanguage(language: AppLanguage): void {
+    this.language.use(language);
+    this.languageMenuOpen.set(false);
+    this.themeMenuOpen.set(false);
+    this.navigationMenuOpen.set(false);
+  }
+
+  protected scrollToSection(event: MouseEvent, section: string): void {
+    event.preventDefault();
+    this.navigationMenuOpen.set(false);
+    const target = document.getElementById(section);
+    if (!target) {
+      void this.router.navigate(['/'], { fragment: section, scroll: 'manual' }).then((navigated) => {
+        if (navigated) requestAnimationFrame(() => this.scrollToTarget(section));
       });
-  }
-
-  ngOnDestroy(): void {
-    this.routeSub?.unsubscribe();
-    if (this.scrollRafId !== undefined) cancelAnimationFrame(this.scrollRafId);
-    if (this.focusTimerId !== undefined) clearTimeout(this.focusTimerId);
-    this.setBackgroundInert(false);
-    this.scrollLock.release(this.lockToken);
-  }
-
-  private readonly menuScrollLock = effect(() => {
-    const isOpen = this.isMenuOpen();
-    this.setBackgroundInert(isOpen);
-
-    if (isOpen) {
-      this.scrollLock.lock(this.lockToken);
-    } else {
-      this.scrollLock.release(this.lockToken);
-    }
-  });
-
-  protected toggleMenu(): void {
-    if (this.isMenuOpen()) {
-      this.closeMenu();
       return;
     }
 
-    const activeElement = this.document.activeElement;
-    this.menuTrigger = activeElement instanceof HTMLElement ? activeElement : undefined;
-    this.isMenuOpen.set(true);
-    this.clearFocusTimer();
-    this.focusTimerId = setTimeout(() => {
-      this.focusTimerId = undefined;
-      this.menuFocusableElements()[0]?.focus();
+    window.history.pushState(null, '', `#${section}`);
+    this.scrollToTarget(section);
+  }
+
+  private scrollToTarget(section: string): void {
+    const target = document.getElementById(section);
+    if (!target) return;
+
+    const offset = section === 'about' || section === 'skills' ? 96 : 0;
+    window.scrollTo({
+      top: section === 'home' ? 0 : Math.max(0, window.scrollY + target.getBoundingClientRect().top - offset),
+      behavior: 'smooth',
     });
   }
 
-  protected closeMenu(restoreFocus = false): void {
-    if (!this.isMenuOpen()) return;
-    this.clearFocusTimer();
-    this.isMenuOpen.set(false);
+  protected onDocumentClick(event: Event): void {
+    const target = event.target;
+    if (target instanceof Element && this.elementRef.nativeElement.contains(target)) return;
 
-    if (restoreFocus && this.menuTrigger) {
-      const trigger = this.menuTrigger;
-      this.focusTimerId = setTimeout(() => {
-        this.focusTimerId = undefined;
-        trigger.focus();
-      });
-    }
-
-    this.menuTrigger = undefined;
+    this.languageMenuOpen.set(false);
+    this.themeMenuOpen.set(false);
+    this.navigationMenuOpen.set(false);
   }
 
-  protected onEscape(): void {
-    this.closeMenu(true);
+  protected onScroll(): void {
+    this.languageMenuOpen.set(false);
+    this.themeMenuOpen.set(false);
+    this.navigationMenuOpen.set(false);
+    this.isScrolling.set(true);
+    if (this.scrollEndTimer !== undefined) clearTimeout(this.scrollEndTimer);
+
+    this.scrollEndTimer = setTimeout(() => {
+      this.isScrolling.set(false);
+      this.hasScrolled.set(window.scrollY > 0);
+      this.scrollEndTimer = undefined;
+    }, 400);
   }
 
-  protected trapMenuFocus(event: KeyboardEvent): void {
-    if (event.key !== 'Tab' || !this.isMenuOpen()) return;
-
-    const elements = this.menuFocusableElements();
-    if (!elements.length) return;
-
-    const first = elements[0];
-    const last = elements[elements.length - 1];
-    const active = this.document.activeElement;
-
-    if (event.shiftKey && active === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && active === last) {
-      event.preventDefault();
-      first.focus();
-    }
-  }
-
-  protected toggleTheme(): void {
-    this.themeService.toggle();
-  }
-
-  protected changeLanguage(lang: AppLanguage): void {
-    this.languageService.use(lang);
-  }
-
-  protected setActiveSection(section: string): void {
-    this.activeSection.set(section);
-    this.linkClick.emit(section);
-  }
-
-  protected onWindowScroll(): void {
-    if (this.scrollRafId !== undefined) return;
-    this.scrollRafId = requestAnimationFrame(() => {
-      this.scrollRafId = undefined;
-      this.updateScrollState();
-    });
-  }
-
-  protected onWindowResize(): void {
-    if (window.innerWidth > MOBILE_MENU_MAX_WIDTH) this.closeMenu();
-  }
-
-  private menuFocusableElements(): HTMLElement[] {
-    const menu = this.host.nativeElement.querySelector<HTMLElement>('.mobile-menu');
-    return menu ? Array.from(menu.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)) : [];
-  }
-
-  private clearFocusTimer(): void {
-    if (this.focusTimerId === undefined) return;
-    clearTimeout(this.focusTimerId);
-    this.focusTimerId = undefined;
-  }
-
-  private setBackgroundInert(inert: boolean): void {
-    if (this.host.nativeElement.closest('dialog')) return;
-
-    for (const element of this.document.querySelectorAll<HTMLElement>('#main-content, app-footer')) {
-      element.inert = inert;
-    }
-  }
-
-  private checkRoute(): void {
-    const url = this.router.url;
-    const isLanding = url === '/' || url.startsWith('/#') || url.startsWith('/?');
-    this.isLandingPage.set(isLanding);
-    this.updateScrollState();
-  }
-
-  private updateScrollState(): void {
-    this.isScrolled.set(window.scrollY > 0);
-
-    if (!this.isLandingPage()) return;
-
-    let activeId = 'home';
-    const navbarHeight =
-      this.host.nativeElement.querySelector('.navbar')?.getBoundingClientRect().height ?? 0;
-
-    for (const id of SECTION_IDS) {
-      const element = this.document.getElementById(id);
-      if (!element) continue;
-
-      const rect = element.getBoundingClientRect();
-      if (rect.top <= navbarHeight && rect.bottom > navbarHeight) {
-        activeId = id;
-        break;
-      }
-
-      if (rect.bottom <= navbarHeight) {
-        activeId = id;
-      }
-    }
-
-    this.activeSection.set(activeId);
+  ngOnDestroy(): void {
+    if (this.scrollEndTimer !== undefined) clearTimeout(this.scrollEndTimer);
   }
 }

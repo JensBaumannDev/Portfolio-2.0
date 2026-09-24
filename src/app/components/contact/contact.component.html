@@ -1,157 +1,71 @@
-<div class="contact-container">
-  <div class="content-container contact-section-head-wrap">
-    <header class="contact-section-head" appReveal>
-      <h2 class="contact-heading">{{ 'contact.section_title' | translate }}<span class="contact-heading-dot">.</span></h2>
-      <p class="contact-heading-sub">{{ 'contact.section_sub' | translate }}</p>
-    </header>
-  </div>
-
-  <div class="content-container contact-inner" appRevealStagger revealSelector=".contact-header, .contact-form">
-    <div class="contact-header">
-      <p class="contact-title">{{ 'contact.title' | translate }}</p>
-      <p class="contact-subtitle">{{ 'contact.subtitle' | translate }}</p>
-
+<section class="contact" aria-labelledby="contact-title">
+  <div class="content-container contact-inner">
+    <div class="contact-copy">
+      <p class="label">{{ 'portfolio.contact.eyebrow' | translate }}</p>
+      <h2 id="contact-title">{{ 'portfolio.contact.heading' | translate }}<br />{{ 'portfolio.contact.heading_line_2' |
+        translate }}<br />{{ 'portfolio.contact.heading_line_3' | translate }}<span>.</span></h2>
+      <p>{{ 'portfolio.contact.text' | translate }}</p>
       <ul class="contact-links">
-        <li>
-          <a [href]="'mailto:' + ('contact.email_value' | translate)" class="contact-link">
-            <ng-icon name="lucideMail" class="contact-link-icon" aria-hidden="true"></ng-icon>
-            <span class="contact-link-text">
-              <span class="contact-link-name">{{ 'contact.link_mail' | translate }}</span>
-              <span class="contact-link-value">{{ 'contact.email_value' | translate }}</span>
-            </span>
-          </a>
+        <li><span aria-hidden="true">✉</span><a href="mailto:info@jensbaumann.com">info&#64;jensbaumann.com</a>
         </li>
-        <li>
-          <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" class="contact-link">
-            <ng-icon name="faBrandGithub" class="contact-link-icon" aria-hidden="true"></ng-icon>
-            <span class="contact-link-text">
-              <span class="contact-link-name">GitHub</span>
-              <span class="contact-link-value">JensBaumannDev</span>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener" class="contact-link">
-            <ng-icon name="faBrandLinkedinIn" class="contact-link-icon" aria-hidden="true"></ng-icon>
-            <span class="contact-link-text">
-              <span class="contact-link-name">LinkedIn</span>
-              <span class="contact-link-value">Jens Baumann</span>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener" class="contact-link">
-            <ng-icon name="faBrandYoutube" class="contact-link-icon" aria-hidden="true"></ng-icon>
-            <span class="contact-link-text">
-              <span class="contact-link-name">YouTube</span>
-              <span class="contact-link-value">@jensbaumann_music</span>
-            </span>
-          </a>
-        </li>
+        <li><span aria-hidden="true">in</span><a href="https://www.linkedin.com/in/jens-baumann-7a6866315/"
+            target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><span aria-hidden="true">◒</span><a href="https://github.com/JensBaumannDev" target="_blank"
+            rel="noopener">GitHub</a></li>
       </ul>
-
-      <p class="contact-note">{{ 'contact.note' | translate }}</p>
+      <div class="availability">
+        <p>{{ 'contact.availability_label' | translate }}</p>
+        <span>{{ 'contact.availability_value' | translate }}</span>
+      </div>
     </div>
-
-    <form class="contact-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="submit()" novalidate>
       <div class="form-field">
-        <label class="field-label" for="contact-name">
-          {{ 'contact.name_label' | translate }}<span class="field-required">*</span>
-        </label>
-        <input
-          id="contact-name"
-          type="text"
-          formControlName="name"
-          class="field-input"
-          autocomplete="name"
-          [class.invalid]="invalid('name')"
-          [attr.aria-invalid]="invalid('name')"
-          [attr.aria-describedby]="invalid('name') ? 'contact-name-error' : null"
+        <label for="contact-name">{{ 'contact.name_label' | translate }}<span aria-hidden="true">*</span></label>
+        <input id="contact-name" type="text" formControlName="name" autocomplete="name" maxlength="120"
           [placeholder]="'contact.name_placeholder' | translate"
-        />
-        <span id="contact-name-error" class="field-error" role="alert">
-          @if (invalid('name')) { {{ 'contact.error_name' | translate }} }
-        </span>
+          [attr.aria-invalid]="contactForm.controls.name.invalid && contactForm.controls.name.touched" />
+        <p class="form-error"
+          [class.is-visible]="contactForm.controls.name.invalid && contactForm.controls.name.touched">{{
+          'contact.error_name' | translate }}</p>
       </div>
-
       <div class="form-field">
-        <label class="field-label" for="contact-email">
-          {{ 'contact.email_label' | translate }}<span class="field-required">*</span>
-        </label>
-        <input
-          id="contact-email"
-          type="email"
-          formControlName="email"
-          class="field-input"
-          autocomplete="email"
-          [class.invalid]="invalid('email')"
-          [attr.aria-invalid]="invalid('email')"
-          [attr.aria-describedby]="invalid('email') ? 'contact-email-error' : null"
+        <label for="contact-email">{{ 'contact.email_label' | translate }}<span aria-hidden="true">*</span></label>
+        <input id="contact-email" type="email" formControlName="email" autocomplete="email" maxlength="254"
           [placeholder]="'contact.email_placeholder' | translate"
-        />
-        <span id="contact-email-error" class="field-error" role="alert">
-          @if (invalid('email')) { {{ 'contact.error_email' | translate }} }
-        </span>
+          [attr.aria-invalid]="contactForm.controls.email.invalid && contactForm.controls.email.touched" />
+        <p class="form-error"
+          [class.is-visible]="contactForm.controls.email.invalid && contactForm.controls.email.touched">{{
+          'contact.error_email' | translate }}</p>
       </div>
-
       <div class="form-field">
-        <label class="field-label" for="contact-message">
-          {{ 'contact.message_label' | translate }}<span class="field-required">*</span>
-        </label>
-        <textarea
-          id="contact-message"
-          formControlName="message"
-          class="field-input field-textarea"
-          rows="3"
-          [class.invalid]="invalid('message')"
-          [attr.aria-invalid]="invalid('message')"
-          [attr.aria-describedby]="invalid('message') ? 'contact-message-error' : null"
+        <label for="contact-message">{{ 'contact.message_label' | translate }}<span aria-hidden="true">*</span></label>
+        <textarea id="contact-message" formControlName="message" rows="6" maxlength="5000"
           [placeholder]="'contact.message_placeholder' | translate"
-        ></textarea>
-        <span id="contact-message-error" class="field-error" role="alert">
-          @if (invalid('message')) { {{ 'contact.error_message' | translate }} }
-        </span>
+          [attr.aria-invalid]="contactForm.controls.message.invalid && contactForm.controls.message.touched"></textarea>
+        <p class="form-error"
+          [class.is-visible]="contactForm.controls.message.invalid && contactForm.controls.message.touched">{{
+          'contact.error_message' | translate }}</p>
       </div>
-
-      <div class="form-honeypot" aria-hidden="true">
-        <label for="contact-website">Website</label>
-        <input id="contact-website" type="text" formControlName="website" tabindex="-1" autocomplete="off" />
-      </div>
-
-      <div class="form-privacy">
-        <input
-          id="contact-privacy"
-          type="checkbox"
-          formControlName="privacy"
-          class="privacy-checkbox"
-          [attr.aria-invalid]="invalid('privacy')"
-          [attr.aria-describedby]="invalid('privacy') ? 'contact-privacy-error' : null"
-        />
-        <label class="privacy-label" for="contact-privacy">
-          {{ 'contact.privacy_pre' | translate }}
-          <a routerLink="/privacy-policy" class="privacy-link">{{ 'contact.privacy_link' | translate }}</a>
-          {{ 'contact.privacy_post' | translate }}
-        </label>
-      </div>
-      <span id="contact-privacy-error" class="field-error" role="alert">
-        @if (invalid('privacy')) { {{ 'contact.error_privacy' | translate }} }
-      </span>
-
-      <div class="form-footer">
-        @if (sent()) {
-          <span class="form-success" role="status">{{ 'contact.success' | translate }}</span>
-        }
-        @if (failed()) {
-          <span class="form-error" role="alert">
-            {{ 'contact.error_send' | translate }}
-            <a href="mailto:info@jensbaumann.com">info&#64;jensbaumann.com</a>
-          </span>
-        }
-        <button type="submit" class="button form-submit" [class.is-sent]="sent()" [disabled]="sending()">
-          <ng-icon [name]="sent() ? 'lucideCheck' : 'lucideMail'" size="20px"></ng-icon>
-          <span class="text">{{ (sent() ? 'contact.success_short' : 'contact.submit') | translate }}</span>
-        </button>
-      </div>
+      <label class="privacy-control" for="contact-privacy">
+        <input id="contact-privacy" type="checkbox" formControlName="privacy" />
+        <span>{{ 'contact.privacy_pre' | translate }} <a routerLink="/privacy-policy">{{ 'contact.privacy_link' |
+            translate }}</a>
+          {{ 'contact.privacy_post' | translate }}</span>
+      </label>
+      <p class="form-error privacy-error"
+        [class.is-visible]="contactForm.controls.privacy.invalid && contactForm.controls.privacy.touched">{{
+        'contact.error_privacy' | translate }}</p>
+      <input class="honeypot" type="text" formControlName="website" tabindex="-1" autocomplete="off"
+        aria-hidden="true" />
+      <button class="contact-button" type="submit" [disabled]="status() === 'sending'">
+        {{ (status() === 'sending' ? 'contact.sending' : 'contact.submit') | translate }}
+      </button>
+      @if (status() === 'success') {
+      <p class="form-status success" role="status">{{ 'contact.success' | translate }}</p>
+      }
+      @if (status() === 'error') {
+      <p class="form-status error" role="status">{{ 'contact.error_send' | translate }}</p>
+      }
     </form>
   </div>
-</div>
+</section>

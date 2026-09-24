@@ -4,8 +4,6 @@ import { TranslateService } from '@ngx-translate/core';
 
 export type AppLanguage = 'de' | 'en';
 
-const STORAGE_KEY = 'lang';
-const SUPPORTED: readonly AppLanguage[] = ['de', 'en'];
 
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
@@ -24,16 +22,15 @@ export class LanguageService {
   }
 
   initialize() {
-    return this.translate.use(readStoredLanguage());
+    return this.translate.use(detectLanguage(this.document));
   }
 
   use(lang: AppLanguage): void {
     this.translate.use(lang);
-    localStorage.setItem(STORAGE_KEY, lang);
   }
 }
 
-function readStoredLanguage(): AppLanguage {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  return SUPPORTED.includes(stored as AppLanguage) ? (stored as AppLanguage) : 'de';
+function detectLanguage(document: Document): AppLanguage {
+  const languages = document.defaultView?.navigator.languages ?? [document.defaultView?.navigator.language ?? 'en'];
+  return languages[0]?.toLowerCase().startsWith('de') ? 'de' : 'en';
 }

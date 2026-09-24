@@ -1,14 +1,6 @@
 @use '../abstracts' as abs;
 
 @font-face {
-  font-family: 'Signika';
-  src: url('/fonts/Signika.woff2') format('woff2');
-  font-weight: 300 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'DM Mono';
   src: url('/fonts/DMMono-Regular.ttf') format('truetype');
   font-weight: 400;
@@ -33,7 +25,8 @@ body {
 h1,
 h2,
 h3 {
+  font-family: abs.$font-family-display;
   font-weight: abs.$font-weight-heading;
   line-height: 1.05;
-  letter-spacing: abs.rem(-1);
+  letter-spacing: abs.rem(-0.8);
 }

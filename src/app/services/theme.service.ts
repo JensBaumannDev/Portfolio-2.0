@@ -29,18 +29,15 @@ export class ThemeService implements OnDestroy {
       }
       document.documentElement.setAttribute('data-theme', effectiveTheme);
       applyFavicon(effectiveTheme);
+      document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute(
+        'content',
+        getComputedStyle(document.documentElement).getPropertyValue('--color-bg').trim()
+      );
     });
   }
 
   ngOnDestroy(): void {
     this.colorSchemeQuery?.removeEventListener('change', this.onColorSchemeChange);
-  }
-
-  toggle(): void {
-    const current = this.currentMode();
-    if (current === 'light') this.setThemeMode('dark');
-    else if (current === 'dark') this.setThemeMode('system');
-    else this.setThemeMode('light');
   }
 
   setThemeMode(mode: ThemeMode): void {
@@ -67,7 +64,7 @@ function applyFavicon(theme: ResolvedTheme): void {
 function initialThemeMode(): ThemeMode {
   const stored = localStorage.getItem(STORAGE_KEY);
   if (stored === 'dark' || stored === 'light' || stored === 'system') {
-    return stored as ThemeMode;
+    return stored;
   }
   return 'system';
 }
