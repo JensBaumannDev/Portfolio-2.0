@@ -1,8 +1,8 @@
 <section class="about" aria-labelledby="about-title">
   <div class="content-container about-inner">
-    <div class="about-image">
+    <div class="about-image" appReveal>
       <div class="about-image-media">
-        <img ngSrc="/img/hero/profile.webp" fill sizes="(max-width: 767px) 100vw, 35vw" alt="Jens Baumann" />
+        <img ngSrc="/img/hero/profile.webp" fill sizes="(max-width: 768px) 100vw, 35vw" alt="Jens Baumann" />
       </div>
     </div>
     <div class="about-copy">
@@ -12,30 +12,35 @@
         translate }}<span>.</span></h2>
       <p>{{ 'portfolio.about.text' | translate }}</p>
       <p>{{ 'portfolio.about.text_2' | translate }}</p>
-      <a class="about-cv" href="/documents/lebenslauf-jens-baumann.pdf" download>{{ 'portfolio.about.cv' | translate }}
-        <ng-icon name="lucideDownload" size="1.2em" aria-hidden="true"></ng-icon></a>
+      <p class="about-location"><strong>{{ 'about.fact_location' | translate }}</strong></p>
+      <a class="about-cv" [href]="cvUrl" download>{{ 'portfolio.about.cv' | translate }}
+        <ng-icon name="lucideDownload" aria-hidden="true"></ng-icon></a>
       <ul class="principles">
         <li>
-          <span class="principle-icon" aria-hidden="true">♫</span>
+          <ng-icon class="principle-icon" name="lucideMusic2" aria-hidden="true"></ng-icon>
           <strong>{{ 'portfolio.about.principles.musician.title' | translate }}</strong>
           <p>{{ 'portfolio.about.principles.musician.text' | translate }}</p>
         </li>
         <li>
-          <span class="principle-icon" aria-hidden="true">◇</span>
+          <ng-icon class="principle-icon" name="lucideGamepad2" aria-hidden="true"></ng-icon>
           <strong>{{ 'portfolio.about.principles.gamer.title' | translate }}</strong>
           <p>{{ 'portfolio.about.principles.gamer.text' | translate }}</p>
         </li>
         <li>
-          <span class="principle-icon" aria-hidden="true">♡</span>
+          <ng-icon class="principle-icon" name="lucideHeart" aria-hidden="true"></ng-icon>
           <strong>{{ 'portfolio.about.principles.family.title' | translate }}</strong>
           <p>{{ 'portfolio.about.principles.family.text' | translate }}</p>
         </li>
         <li>
-          <ng-icon class="principle-icon" name="lucidePawPrint" size="1em" aria-hidden="true"></ng-icon>
+          <ng-icon class="principle-icon" name="lucidePawPrint" aria-hidden="true"></ng-icon>
           <strong>{{ 'portfolio.about.principles.dog.title' | translate }}</strong>
           <p>{{ 'portfolio.about.principles.dog.text' | translate }}</p>
         </li>
       </ul>
+      <a class="about-youtube" href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener noreferrer">
+        <ng-icon name="faBrandYoutube" aria-hidden="true"></ng-icon>
+        <span>{{ 'about.youtube' | translate }}</span>
+      </a>
     </div>
   </div>
 </section>

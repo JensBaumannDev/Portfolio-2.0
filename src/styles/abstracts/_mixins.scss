@@ -59,6 +59,65 @@
   padding: fn.rem(8) fn.rem(12);
 }
 
+@mixin socialLink {
+  @include flex(row, nowrap, flex-start, center);
+  width: fit-content;
+  gap: fn.rem(10);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color .18s ease, transform .18s cubic-bezier(.2, .8, .2, 1);
+
+  > ng-icon {
+    transition: transform .18s cubic-bezier(.2, .8, .2, 1);
+  }
+
+  > span {
+    position: relative;
+  }
+
+  > span::after {
+    position: absolute;
+    right: 0;
+    bottom: -6px;
+    left: 0;
+    height: 1px;
+    background: vars.$color-accent;
+    content: '';
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .22s cubic-bezier(.2, .8, .2, 1);
+  }
+
+  &:hover {
+    color: var(--color-accent);
+    transform: translateY(-3px);
+  }
+
+  &:hover > ng-icon {
+    transform: rotate(-7deg) scale(1.08);
+  }
+
+  &:hover > span::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &, > ng-icon, > span::after {
+      transition: none;
+    }
+
+    &:hover, &:hover > ng-icon {
+      transform: none;
+    }
+  }
+}
+
 @mixin mobile {
   @media (max-width: #{vars.$breakpoint-tablet}) {
     @content;

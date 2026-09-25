@@ -1,15 +1,15 @@
 <footer class="footer">
     <div class="content-container footer-inner"><span>© 2026 Jens Baumann</span>
-        <nav class="footer-legal" aria-label="Footer"><a routerLink="/legal-notice">{{ 'portfolio.footer.legal' |
+        <nav class="footer-legal" [attr.aria-label]="'a11y.legal_navigation' | translate"><a routerLink="/legal-notice">{{ 'portfolio.footer.legal' |
                 translate }}</a><a routerLink="/privacy-policy">{{ 'portfolio.footer.privacy' | translate }}</a></nav>
-        <nav class="footer-socials" aria-label="Social links">
+        <nav class="footer-socials" [attr.aria-label]="'a11y.social_links' | translate">
             <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" aria-label="GitHub"><ng-icon
-                    name="faBrandGithub" size="1.25em" aria-hidden="true"></ng-icon><span>GitHub</span></a>
+                    name="faBrandGithub" aria-hidden="true"></ng-icon><span>GitHub</span></a>
             <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener"
-                aria-label="LinkedIn"><ng-icon name="faBrandLinkedinIn" size="1.25em"
+                aria-label="LinkedIn"><ng-icon name="faBrandLinkedinIn"
                     aria-hidden="true"></ng-icon><span>LinkedIn</span></a>
             <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener"
-                aria-label="YouTube"><ng-icon name="faBrandYoutube" size="1.25em"
+                aria-label="YouTube"><ng-icon name="faBrandYoutube"
                     aria-hidden="true"></ng-icon><span>YouTube</span></a>
         </nav>
     </div>

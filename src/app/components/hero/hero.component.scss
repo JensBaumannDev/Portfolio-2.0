@@ -102,6 +102,10 @@ h1 ::ng-deep .headline-dot {
     line-height: 1.55;
 }
 
+.intro-mobile {
+    display: none;
+}
+
 .availability {
     margin: 0 0 abs.rem(14);
     color: var(--color-soft-text);
@@ -125,13 +129,17 @@ h1 ::ng-deep .headline-dot {
     gap: abs.rem(8);
 }
 
+.button-cv ng-icon {
+    width: abs.rem(18);
+    height: abs.rem(18);
+}
+
 .hero-footer {
     @include abs.flex(row, wrap, flex-start, flex-end);
     grid-column: 1 / -1;
     grid-row: 2;
     margin-top: abs.rem(24);
     padding-top: abs.rem(16);
-    border-top: 1px solid var(--color-border);
 }
 
 .hero-socials {
@@ -140,54 +148,15 @@ h1 ::ng-deep .headline-dot {
 }
 
 .hero-socials a {
-    @include abs.flex(row, nowrap, flex-start, center);
+    @include abs.socialLink;
     min-height: abs.rem(48);
-    gap: abs.rem(10);
-    color: var(--color-text);
     font-size: abs.rem(20);
     font-weight: abs.$font-weight-medium;
-    text-decoration: none;
-    transition: color .18s ease, transform .18s cubic-bezier(.2, .8, .2, 1);
 }
 
 .hero-socials ng-icon {
-    transition: transform .18s cubic-bezier(.2, .8, .2, 1);
-}
-
-.hero-socials a span {
-    position: relative;
-}
-
-.hero-socials a span::after {
-    position: absolute;
-    right: 0;
-    bottom: -6px;
-    left: 0;
-    height: 1px;
-    background: abs.$color-accent;
-    content: '';
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform .22s cubic-bezier(.2, .8, .2, 1);
-}
-
-.hero-socials a:hover {
-    color: var(--color-accent);
-    transform: translateY(-3px);
-}
-
-.hero-socials a:hover ng-icon {
-    transform: rotate(-7deg) scale(1.08);
-}
-
-.hero-socials a:hover span::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-.hero-socials a:focus-visible {
-    outline: 2px solid var(--color-text);
-    outline-offset: 4px;
+    width: abs.rem(28);
+    height: abs.rem(28);
 }
 
 /* #region RESPONSIVE */
@@ -206,7 +175,7 @@ h1 ::ng-deep .headline-dot {
 
     .hero-inner {
         grid-template-columns: minmax(0, 1fr);
-        grid-template-rows: repeat(4, auto);
+        grid-template-rows: repeat(5, auto);
         min-height: auto;
     }
 
@@ -228,7 +197,7 @@ h1 ::ng-deep .headline-dot {
         grid-column: 1;
         grid-row: 3;
         width: min(calc(100% - #{abs.rem(16)}), #{abs.rem(540)});
-        height: clamp(#{abs.rem(260)}, 75vw, #{abs.rem(480)});
+        height: clamp(#{abs.rem(250)}, 68vw, #{abs.rem(420)});
         margin: clamp(#{abs.rem(20)}, 3.5dvh, #{abs.rem(32)}) 0 0;
     }
 
@@ -259,6 +228,16 @@ h1 ::ng-deep .headline-dot {
         margin-top: clamp(#{abs.rem(32)}, 4.5dvh, #{abs.rem(44)});
     }
 
+    .intro-mobile {
+        display: block;
+        grid-column: 1;
+        grid-row: 5;
+        margin: abs.rem(24) 0 0;
+        color: var(--color-soft-text);
+        font-size: abs.rem(16);
+        line-height: 1.55;
+    }
+
     .button {
         width: 100%;
         @include abs.actionButtonMobile;
@@ -269,7 +248,7 @@ h1 ::ng-deep .headline-dot {
     }
 }
 
-@media (max-width: 560px) {
+@media (max-width: #{abs.$breakpoint-mobile-actions}) {
     .hero-actions {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -299,17 +278,6 @@ h1 ::ng-deep .headline-dot {
 
     .hero-visual {
         animation: none;
-    }
-
-    .hero-socials a,
-    .hero-socials ng-icon,
-    .hero-socials a span::after {
-        transition: none;
-    }
-
-    .hero-socials a:hover,
-    .hero-socials a:hover ng-icon {
-        transform: none;
     }
 }
 

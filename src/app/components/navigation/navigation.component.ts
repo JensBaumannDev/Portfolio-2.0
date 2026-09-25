@@ -31,7 +31,12 @@ export class Navigation implements OnDestroy {
   protected readonly currentLanguage = computed(() => this.language.current() ?? 'en');
   protected readonly isScrolling = signal(false);
   protected readonly hasScrolled = signal(false);
-  private scrollEndTimer?: ReturnType<typeof setTimeout>;
+  private previousScrollY = 0;
+  private scrollIdleTimer: number | undefined;
+
+  ngOnDestroy(): void {
+    window.clearTimeout(this.scrollIdleTimer);
+  }
 
   protected toggleLanguageMenu(): void {
     this.languageMenuOpen.update((open) => !open);
@@ -120,17 +125,17 @@ export class Navigation implements OnDestroy {
     this.languageMenuOpen.set(false);
     this.themeMenuOpen.set(false);
     this.navigationMenuOpen.set(false);
-    this.isScrolling.set(true);
-    if (this.scrollEndTimer !== undefined) clearTimeout(this.scrollEndTimer);
-
-    this.scrollEndTimer = setTimeout(() => {
+    const currentScrollY = window.scrollY;
+    this.hasScrolled.set(currentScrollY > 0);
+    window.clearTimeout(this.scrollIdleTimer);
+    if (currentScrollY <= 0 || currentScrollY < this.previousScrollY) {
       this.isScrolling.set(false);
-      this.hasScrolled.set(window.scrollY > 0);
-      this.scrollEndTimer = undefined;
-    }, 400);
-  }
-
-  ngOnDestroy(): void {
-    if (this.scrollEndTimer !== undefined) clearTimeout(this.scrollEndTimer);
+    } else if (currentScrollY > this.previousScrollY) {
+      this.isScrolling.set(true);
+    }
+    this.previousScrollY = currentScrollY;
+    if (this.isScrolling()) {
+      this.scrollIdleTimer = window.setTimeout(() => this.isScrolling.set(false), 700);
+    }
   }
 }

@@ -10,12 +10,6 @@
     padding: var(--section-py) 0;
 }
 
-.projects-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(abs.rem(250), abs.rem(310));
-    column-gap: clamp(#{abs.rem(42)}, 10vw, #{abs.rem(170)});
-}
-
 .label {
     margin: 0 0 abs.rem(18);
     color: var(--color-text-secondary);
@@ -32,64 +26,33 @@ h2 span {
     color: abs.$color-accent;
 }
 
-.intro {
-    margin: abs.rem(26) 0 0;
-    color: var(--color-soft-text);
-    font-size: abs.rem(16);
-    line-height: 1.6;
-}
-
 .project-navigation {
-    @include abs.flex(row, nowrap, flex-start, stretch);
-    min-height: abs.rem(252);
-    gap: abs.rem(34);
-    align-self: start;
-    margin-top: abs.rem(70);
+    display: grid;
+    gap: abs.rem(18);
+    margin-top: abs.rem(32);
 }
 
 .project-controls {
-    @include abs.flex(column, nowrap, space-between, stretch);
-    min-width: abs.rem(128);
-}
-
-.counter {
-    position: relative;
-    order: 2;
-    margin: 0;
-    padding-bottom: abs.rem(12);
-    color: var(--color-text);
-    font-size: abs.rem(18);
-    font-weight: abs.$font-weight-medium;
-    white-space: nowrap;
-}
-
-.counter::after {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    background: abs.$color-accent;
-    content: '';
+    @include abs.flex(row, nowrap, flex-start, center);
+    gap: abs.rem(16);
+    min-width: 0;
 }
 
 .project-filters {
-    @include abs.flex(column, nowrap, flex-start, stretch);
-    order: 1;
-    gap: abs.rem(6);
+    @include abs.flex(row, wrap, flex-start, center);
+    gap: abs.rem(8);
 }
 
 .project-filters button {
-    border: 0;
+    border: 1px solid var(--color-border);
     border-radius: abs.$radius-md;
-    padding: abs.rem(9) abs.rem(12);
+    padding: abs.rem(9) abs.rem(18);
     background: transparent;
-    color: var(--color-text-secondary);
+    color: var(--color-text);
     font: inherit;
-    font-size: abs.rem(18);
-    text-align: left;
+    font-size: abs.rem(16);
     cursor: pointer;
-    transition: background .16s ease, color .16s ease;
+    transition: background .16s ease, border-color .16s ease, color .16s ease;
 }
 
 .project-filters button:hover {
@@ -98,15 +61,27 @@ h2 span {
 }
 
 .project-filters button.active {
+    border-color: abs.$color-accent;
     background: abs.$color-accent;
     color: abs.$color-ink;
     font-weight: abs.$font-weight-medium;
 }
 
+.project-picker {
+    min-width: 0;
+}
+
+.project-select-label,
+#project-select {
+    display: none;
+}
+
 .project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(#{abs.rem(140)}, 1fr));
+    gap: abs.rem(8);
     margin: 0;
-    padding: abs.rem(2) 0 abs.rem(2) abs.rem(24);
-    border-left: 1px solid var(--color-border);
+    padding: 0;
     list-style: none;
 }
 
@@ -115,52 +90,48 @@ li {
 }
 
 .project-list button {
-    position: relative;
     width: 100%;
-    border: 0;
-    padding: abs.rem(7) 0;
+    min-height: abs.rem(48);
+    border: 1px solid var(--color-border);
+    border-radius: abs.$radius-md;
+    padding: abs.rem(10) abs.rem(12);
     background: transparent;
     color: var(--color-text-secondary);
     font: inherit;
-    font-size: abs.rem(18);
-    text-align: left;
+    font-size: abs.rem(16);
+    text-align: center;
     cursor: pointer;
+    transition: border-color .16s ease, color .16s ease, background .16s ease;
 }
 
-.project-list button::before {
-    position: absolute;
-    top: 50%;
-    left: abs.rem(-19);
-    width: abs.rem(7);
-    height: abs.rem(7);
-    border-radius: 50%;
-    background: abs.$color-accent;
-    content: '';
-    opacity: 0;
-    transform: translateY(-50%) scale(.5);
-    transition: opacity .16s ease, transform .16s ease;
-}
-
-.project-list button.active,
 .project-list button:hover {
+    border-color: var(--color-text-secondary);
     color: var(--color-text);
+}
+
+.project-list button.active {
+    border-color: abs.$color-accent;
+    background: abs.$color-accent;
+    color: abs.$color-ink;
     font-weight: abs.$font-weight-bold;
 }
 
-.project-list button.active::before {
-    opacity: 1;
-    transform: translateY(-50%) scale(1);
+.counter {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: abs.rem(16);
+    white-space: nowrap;
 }
 
 .project-filters button:focus-visible,
-.project-list button:focus-visible {
+.project-list button:focus-visible,
+#project-select:focus-visible {
     outline: 2px solid abs.$color-accent;
     outline-offset: 3px;
 }
 
 .project-card {
-    grid-column: 1 / -1;
-    margin-top: abs.rem(42);
+    margin-top: abs.rem(30);
 }
 
 .project-placeholder {
@@ -190,7 +161,7 @@ li {
 .project-story {
     @include abs.flex(column, nowrap, center, stretch);
     min-height: 100%;
-    border-left: 1px solid var(--color-panel-border);
+    gap: abs.rem(28);
     padding-right: clamp(#{abs.rem(20)}, 2vw, #{abs.rem(40)});
     padding-left: clamp(#{abs.rem(48)}, 5vw, #{abs.rem(88)});
 }
@@ -230,6 +201,15 @@ h3 {
     line-height: 1.6;
 }
 
+.project-contribution {
+    max-width: abs.rem(720);
+    margin: abs.rem(12) 0 0;
+    color: var(--color-text);
+    font-size: abs.rem(16);
+    font-weight: abs.$font-weight-medium;
+    line-height: 1.5;
+}
+
 .tags {
     @include abs.flex(row, wrap, flex-start, center);
     gap: abs.rem(8);
@@ -254,20 +234,56 @@ h3 {
     object-fit: contain;
 }
 
-.project-link {
+.project-link,
+.project-actions a {
     @include abs.actionButton;
     white-space: nowrap;
 }
 
+.project-actions {
+    @include abs.flex(row, wrap, flex-end, center);
+    gap: abs.rem(12);
+}
+
 /* #region RESPONSIVE */
 @include abs.mobile {
-    .projects-inner {
-        display: block;
+    .project-navigation {
+        margin-top: abs.rem(28);
     }
 
-    .project-navigation {
-        min-height: auto;
-        margin-top: abs.rem(38);
+    .project-card {
+        margin-top: abs.rem(24);
+    }
+
+    .project-list {
+        display: none;
+    }
+
+    .project-picker {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: abs.rem(12);
+    }
+
+    .project-select-label {
+        display: block;
+        grid-column: 1 / -1;
+        font-size: abs.rem(16);
+        font-weight: abs.$font-weight-medium;
+    }
+
+    #project-select {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        min-height: abs.rem(48);
+        border: 1px solid var(--color-border);
+        border-radius: abs.$radius-md;
+        padding: abs.rem(10) abs.rem(12);
+        background: var(--color-bg);
+        color: var(--color-text);
+        font: inherit;
+        font-size: abs.rem(16);
     }
 
     .project-placeholder {
@@ -283,8 +299,6 @@ h3 {
 
     .project-story {
         min-height: abs.rem(180);
-        border-top: 1px solid var(--color-panel-border);
-        border-left: 0;
         padding-top: abs.rem(24);
         padding-right: 0;
         padding-left: 0;
@@ -294,9 +308,18 @@ h3 {
         grid-template-columns: 1fr;
     }
 
-    .project-link {
+    .project-link,
+    .project-actions a {
         @include abs.actionButtonMobile;
-        justify-self: start;
+    }
+
+    .project-actions {
+        justify-content: flex-start;
+    }
+
+    .project-actions a {
+        box-sizing: border-box;
+        flex: 1 1 abs.rem(140);
     }
 }
 
@@ -306,33 +329,17 @@ h3 {
     }
 
     .project-navigation {
-        flex-direction: column;
-        gap: abs.rem(24);
-    }
-
-    .project-controls {
-        min-width: 0;
+        gap: abs.rem(18);
     }
 
     .project-filters {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: abs.rem(8);
+        flex-wrap: nowrap;
+        gap: abs.rem(6);
     }
 
-    .counter {
-        align-self: flex-start;
-        margin-top: abs.rem(18);
-    }
-
-    .project-list {
-        padding: abs.rem(12) 0 0;
-        border-top: 1px solid var(--color-border);
-        border-left: 0;
-    }
-
-    .project-list button::before {
-        display: none;
+    .project-filters button {
+        padding-inline: abs.rem(6);
+        font-size: abs.rem(16);
     }
 
     .project-placeholder {

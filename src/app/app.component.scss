@@ -30,6 +30,7 @@
 
 .main-content {
   flex-grow: 1;
+  min-height: 100svh;
 
   &:focus-visible {
     outline: none;

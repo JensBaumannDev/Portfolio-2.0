@@ -82,9 +82,20 @@ h2 span {
     margin-top: abs.rem(14);
 }
 
+.about-copy>.about-location {
+    color: var(--color-soft-text);
+    font-weight: abs.$font-weight-medium;
+}
+
 .about-cv {
     @include abs.actionButton;
     margin-top: abs.rem(28);
+}
+
+.about-cv ng-icon,
+.about-youtube ng-icon {
+    width: abs.rem(20);
+    height: abs.rem(20);
 }
 
 .principles {
@@ -92,8 +103,7 @@ h2 span {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: abs.rem(18);
     margin: abs.rem(42) 0 0;
-    padding: abs.rem(22) 0 0;
-    border-top: 1px solid var(--color-border);
+    padding: 0;
     list-style: none;
 }
 
@@ -104,9 +114,17 @@ h2 span {
 
 .principle-icon {
     min-height: abs.rem(28);
-    font-family: abs.$font-family-display;
+    width: abs.rem(26);
+    height: abs.rem(26);
     font-size: abs.rem(26);
     line-height: 1;
+}
+
+.about-youtube {
+    @include abs.socialLink;
+    margin-top: abs.rem(28);
+    font-size: abs.rem(16);
+    min-height: abs.rem(36);
 }
 
 .principles strong {

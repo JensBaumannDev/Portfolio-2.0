@@ -2,14 +2,14 @@ import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { faBrandGithub, faBrandLinkedinIn, faBrandYoutube } from '@ng-icons/font-awesome/brands';
+import { faBrandGithub, faBrandLinkedinIn } from '@ng-icons/font-awesome/brands';
 import { lucideDownload } from '@ng-icons/lucide';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-hero',
   imports: [NgIcon, NgOptimizedImage, TranslatePipe],
-  providers: [provideIcons({ faBrandGithub, faBrandLinkedinIn, faBrandYoutube, lucideDownload })],
+  providers: [provideIcons({ faBrandGithub, faBrandLinkedinIn, lucideDownload })],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

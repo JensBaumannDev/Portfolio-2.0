@@ -15,7 +15,6 @@
   --color-field-bg: #{abs.$color-field-bg-light};
   --color-field-focus: #{abs.$color-field-focus-light};
   --color-panel-bg: #{abs.$surface-beige-gradient};
-  --color-panel-border: #{abs.$color-panel-border-light};
   --color-panel-backdrop: #{abs.$color-panel-backdrop-light};
   --color-error: #{abs.$color-error-light};
   --color-success: #{abs.$color-success-light};
@@ -33,7 +32,6 @@
   --color-field-bg: #{abs.$color-field-bg-dark};
   --color-field-focus: #{abs.$color-field-focus-dark};
   --color-panel-bg: linear-gradient(155deg, #{abs.$color-panel-gradient-start-dark} 0%, #{abs.$color-panel-gradient-end-dark} 100%);
-  --color-panel-border: #{abs.$color-panel-border-dark};
   --color-panel-backdrop: #{abs.$color-panel-backdrop-dark};
   --color-error: #{abs.$color-error-dark};
   --color-success: #{abs.$color-success-dark};
@@ -70,16 +68,51 @@ app-privacy-policy {
 
 .sr-only {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: abs.rem(1);
+  height: abs.rem(1);
   padding: 0;
-  margin: -1px;
+  margin: abs.rem(-1);
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }
 
 /* #region RESPONSIVE */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-item {
+    opacity: 0;
+    transform: translateY(#{abs.rem(12)});
+    transition: opacity .38s ease, transform .38s cubic-bezier(.2, .8, .2, 1);
+  }
+
+  .reveal-item.is-revealed,
+  .reveal-item:focus-within {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-item:focus-within {
+    transition: none;
+  }
+
+  .skill-groups section:nth-child(2).reveal-item,
+  .testimonials li:nth-child(2).reveal-item {
+    transition-delay: .06s;
+  }
+
+  .skill-groups section:nth-child(3).reveal-item,
+  .testimonials li:nth-child(3).reveal-item {
+    transition-delay: .12s;
+  }
+}
+
+@media print {
+  .reveal-item {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @include abs.mobile {
   :root {
     --section-py: #{abs.$section-padding-mobile};

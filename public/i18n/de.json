@@ -13,13 +13,27 @@
     "themeSystem": "System"
   },
   "a11y": {
-    "skip_to_content": "Zum Inhalt springen"
+    "skip_to_content": "Zum Inhalt springen",
+    "primary_navigation": "Hauptnavigation",
+    "mobile_navigation": "Mobile Navigation",
+    "menu": "Menü",
+    "legal_navigation": "Rechtliches",
+    "social_links": "Social-Media-Links",
+    "technologies": "Technologien"
   },
   "portfolio": {
     "nav": { "home": "Start", "projects": "Projekte", "skills": "Skills", "about": "Über mich", "contact": "Kontakt", "language": "Sprache", "theme": { "label": "Darstellung", "system": "System", "light": "Hell", "dark": "Dunkel" } },
     "hero": { "role": "FULLSTACK DEVELOPER", "slogan": "Frontend<span class=\"headline-dot\">.</span><br />Backend<span class=\"headline-dot\">.</span><br />Performance", "intro": "Ich entwickle mit Angular, TypeScript, JavaScript, Python und Django Anwendungen, die klar aufgebaut sind und sich gut weiterentwickeln lassen.", "work": "Meine Projekte", "cv": "Lebenslauf", "talk": "Schreib mir", "projects": "Projekte", "experience": "Erfahrung", "motivation": "Motivation", "availability": "Verfügbar ab Q4 2026" },
     "projects": {
-      "eyebrow": "AUS MEINER ARBEIT", "heading": "Projekte,", "heading_line": "die ich gern zeige", "intro": "Hier zeige ich Projekte, bei denen ich auch dann noch<br />nach einer besseren Lösung gesucht habe, wenn die erste schon funktioniert hat.", "placeholder": "Projektvorschau folgt", "view": "Projekt ansehen", "filters": { "label": "Projekte filtern", "all": "Alle", "frontend": "Frontend", "backend": "Backend" },
+      "eyebrow": "AUS MEINER ARBEIT", "heading": "Projekte,", "heading_line": "die ich gern zeige", "placeholder": "Projektvorschau folgt", "view": "Mehr erfahren", "github": "GitHub", "live_preview": "Live Preview", "project_select": "Projekt auswählen", "filters": { "label": "Projekte filtern", "all": "Alle", "frontend": "Frontend", "backend": "Backend" },
+      "roles": {
+        "coderr": "Einzelprojekt · Backend eigenständig entwickelt (Frontend: Developer Akademie)",
+        "kanmind": "Einzelprojekt · Backend eigenständig entwickelt (Frontend: Developer Akademie)",
+        "dabubble": "Teamprojekt (2 Personen) · Meine Rolle: Architektur, Codequalität, Chat- und Thread-Logik sowie Benachrichtigungen",
+        "join": "Teamprojekt (4 Personen) · Meine Rolle: Summary, Board und Drag & Drop; Architektur und Codequalität",
+        "el-pollo-loco": "Einzelprojekt · Konzeption und Umsetzung",
+        "pokedex": "Einzelprojekt · Konzeption und Umsetzung"
+      },
       "dabubble": { "type": "Echtzeit-Chat-Anwendung", "description": "Ein Slack-ähnlicher Team-Chat mit Channels, Direktnachrichten und Threads in Echtzeit.", "quote": "„Bei DABubble musste die Oberfläche trotz Channels, Direktnachrichten und Threads übersichtlich bleiben. Genau diese Balance aus Funktion und Ruhe war die eigentliche Herausforderung.“", "features": { "authentication": "Authentifizierung", "updates": "Echtzeit-Updates", "responsive": "Responsives Design" } },
       "el-pollo-loco": { "type": "Jump-and-run-Spiel", "description": "Ein selbst entwickeltes Jump-and-run mit eigener Game-Loop, Sound und Kollisionserkennung.", "quote": "„Bei El Pollo Loco haben mir die Kollisionen gezeigt, wie viel Logik in einem kleinen Spiel steckt – und wie genau man Zustände definieren muss.“", "features": { "oop": "Objektorientierte Programmierung", "game_loop": "Eigene Game-Loop", "collision": "Kollisionserkennung" } },
       "coderr": { "type": "REST-API für einen Marktplatz", "description": "Ein Django-Backend für digitale Dienstleistungen mit Profilen, Angeboten, Bestellungen und Bewertungen.", "quote": "„Bei Coderr wurde mir klar, wie wichtig saubere Datenbeziehungen sind, sobald Nutzer, Angebote und Bestellungen zusammenkommen.“", "features": { "authentication": "Token-Authentifizierung", "crud": "CRUD-API", "database": "Datenbankmodelle" } },
@@ -70,7 +84,8 @@
     "section_title": "Über mich",
     "section_sub": "Meine Skills und Ich",
     "fact_location_label": "Standort",
-    "fact_location": "Emden, Ostfriesland. Remote oder vor Ort.",
+    "fact_location": "Ich suche eine Stelle in Emden und Umgebung oder remote",
+    "youtube": "Mein YouTube-Kanal",
     "fact_available_label": "Verfügbar",
     "fact_available": "Ab Q4 2026",
     "fact_focus_label": "Aktuell",
@@ -88,6 +103,16 @@
     "stack_frontend_note": "Darauf habe ich mich spezialisiert",
     "stack_backend": "Backend",
     "stack_backend_note": "Baue ich gerade aus, Schritt für Schritt."
+  },
+  "colleagues": {
+    "intro": "MEINUNGEN",
+    "headline": "Was Kollegen über mich sagen",
+    "role": "Fullstack Developer",
+    "testimonial1": "Jens ist ein engagierter Entwickler mit Gespür für modernes Design und saubere Umsetzung. Besonders stark ist er im präzisen Styling und der technischen UI-Umsetzung. Er übernimmt Verantwortung und ist im Team stets hilfsbereit.",
+    "testimonial2": "Jens ist ein engagierter Teamplayer mit großer Ausdauer. Ob fachlich oder bei kniffligen Problemen: Er bleibt zielstrebig und ist ein Gewinn für jedes Team.",
+    "testimonial3": "Ich kann Jens nur empfehlen – ein starker Fullstack Developer, der sauberen Code liefert und immer gute Lösungen findet. Die Zusammenarbeit ist absolut entspannt, zuverlässig und unkompliziert. Ich würde jederzeit wieder mit ihm arbeiten!",
+    "profile": "LinkedIn-Profil ansehen",
+    "website": "Website besuchen"
   },
   "projects": {
     "filters": {
@@ -190,7 +215,7 @@
     "availability_label": "Verfügbar ab",
     "availability_value": "Q4 2026",
     "title": "Den richtigen Weg finden.",
-    "subtitle": "Offen für Praktikum, Werkstudium oder eine Junior-Rolle, gern remote, hybrid oder vor Ort in Ostfriesland.",
+    "subtitle": "Offen für Praktikum, Werkstudium oder eine Junior-Rolle – remote oder vor Ort in Emden und Umgebung.",
     "name_label": "Wie lautet dein Name?",
     "name_placeholder": "Dein Name kommt hier hin",
     "email_label": "Wie lautet deine E-Mail-Adresse?",
