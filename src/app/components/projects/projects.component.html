@@ -4,13 +4,10 @@
       <p class="label">{{ 'portfolio.projects.eyebrow' | translate }}</p>
       <h2 id="projects-title">{{ 'portfolio.projects.heading' | translate }}<br />{{ 'portfolio.projects.heading_line' |
         translate }}<span>.</span></h2>
-      <p class="intro" [innerHTML]="'portfolio.projects.intro' | translate"></p>
     </header>
 
     <div class="project-navigation">
       <div class="project-controls">
-        <p class="counter">{{ selectedProjectIndex() }} / {{ filteredProjects().length.toString().padStart(2, '0') }}
-        </p>
         <div class="project-filters" role="group" [attr.aria-label]="'portfolio.projects.filters.label' | translate">
           <button type="button" [class.active]="activeFilter() === 'all'" [attr.aria-pressed]="activeFilter() === 'all'"
             (click)="selectFilter('all')">{{ 'portfolio.projects.filters.all' | translate }}</button>
@@ -21,20 +18,31 @@
             [attr.aria-pressed]="activeFilter() === 'backend'" (click)="selectFilter('backend')">{{
             'portfolio.projects.filters.backend' | translate }}</button>
         </div>
+        <p class="counter">{{ selectedProjectIndex() }} / {{ filteredProjects().length.toString().padStart(2, '0') }}</p>
       </div>
-      <ol class="project-list" aria-label="Projektübersicht">
-        @for (project of filteredProjects(); track project.slug) {
-        <li>
-          <button type="button" [class.active]="project.slug === selectedProject().slug"
-            (click)="selectProject(project)">
-            {{ project.name }}
-          </button>
-        </li>
-        }
-      </ol>
+      <div class="project-picker">
+        <label class="project-select-label" for="project-select">{{ 'portfolio.projects.project_select' | translate }}</label>
+        <select id="project-select" #projectSelect [value]="selectedProject().slug"
+          (change)="selectProjectBySlug(projectSelect.value)">
+          @for (project of filteredProjects(); track project.slug) {
+          <option [value]="project.slug">{{ project.name }}</option>
+          }
+        </select>
+        <ol class="project-list" [attr.aria-label]="'portfolio.projects.project_select' | translate">
+          @for (project of filteredProjects(); track project.slug) {
+          <li>
+            <button type="button" [class.active]="project.slug === selectedProject().slug"
+              [attr.aria-current]="project.slug === selectedProject().slug ? 'true' : null"
+              (click)="selectProject(project)">
+              {{ project.name }}
+            </button>
+          </li>
+          }
+        </ol>
+      </div>
     </div>
 
-    <article class="project-card">
+    <article class="project-card" appReveal>
       <div class="project-placeholder">
         <div class="project-visual">
           <img class="project-preview" [ngSrc]="selectedProject().image" fill alt="" />
@@ -42,13 +50,16 @@
         <div class="project-story">
           <blockquote class="project-quote">{{ ('portfolio.projects.' + selectedProject().slug + '.quote') | translate
             }}</blockquote>
+          <a class="project-link" [routerLink]="['/projects', selectedProject().slug]">{{ 'portfolio.projects.view' |
+            translate }}</a>
         </div>
       </div>
       <div class="project-details">
         <div class="project-info">
           <h3>{{ selectedProject().name }}</h3>
           <p class="description">{{ ('portfolio.projects.' + selectedProject().slug + '.description') | translate }}</p>
-          <ul class="tags" aria-label="Technologien">
+          <p class="project-contribution">{{ ('portfolio.projects.roles.' + selectedProject().slug) | translate }}</p>
+          <ul class="tags" [attr.aria-label]="'a11y.technologies' | translate">
             @for (technology of selectedProject().technologies; track technology) {
             <li>
               @if (technologyIcons[technology]; as icon) {
@@ -59,8 +70,14 @@
             }
           </ul>
         </div>
-        <a class="project-link" [routerLink]="['/projects', selectedProject().slug]">{{ 'portfolio.projects.view' |
-          translate }}</a>
+        <div class="project-actions">
+          @if (selectedProject().github; as github) {
+          <a [href]="github" target="_blank" rel="noopener noreferrer">{{ 'portfolio.projects.github' | translate }}</a>
+          }
+          @if (selectedProject().demo; as demo) {
+          <a [href]="demo" target="_blank" rel="noopener noreferrer">{{ 'portfolio.projects.live_preview' | translate }}</a>
+          }
+        </div>
       </div>
     </article>
   </div>

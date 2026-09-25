@@ -11,7 +11,7 @@
     background: transparent;
     pointer-events: none;
     transform: translateY(0);
-    transition: transform .22s ease;
+    transition: transform .15s ease;
 }
 
 .navigation.is-scrolling {
@@ -36,13 +36,17 @@
     @include abs.flex(row, nowrap, flex-start, center);
     min-width: abs.rem(42);
     color: abs.$color-white;
-    font-family: abs.$font-family-base;
-    font-size: abs.rem(24);
+    font-family: abs.$font-family-display;
+    font-size: abs.rem(28);
     font-weight: abs.$font-weight-bold;
-    letter-spacing: abs.rem(1.5);
+    letter-spacing: abs.rem(-1);
     line-height: 1;
     text-decoration: none;
     pointer-events: auto;
+}
+
+.brand-dot {
+    color: abs.$color-accent;
 }
 
 .menu-trigger {
@@ -272,10 +276,6 @@
         box-shadow: none;
     }
 
-    .brand {
-        font-size: abs.rem(22);
-    }
-
     .menu-trigger {
         @include abs.flex(column, nowrap, center, center);
         width: abs.rem(40);
@@ -402,6 +402,11 @@
         text-decoration: none;
     }
 
+    .mobile-socials ng-icon {
+        width: abs.rem(20);
+        height: abs.rem(20);
+    }
+
     .mobile-legal a:hover,
     .mobile-socials a:hover {
         color: abs.$color-accent;
@@ -433,7 +438,7 @@
     }
 }
 
-@media (max-width: #{abs.$breakpoint-tablet}) and (max-height: 600px) {
+@media (max-width: #{abs.$breakpoint-tablet}) and (max-height: #{abs.$breakpoint-short-height}) {
     .mobile-menu {
         padding-top: calc(abs.rem(56) + abs.rem(8));
         padding-bottom: abs.rem(8);

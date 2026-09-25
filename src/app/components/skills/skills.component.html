@@ -1,5 +1,5 @@
 <section class="skills" aria-labelledby="skills-title">
-  <div class="content-container skills-inner">
+  <div class="content-container">
     <header>
       <p>{{ 'portfolio.skills.eyebrow' | translate }}</p>
       <h2 id="skills-title">{{ 'portfolio.skills.heading' | translate }}<br />{{ 'portfolio.skills.heading_line' |
@@ -7,7 +7,7 @@
       <p class="skills-intro">{{ 'portfolio.skills.text' | translate }}</p>
     </header>
     <div class="skill-groups">
-      <section>
+      <section appReveal>
         <h3>{{ 'portfolio.skills.frontend' | translate }}</h3>
         <ul>
           <li><img ngSrc="/img/skills/angular.svg" width="44" height="44" alt="" />Angular</li>
@@ -17,7 +17,7 @@
           <li><img ngSrc="/img/skills/javascript.svg" width="44" height="44" alt="" />JavaScript</li>
         </ul>
       </section>
-      <section>
+      <section appReveal>
         <h3>{{ 'portfolio.skills.backend' | translate }}</h3>
         <ul>
           <li><img ngSrc="/img/skills/python.svg" width="44" height="44" alt="" />Python</li>
@@ -27,13 +27,13 @@
           <li><img ngSrc="/img/skills/docker.svg" width="44" height="44" alt="" />Docker</li>
         </ul>
       </section>
-      <section>
+      <section appReveal>
         <h3>{{ 'portfolio.skills.tools' | translate }}</h3>
         <ul>
           <li><img ngSrc="/img/skills/git.svg" width="44" height="44" alt="" />Git</li>
-          <li><span class="plain-icon">⌘</span>VS Code</li>
-          <li><span class="plain-icon">◒</span>GitHub</li>
-          <li><span class="plain-icon">✦</span>Figma</li>
+          <li><img ngSrc="/img/skills/vscode.svg" width="44" height="44" alt="" />VS Code</li>
+          <li><ng-icon name="faBrandGithub" aria-hidden="true"></ng-icon>GitHub</li>
+          <li><img ngSrc="/img/skills/figma.svg" width="44" height="44" alt="" />Figma</li>
           <li><img ngSrc="/img/skills/linux.svg" width="44" height="44" alt="" />Linux</li>
         </ul>
       </section>

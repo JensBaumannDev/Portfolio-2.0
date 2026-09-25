@@ -88,13 +88,10 @@ h1 {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: clamp(#{abs.rem(40)}, 6vw, #{abs.rem(100)});
     margin-top: clamp(#{abs.rem(32)}, 4vw, #{abs.rem(56)});
-    padding-top: abs.rem(30);
-    border-top: 1px solid var(--color-border);
 }
 
 .detail-features {
-    border-left: 1px solid var(--color-border);
-    padding-left: clamp(#{abs.rem(32)}, 5vw, #{abs.rem(80)});
+    padding-left: 0;
 }
 
 h2 {
@@ -161,8 +158,7 @@ h2 {
 }
 
 .detail-copy section {
-    border-top: 1px solid var(--color-border);
-    padding-top: abs.rem(28);
+    padding-top: 0;
 }
 
 .detail-copy h2 {
@@ -179,8 +175,6 @@ h2 {
 
 .detail-return {
     margin-top: clamp(#{abs.rem(56)}, 7vw, #{abs.rem(96)});
-    padding-top: abs.rem(28);
-    border-top: 1px solid var(--color-border);
 }
 
 /* #region RESPONSIVE */
@@ -217,9 +211,6 @@ h2 {
     }
 
     .detail-features {
-        border-top: 1px solid var(--color-border);
-        border-left: 0;
-        padding-top: abs.rem(28);
         padding-left: 0;
     }
 

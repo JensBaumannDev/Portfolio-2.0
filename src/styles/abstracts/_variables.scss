@@ -1,8 +1,10 @@
 @use 'functions' as fn;
 
 $breakpoint-mobile-sm: 400px;
+$breakpoint-mobile-actions: 560px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
+$breakpoint-short-height: 600px;
 $max-width: fn.rem(1440);
 
 $z-index-header-sidebar: 100;
@@ -22,12 +24,12 @@ $color-paper: #f5f4f0;
 $color-surface-beige: #d5c9bb;
 $color-surface-beige-light: #e6ded4;
 $surface-beige-gradient: linear-gradient(155deg, $color-surface-beige 0, $color-surface-beige-light #{fn.rem(960)});
-$color-muted: #7b7b77;
+$color-muted: #62625e;
 $color-line: #c8c7c1;
 $color-accent: #d6c3a5;
 $color-soft-text-light: #565652;
 $color-field-text-light: #33332f;
-$color-placeholder-light: #77746e;
+$color-placeholder-light: #686660;
 $color-panel-backdrop-light: #c8bba9;
 $color-nav-bg: #141414;
 $color-nav-muted: #e8e8e2;
@@ -50,11 +52,9 @@ $color-success-dark: #9ed3a1;
 
 $color-field-bg-light: rgb(255 255 255 / 34%);
 $color-field-focus-light: rgb(255 255 255 / 58%);
-$color-panel-border-light: rgb(10 10 10 / 20%);
 $color-nav-border: rgb(255 255 255 / 13%);
 $color-field-bg-dark: rgb(255 255 255 / 6%);
 $color-field-focus-dark: rgb(255 255 255 / 10%);
-$color-panel-border-dark: rgb(255 255 255 / 20%);
 
 $font-family-base: Roboto, Arial, sans-serif;
 $font-family-display: Georgia, 'Times New Roman', serif;

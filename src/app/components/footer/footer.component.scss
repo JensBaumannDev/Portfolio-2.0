@@ -49,6 +49,8 @@ nav {
 }
 
 .footer-socials ng-icon {
+    width: abs.rem(20);
+    height: abs.rem(20);
     transition: transform .18s ease;
 }
 

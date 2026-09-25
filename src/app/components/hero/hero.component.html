@@ -14,21 +14,20 @@
           <a class="button button-light" href="#contact">{{ 'portfolio.hero.talk' | translate }}</a>
           <a class="button button-light" href="#projects">{{ 'portfolio.hero.work' | translate }}</a>
           <a class="button button-light button-cv" [href]="cvUrl" download>{{ 'portfolio.hero.cv' |
-            translate }} <ng-icon name="lucideDownload" size="1.15em" aria-hidden="true"></ng-icon></a>
+            translate }} <ng-icon name="lucideDownload" aria-hidden="true"></ng-icon></a>
         </div>
+        <p class="intro-mobile">{{ 'portfolio.hero.intro' | translate }}</p>
       </div>
     </div>
     <div class="hero-visual">
-      <img ngSrc="/img/about/jens-baumann-about-cutout.png" fill priority [alt]="'hero.profile_alt' | translate" />
+      <img ngSrc="/img/about/jens-baumann-about-cutout.webp" fill priority sizes="(max-width: 768px) 100vw, 45vw" [alt]="'hero.profile_alt' | translate" />
     </div>
     <div class="hero-footer">
-      <nav class="hero-socials" aria-label="Social links">
+      <nav class="hero-socials" [attr.aria-label]="'a11y.social_links' | translate">
         <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener"><ng-icon name="faBrandGithub"
-            size="1.4em" aria-hidden="true"></ng-icon><span>GitHub</span></a>
+            aria-hidden="true"></ng-icon><span>GitHub</span></a>
         <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener"><ng-icon
-            name="faBrandLinkedinIn" size="1.4em" aria-hidden="true"></ng-icon><span>LinkedIn</span></a>
-        <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener"><ng-icon
-            name="faBrandYoutube" size="1.4em" aria-hidden="true"></ng-icon><span>YouTube</span></a>
+            name="faBrandLinkedinIn" aria-hidden="true"></ng-icon><span>LinkedIn</span></a>
       </nav>
     </div>
   </div>

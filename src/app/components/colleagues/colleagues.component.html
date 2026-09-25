@@ -1,0 +1,36 @@
+<section class="colleagues" aria-labelledby="colleagues-title">
+  <div class="content-container colleagues-inner">
+    <header>
+      <p class="label">{{ 'colleagues.intro' | translate }}</p>
+      <h2 id="colleagues-title">{{ 'colleagues.headline' | translate }}<span>.</span></h2>
+    </header>
+    <ul class="testimonials">
+      @for (testimonial of testimonials; track testimonial.name) {
+      <li appReveal>
+        <figure class="testimonial">
+          <div class="testimonial-content">
+            <blockquote>
+              <p>{{ testimonial.quoteKey | translate }}</p>
+            </blockquote>
+            <figcaption>
+              <div class="author">
+                <strong>{{ testimonial.name }}</strong>
+                <span>{{ 'colleagues.role' | translate }}</span>
+              </div>
+              <a [href]="testimonial.url" target="_blank" rel="noopener noreferrer"
+                [attr.aria-label]="(testimonial.linkKey | translate) + ': ' + testimonial.name">
+                @if (testimonial.icon === 'linkedin') {
+                <ng-icon name="faBrandLinkedinIn" aria-hidden="true"></ng-icon>
+                } @else {
+                <span class="globe-icon" aria-hidden="true"></span>
+                }
+                <span class="link-text">{{ testimonial.linkKey | translate }}</span>
+              </a>
+            </figcaption>
+          </div>
+        </figure>
+      </li>
+      }
+    </ul>
+  </div>
+</section>

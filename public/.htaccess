@@ -12,6 +12,12 @@
   RewriteRule ^ index.html [L]
 </IfModule>
 
+<IfModule mod_deflate.c>
+  <IfModule mod_filter.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml text/javascript application/javascript application/json application/xml image/svg+xml
+  </IfModule>
+</IfModule>
+
 # --- Caching ---
 <IfModule mod_headers.c>
   # index.html und Übersetzungen (i18n) tragen keinen Hash im Namen -> immer

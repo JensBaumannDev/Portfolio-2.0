@@ -2,11 +2,15 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { faBrandGithub, faBrandLinkedinIn } from '@ng-icons/font-awesome/brands';
+import { lucideMail } from '@ng-icons/lucide';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule, RouterLink, TranslatePipe],
+  imports: [NgIcon, ReactiveFormsModule, RouterLink, TranslatePipe],
+  providers: [provideIcons({ faBrandGithub, faBrandLinkedinIn, lucideMail })],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

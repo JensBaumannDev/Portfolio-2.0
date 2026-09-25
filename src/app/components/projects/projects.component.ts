@@ -3,12 +3,13 @@ import { NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { SHOWCASE_PROJECTS, TECHNOLOGY_ICONS, ShowcaseProject, ShowcaseProjectCategory } from '../../constants/showcase-projects.constants';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 type ProjectFilter = 'all' | ShowcaseProjectCategory;
 
 @Component({
   selector: 'app-projects',
-  imports: [NgOptimizedImage, RouterLink, TranslatePipe],
+  imports: [NgOptimizedImage, RouterLink, TranslatePipe, RevealDirective],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,6 +24,11 @@ export class Projects {
 
   protected selectProject(project: ShowcaseProject): void {
     this.selectedProject.set(project);
+  }
+
+  protected selectProjectBySlug(slug: string): void {
+    const project = this.filteredProjects().find((item) => item.slug === slug);
+    if (project) this.selectProject(project);
   }
 
   protected selectFilter(filter: ProjectFilter): void {

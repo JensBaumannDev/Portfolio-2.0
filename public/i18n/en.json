@@ -13,13 +13,27 @@
     "themeSystem": "System"
   },
   "a11y": {
-    "skip_to_content": "Skip to content"
+    "skip_to_content": "Skip to content",
+    "primary_navigation": "Main navigation",
+    "mobile_navigation": "Mobile navigation",
+    "menu": "Menu",
+    "legal_navigation": "Legal information",
+    "social_links": "Social media links",
+    "technologies": "Technologies"
   },
   "portfolio": {
     "nav": { "home": "Home", "projects": "Projects", "skills": "Skills", "about": "About", "contact": "Contact", "language": "Language", "theme": { "label": "Appearance", "system": "System", "light": "Light", "dark": "Dark" } },
     "hero": { "role": "FULLSTACK DEVELOPER", "slogan": "Frontend<span class=\"headline-dot\">.</span><br />Backend<span class=\"headline-dot\">.</span><br />Performance", "intro": "I build with Angular, TypeScript, JavaScript, Python and Django to create applications that are clear, maintainable and ready to grow.", "work": "My projects", "cv": "Résumé", "talk": "Get in touch", "projects": "Projects", "experience": "Experience", "motivation": "Motivation", "availability": "Available from Q4 2026" },
     "projects": {
-      "eyebrow": "SELECTED WORK", "heading": "Projects", "heading_line": "with purpose", "intro": "Web applications that solve real problems.<br />From idea to deployment.", "placeholder": "Project preview coming soon", "view": "View Project", "filters": { "label": "Filter projects", "all": "All", "frontend": "Frontend", "backend": "Backend" },
+      "eyebrow": "SELECTED WORK", "heading": "Projects", "heading_line": "with purpose", "placeholder": "Project preview coming soon", "view": "Learn more", "github": "GitHub", "live_preview": "Live Preview", "project_select": "Choose a project", "filters": { "label": "Filter projects", "all": "All", "frontend": "Frontend", "backend": "Backend" },
+      "roles": {
+        "coderr": "Solo project · Backend developed independently (frontend: Developer Akademie)",
+        "kanmind": "Solo project · Backend developed independently (frontend: Developer Akademie)",
+        "dabubble": "Team project (2 people) · My role: architecture, code quality, chat and thread logic, and notifications",
+        "join": "Team project (4 people) · My role: Summary, Board and drag and drop; architecture and code quality",
+        "el-pollo-loco": "Solo project · Design and implementation",
+        "pokedex": "Solo project · Design and implementation"
+      },
       "dabubble": { "type": "Real-time chat application", "description": "A Slack-style team chat with channels, direct messages and real-time threads.", "quote": "“With DABubble, the real challenge was keeping channels, direct messages and threads clear at the same time. That balance between functionality and calm became the key task.”", "features": { "authentication": "Authentication", "updates": "Real-time updates", "responsive": "Responsive design" } },
       "el-pollo-loco": { "type": "Jump-and-run game", "description": "A self-built jump-and-run with a custom game loop, sound and collision detection.", "quote": "“El Pollo Loco showed me how much logic lives in a small game. Collision detection, in particular, requires very precise states.”", "features": { "oop": "Object-oriented programming", "game_loop": "Custom game loop", "collision": "Collision detection" } },
       "coderr": { "type": "Marketplace REST API", "description": "A Django backend for digital services with profiles, offers, orders and reviews.", "quote": "“Coderr made it clear how important clean data relationships become once users, offers and orders meet in one system.”", "features": { "authentication": "Token authentication", "crud": "CRUD API", "database": "Database models" } },
@@ -70,7 +84,8 @@
     "section_title": "About me",
     "section_sub": "My skills and me",
     "fact_location_label": "Based in",
-    "fact_location": "Emden, East Frisia. Remote or on-site.",
+    "fact_location": "I'm looking for a role in or near Emden, or remotely",
+    "youtube": "My YouTube channel",
     "fact_available_label": "Available",
     "fact_available": "From Q4 2026",
     "fact_focus_label": "Currently",
@@ -88,6 +103,16 @@
     "stack_frontend_note": "What I've specialised in",
     "stack_backend": "Backend",
     "stack_backend_note": "Growing step by step right now."
+  },
+  "colleagues": {
+    "intro": "IN THEIR WORDS",
+    "headline": "What colleagues say about me",
+    "role": "Fullstack Developer",
+    "testimonial1": "Jens is a dedicated developer with a sense for modern design and clean implementation. He is particularly strong in precise styling and technical UI implementation. He takes on responsibility and is always helpful within the team.",
+    "testimonial2": "Jens is a dedicated team player with great perseverance. Whether technical or tricky problems: he stays focused and is an asset to any team.",
+    "testimonial3": "I can highly recommend Jens – a strong full-stack developer who delivers clean code and always finds great solutions. The collaboration is absolutely relaxed, reliable, and uncomplicated. I would work with him again at any time!",
+    "profile": "View LinkedIn profile",
+    "website": "Visit website"
   },
   "projects": {
     "filters": {
@@ -190,7 +215,7 @@
     "availability_label": "Available from",
     "availability_value": "Q4 2026",
     "title": "Finding the right path.",
-    "subtitle": "Open to an internship, working student position or a junior role, remote, hybrid or on-site in East Frisia.",
+    "subtitle": "Open to an internship, working student position or junior role – remotely or on-site in or near Emden.",
     "name_label": "What is your name?",
     "name_placeholder": "Your name goes here",
     "email_label": "What is your email address?",
