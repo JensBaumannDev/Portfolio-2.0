@@ -30,12 +30,12 @@ export const SHOWCASE_PROJECTS: readonly ShowcaseProject[] = [
   {
     slug: 'coderr', name: 'Coderr', category: 'backend', image: '/img/projects/webp/coderr_project-normal.webp',
     technologies: ['Python', 'Django', 'Django REST Framework', 'SQLite'], features: ['authentication', 'crud', 'database'],
-    github: 'https://github.com/JensBaumannDev/Coderr_Backend',
+    github: 'https://github.com/JensBaumannDev/Coderr_Backend', demo: 'https://coderr.jensbaumann.com',
   },
   {
     slug: 'kanmind', name: 'KanMind', category: 'backend', image: '/img/projects/webp/kanmind_project-normal.webp',
     technologies: ['Python', 'Django', 'Django REST Framework', 'SQLite'], features: ['authentication', 'crud', 'database'],
-    github: 'https://github.com/JensBaumannDev/KanMind',
+    github: 'https://github.com/JensBaumannDev/KanMind', demo: 'https://kanmind.jensbaumann.com',
   },
   {
     slug: 'dabubble', name: 'DABubble', category: 'frontend', image: '/img/projects/webp/dabubble_project.webp',
