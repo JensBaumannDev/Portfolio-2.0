@@ -4,8 +4,8 @@ $breakpoint-mobile-sm: 400px;
 $breakpoint-mobile-actions: 560px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
-$breakpoint-short-height: 600px;
-$max-width: fn.rem(1440);
+$breakpoint-compact-height: 1024px;
+$max-width: fn.rem(1200);
 
 $z-index-header-sidebar: 100;
 $z-index-dialog: 110;
@@ -13,57 +13,43 @@ $z-index-dialog: 110;
 $radius-sm: fn.rem(2);
 $radius-md: fn.rem(6);
 $radius-lg: fn.rem(12);
+$shadow-card: 0 4px 12px rgb(0 0 0 / 10%);
+$shadow-section: 0 -12px 28px -16px rgb(0 0 0 / 22%);
 
 $section-padding: fn.rem(112);
 $section-padding-mobile: fn.rem(72);
 
 $color-black: #000000;
 $color-white: #ffffff;
-$color-ink: #0a0a0a;
-$color-paper: #f5f4f0;
-$color-surface-beige: #d5c9bb;
-$color-surface-beige-light: #e6ded4;
-$surface-beige-gradient: linear-gradient(155deg, $color-surface-beige 0, $color-surface-beige-light #{fn.rem(960)});
+$color-ink: #333333;
+$color-paper: #fafafa;
+$color-hero-frontend: #e6f2ef;
+$color-hero-backend: #f3e7d8;
+$color-surface-beige: #d7bb91;
+$color-surface-beige-light: #e4eeea;
 $color-muted: #62625e;
-$color-line: #c8c7c1;
-$color-accent: #d6c3a5;
-$color-soft-text-light: #565652;
+$color-line: #dddddd;
+$color-accent: #246b63;
+$color-accent-on-dark: #8dcec4;
 $color-field-text-light: #33332f;
 $color-placeholder-light: #686660;
-$color-panel-backdrop-light: #c8bba9;
 $color-nav-bg: #141414;
 $color-nav-muted: #e8e8e2;
 $color-nav-menu-muted: #b9b9b4;
 $color-error-light: #a54338;
 $color-success-light: #3c6b3f;
 
-$color-bg-dark: #191a1c;
-$color-text-dark: #f2f3f4;
-$color-text-secondary-dark: #c2c5c8;
-$color-border-dark: #55595d;
-$color-soft-text-dark: #d1d4d7;
-$color-field-text-dark: #eceef0;
-$color-placeholder-dark: #a8adb1;
-$color-panel-gradient-start-dark: #5e6164;
-$color-panel-gradient-end-dark: #36393c;
-$color-panel-backdrop-dark: #2d3033;
-$color-error-dark: #ef9c91;
-$color-success-dark: #9ed3a1;
-
 $color-field-bg-light: rgb(255 255 255 / 34%);
 $color-field-focus-light: rgb(255 255 255 / 58%);
 $color-nav-border: rgb(255 255 255 / 13%);
-$color-field-bg-dark: rgb(255 255 255 / 6%);
-$color-field-focus-dark: rgb(255 255 255 / 10%);
 
-$font-family-base: Roboto, Arial, sans-serif;
-$font-family-display: Georgia, 'Times New Roman', serif;
-$font-family-mono: 'DM Mono', monospace;
+$font-family-base: Arial, Helvetica, sans-serif;
+$font-family-display: $font-family-base;
 
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
-$font-weight-heading: 400;
+$font-weight-heading: 700;
 
 $font-size-base: fn.rem(16);
 $font-size-md: fn.rem(18);
@@ -72,3 +58,13 @@ $font-size-xl: fn.rem(24);
 $font-size-h2: fn.rem(32);
 $font-size-h1: fn.rem(40);
 $font-size-display-fluid: clamp(#{fn.rem(48)}, 8vw, #{fn.rem(96)});
+
+$z-index-decoration: -1;
+
+$font-size-section: clamp(#{fn.rem(36)}, 4.5vw, #{fn.rem(64)});
+$font-size-card: fn.rem(24);
+$font-size-body: fn.rem(18);
+$font-size-meta: fn.rem(16);
+$font-size-quote: fn.rem(20);
+$line-height-body: 1.6;
+$line-height-heading: 1.1;

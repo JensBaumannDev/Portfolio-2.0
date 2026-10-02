@@ -2,38 +2,55 @@
   <div class="content-container">
     <header>
       <p>{{ 'portfolio.skills.eyebrow' | translate }}</p>
-      <h2 id="skills-title">{{ 'portfolio.skills.heading' | translate }}<br />{{ 'portfolio.skills.heading_line' |
-        translate }}<span>.</span></h2>
+      <h2 id="skills-title">
+        {{ 'portfolio.skills.heading' | translate }}<br />{{
+          'portfolio.skills.heading_line' | translate
+        }}<span>.</span>
+      </h2>
       <p class="skills-intro">{{ 'portfolio.skills.text' | translate }}</p>
     </header>
     <div class="skill-groups">
-      <section appReveal>
+      <section appReveal [revealDelay]="0">
         <h3>{{ 'portfolio.skills.frontend' | translate }}</h3>
         <ul>
           <li><img ngSrc="/img/skills/angular.svg" width="44" height="44" alt="" />Angular</li>
-          <li><img ngSrc="/img/skills/typescript.svg" width="44" height="44" alt="" />TypeScript</li>
+          <li>
+            <img ngSrc="/img/skills/typescript.svg" width="44" height="44" alt="" />TypeScript
+          </li>
           <li><img ngSrc="/img/skills/html.svg" width="44" height="44" alt="" />HTML</li>
           <li><img ngSrc="/img/skills/css.svg" width="44" height="44" alt="" />CSS</li>
-          <li><img ngSrc="/img/skills/javascript.svg" width="44" height="44" alt="" />JavaScript</li>
+          <li>
+            <img ngSrc="/img/skills/javascript.svg" width="44" height="44" alt="" />JavaScript
+          </li>
         </ul>
       </section>
-      <section appReveal>
+      <section appReveal [revealDelay]="140">
         <h3>{{ 'portfolio.skills.backend' | translate }}</h3>
         <ul>
           <li><img ngSrc="/img/skills/python.svg" width="44" height="44" alt="" />Python</li>
           <li><img ngSrc="/img/skills/django.svg" width="44" height="44" alt="" />Django</li>
-          <li><img ngSrc="/img/skills/postgresql.svg" width="44" height="44" alt="" />PostgreSQL</li>
+          <li>
+            <img ngSrc="/img/skills/postgresql.svg" width="44" height="44" alt="" />PostgreSQL
+          </li>
           <li><img ngSrc="/img/skills/sqlite.svg" width="44" height="44" alt="" />SQLite</li>
           <li><img ngSrc="/img/skills/docker.svg" width="44" height="44" alt="" />Docker</li>
         </ul>
       </section>
-      <section appReveal>
+      <section appReveal [revealDelay]="280">
         <h3>{{ 'portfolio.skills.tools' | translate }}</h3>
         <ul>
           <li><img ngSrc="/img/skills/git.svg" width="44" height="44" alt="" />Git</li>
           <li><img ngSrc="/img/skills/vscode.svg" width="44" height="44" alt="" />VS Code</li>
           <li><ng-icon name="faBrandGithub" aria-hidden="true"></ng-icon>GitHub</li>
-          <li><img ngSrc="/img/skills/figma.svg" width="44" height="44" alt="" />Figma</li>
+          <li>
+            <img
+              class="figma-icon"
+              ngSrc="/img/skills/figma.svg"
+              width="100"
+              height="150"
+              alt=""
+            />Figma
+          </li>
           <li><img ngSrc="/img/skills/linux.svg" width="44" height="44" alt="" />Linux</li>
         </ul>
       </section>

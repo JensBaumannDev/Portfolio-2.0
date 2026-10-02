@@ -1,109 +1,137 @@
 @use 'src/styles/abstracts' as abs;
 
 .footer {
-    padding: abs.rem(24) 0;
-    background: abs.$color-black;
-    color: abs.$color-nav-menu-muted;
+  padding: abs.rem(32) 0;
+  background: abs.$color-nav-bg;
+  box-shadow: abs.$shadow-section;
+  color: abs.$color-nav-muted;
 }
 
 .footer-inner {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: abs.rem(18);
-    font-size: abs.rem(16);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: abs.rem(28);
+  font-size: abs.rem(22);
 }
 
 nav {
-    @include abs.flex(row, wrap, flex-start, center);
-    gap: abs.rem(20);
+  @include abs.flex(row, wrap, flex-start, center);
+  gap: abs.rem(28);
 }
 
 .footer-legal a {
-    padding: abs.rem(8) 0;
-    color: abs.$color-nav-muted;
-    font-family: abs.$font-family-base;
-    font-size: abs.rem(16);
-    font-weight: abs.$font-weight-medium;
+  padding: abs.rem(8) 0;
+  color: inherit;
+  font-family: abs.$font-family-base;
+  font-size: abs.rem(22);
+  font-weight: abs.$font-weight-medium;
 }
 
 .footer-legal a:hover {
-    color: abs.$color-accent;
+  color: abs.$color-accent-on-dark;
 }
 
 .footer-socials {
-    justify-content: flex-end;
-    gap: abs.rem(22);
+  justify-content: flex-end;
+  gap: abs.rem(28);
 }
 
 .footer-socials a {
-    @include abs.flex(row, nowrap, flex-start, center);
-    gap: abs.rem(8);
-    font-weight: abs.$font-weight-medium;
-    transition: color .18s ease, transform .18s ease;
+  @include abs.flex(row, nowrap, flex-start, center);
+  gap: abs.rem(10);
+  min-height: abs.rem(44);
+  width: abs.rem(44);
+  justify-content: center;
+  font-weight: abs.$font-weight-medium;
+  border-radius: abs.$radius-lg;
+  transition:
+    color 0.2s ease,
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.2s ease;
 }
 
-.footer-socials a:hover {
-    color: abs.$color-accent;
-    transform: translateY(-2px);
+.footer-socials a:hover,
+.footer-socials a:focus-visible {
+  color: abs.$color-accent-on-dark;
+  transform: translateY(-3px);
+  background: rgba(abs.$color-white, 0.07);
 }
 
 .footer-socials ng-icon {
-    width: abs.rem(20);
-    height: abs.rem(20);
-    transition: transform .18s ease;
+  width: abs.rem(32);
+  height: abs.rem(32);
+  transition: transform 0.18s ease;
 }
 
 .footer-socials a:hover ng-icon {
-    transform: rotate(-7deg) scale(1.08);
+  transform: scale(1.06);
 }
 
 .footer-socials span {
-    position: relative;
-}
-
-.footer-socials span::after {
-    position: absolute;
-    right: 0;
-    bottom: abs.rem(-5);
-    left: 0;
-    height: 1px;
-    background: abs.$color-accent;
-    content: '';
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform .22s cubic-bezier(.2, .8, .2, 1);
-}
-
-.footer-socials a:hover span::after {
-    transform: scaleX(1);
-    transform-origin: left;
+  display: none;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 a:hover {
-    color: abs.$color-white;
+  color: abs.$color-accent-on-dark;
 }
 
 a:focus-visible {
-    outline: 2px solid abs.$color-accent;
-    outline-offset: 4px;
+  outline: 2px solid abs.$color-accent-on-dark;
+  outline-offset: 4px;
 }
 
+.footer-legal a {
+  position: relative;
+}
+.footer-legal a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: abs.rem(3);
+  height: abs.rem(2);
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.footer-legal a:hover::after,
+.footer-legal a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
 /* #region RESPONSIVE */
-@include abs.mobile {
-    .footer-inner {
-        grid-template-columns: 1fr;
-        justify-items: center;
-    }
+@include abs.tablet-lg {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
 
-    .footer-socials {
-        justify-content: center;
-    }
+  .footer-legal {
+    justify-content: center;
+  }
+  .footer-socials {
+    justify-content: center;
+  }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .footer-legal a::after,
+  .footer-socials a,
+  .footer-socials ng-icon {
+    transition: none;
+  }
+  .footer-socials a:hover,
+  .footer-socials a:focus-visible,
+  .footer-socials a:hover ng-icon {
+    transform: none;
+  }
+}
 /* #endregion */

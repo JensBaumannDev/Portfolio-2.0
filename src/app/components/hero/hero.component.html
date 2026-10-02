@@ -1,34 +1,111 @@
-<section class="hero" aria-labelledby="hero-title">
-  <div class="content-container hero-inner">
-    <div class="hero-copy">
-      <div class="hero-heading">
-        <p class="eyebrow">JENS BAUMANN</p>
-        <p class="hero-role">{{ 'portfolio.hero.role' | translate }}</p>
-        <h1 id="hero-title"><span [innerHTML]="'portfolio.hero.slogan' | translate"></span><span
-            class="title-dot">.</span></h1>
-        <p class="intro">{{ 'portfolio.hero.intro' | translate }}</p>
+<div class="hero">
+  <section
+    class="hero-main content-container"
+    aria-labelledby="hero-title"
+    [class.is-frontend-active]="activeSide() === 'frontend'"
+    [class.is-backend-active]="activeSide() === 'backend'"
+    (pointermove)="onHeroPointerMove($event)"
+    (pointerleave)="activeSide.set(null)"
+  >
+    <div class="hero-heading">
+      <h1 id="hero-title">Fullstack Developer</h1>
+      <p class="availability">{{ 'portfolio.hero.availability' | translate }}</p>
+    </div>
+    <div class="hero-stage">
+      <div class="hero-side frontend">
+        <h2>frontend</h2>
+        <p>{{ 'redesign.hero.leftText' | translate }}</p>
       </div>
-      <div class="hero-details">
-        <p class="availability">{{ 'portfolio.hero.availability' | translate }}</p>
-        <div class="hero-actions">
-          <a class="button button-light" href="#contact">{{ 'portfolio.hero.talk' | translate }}</a>
-          <a class="button button-light" href="#projects">{{ 'portfolio.hero.work' | translate }}</a>
-          <a class="button button-light button-cv" [href]="cvUrl" download>{{ 'portfolio.hero.cv' |
-            translate }} <ng-icon name="lucideDownload" aria-hidden="true"></ng-icon></a>
+      <div class="hero-visual">
+        <img
+          ngSrc="/img/hero/profile.webp"
+          fill
+          priority
+          sizes="(max-width: 768px) 80vw, 45vw"
+          [alt]="'hero.profile_alt' | translate"
+        />
+        <div class="hero-image-actions">
+          <a class="hero-action primary-action" href="#contact">{{
+            'portfolio.nav.contact' | translate
+          }}</a>
+          <a
+            class="hero-action"
+            [href]="cvUrl()"
+            download
+            [attr.aria-label]="'portfolio.about.cv' | translate"
+            >{{ 'portfolio.hero.cv' | translate }}</a
+          >
         </div>
-        <p class="intro-mobile">{{ 'portfolio.hero.intro' | translate }}</p>
+      </div>
+      <div class="hero-side backend">
+        <h2>backend</h2>
+        <p>{{ 'redesign.hero.rightText' | translate }}</p>
       </div>
     </div>
-    <div class="hero-visual">
-      <img ngSrc="/img/about/jens-baumann-about-cutout.webp" fill priority sizes="(max-width: 768px) 100vw, 45vw" [alt]="'hero.profile_alt' | translate" />
-    </div>
-    <div class="hero-footer">
-      <nav class="hero-socials" [attr.aria-label]="'a11y.social_links' | translate">
-        <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener"><ng-icon name="faBrandGithub"
-            aria-hidden="true"></ng-icon><span>GitHub</span></a>
-        <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener"><ng-icon
-            name="faBrandLinkedinIn" aria-hidden="true"></ng-icon><span>LinkedIn</span></a>
-      </nav>
+  </section>
+  <div class="hero-mobile-expertise">
+    <div class="content-container">
+      <div class="hero-mobile-actions">
+        <a class="hero-action primary-action" href="#contact">{{
+          'portfolio.nav.contact' | translate
+        }}</a>
+        <a
+          class="hero-action"
+          [href]="cvUrl()"
+          download
+          [attr.aria-label]="'portfolio.about.cv' | translate"
+          >{{ 'portfolio.hero.cv' | translate }}</a
+        >
+      </div>
+      <button
+        class="expertise-toggle"
+        type="button"
+        [attr.aria-expanded]="frontendOpen()"
+        aria-controls="hero-frontend-description"
+        (click)="frontendOpen.set(!frontendOpen())"
+      >
+        frontend<span
+          class="disclosure-chevron"
+          [class.is-open]="frontendOpen()"
+          aria-hidden="true"
+        ></span>
+      </button>
+      <div
+        id="hero-frontend-description"
+        class="expertise-panel"
+        [class.is-open]="frontendOpen()"
+        [attr.inert]="frontendOpen() ? null : ''"
+        [attr.aria-hidden]="!frontendOpen()"
+      >
+        <div class="expertise-panel-inner">
+          <p>{{ 'redesign.hero.leftText' | translate }}</p>
+        </div>
+      </div>
+      <button
+        class="expertise-toggle"
+        type="button"
+        [attr.aria-expanded]="backendOpen()"
+        aria-controls="hero-backend-description"
+        (click)="backendOpen.set(!backendOpen())"
+      >
+        backend<span
+          class="disclosure-chevron"
+          [class.is-open]="backendOpen()"
+          aria-hidden="true"
+        ></span>
+      </button>
+      <div
+        id="hero-backend-description"
+        class="expertise-panel"
+        [class.is-open]="backendOpen()"
+        [attr.inert]="backendOpen() ? null : ''"
+        [attr.aria-hidden]="!backendOpen()"
+      >
+        <div class="expertise-panel-inner">
+          <p>{{ 'redesign.hero.rightText' | translate }}</p>
+        </div>
+      </div>
     </div>
   </div>
-</section>
+  <app-projects [spotlight]="true" />
+</div>

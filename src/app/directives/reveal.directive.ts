@@ -1,14 +1,24 @@
-import { AfterViewInit, DestroyRef, Directive, ElementRef, inject, signal } from '@angular/core';
+import {
+  AfterViewInit,
+  DestroyRef,
+  Directive,
+  ElementRef,
+  inject,
+  input,
+  signal,
+} from '@angular/core';
 
 @Directive({
   selector: '[appReveal]',
   host: {
-    'class': 'reveal-item',
+    class: 'reveal-item',
     '[class.is-revealed]': 'visible()',
+    '[style.--reveal-delay]': 'revealDelay() + "ms"',
     '(focusin)': 'reveal()',
   },
 })
 export class RevealDirective implements AfterViewInit {
+  readonly revealDelay = input(0);
   protected readonly visible = signal(false);
   private readonly element = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly destroyRef = inject(DestroyRef);
@@ -19,14 +29,21 @@ export class RevealDirective implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (typeof window === 'undefined' || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (
+      typeof window === 'undefined' ||
+      !('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
       this.reveal();
       return;
     }
 
-    this.observer = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) this.reveal();
-    }, { threshold: 0.08 });
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) this.reveal();
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -24px 0px' },
+    );
     this.observer.observe(this.element.nativeElement);
   }
 
