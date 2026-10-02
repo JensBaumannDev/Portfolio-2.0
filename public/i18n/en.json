@@ -29,7 +29,12 @@
       "about": "About",
       "contact": "Contact",
       "language": "Language",
-      "theme": { "label": "Appearance", "system": "System", "light": "Light", "dark": "Dark" }
+      "theme": {
+        "label": "Appearance",
+        "system": "System",
+        "light": "Light",
+        "dark": "Dark"
+      }
     },
     "hero": {
       "role": "FULLSTACK DEVELOPER",
@@ -58,14 +63,6 @@
         "frontend": "Frontend",
         "backend": "Backend"
       },
-      "roles": {
-        "coderr": "Solo project · Backend developed independently (frontend: Developer Akademie)",
-        "kanmind": "Solo project · Backend developed independently (frontend: Developer Akademie)",
-        "dabubble": "Team project (2 people) · My role: architecture, code quality, chat and thread logic, and notifications",
-        "join": "Team project (4 people) · My role: Summary, Board and drag and drop; architecture and code quality",
-        "el-pollo-loco": "Solo project · Design and implementation",
-        "pokedex": "Solo project · Design and implementation"
-      },
       "dabubble": {
         "type": "Real-time chat application",
         "description": "A Slack-style team chat with channels, direct messages and real-time threads.",
@@ -74,7 +71,8 @@
           "authentication": "Authentication",
           "updates": "Real-time updates",
           "responsive": "Responsive design"
-        }
+        },
+        "summary": "DABubble brings teams together in channels, direct messages and threads. Messages appear in real time so conversations can keep moving. I built the entire chat interface, including authentication, profiles and search."
       },
       "el-pollo-loco": {
         "type": "Jump-and-run game",
@@ -84,7 +82,8 @@
           "oop": "Object-oriented programming",
           "game_loop": "Custom game loop",
           "collision": "Collision detection"
-        }
+        },
+        "summary": "In El Pollo Loco, the main character collects coins and salsa bottles to defeat the final boss. I developed the entire platform game in JavaScript. My work includes the game logic, collision detection and sound."
       },
       "coderr": {
         "type": "Marketplace REST API",
@@ -94,7 +93,8 @@
           "authentication": "Token authentication",
           "crud": "CRUD API",
           "database": "Database models"
-        }
+        },
+        "summary": "Coderr connects digital service providers with their customers. My backend manages profiles, offers, orders and reviews and makes the data available through a REST API. The frontend was provided by Developer Akademie."
       },
       "kanmind": {
         "type": "Project-management REST API",
@@ -104,7 +104,8 @@
           "authentication": "Token authentication",
           "crud": "CRUD API",
           "database": "Database models"
-        }
+        },
+        "summary": "KanMind helps teams organise tasks on Kanban boards and keep track of their work. I developed the backend for boards, tasks, assignments, comments and reviews. The frontend was provided by Developer Akademie."
       },
       "join": {
         "type": "Task Management Application",
@@ -115,7 +116,8 @@
           "updates": "Real-time Updates",
           "drag_drop": "Drag & Drop",
           "responsive": "Responsive Design"
-        }
+        },
+        "summary": "Join lets teams create, assign and organise tasks on a Kanban board. We developed the project as a team of four. I built the overview dashboard, the board’s drag-and-drop logic and the legal pages."
       },
       "pokedex": {
         "type": "Pokémon Encyclopedia",
@@ -125,7 +127,8 @@
           "api": "API Integration",
           "search": "Search",
           "responsive": "Responsive Design"
-        }
+        },
+        "summary": "The Pokédex loads Pokémon and their information directly from the PokeAPI. Search and filters help users find Pokémon and take a closer look at their stats. I built the API integration and the search and filtering logic."
       },
       "django-api": {
         "type": "Backend API",
@@ -157,10 +160,18 @@
       "more-projects": {
         "type": "More Work",
         "description": "More projects and experiments are coming soon.",
-        "features": { "clean_code": "Clean Code", "learning": "Learning by Building" }
+        "features": {
+          "clean_code": "Clean Code",
+          "learning": "Learning by Building"
+        }
+      },
+      "collaboration": {
+        "solo": "Solo project",
+        "group": "Group project · {{count}} people"
       }
     },
     "detail": {
+      "summary": "Summary",
       "all_projects": "All projects",
       "live_demo": "Live Demo",
       "technologies": "Technologies",
@@ -177,10 +188,22 @@
       "cv": "Download résumé",
       "learning": "Always<br />learning.",
       "principles": {
-        "musician": { "title": "Musician", "text": "Music is my creative balance" },
-        "gamer": { "title": "Gamer", "text": "Strategy, focus & teamwork" },
-        "family": { "title": "Family", "text": "Husband & father" },
-        "dog": { "title": "Dog Owner", "text": "Balu naturally belongs here" }
+        "musician": {
+          "title": "Musician",
+          "text": "Music is my creative balance"
+        },
+        "gamer": {
+          "title": "Gamer",
+          "text": "Strategy, focus & teamwork"
+        },
+        "family": {
+          "title": "Family",
+          "text": "Husband & father"
+        },
+        "dog": {
+          "title": "Dog Owner",
+          "text": "Balu naturally belongs here"
+        }
       }
     },
     "skills": {
@@ -201,7 +224,10 @@
       "message": "Send a message",
       "aside": "Good<br />Code.<br />Better<br />Days."
     },
-    "footer": { "legal": "Legal Notice", "privacy": "Privacy Policy" }
+    "footer": {
+      "legal": "Legal Notice",
+      "privacy": "Privacy Policy"
+    }
   },
   "seo": {
     "home_title": "Jens Baumann — Fullstack Developer",
@@ -462,9 +488,9 @@
   "redesign": {
     "hero": {
       "leftLabel": "What you see",
-      "leftText": "I build interfaces where you don't have to stop and wonder what to do next.",
+      "leftText": "With Angular and TypeScript, I create interfaces that feel right on every screen, from smartphones to desktops.",
       "rightLabel": "What makes it work",
-      "rightText": "I keep data and processes organised so I can still understand my code weeks later.",
+      "rightText": "With Python and Django, I implement backends that manage data and workflows, from signing in to placing an order.",
       "note": "Hi, I’m Jens."
     },
     "spotlight": {
@@ -474,7 +500,7 @@
       "all": "All projects"
     },
     "projects": {
-      "title": "My portfolio"
+      "title": "My Projects"
     },
     "about": {
       "title": "The person behind the code"

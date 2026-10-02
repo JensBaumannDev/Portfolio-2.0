@@ -18,6 +18,8 @@ import { LanguageService, AppLanguage } from '../../services/language.service';
   imports: [TranslatePipe, NgIcon, RouterLink],
   providers: [provideIcons({ faBrandGithub, faBrandLinkedinIn, faBrandYoutube, lucideGlobe })],
   host: {
+    '(document:pointerdown)': 'pointerInteraction.set(true)',
+    '(document:keydown)': 'pointerInteraction.set(false)',
     '(document:keydown.escape)': 'closeNavigationMenu()',
     '(document:click)': 'onDocumentClick($event)',
     '(window:scroll)': 'updateActiveSection()',
@@ -35,6 +37,7 @@ export class Navigation {
   protected readonly menuClosing = signal(false);
   protected readonly menuAnimatedOpen = signal(false);
   protected readonly activeSection = signal<string | null>(null);
+  protected readonly pointerInteraction = signal(false);
 
   constructor() {
     afterNextRender(() => this.updateActiveSection());

@@ -30,6 +30,8 @@ h2 span {
   gap: abs.rem(26);
 }
 .project-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
   padding: abs.rem(10);
   border: 1px solid var(--color-border);
   border-radius: abs.$radius-lg;
@@ -47,8 +49,11 @@ h2 span {
   display: block;
   position: relative;
   aspect-ratio: 1.55;
-  background: abs.$color-paper;
+  background: abs.$color-hero-frontend;
   border-radius: abs.$radius-md;
+}
+.project-card.is-backend .project-visual {
+  background: abs.$color-hero-backend;
 }
 .project-visual img {
   object-fit: contain;
@@ -56,11 +61,15 @@ h2 span {
 }
 
 .project-copy {
+  @include abs.flex(column, nowrap, flex-start, stretch);
   padding: abs.rem(20) abs.rem(12) abs.rem(14);
+}
+.projects:not(.spotlight) .project-footer {
+  margin-top: auto;
 }
 .project-category {
   @include abs.typeMeta;
-  margin: 0 0 abs.rem(10);
+  margin: abs.rem(8) 0 0;
   color: abs.$color-accent;
 }
 h3 {
@@ -72,11 +81,9 @@ h3 {
   margin: abs.rem(12) 0;
   color: var(--color-text-secondary);
 }
-.technologies {
+.project-collaboration {
   @include abs.typeMeta;
-  margin: abs.rem(20) 0 0;
-  padding-top: abs.rem(16);
-  border-top: 1px solid var(--color-border);
+  margin: abs.rem(8) 0 0;
   color: var(--color-text-secondary);
 }
 a {
@@ -221,7 +228,7 @@ a:hover {
   background: abs.$color-hero-frontend;
   color: abs.$color-ink;
 }
-.project-card:has(.backend-badge) .technology-chips li {
+.project-card.is-backend .technology-chips li {
   background: abs.$color-hero-backend;
 }
 .learn-more {

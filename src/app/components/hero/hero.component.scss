@@ -33,14 +33,23 @@ h1 {
 .hero-stage {
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-rows: minmax(0, 1fr) auto auto minmax(0, 1fr);
   align-items: center;
   min-height: 0;
   padding-top: abs.rem(16);
 }
 .hero-side {
   position: relative;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: 1 / -1;
+  align-self: stretch;
+}
+.frontend {
+  grid-column: 1;
 }
 .hero-side h2 {
+  grid-row: 2;
   margin: 0 0 abs.rem(16);
   font-size: clamp(#{abs.rem(36)}, 4.9vw, #{abs.rem(70)});
   font-weight: abs.$font-weight-bold;
@@ -48,15 +57,19 @@ h1 {
 }
 .hero-side p {
   @include abs.typeBody;
+  grid-row: 3;
   max-width: abs.rem(280);
   margin: 0;
   color: var(--color-text-secondary);
 }
 .backend {
+  grid-column: 3;
   padding-left: abs.rem(20);
 }
 .hero-visual {
   position: relative;
+  grid-column: 2;
+  grid-row: 1 / -1;
   height: 100%;
   min-height: 0;
 }
@@ -70,13 +83,14 @@ h1 {
   width: fit-content;
   margin: abs.rem(12) auto 0;
   padding: abs.rem(6) abs.rem(16);
-  border: 1px solid rgba(abs.$color-accent, 0.2);
+  border: 1px solid abs.$color-line;
   border-radius: abs.rem(40);
-  background: abs.$color-hero-frontend;
+  background: abs.$color-white;
   font-size: abs.$font-size-body;
   text-align: center;
   font-weight: abs.$font-weight-bold;
-  color: abs.$color-accent;
+  color: abs.$color-ink;
+  transition: background-color 0.3s ease;
 }
 .hero-action {
   @include abs.actionButton;
@@ -85,16 +99,26 @@ h1 {
   margin: 0;
   padding: abs.rem(10) abs.rem(18);
   background-color: abs.$color-white;
+  background-image: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 .primary-action {
   background-color: abs.$color-accent;
   color: abs.$color-white;
   border-color: abs.$color-accent;
 }
-.primary-action:hover {
-  background-image: none;
-  background-color: abs.$color-ink;
+.hero-action:hover:not(:disabled) {
+  background-color: abs.$color-accent;
+  border-color: abs.$color-accent;
+  color: abs.$color-white;
+}
+.hero-action.primary-action:hover:not(:disabled) {
+  background-color: abs.$color-white;
   border-color: abs.$color-ink;
+  color: abs.$color-ink;
 }
 .hero-image-actions {
   @include abs.flex(row, wrap, center, center);
@@ -111,6 +135,12 @@ h1 {
 }
 /* #region RESPONSIVE */
 @media (hover: hover) and (pointer: fine) and (min-width: #{abs.$breakpoint-tablet + 1px}) {
+  .hero-main.is-frontend-active .availability {
+    background-color: abs.$color-hero-frontend;
+  }
+  .hero-main.is-backend-active .availability {
+    background-color: abs.$color-hero-backend;
+  }
   .hero-main::before,
   .hero-main::after {
     content: '';
@@ -278,6 +308,7 @@ h1 {
   }
   .hero-stage {
     grid-template-columns: 1fr 1.35fr 1fr;
+    grid-template-rows: auto;
     gap: 0;
     min-height: 0;
     padding-top: 0;
@@ -303,6 +334,8 @@ h1 {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .hero-action,
+  .availability,
   .hero-main::before,
   .hero-main::after,
   .hero-side h2,

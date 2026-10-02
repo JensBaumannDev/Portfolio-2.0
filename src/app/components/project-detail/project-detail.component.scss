@@ -49,33 +49,54 @@ h1 {
   margin: 0;
   color: var(--color-text-secondary);
 }
+.project-collaboration {
+  @include abs.typeMeta;
+  margin: abs.rem(8) 0 0;
+  color: var(--color-text-secondary);
+}
+.detail-summary {
+  @include abs.flex(column, nowrap, flex-start, stretch);
+  text-align: left;
+}
 .detail-summary > p {
   @include abs.typeBody;
-  margin: 0;
+  margin: abs.rem(12) 0 0;
 }
 .actions {
-  @include abs.flex(row, wrap, flex-start, center);
+  @include abs.flex(row, wrap, center, center);
   gap: abs.rem(12);
   margin-top: abs.rem(16);
 }
 .actions a {
   @include abs.actionButton;
+  box-sizing: border-box;
+  width: abs.rem(160);
   min-height: abs.rem(48);
-}
-.actions .primary-action {
+  line-height: 1.5;
   background: abs.$color-accent;
   border-color: abs.$color-accent;
   color: abs.$color-white;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
-.actions .primary-action:hover {
-  background: abs.$color-ink;
-  border-color: abs.$color-ink;
+.actions a:hover:not(:disabled) {
+  background: abs.$color-hero-frontend;
+  border-color: abs.$color-accent;
+  color: abs.$color-ink;
+}
+.detail-visual.is-backend .actions a:hover:not(:disabled) {
+  background: abs.$color-hero-backend;
 }
 .detail-overview {
   display: contents;
 }
 .detail-visual {
   display: grid;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
   min-height: abs.rem(240);
   grid-column: 1;
   grid-row: 2;
@@ -88,6 +109,14 @@ h1 {
 .detail-visual.is-backend {
   background: abs.$color-hero-backend;
 }
+.detail-preview {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  width: 100%;
+  aspect-ratio: 1.4;
+  max-height: 100%;
+  min-height: 0;
+}
 .detail-visual-media {
   position: relative;
   min-width: 0;
@@ -95,6 +124,7 @@ h1 {
 }
 .detail-visual img {
   object-fit: contain;
+  object-position: center bottom;
 }
 .detail-info {
   display: grid;
@@ -165,6 +195,11 @@ h2 {
   color: var(--color-text-secondary);
 }
 /* #region RESPONSIVE */
+@media (prefers-reduced-motion: reduce) {
+  .actions a {
+    transition: none;
+  }
+}
 @media (min-width: #{abs.$breakpoint-tablet + 1px}) and (max-height: #{abs.rem(1050)}) {
   .detail-heading {
     position: relative;
@@ -188,7 +223,6 @@ h2 {
     gap: abs.rem(16);
   }
   .detail-info,
-  .detail-overview,
   .detail-copy {
     gap: abs.rem(16);
   }
@@ -263,8 +297,6 @@ h2 {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto auto auto;
   }
-  .detail-header,
-  .detail-overview,
   .detail-copy {
     grid-template-columns: minmax(0, 1fr);
     gap: abs.rem(24);
@@ -276,12 +308,16 @@ h2 {
     grid-column: 1;
     grid-row: 2;
     min-height: 0;
-    height: clamp(#{abs.rem(190)}, 55vw, #{abs.rem(360)});
+    height: calc(clamp(#{abs.rem(190)}, 55vw, #{abs.rem(360)}) + #{abs.rem(64)});
     padding: abs.rem(8);
   }
   .actions a {
     min-width: 0;
     flex: 1 1 0;
+  }
+  .detail-preview {
+    height: 100%;
+    aspect-ratio: auto;
   }
   .detail-info {
     grid-column: 1;

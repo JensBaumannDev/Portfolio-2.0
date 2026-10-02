@@ -11,15 +11,8 @@
     } @else {
       <header class="projects-head">
         <div>
-          <p class="label">
-            {{
-              (spotlight() ? 'redesign.spotlight.label' : 'portfolio.projects.eyebrow') | translate
-            }}
-          </p>
-          <h2 [id]="spotlight() ? 'spotlight-title' : 'projects-title'">
-            {{ (spotlight() ? 'redesign.spotlight.title' : 'redesign.projects.title') | translate
-            }}<span>.</span>
-          </h2>
+          <p class="label">{{ 'portfolio.projects.eyebrow' | translate }}</p>
+          <h2 id="projects-title">{{ 'redesign.projects.title' | translate }}<span>.</span></h2>
         </div>
         <div
           class="project-filters"
@@ -42,7 +35,12 @@
     }
     <div class="project-grid">
       @for (project of filteredProjects(); track project.slug; let index = $index) {
-        <article class="project-card" appReveal [revealDelay]="(index % 3) * 140">
+        <article
+          class="project-card"
+          [class.is-backend]="project.category === 'backend'"
+          appReveal
+          [revealDelay]="(index % 3) * 140"
+        >
           <a
             class="project-visual"
             [routerLink]="['/projects', project.slug]"
@@ -57,14 +55,6 @@
             />
           </a>
           <div class="project-copy">
-            <p class="project-category" [class.spotlight-type]="spotlight()">
-              {{
-                (spotlight()
-                  ? 'portfolio.projects.' + project.slug + '.type'
-                  : 'portfolio.projects.filters.' + project.category
-                ) | translate
-              }}
-            </p>
             <div class="project-title-row">
               <h3>
                 <a [routerLink]="['/projects', project.slug]">{{ project.name }}</a>
@@ -77,16 +67,32 @@
                 >
               }
             </div>
+            <p class="project-collaboration">
+              {{
+                (project.teamSize > 1
+                  ? 'portfolio.projects.collaboration.group'
+                  : 'portfolio.projects.collaboration.solo'
+                ) | translate: { count: project.teamSize }
+              }}
+            </p>
+            <p class="project-category">
+              {{
+                (spotlight()
+                  ? 'portfolio.projects.' + project.slug + '.type'
+                  : 'portfolio.projects.filters.' + project.category
+                ) | translate
+              }}
+            </p>
             <p class="project-description">
               {{ 'portfolio.projects.' + project.slug + '.description' | translate }}
             </p>
-            @if (spotlight()) {
-              <div class="project-footer">
-                <ul class="technology-chips" [attr.aria-label]="'a11y.technologies' | translate">
-                  @for (technology of project.technologies; track technology) {
-                    <li>{{ technology }}</li>
-                  }
-                </ul>
+            <div class="project-footer">
+              <ul class="technology-chips" [attr.aria-label]="'a11y.technologies' | translate">
+                @for (technology of project.technologies; track technology) {
+                  <li>{{ technology }}</li>
+                }
+              </ul>
+              @if (spotlight()) {
                 <a
                   class="learn-more"
                   [routerLink]="['/projects', project.slug]"
@@ -95,10 +101,8 @@
                   "
                   >{{ 'redesign.spotlight.learn_more' | translate }}</a
                 >
-              </div>
-            } @else {
-              <p class="technologies">{{ project.technologies.join(' · ') }}</p>
-            }
+              }
+            </div>
           </div>
         </article>
       }

@@ -75,6 +75,7 @@
       </div>
       <button
         class="menu-trigger"
+        [class.pointer-focus]="pointerInteraction()"
         type="button"
         [attr.aria-label]="'nav.menu_open' | translate"
         [attr.aria-controls]="navigationMenuOpen() ? 'mobile-navigation' : null"
@@ -98,6 +99,7 @@
         >
         <button
           class="menu-trigger"
+          [class.pointer-focus]="pointerInteraction()"
           [class.is-open]="menuAnimatedOpen()"
           type="button"
           [attr.aria-label]="'nav.menu_close' | translate"
