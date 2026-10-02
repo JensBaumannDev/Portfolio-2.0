@@ -1,95 +1,203 @@
-<header class="navigation" [class.is-scrolling]="isScrolling()" [class.has-scrolled]="hasScrolled()">
-  <nav class="content-container navigation-inner" [class.menu-open]="navigationMenuOpen()"
-    [attr.aria-label]="'a11y.primary_navigation' | translate">
-    <a class="brand" href="/#home" [attr.aria-label]="'JB. – Jens Baumann – ' + ('portfolio.nav.home' | translate)"
-      (click)="scrollToSection($event, 'home')">JB<span class="brand-dot">.</span></a>
-    <button class="menu-trigger" type="button" [attr.aria-label]="'a11y.menu' | translate" aria-controls="mobile-navigation"
-      [attr.aria-expanded]="navigationMenuOpen()" (click)="toggleNavigationMenu()">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="links"><a href="/#home" (click)="scrollToSection($event, 'home')">{{ 'portfolio.nav.home' | translate
-        }}</a><a href="/#projects" (click)="scrollToSection($event, 'projects')">{{
-        'portfolio.nav.projects' | translate }}</a><a href="/#about" (click)="scrollToSection($event, 'about')">{{
-        'portfolio.nav.about' | translate }}</a><a href="/#skills" (click)="scrollToSection($event, 'skills')">{{
-        'portfolio.nav.skills' | translate }}</a><a href="/#contact" (click)="scrollToSection($event, 'contact')">{{
-        'portfolio.nav.contact' |
-        translate }}</a></div>
-    <div class="theme-selector">
-      <button class="theme-trigger" type="button" [attr.aria-expanded]="themeMenuOpen()"
-        [attr.aria-label]="('portfolio.nav.theme.label' | translate) + ': ' + ('portfolio.nav.theme.' + theme.mode() | translate)"
-        (click)="toggleThemeMenu()">
-        <img ngSrc="/img/icons/theme.svg" width="16" height="16" alt="" aria-hidden="true" />
-        <span>{{ 'portfolio.nav.theme.' + theme.mode() | translate }}</span>
-      </button>
-      @if (themeMenuOpen()) {
-      <div class="theme-menu" role="group" [attr.aria-label]="'portfolio.nav.theme.label' | translate">
-        <button type="button" [attr.aria-pressed]="theme.mode() === 'system'"
-          [class.active]="theme.mode() === 'system'" (click)="changeTheme('system')">{{ 'portfolio.nav.theme.system' |
-          translate }}</button>
-        <button type="button" [attr.aria-pressed]="theme.mode() === 'light'"
-          [class.active]="theme.mode() === 'light'" (click)="changeTheme('light')">{{ 'portfolio.nav.theme.light' |
-          translate }}</button>
-        <button type="button" [attr.aria-pressed]="theme.mode() === 'dark'"
-          [class.active]="theme.mode() === 'dark'" (click)="changeTheme('dark')">{{ 'portfolio.nav.theme.dark' |
-          translate }}</button>
-      </div>
-      }
+<header class="navigation">
+  <nav
+    class="content-container navigation-inner"
+    [attr.aria-label]="'a11y.primary_navigation' | translate"
+  >
+    <a class="brand" href="/#home" (click)="scrollToSection($event, 'home')"
+      >Jens Baumann<span>.</span></a
+    >
+    <div class="links">
+      <a
+        href="/#skills"
+        [class.active]="activeSection() === 'skills'"
+        [attr.aria-current]="activeSection() === 'skills' ? 'location' : null"
+        (click)="scrollToSection($event, 'skills')"
+        >{{ 'portfolio.nav.skills' | translate }}</a
+      >
+      <a
+        href="/#projects"
+        [class.active]="activeSection() === 'projects'"
+        [attr.aria-current]="activeSection() === 'projects' ? 'location' : null"
+        (click)="scrollToSection($event, 'projects')"
+        >{{ 'portfolio.nav.projects' | translate }}</a
+      >
+      <a
+        href="/#about"
+        [class.active]="activeSection() === 'about'"
+        [attr.aria-current]="activeSection() === 'about' ? 'location' : null"
+        (click)="scrollToSection($event, 'about')"
+        >{{ 'portfolio.nav.about' | translate }}</a
+      >
+      <a
+        href="/#contact"
+        [class.active]="activeSection() === 'contact'"
+        [attr.aria-current]="activeSection() === 'contact' ? 'location' : null"
+        (click)="scrollToSection($event, 'contact')"
+        >{{ 'portfolio.nav.contact' | translate }}</a
+      >
     </div>
-    <div class="languages">
-      <button class="language-trigger" type="button" [attr.aria-expanded]="languageMenuOpen()"
-        [attr.aria-label]="('portfolio.nav.language' | translate) + ': ' + (currentLanguage() === 'de' ? 'Deutsch' : 'English')" (click)="toggleLanguageMenu()">
-        <span>{{ currentLanguage() === 'de' ? 'Deutsch' : 'English' }}</span>
-        <img ngSrc="/img/icons/globe.svg" width="16" height="16" alt="" aria-hidden="true" />
-      </button>
-      @if (languageMenuOpen()) {
-      <div class="language-menu" role="group" [attr.aria-label]="'portfolio.nav.language' | translate">
-        <button type="button" [attr.aria-pressed]="currentLanguage() === 'de'" [class.active]="currentLanguage() === 'de'"
-          (click)="changeLanguage('de')">Deutsch</button>
-        <button type="button" [attr.aria-pressed]="currentLanguage() === 'en'" [class.active]="currentLanguage() === 'en'"
-          (click)="changeLanguage('en')">English</button>
+    <div class="navigation-controls">
+      <div class="nav-socials" role="group" [attr.aria-label]="'a11y.social_links' | translate">
+        <a
+          href="https://github.com/JensBaumannDev"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          ><ng-icon name="faBrandGithub" aria-hidden="true"
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/jens-baumann-7a6866315/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          ><ng-icon name="faBrandLinkedinIn" aria-hidden="true"
+        /></a>
+        <a
+          href="https://www.youtube.com/@jensbaumann_music"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+          ><ng-icon name="faBrandYoutube" aria-hidden="true"
+        /></a>
       </div>
-      }
+      <div class="languages" role="group" [attr.aria-label]="'portfolio.nav.language' | translate">
+        <button
+          class="language-toggle"
+          type="button"
+          [attr.aria-label]="
+            currentLanguage() === 'de' ? 'Sprache zu Englisch wechseln' : 'Switch to German'
+          "
+          (click)="changeLanguage(currentLanguage() === 'de' ? 'en' : 'de')"
+        >
+          <ng-icon name="lucideGlobe" aria-hidden="true" />
+          <span aria-hidden="true">{{ currentLanguage() === 'de' ? 'DE' : 'EN' }}</span>
+        </button>
+      </div>
+      <button
+        class="menu-trigger"
+        type="button"
+        [attr.aria-label]="'nav.menu_open' | translate"
+        [attr.aria-controls]="navigationMenuOpen() ? 'mobile-navigation' : null"
+        [attr.aria-expanded]="navigationMenuOpen()"
+        (click)="toggleNavigationMenu()"
+      >
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
-  <div class="mobile-menu" id="mobile-navigation" [class.is-open]="navigationMenuOpen()"
-    [attr.aria-hidden]="!navigationMenuOpen()">
-    <nav class="mobile-links" [attr.aria-label]="'a11y.mobile_navigation' | translate">
-      <a href="/#home" (click)="scrollToSection($event, 'home')">{{ 'portfolio.nav.home' | translate }}</a>
-      <a href="/#projects" (click)="scrollToSection($event, 'projects')">{{ 'portfolio.nav.projects' | translate }}</a>
-      <a href="/#about" (click)="scrollToSection($event, 'about')">{{ 'portfolio.nav.about' | translate }}</a>
-      <a href="/#skills" (click)="scrollToSection($event, 'skills')">{{ 'portfolio.nav.skills' | translate }}</a>
-      <a href="/#contact" (click)="scrollToSection($event, 'contact')">{{ 'portfolio.nav.contact' | translate }}</a>
-    </nav>
-    <div class="mobile-settings">
-      <label for="mobile-theme">{{ 'portfolio.nav.theme.label' | translate }}
-        <select id="mobile-theme" [value]="theme.mode()" (change)="changeMobileTheme($event)">
-          <option value="system">{{ 'portfolio.nav.theme.system' | translate }}</option>
-          <option value="light">{{ 'portfolio.nav.theme.light' | translate }}</option>
-          <option value="dark">{{ 'portfolio.nav.theme.dark' | translate }}</option>
-        </select>
-      </label>
-      <label for="mobile-language">{{ 'portfolio.nav.language' | translate }}
-        <select id="mobile-language" [value]="currentLanguage()" (change)="changeMobileLanguage($event)">
-          <option value="de">Deutsch</option>
-          <option value="en">English</option>
-        </select>
-      </label>
-    </div>
-    <div class="mobile-menu-footer">
-      <nav class="mobile-legal" [attr.aria-label]="'a11y.legal_navigation' | translate">
-        <a routerLink="/legal-notice" (click)="closeNavigationMenu()">{{ 'portfolio.footer.legal' | translate }}</a>
-        <a routerLink="/privacy-policy" (click)="closeNavigationMenu()">{{ 'portfolio.footer.privacy' | translate }}</a>
+  @if (navigationMenuOpen()) {
+    <dialog
+      class="mobile-dialog"
+      [class.is-closing]="menuClosing()"
+      [attr.aria-label]="'a11y.mobile_navigation' | translate"
+      (cancel)="$event.preventDefault(); closeNavigationMenu()"
+    >
+      <div class="content-container mobile-menu-header">
+        <a class="brand" href="/#home" (click)="scrollToSection($event, 'home')"
+          >Jens Baumann<span>.</span></a
+        >
+        <button
+          class="menu-trigger"
+          [class.is-open]="menuAnimatedOpen()"
+          type="button"
+          [attr.aria-label]="'nav.menu_close' | translate"
+          autofocus
+          aria-controls="mobile-navigation"
+          aria-expanded="true"
+          (click)="closeNavigationMenu()"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav
+        class="mobile-menu content-container"
+        [attr.inert]="menuClosing() ? '' : null"
+        id="mobile-navigation"
+        [attr.aria-label]="'a11y.mobile_navigation' | translate"
+      >
+        <a
+          href="/#skills"
+          [class.active]="activeSection() === 'skills'"
+          [attr.aria-current]="activeSection() === 'skills' ? 'location' : null"
+          (click)="scrollToSection($event, 'skills')"
+          >{{ 'portfolio.nav.skills' | translate }}</a
+        >
+        <a
+          href="/#projects"
+          [class.active]="activeSection() === 'projects'"
+          [attr.aria-current]="activeSection() === 'projects' ? 'location' : null"
+          (click)="scrollToSection($event, 'projects')"
+          >{{ 'portfolio.nav.projects' | translate }}</a
+        >
+        <a
+          href="/#about"
+          [class.active]="activeSection() === 'about'"
+          [attr.aria-current]="activeSection() === 'about' ? 'location' : null"
+          (click)="scrollToSection($event, 'about')"
+          >{{ 'portfolio.nav.about' | translate }}</a
+        >
+        <a
+          href="/#contact"
+          [class.active]="activeSection() === 'contact'"
+          [attr.aria-current]="activeSection() === 'contact' ? 'location' : null"
+          (click)="scrollToSection($event, 'contact')"
+          >{{ 'portfolio.nav.contact' | translate }}</a
+        >
+        <div class="mobile-menu-footer">
+          <div
+            class="languages mobile-languages"
+            role="group"
+            [attr.aria-label]="'portfolio.nav.language' | translate"
+          >
+            <button
+              class="language-toggle"
+              type="button"
+              [attr.aria-label]="
+                currentLanguage() === 'de' ? 'Sprache zu Englisch wechseln' : 'Switch to German'
+              "
+              (click)="changeLanguage(currentLanguage() === 'de' ? 'en' : 'de')"
+            >
+              <ng-icon name="lucideGlobe" aria-hidden="true" />
+              <span aria-hidden="true">{{ currentLanguage() === 'de' ? 'DE' : 'EN' }}</span>
+            </button>
+          </div>
+          <div
+            class="nav-socials mobile-socials"
+            role="group"
+            [attr.aria-label]="'a11y.social_links' | translate"
+          >
+            <a
+              href="https://github.com/JensBaumannDev"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              ><ng-icon name="faBrandGithub" aria-hidden="true"
+            /></a>
+            <a
+              href="https://www.linkedin.com/in/jens-baumann-7a6866315/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              ><ng-icon name="faBrandLinkedinIn" aria-hidden="true"
+            /></a>
+            <a
+              href="https://www.youtube.com/@jensbaumann_music"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              ><ng-icon name="faBrandYoutube" aria-hidden="true"
+            /></a>
+          </div>
+          <div class="mobile-legal">
+            <a routerLink="/legal-notice" (click)="closeNavigationMenu()">{{
+              'portfolio.footer.legal' | translate
+            }}</a>
+            <a routerLink="/privacy-policy" (click)="closeNavigationMenu()">{{
+              'portfolio.footer.privacy' | translate
+            }}</a>
+          </div>
+        </div>
       </nav>
-      <nav class="mobile-socials" [attr.aria-label]="'a11y.social_links' | translate">
-        <a href="https://github.com/JensBaumannDev" target="_blank" rel="noopener" aria-label="GitHub"><ng-icon
-            name="faBrandGithub" aria-hidden="true"></ng-icon><span>GitHub</span></a>
-        <a href="https://www.linkedin.com/in/jens-baumann-7a6866315/" target="_blank" rel="noopener"
-          aria-label="LinkedIn"><ng-icon name="faBrandLinkedinIn"
-            aria-hidden="true"></ng-icon><span>LinkedIn</span></a>
-        <a href="https://www.youtube.com/@jensbaumann_music" target="_blank" rel="noopener"
-          aria-label="YouTube"><ng-icon name="faBrandYoutube"
-            aria-hidden="true"></ng-icon><span>YouTube</span></a>
-      </nav>
-    </div>
-  </div>
+    </dialog>
+  }
 </header>
