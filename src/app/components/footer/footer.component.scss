@@ -12,7 +12,7 @@
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: abs.rem(28);
-  font-size: abs.rem(22);
+  font-size: abs.$font-size-meta;
 }
 
 nav {
@@ -24,7 +24,7 @@ nav {
   padding: abs.rem(8) 0;
   color: inherit;
   font-family: abs.$font-family-base;
-  font-size: abs.rem(22);
+  font-size: abs.$font-size-meta;
   font-weight: abs.$font-weight-medium;
 }
 
@@ -34,14 +34,14 @@ nav {
 
 .footer-socials {
   justify-content: flex-end;
-  gap: abs.rem(28);
+  gap: abs.rem(8);
 }
 
 .footer-socials a {
   @include abs.flex(row, nowrap, flex-start, center);
   gap: abs.rem(10);
   min-height: abs.rem(44);
-  width: abs.rem(44);
+  width: abs.rem(36);
   justify-content: center;
   font-weight: abs.$font-weight-medium;
   border-radius: abs.$radius-lg;
@@ -59,8 +59,8 @@ nav {
 }
 
 .footer-socials ng-icon {
-  width: abs.rem(32);
-  height: abs.rem(32);
+  width: abs.rem(20);
+  height: abs.rem(20);
   transition: transform 0.18s ease;
 }
 

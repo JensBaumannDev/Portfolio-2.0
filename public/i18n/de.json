@@ -29,7 +29,12 @@
       "about": "Über mich",
       "contact": "Kontakt",
       "language": "Sprache",
-      "theme": { "label": "Darstellung", "system": "System", "light": "Hell", "dark": "Dunkel" }
+      "theme": {
+        "label": "Darstellung",
+        "system": "System",
+        "light": "Hell",
+        "dark": "Dunkel"
+      }
     },
     "hero": {
       "role": "FULLSTACK DEVELOPER",
@@ -58,14 +63,6 @@
         "frontend": "Frontend",
         "backend": "Backend"
       },
-      "roles": {
-        "coderr": "Einzelprojekt · Backend eigenständig entwickelt (Frontend: Developer Akademie)",
-        "kanmind": "Einzelprojekt · Backend eigenständig entwickelt (Frontend: Developer Akademie)",
-        "dabubble": "Teamprojekt (2 Personen) · Meine Rolle: Architektur, Codequalität, Chat- und Thread-Logik sowie Benachrichtigungen",
-        "join": "Teamprojekt (4 Personen) · Meine Rolle: Summary, Board und Drag & Drop; Architektur und Codequalität",
-        "el-pollo-loco": "Einzelprojekt · Konzeption und Umsetzung",
-        "pokedex": "Einzelprojekt · Konzeption und Umsetzung"
-      },
       "dabubble": {
         "type": "Echtzeit-Chat-Anwendung",
         "description": "Ein Slack-ähnlicher Team-Chat mit Channels, Direktnachrichten und Threads in Echtzeit.",
@@ -74,7 +71,8 @@
           "authentication": "Authentifizierung",
           "updates": "Echtzeit-Updates",
           "responsive": "Responsives Design"
-        }
+        },
+        "summary": "DABubble bringt Teams in Channels, Direktnachrichten und Threads zusammen. Nachrichten erscheinen in Echtzeit, damit Gespräche direkt weitergehen können. Ich habe das gesamte Chat-Interface sowie Anmeldung, Profile und Suche umgesetzt."
       },
       "el-pollo-loco": {
         "type": "Jump-and-run-Spiel",
@@ -84,7 +82,8 @@
           "oop": "Objektorientierte Programmierung",
           "game_loop": "Eigene Game-Loop",
           "collision": "Kollisionserkennung"
-        }
+        },
+        "summary": "In El Pollo Loco sammelt die Hauptfigur Münzen und Salsa-Flaschen, um am Ende den Boss-Gegner zu besiegen. Ich habe das Jump-and-run vollständig in JavaScript entwickelt. Dazu gehören die Spiellogik, Kollisionserkennung und Sound."
       },
       "coderr": {
         "type": "REST-API für einen Marktplatz",
@@ -94,7 +93,8 @@
           "authentication": "Token-Authentifizierung",
           "crud": "CRUD-API",
           "database": "Datenbankmodelle"
-        }
+        },
+        "summary": "Coderr verbindet Anbieter digitaler Dienstleistungen mit ihren Kunden. Mein Backend verwaltet Profile, Angebote, Bestellungen und Bewertungen und stellt die Daten über eine REST-API bereit. Das Frontend wurde von der Developer Akademie bereitgestellt."
       },
       "kanmind": {
         "type": "REST-API für Projektmanagement",
@@ -104,7 +104,8 @@
           "authentication": "Token-Authentifizierung",
           "crud": "CRUD-API",
           "database": "Datenbankmodelle"
-        }
+        },
+        "summary": "KanMind hilft Teams, Aufgaben auf Kanban-Boards zu organisieren und den Überblick zu behalten. Ich habe das Backend für Boards, Aufgaben, Zuweisungen, Kommentare und Reviews entwickelt. Das Frontend wurde von der Developer Akademie bereitgestellt."
       },
       "join": {
         "type": "Anwendung zur Aufgabenverwaltung",
@@ -115,13 +116,19 @@
           "updates": "Echtzeit-Updates",
           "drag_drop": "Drag & Drop",
           "responsive": "Responsives Design"
-        }
+        },
+        "summary": "Mit Join können Teams Aufgaben erstellen, zuweisen und auf einem Kanban-Board organisieren. Das Projekt entstand in einem Team aus vier Personen. Ich habe das Übersichts-Dashboard, die Drag-and-drop-Logik des Boards und die rechtlichen Pflichtseiten umgesetzt."
       },
       "pokedex": {
         "type": "Pokémon-Enzyklopädie",
         "description": "Eine übersichtliche Pokémon-Enzyklopädie mit API-Anbindung, Suche und detaillierten Informationen.",
         "quote": "„Die Daten kamen nicht immer so schnell wie die Oberfläche es brauchte. Deshalb musste ich lernen, API-Anfragen sinnvoll zu bündeln.“",
-        "features": { "api": "API-Anbindung", "search": "Suche", "responsive": "Responsive Design" }
+        "features": {
+          "api": "API-Anbindung",
+          "search": "Suche",
+          "responsive": "Responsive Design"
+        },
+        "summary": "Der Pokédex lädt Pokémon und ihre Informationen direkt aus der PokeAPI. Über Suche und Filter lassen sich die Pokémon finden und ihre Werte genauer ansehen. Ich habe die Datenanbindung und die Such- und Filterlogik umgesetzt."
       },
       "django-api": {
         "type": "Backend API",
@@ -153,10 +160,18 @@
       "more-projects": {
         "type": "Weitere Arbeiten",
         "description": "Weitere Projekte und Experimente folgen in Kürze.",
-        "features": { "clean_code": "Clean Code", "learning": "Lernen durch Praxis" }
+        "features": {
+          "clean_code": "Clean Code",
+          "learning": "Lernen durch Praxis"
+        }
+      },
+      "collaboration": {
+        "solo": "Soloprojekt",
+        "group": "Gruppenarbeit · {{count}} Personen"
       }
     },
     "detail": {
+      "summary": "Kurzbeschreibung",
       "all_projects": "Alle Projekte",
       "live_demo": "Live Demo",
       "technologies": "Technologien",
@@ -173,10 +188,22 @@
       "cv": "Lebenslauf herunterladen",
       "learning": "Immer<br />lernen.",
       "principles": {
-        "musician": { "title": "Musiker", "text": "Musik als kreativer Ausgleich" },
-        "gamer": { "title": "Gamer", "text": "Strategie, Fokus & Teamwork" },
-        "family": { "title": "Familie", "text": "Ehemann & Vater" },
-        "dog": { "title": "Hundebesitzer", "text": "Balu gehört natürlich dazu" }
+        "musician": {
+          "title": "Musiker",
+          "text": "Musik als kreativer Ausgleich"
+        },
+        "gamer": {
+          "title": "Gamer",
+          "text": "Strategie, Fokus & Teamwork"
+        },
+        "family": {
+          "title": "Familie",
+          "text": "Ehemann & Vater"
+        },
+        "dog": {
+          "title": "Hundebesitzer",
+          "text": "Balu gehört natürlich dazu"
+        }
       }
     },
     "skills": {
@@ -197,7 +224,10 @@
       "message": "Nachricht senden",
       "aside": "Guter<br />Code.<br />Bessere<br />Tage."
     },
-    "footer": { "legal": "Impressum", "privacy": "Datenschutz" }
+    "footer": {
+      "legal": "Impressum",
+      "privacy": "Datenschutz"
+    }
   },
   "seo": {
     "home_title": "Jens Baumann — Fullstack Developer",
@@ -458,9 +488,9 @@
   "redesign": {
     "hero": {
       "leftLabel": "Was man sieht",
-      "leftText": "Ich baue Oberflächen, bei denen man sich nicht erst fragen muss, wo es weitergeht.",
+      "leftText": "Mit Angular und TypeScript setze ich Oberflächen um, die sich auf jedem Bildschirm richtig anfühlen, vom Smartphone bis zum Desktop.",
       "rightLabel": "Was dahinter steckt",
-      "rightText": "Ich bringe Ordnung in Daten und Abläufe, damit ich meinen Code auch Wochen später noch verstehe.",
+      "rightText": "Mit Python und Django setze ich Backends um, die Daten verwalten und Abläufe steuern, von der Anmeldung bis zur Bestellung.",
       "note": "Moin, ich bin Jens."
     },
     "spotlight": {
@@ -470,7 +500,7 @@
       "all": "Alle Projekte"
     },
     "projects": {
-      "title": "Mein Portfolio"
+      "title": "Meine Projekte"
     },
     "about": {
       "title": "Der Mensch hinter dem Code"

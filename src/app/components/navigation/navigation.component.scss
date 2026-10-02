@@ -69,12 +69,21 @@ a:hover {
 }
 .menu-trigger {
   display: none;
+  appearance: none;
+  -webkit-appearance: none;
   background: transparent;
   border: 0;
+  box-shadow: none;
   width: abs.rem(44);
   height: abs.rem(44);
   padding: abs.rem(8);
   cursor: pointer;
+}
+.menu-trigger:focus:not(:focus-visible) {
+  outline: none;
+}
+.menu-trigger.pointer-focus:focus {
+  outline: none;
 }
 .menu-trigger span {
   display: block;
@@ -104,8 +113,8 @@ a:hover {
   margin: 0;
   padding: 0;
   border: 0;
-  background: abs.$color-nav-bg;
-  color: abs.$color-white;
+  background: abs.$color-white;
+  color: abs.$color-ink;
   overflow-y: auto;
 }
 .mobile-dialog[open] {
@@ -113,7 +122,7 @@ a:hover {
   grid-template-rows: var(--header-h) minmax(min-content, 1fr);
 }
 .mobile-dialog::backdrop {
-  background: abs.$color-nav-bg;
+  background: abs.$color-white;
 }
 .mobile-menu-header {
   @include abs.flex(row, nowrap, space-between, center);
@@ -126,7 +135,7 @@ a:hover {
   display: grid;
   grid-template-rows: repeat(4, minmax(min-content, 1fr)) auto;
   gap: 0;
-  background: rgba(abs.$color-white, 0.035);
+  background: abs.$color-white;
 }
 .mobile-menu.content-container {
   max-width: none;
@@ -136,7 +145,7 @@ a:hover {
   @include abs.flex(row, nowrap, center, center);
   min-height: abs.rem(64);
   padding: abs.rem(12) abs.rem(16);
-  border-bottom: 1px solid abs.$color-nav-border;
+  border-bottom: 1px solid abs.$color-line;
   font-size: abs.rem(28);
   line-height: abs.$line-height-heading;
   transition:
@@ -146,7 +155,7 @@ a:hover {
 .mobile-menu > a:hover,
 .mobile-menu > a:focus-visible,
 .mobile-menu > a.active {
-  background: rgba(abs.$color-accent-on-dark, 0.08);
+  background: abs.$color-hero-frontend;
 }
 .mobile-menu > a:focus-visible {
   outline-offset: -4px;
@@ -160,7 +169,7 @@ a:hover {
   min-height: clamp(#{abs.rem(200)}, 32dvh, #{abs.rem(320)});
   box-sizing: border-box;
   gap: 0;
-  background: abs.$color-nav-bg;
+  background: abs.$color-white;
 }
 .mobile-menu-footer > div {
   min-height: abs.rem(56);
@@ -270,6 +279,28 @@ button:focus-visible {
 }
 .mobile-menu > a::after {
   display: none;
+}
+.mobile-dialog a,
+.mobile-dialog .language-toggle {
+  color: abs.$color-ink;
+}
+.mobile-dialog .brand span,
+.mobile-dialog a:hover,
+.mobile-dialog a.active,
+.mobile-dialog .language-toggle:hover {
+  color: abs.$color-accent;
+}
+.mobile-dialog .menu-trigger span {
+  background: abs.$color-ink;
+}
+.mobile-dialog a:focus-visible,
+.mobile-dialog button:focus-visible {
+  outline-color: abs.$color-accent;
+}
+.mobile-dialog .nav-socials a:hover,
+.mobile-dialog .nav-socials a:focus-visible {
+  background: abs.$color-hero-frontend;
+  color: abs.$color-accent;
 }
 /* #region RESPONSIVE */
 @media (prefers-reduced-motion: no-preference) {

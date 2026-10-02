@@ -7,28 +7,32 @@
         }}</a>
         <h1 id="project-title">{{ project().name }}</h1>
         <p class="subtitle">{{ 'portfolio.projects.' + project().slug + '.type' | translate }}</p>
+        <p class="project-collaboration">
+          {{
+            (project().teamSize > 1
+              ? 'portfolio.projects.collaboration.group'
+              : 'portfolio.projects.collaboration.solo'
+            ) | translate: { count: project().teamSize }
+          }}
+        </p>
       </div>
     </header>
 
     <div class="detail-overview">
       <div class="detail-visual" [class.is-backend]="project().category === 'backend'">
-        <div class="detail-visual-media">
-          <img
-            [ngSrc]="project().image"
-            fill
-            priority
-            sizes="(max-width: 768px) 100vw, 60vw"
-            [alt]="'portfolio.detail.preview_alt' | translate: { name: project().name }"
-          />
-        </div>
-      </div>
-
-      <div class="detail-info">
-        <div class="detail-summary">
-          <p>{{ 'portfolio.projects.' + project().slug + '.description' | translate }}</p>
+        <div class="detail-preview">
+          <div class="detail-visual-media">
+            <img
+              [ngSrc]="project().image"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 60vw"
+              [alt]="'portfolio.detail.preview_alt' | translate: { name: project().name }"
+            />
+          </div>
           <div class="actions">
             @if (project().demo; as demo) {
-              <a class="primary-action" [href]="demo" target="_blank" rel="noopener noreferrer">{{
+              <a [href]="demo" target="_blank" rel="noopener noreferrer">{{
                 'portfolio.detail.live_demo' | translate
               }}</a>
             }
@@ -36,6 +40,13 @@
               <a [href]="github" target="_blank" rel="noopener noreferrer">GitHub</a>
             }
           </div>
+        </div>
+      </div>
+
+      <div class="detail-info">
+        <div class="detail-summary">
+          <h2>{{ 'portfolio.detail.summary' | translate }}</h2>
+          <p>{{ 'portfolio.projects.' + project().slug + '.summary' | translate }}</p>
         </div>
 
         <section class="detail-technologies" aria-labelledby="technologies-title">

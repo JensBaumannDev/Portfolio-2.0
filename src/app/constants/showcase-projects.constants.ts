@@ -4,6 +4,7 @@ export interface ShowcaseProject {
   readonly slug: string;
   readonly name: string;
   readonly category: ShowcaseProjectCategory;
+  readonly teamSize: number;
   readonly image: string;
   readonly technologies: readonly string[];
   readonly features: readonly string[];
@@ -22,7 +23,6 @@ export const TECHNOLOGY_ICONS: Readonly<Record<string, string>> = {
   PokeAPI: '/img/skills/javascript.svg',
   Python: '/img/skills/python.svg',
   Django: '/img/skills/django.svg',
-  'Django REST Framework': '/img/skills/django.svg',
   'Django REST': '/img/skills/django.svg',
   SQLite: '/img/skills/sqlite.svg',
 };
@@ -31,6 +31,7 @@ export const SHOWCASE_PROJECTS: readonly ShowcaseProject[] = [
   {
     slug: 'coderr',
     name: 'Coderr',
+    teamSize: 1,
     category: 'backend',
     image: '/img/projects/webp/coderr_project-normal.webp',
     technologies: ['Python', 'Django', 'Django REST', 'SQLite'],
@@ -41,9 +42,10 @@ export const SHOWCASE_PROJECTS: readonly ShowcaseProject[] = [
   {
     slug: 'kanmind',
     name: 'KanMind',
+    teamSize: 1,
     category: 'backend',
     image: '/img/projects/webp/kanmind_project-normal.webp',
-    technologies: ['Python', 'Django', 'Django REST Framework', 'SQLite'],
+    technologies: ['Python', 'Django', 'Django REST', 'SQLite'],
     features: ['authentication', 'crud', 'database'],
     github: 'https://github.com/JensBaumannDev/KanMind',
     demo: 'https://kanmind.jensbaumann.com',
@@ -51,6 +53,7 @@ export const SHOWCASE_PROJECTS: readonly ShowcaseProject[] = [
   {
     slug: 'dabubble',
     name: 'DABubble',
+    teamSize: 2,
     category: 'frontend',
     image: '/img/projects/webp/dabubble_project.webp',
     technologies: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
@@ -61,6 +64,7 @@ export const SHOWCASE_PROJECTS: readonly ShowcaseProject[] = [
   {
     slug: 'join',
     name: 'JOIN',
+    teamSize: 4,
     category: 'frontend',
     image: '/img/projects/webp/join_project.webp',
     technologies: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
@@ -71,6 +75,7 @@ export const SHOWCASE_PROJECTS: readonly ShowcaseProject[] = [
   {
     slug: 'el-pollo-loco',
     name: 'El Pollo Loco',
+    teamSize: 1,
     category: 'frontend',
     image: '/img/projects/webp/el_pollo_loco_project.webp',
     technologies: ['HTML', 'CSS', 'JavaScript'],
@@ -81,6 +86,7 @@ export const SHOWCASE_PROJECTS: readonly ShowcaseProject[] = [
   {
     slug: 'pokedex',
     name: 'Pokedex',
+    teamSize: 1,
     category: 'frontend',
     image: '/img/projects/webp/pokedex_project.webp',
     technologies: ['HTML', 'CSS', 'JavaScript', 'PokeAPI'],

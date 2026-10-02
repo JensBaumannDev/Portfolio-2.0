@@ -39,6 +39,21 @@ body {
   padding: 0;
   overflow-x: clip;
 }
+* {
+  scrollbar-color: abs.$color-accent abs.$color-paper;
+}
+::-webkit-scrollbar {
+  width: abs.rem(12);
+  height: abs.rem(12);
+}
+::-webkit-scrollbar-track {
+  background: abs.$color-paper;
+}
+::-webkit-scrollbar-thumb {
+  border: 3px solid abs.$color-paper;
+  border-radius: abs.rem(12);
+  background: abs.$color-accent;
+}
 html:has(.mobile-dialog[open]) {
   overflow-y: clip;
 }
