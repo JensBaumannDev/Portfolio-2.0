@@ -1,4 +1,8 @@
-<header class="navigation">
+<header
+  class="navigation"
+  [class.is-hidden]="navigationHidden()"
+  [class.pointer-interaction]="pointerInteraction()"
+>
   <nav
     class="content-container navigation-inner"
     [attr.aria-label]="'a11y.primary_navigation' | translate"
