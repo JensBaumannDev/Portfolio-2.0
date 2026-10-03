@@ -5,6 +5,15 @@
   z-index: abs.$z-index-header-sidebar;
   background: abs.$color-nav-bg;
   border-bottom: 0;
+  transition: transform 0.24s ease;
+}
+.navigation.is-hidden {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+.navigation:not(.pointer-interaction):focus-within {
+  transform: none;
+  pointer-events: auto;
 }
 .navigation-inner {
   display: grid;
@@ -411,6 +420,7 @@ button:focus-visible {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .navigation,
   .links a::after,
   .mobile-menu > a::after,
   .links a,

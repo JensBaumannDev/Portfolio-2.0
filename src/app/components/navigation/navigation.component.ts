@@ -3,6 +3,7 @@ import {
   afterNextRender,
   Component,
   computed,
+  DestroyRef,
   ElementRef,
   inject,
   signal,
@@ -23,7 +24,8 @@ import { LanguageService, AppLanguage } from '../../services/language.service';
     '(document:keydown)': 'pointerInteraction.set(false)',
     '(document:keydown.escape)': 'closeNavigationMenu()',
     '(document:click)': 'onDocumentClick($event)',
-    '(window:scroll)': 'updateActiveSection()',
+    '(window:scroll)': 'onScroll()',
+    '(focusin)': 'showNavigation()',
   },
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
@@ -33,15 +35,46 @@ export class Navigation {
   private readonly language = inject(LanguageService);
   private readonly router = inject(Router);
   private readonly elementRef: ElementRef<HTMLElement> = inject(ElementRef);
+  private lastScrollY = 0;
+  private navigationTimer: ReturnType<typeof setTimeout> | undefined;
   protected readonly currentLanguage = computed(() => this.language.current() ?? 'en');
   protected readonly navigationMenuOpen = signal(false);
   protected readonly menuClosing = signal(false);
   protected readonly menuAnimatedOpen = signal(false);
   protected readonly activeSection = signal<string | null>(null);
   protected readonly pointerInteraction = signal(false);
+  protected readonly navigationHidden = signal(false);
 
   constructor() {
-    afterNextRender(() => this.updateActiveSection());
+    afterNextRender(() => {
+      this.lastScrollY = Math.max(0, window.scrollY);
+      this.updateActiveSection();
+    });
+    inject(DestroyRef).onDestroy(() => clearTimeout(this.navigationTimer));
+  }
+
+  protected onScroll(): void {
+    this.updateActiveSection();
+    const scrollY = Math.max(0, window.scrollY);
+    const direction = scrollY - this.lastScrollY;
+    this.lastScrollY = scrollY;
+    if (direction === 0) return;
+    this.showNavigation();
+    if (
+      direction < 0 ||
+      scrollY <= this.elementRef.nativeElement.offsetHeight ||
+      this.navigationMenuOpen() ||
+      (!this.pointerInteraction() && this.elementRef.nativeElement.contains(document.activeElement))
+    )
+      return;
+    this.navigationHidden.set(true);
+    this.navigationTimer = setTimeout(() => this.showNavigation(), 400);
+  }
+
+  protected showNavigation(): void {
+    clearTimeout(this.navigationTimer);
+    this.navigationTimer = undefined;
+    this.navigationHidden.set(false);
   }
 
   protected updateActiveSection(): void {
@@ -58,6 +91,7 @@ export class Navigation {
     this.activeSection.set(active);
   }
   protected toggleNavigationMenu(): void {
+    this.showNavigation();
     if (this.navigationMenuOpen()) {
       this.closeNavigationMenu();
       return;
