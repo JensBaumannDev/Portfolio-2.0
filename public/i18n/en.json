@@ -46,7 +46,7 @@
       "projects": "Projects",
       "experience": "Experience",
       "motivation": "Motivation",
-      "availability": "Available from Q4 2026"
+      "availability": "Available from November 2026"
     },
     "projects": {
       "eyebrow": "SELECTED WORK",
@@ -231,7 +231,7 @@
   },
   "seo": {
     "home_title": "Jens Baumann — Fullstack Developer",
-    "home_desc": "Jens Baumann — Fullstack Developer based in Emden, East Frisia. Career changer working with Angular, TypeScript, Python and Django. Open to an internship, working student position or a junior role from Q4 2026.",
+    "home_desc": "Jens Baumann — Fullstack Developer based in Emden, East Frisia. Career changer working with Angular, TypeScript, Python and Django. Open to an internship, working student position or a junior role from November 2026.",
     "legal_title": "Legal Notice — Jens Baumann",
     "legal_desc": "Legal notice and provider identification pursuant to § 5 DDG for jensbaumann.com.",
     "privacy_title": "Privacy Policy — Jens Baumann",
@@ -246,7 +246,7 @@
     "back": "Back to home"
   },
   "hero": {
-    "status": "Available from Q4 2026",
+    "status": "Available from November 2026",
     "title": "Fullstack Developer",
     "tags": {
       "architecture": "Clean architecture",
@@ -263,9 +263,9 @@
     "section_sub": "My skills and me",
     "fact_location_label": "Based in",
     "fact_location": "I'm looking for a role in or near Emden, or remotely",
-    "youtube": "My YouTube channel",
+    "malt": "My Malt profile",
     "fact_available_label": "Available",
-    "fact_available": "From Q4 2026",
+    "fact_available": "From November 2026",
     "fact_focus_label": "Currently",
     "fact_focus": "One-year fullstack bootcamp at Developer Akademie",
     "fact_languages_label": "Languages",
@@ -391,7 +391,7 @@
     "form_eyebrow": "GET IN TOUCH",
     "form_note": "I look forward to hearing from you.",
     "availability_label": "Available from",
-    "availability_value": "Q4 2026",
+    "availability_value": "November 2026",
     "title": "Finding the right path.",
     "subtitle": "Open to an internship, working student position or junior role – remotely or on-site in or near Emden.",
     "name_label": "What is your name?",
@@ -414,7 +414,7 @@
     "success_short": "Sent",
     "email_value": "info@jensbaumann.com",
     "link_mail": "Email",
-    "note": "I reply within 24 hours. I am available from Q4 2026."
+    "note": "I reply within 24 hours. I am available from November 2026."
   },
   "cv": {
     "download_file": "cv/CV-Jens-Baumann.pdf",

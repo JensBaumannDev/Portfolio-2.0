@@ -8,7 +8,8 @@ import {
   signal,
 } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { faBrandGithub, faBrandLinkedinIn, faBrandYoutube } from '@ng-icons/font-awesome/brands';
+import { malt } from '../../icons/malt';
+import { faBrandGithub, faBrandLinkedinIn } from '@ng-icons/font-awesome/brands';
 import { lucideGlobe } from '@ng-icons/lucide';
 import { Router, RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -16,7 +17,7 @@ import { LanguageService, AppLanguage } from '../../services/language.service';
 @Component({
   selector: 'app-navigation',
   imports: [TranslatePipe, NgIcon, RouterLink],
-  providers: [provideIcons({ faBrandGithub, faBrandLinkedinIn, faBrandYoutube, lucideGlobe })],
+  providers: [provideIcons({ faBrandGithub, faBrandLinkedinIn, malt, lucideGlobe })],
   host: {
     '(document:pointerdown)': 'pointerInteraction.set(true)',
     '(document:keydown)': 'pointerInteraction.set(false)',
