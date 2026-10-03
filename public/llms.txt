@@ -1,6 +1,6 @@
 # Jens Baumann — Fullstack Developer
 
-> Portfolio von Jens Baumann, Fullstack Developer aus Emden in Ostfriesland. Quereinsteiger aus Einzelhandel und Vertrieb, aktuell in einer einjährigen Fullstack-Fortbildung an der Developer Akademie. Verfügbar ab Q4 2026 für Praktikum, Werkstudium oder eine Junior-Rolle, remote, hybrid oder vor Ort.
+> Portfolio von Jens Baumann, Fullstack Developer aus Emden in Ostfriesland. Quereinsteiger aus Einzelhandel und Vertrieb, aktuell in einer einjährigen Fullstack-Fortbildung an der Developer Akademie. Verfügbar ab November 2026 für Praktikum, Werkstudium oder eine Junior-Rolle, remote, hybrid oder vor Ort.
 
 Die Website ist eine Angular-Single-Page-Application mit deutscher und englischer Oberfläche. Inhaltliche Schwerpunkte sind die Projekte aus der Fortbildung und ein Kontaktformular. Es werden keine Tracking-Cookies gesetzt und keine Analysedienste eingebunden.
 
@@ -29,4 +29,4 @@ Die Website ist eine Angular-Single-Page-Application mit deutscher und englische
 - [E-Mail](mailto:info@jensbaumann.com)
 - [GitHub](https://github.com/JensBaumannDev)
 - [LinkedIn](https://www.linkedin.com/in/jens-baumann-7a6866315/)
-- [YouTube](https://www.youtube.com/@jensbaumann_music)
+- [Malt](https://www.malt.de/profile/jensbaumann)

@@ -46,7 +46,7 @@
       "projects": "Projekte",
       "experience": "Erfahrung",
       "motivation": "Motivation",
-      "availability": "Verfügbar ab Q4 2026"
+      "availability": "Verfügbar ab November 2026"
     },
     "projects": {
       "eyebrow": "AUS MEINER ARBEIT",
@@ -231,7 +231,7 @@
   },
   "seo": {
     "home_title": "Jens Baumann — Fullstack Developer",
-    "home_desc": "Jens Baumann — Fullstack Developer aus Emden, Ostfriesland. Quereinsteiger mit Angular, TypeScript, Python und Django. Offen für Praktikum, Werkstudium oder eine Junior-Rolle ab Q4 2026.",
+    "home_desc": "Jens Baumann — Fullstack Developer aus Emden, Ostfriesland. Quereinsteiger mit Angular, TypeScript, Python und Django. Offen für Praktikum, Werkstudium oder eine Junior-Rolle ab November 2026.",
     "legal_title": "Impressum — Jens Baumann",
     "legal_desc": "Impressum und Anbieterkennzeichnung gemäß § 5 DDG für jensbaumann.com.",
     "privacy_title": "Datenschutzerklärung — Jens Baumann",
@@ -246,7 +246,7 @@
     "back": "Zurück zur Startseite"
   },
   "hero": {
-    "status": "Verfügbar ab Q4 2026",
+    "status": "Verfügbar ab November 2026",
     "title": "Fullstack Developer",
     "tags": {
       "architecture": "Klare Architektur",
@@ -263,9 +263,9 @@
     "section_sub": "Meine Skills und Ich",
     "fact_location_label": "Standort",
     "fact_location": "Ich suche eine Stelle in Emden und Umgebung oder remote",
-    "youtube": "Mein YouTube-Kanal",
+    "malt": "Mein Malt-Profil",
     "fact_available_label": "Verfügbar",
-    "fact_available": "Ab Q4 2026",
+    "fact_available": "Ab November 2026",
     "fact_focus_label": "Aktuell",
     "fact_focus": "Einjährige Fullstack-Fortbildung bei der Developer Akademie",
     "fact_languages_label": "Sprachen",
@@ -391,7 +391,7 @@
     "form_eyebrow": "SCHREIB MIR GERN",
     "form_note": "Ich freue mich auf deine Nachricht.",
     "availability_label": "Verfügbar ab",
-    "availability_value": "Q4 2026",
+    "availability_value": "November 2026",
     "title": "Den richtigen Weg finden.",
     "subtitle": "Offen für Praktikum, Werkstudium oder eine Junior-Rolle – remote oder vor Ort in Emden und Umgebung.",
     "name_label": "Wie lautet dein Name?",
@@ -414,7 +414,7 @@
     "success_short": "Gesendet",
     "email_value": "info@jensbaumann.com",
     "link_mail": "E-Mail",
-    "note": "Ich antworte innerhalb von 24 Stunden. Verfügbar bin ich ab Q4 2026."
+    "note": "Ich antworte innerhalb von 24 Stunden. Verfügbar bin ich ab November 2026."
   },
   "cv": {
     "download_file": "cv/Lebenslauf-Jens-Baumann.pdf",
