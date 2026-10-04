@@ -27,6 +27,7 @@
 .back-link {
   @include abs.actionButton;
   max-width: 100%;
+  margin-bottom: abs.rem(24);
   background: abs.$color-accent;
   border-color: abs.$color-accent;
   color: abs.$color-white;
@@ -40,7 +41,7 @@
   outline-offset: abs.rem(4);
 }
 h1 {
-  margin: abs.rem(4) 0 abs.rem(8);
+  margin: 0 0 abs.rem(8);
   font-size: abs.$font-size-section;
   overflow-wrap: break-word;
 }
@@ -202,25 +203,14 @@ h2 {
   }
 }
 @media (min-width: #{abs.$breakpoint-tablet + 1px}) and (max-height: #{abs.rem(1050)}) {
-  .detail-heading {
-    position: relative;
-    padding-right: abs.rem(320);
-  }
-  .back-link {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-height: abs.rem(44);
-    box-sizing: border-box;
-  }
   h1 {
     font-size: clamp(#{abs.rem(36)}, 4vw, #{abs.rem(48)});
   }
   .detail {
-    padding-block: calc(var(--header-h) + #{abs.rem(16)}) abs.rem(16);
+    padding-block: calc(var(--header-h) + #{abs.rem(24)}) abs.rem(16);
   }
   .detail-inner {
-    min-height: calc(100dvh - var(--header-h) - #{abs.rem(32)});
+    min-height: calc(100dvh - var(--header-h) - #{abs.rem(40)});
     gap: abs.rem(16);
   }
   .detail-info,
@@ -258,10 +248,10 @@ h2 {
 }
 @media (min-width: #{abs.$breakpoint-tablet + 1px}) and (max-height: #{abs.rem(800)}) {
   .detail {
-    padding-block: calc(var(--header-h) + #{abs.rem(8)}) abs.rem(8);
+    padding-block: calc(var(--header-h) + #{abs.rem(24)}) abs.rem(8);
   }
   .detail-inner {
-    min-height: calc(100dvh - var(--header-h) - #{abs.rem(16)});
+    min-height: calc(100dvh - var(--header-h) - #{abs.rem(32)});
     gap: abs.rem(8);
   }
   h1 {
@@ -291,7 +281,7 @@ h2 {
 }
 @include abs.mobile {
   .detail {
-    padding-top: calc(var(--header-h) + #{abs.rem(16)});
+    padding-top: calc(var(--header-h) + #{abs.rem(24)});
   }
   .detail-inner {
     min-height: 0;
