@@ -18,6 +18,14 @@
 
 .legal-back {
   @include abs.actionButton;
+  background: abs.$color-accent;
+  border-color: abs.$color-accent;
+  color: abs.$color-white;
+}
+
+.legal-back:hover {
+  background: abs.$color-ink;
+  border-color: abs.$color-ink;
 }
 
 .legal-title {

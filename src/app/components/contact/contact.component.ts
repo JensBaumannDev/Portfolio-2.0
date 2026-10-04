@@ -6,11 +6,12 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { faBrandGithub, faBrandLinkedinIn } from '@ng-icons/font-awesome/brands';
 import { lucideMail } from '@ng-icons/lucide';
 import { TranslatePipe } from '@ngx-translate/core';
+import { malt } from '../../icons/malt';
 
 @Component({
   selector: 'app-contact',
   imports: [NgIcon, ReactiveFormsModule, RouterLink, TranslatePipe],
-  providers: [provideIcons({ faBrandGithub, faBrandLinkedinIn, lucideMail })],
+  providers: [provideIcons({ faBrandGithub, faBrandLinkedinIn, lucideMail, malt })],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

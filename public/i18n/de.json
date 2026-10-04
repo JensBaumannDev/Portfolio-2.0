@@ -172,7 +172,7 @@
     },
     "detail": {
       "summary": "Kurzbeschreibung",
-      "all_projects": "Alle Projekte",
+      "all_projects": "Zurück zur Projektübersicht",
       "live_demo": "Live Demo",
       "technologies": "Technologien",
       "features": "Funktionen",
@@ -213,7 +213,11 @@
       "text": "Eine Auswahl der Technologien, mit denen ich arbeite und reale Projekte umsetze.",
       "frontend": "Frontend",
       "backend": "Backend",
-      "tools": "Tools & Anderes"
+      "tools": "Tools & Anderes",
+      "learning_title": "Das lerne ich gerade",
+      "learning_text": "Aktuell vertiefe ich meine Backend-Kenntnisse mit API-Integrationen und KI-gestützter Verarbeitung von Videoinhalten.",
+      "learning_backend": "Backend-Entwicklung",
+      "learning_ai": "KI & Videoanalyse"
     },
     "contact": {
       "eyebrow": "KONTAKT",
