@@ -107,7 +107,12 @@ a:hover {
   font-size: abs.$font-size-meta;
   font-weight: abs.$font-weight-medium;
   cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
+.project-filters button:hover,
 .project-filters button.active {
   background: abs.$color-accent;
   color: abs.$color-white;

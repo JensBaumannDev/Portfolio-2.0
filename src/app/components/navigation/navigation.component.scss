@@ -250,17 +250,17 @@ button:focus-visible {
   transform: scaleX(1);
   transform-origin: left;
 }
-.language-toggle:hover {
-  color: abs.$color-accent-on-dark;
-}
-.nav-socials a {
+.nav-socials a,
+.languages .language-toggle {
   border-radius: abs.$radius-lg;
   transition:
     transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
     background-color 0.2s ease;
 }
 .nav-socials a:hover,
-.nav-socials a:focus-visible {
+.nav-socials a:focus-visible,
+.language-toggle:hover,
+.language-toggle:focus-visible {
   transform: translateY(-3px);
   background: rgba(abs.$color-accent-on-dark, 0.12);
   color: abs.$color-accent-on-dark;
@@ -307,7 +307,9 @@ button:focus-visible {
   outline-color: abs.$color-accent;
 }
 .mobile-dialog .nav-socials a:hover,
-.mobile-dialog .nav-socials a:focus-visible {
+.mobile-dialog .nav-socials a:focus-visible,
+.mobile-dialog .language-toggle:hover,
+.mobile-dialog .language-toggle:focus-visible {
   background: abs.$color-hero-frontend;
   color: abs.$color-accent;
 }
@@ -431,7 +433,9 @@ button:focus-visible {
     transition: none;
   }
   .nav-socials a:hover,
-  .nav-socials a:focus-visible {
+  .nav-socials a:focus-visible,
+  .language-toggle:hover,
+  .language-toggle:focus-visible {
     transform: none;
   }
 }

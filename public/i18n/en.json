@@ -172,7 +172,7 @@
     },
     "detail": {
       "summary": "Summary",
-      "all_projects": "All projects",
+      "all_projects": "Back to project overview",
       "live_demo": "Live Demo",
       "technologies": "Technologies",
       "features": "Features",
@@ -213,7 +213,11 @@
       "text": "A selection of the technologies I use to create real projects.",
       "frontend": "Frontend",
       "backend": "Backend",
-      "tools": "Tools & Others"
+      "tools": "Tools & Others",
+      "learning_title": "Currently learning",
+      "learning_text": "I’m currently deepening my backend skills through API integrations and AI-powered video processing.",
+      "learning_backend": "Backend development",
+      "learning_ai": "AI & video analysis"
     },
     "contact": {
       "eyebrow": "CONTACT",

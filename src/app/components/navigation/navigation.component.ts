@@ -64,6 +64,7 @@ export class Navigation {
       direction < 0 ||
       scrollY <= this.elementRef.nativeElement.offsetHeight ||
       this.navigationMenuOpen() ||
+      this.elementRef.nativeElement.matches(':hover') ||
       (!this.pointerInteraction() && this.elementRef.nativeElement.contains(document.activeElement))
     )
       return;
@@ -127,6 +128,7 @@ export class Navigation {
     this.elementRef.nativeElement.querySelector<HTMLButtonElement>('.menu-trigger')?.focus();
   }
   protected changeLanguage(language: AppLanguage): void {
+    this.showNavigation();
     this.language.use(language);
     this.closeNavigationMenu();
   }

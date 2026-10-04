@@ -5,7 +5,6 @@
 .skills {
   padding: var(--section-py) 0;
   background: abs.$color-white;
-  box-shadow: abs.$shadow-section;
 }
 header > p:first-child {
   @include abs.typeLabel;
@@ -77,6 +76,57 @@ li img.figma-icon {
   width: auto;
   margin-inline: abs.rem(5.333);
 }
+.current-learning {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: abs.rem(24) abs.rem(40);
+  margin-top: abs.rem(32);
+  padding: abs.rem(24) abs.rem(28);
+  border: 1px solid abs.$color-line;
+  border-top: 14px solid abs.$color-surface-beige;
+  border-radius: abs.$radius-lg;
+  background: abs.$color-white;
+  box-shadow: abs.$shadow-card;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.current-learning:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgb(20 40 40 / 8%);
+}
+.learning-heading {
+  @include abs.flex(row, nowrap, flex-start, center);
+  gap: abs.rem(12);
+}
+.learning-heading ng-icon {
+  flex: 0 0 auto;
+  font-size: abs.rem(24);
+  color: abs.$color-ink;
+}
+.learning-heading h3 {
+  margin: 0;
+  font-size: abs.rem(20);
+}
+.current-learning > p {
+  @include abs.typeBody;
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+.learning-topics {
+  @include abs.flex(row, wrap, flex-start, center);
+  grid-column: 2;
+  gap: abs.rem(8);
+}
+.learning-topics li {
+  padding: abs.rem(5) abs.rem(12);
+  border: 1px solid abs.$color-surface-beige;
+  border-radius: abs.rem(40);
+  background: abs.$color-hero-backend;
+  color: abs.$color-ink;
+  font-size: abs.$font-size-meta;
+}
 /* #region RESPONSIVE */
 @include abs.tablet-lg {
   .skill-groups {
@@ -84,15 +134,25 @@ li img.figma-icon {
   }
 }
 @include abs.mobile {
+  .current-learning {
+    grid-template-columns: 1fr;
+    gap: abs.rem(12);
+    padding: abs.rem(20);
+  }
+  .learning-topics {
+    grid-column: 1;
+  }
   .skill-groups {
     grid-template-columns: 1fr;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .skill-groups section {
+  .skill-groups section,
+  .current-learning {
     transition: none;
   }
-  .skill-groups section:hover {
+  .skill-groups section:hover,
+  .current-learning:hover {
     transform: none;
   }
 }

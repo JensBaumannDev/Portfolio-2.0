@@ -60,6 +60,13 @@ h2 span {
   grid-column: 1;
   @include abs.actionButton;
   margin-top: abs.rem(4);
+  background: abs.$color-accent;
+  border-color: abs.$color-accent;
+  color: abs.$color-white;
+}
+.about-cv:hover {
+  background: abs.$color-ink;
+  border-color: abs.$color-ink;
 }
 .principles {
   grid-column: 1 / -1;

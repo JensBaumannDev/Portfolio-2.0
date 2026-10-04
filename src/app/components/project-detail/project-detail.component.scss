@@ -25,15 +25,15 @@
   grid-row: 1;
 }
 .back-link {
-  display: inline-block;
-  padding-block: abs.rem(8);
-  color: abs.$color-accent;
-  font-size: abs.$font-size-meta;
-  text-decoration-thickness: 1px;
-  text-underline-offset: abs.rem(4);
+  @include abs.actionButton;
+  max-width: 100%;
+  background: abs.$color-accent;
+  border-color: abs.$color-accent;
+  color: abs.$color-white;
 }
 .back-link:hover {
-  text-decoration-thickness: 2px;
+  background: abs.$color-ink;
+  border-color: abs.$color-ink;
 }
 .back-link:focus-visible {
   outline: 2px solid abs.$color-accent;
@@ -196,14 +196,15 @@ h2 {
 }
 /* #region RESPONSIVE */
 @media (prefers-reduced-motion: reduce) {
-  .actions a {
+  .actions a,
+  .back-link {
     transition: none;
   }
 }
 @media (min-width: #{abs.$breakpoint-tablet + 1px}) and (max-height: #{abs.rem(1050)}) {
   .detail-heading {
     position: relative;
-    padding-right: abs.rem(200);
+    padding-right: abs.rem(320);
   }
   .back-link {
     position: absolute;
