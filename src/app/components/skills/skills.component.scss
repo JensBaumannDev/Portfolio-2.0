@@ -79,7 +79,7 @@ li img.figma-icon {
 .current-learning {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
+  align-items: first baseline;
   gap: abs.rem(24) abs.rem(40);
   margin-top: abs.rem(32);
   padding: abs.rem(24) abs.rem(28);
@@ -97,15 +97,6 @@ li img.figma-icon {
   box-shadow: 0 10px 28px rgb(20 40 40 / 8%);
 }
 .learning-heading {
-  @include abs.flex(row, nowrap, flex-start, center);
-  gap: abs.rem(12);
-}
-.learning-heading ng-icon {
-  flex: 0 0 auto;
-  font-size: abs.rem(24);
-  color: abs.$color-ink;
-}
-.learning-heading h3 {
   margin: 0;
   font-size: abs.rem(20);
 }
