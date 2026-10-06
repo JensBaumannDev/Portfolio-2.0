@@ -207,16 +207,17 @@
       }
     },
     "skills": {
-      "eyebrow": "TECH STACK",
+      "eyebrow": "SKILLS",
       "heading": "Tools",
       "heading_line": "I work with",
       "text": "A selection of the technologies I use to create real projects.",
       "frontend": "Frontend",
       "backend": "Backend",
       "tools": "Tools & Others",
+      "ai_title": "AI in my day-to-day development",
+      "ai_text": "AI is an integral part of my development workflow. I use it deliberately to clarify technical questions, explore new topics and weigh different approaches, as well as for debugging and refactoring. I have experience with Antigravity, Claude and GPT. I make my own decisions: I check every suggestion against the documentation and test it in code.",
       "learning_title": "Currently learning",
       "learning_text": "I’m currently deepening my backend skills through API integrations and AI-powered video processing.",
-      "learning_backend": "Backend development",
       "learning_ai": "AI & video analysis"
     },
     "contact": {

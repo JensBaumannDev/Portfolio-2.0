@@ -207,16 +207,17 @@
       }
     },
     "skills": {
-      "eyebrow": "TECH STACK",
-      "heading": "Tools",
+      "eyebrow": "SKILLS",
+      "heading": "Tools,",
       "heading_line": "mit denen ich arbeite",
-      "text": "Eine Auswahl der Technologien, mit denen ich arbeite und reale Projekte umsetze.",
+      "text": "Eine Auswahl der Technologien, mit denen ich reale Projekte umsetze.",
       "frontend": "Frontend",
       "backend": "Backend",
       "tools": "Tools & Anderes",
+      "ai_title": "KI in meinem Entwicklungsalltag",
+      "ai_text": "KI ist fester Bestandteil meines Entwicklungsworkflows. Ich setze sie gezielt ein, um technische Fragen zu klären, mich in neue Themen einzuarbeiten und Lösungsansätze abzuwägen, außerdem bei Fehlersuche und Refactoring. Erfahrung habe ich mit Antigravity, Claude und GPT. Entscheidungen treffe ich selbst: Ich prüfe jeden Vorschlag gegen die Dokumentation und teste ihn im Code.",
       "learning_title": "Das lerne ich gerade",
       "learning_text": "Aktuell vertiefe ich meine Backend-Kenntnisse mit API-Integrationen und KI-gestützter Verarbeitung von Videoinhalten.",
-      "learning_backend": "Backend-Entwicklung",
       "learning_ai": "KI & Videoanalyse"
     },
     "contact": {

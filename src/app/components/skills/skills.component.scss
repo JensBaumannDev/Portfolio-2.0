@@ -100,6 +100,21 @@ li img.figma-icon {
   margin: 0;
   font-size: abs.rem(20);
 }
+.ai-workflow {
+  grid-template-columns: 1fr;
+  gap: abs.rem(12);
+  border-top-width: abs.rem(14);
+  border-top-color: transparent;
+  background:
+    linear-gradient(
+        90deg,
+        abs.$color-accent 0% 33.333333%,
+        abs.$color-surface-beige 33.333333% 66.666667%,
+        abs.$color-ink 66.666667% 100%
+      )
+      top / 100% abs.rem(14) no-repeat border-box,
+    abs.$color-white padding-box;
+}
 .current-learning > p {
   @include abs.typeBody;
   margin: 0;
