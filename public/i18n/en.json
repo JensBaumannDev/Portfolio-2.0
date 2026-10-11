@@ -121,14 +121,15 @@
       },
       "pokedex": {
         "type": "Pokémon Encyclopedia",
-        "description": "A clear Pokémon encyclopedia with API integration, search and detailed information.",
+        "description": "A multilingual, responsive Pokédex with live PokéAPI data and a detail dialog for stats, evolutions, and moves.",
         "quote": "“The data did not always arrive as quickly as the interface needed it. I had to learn how to bundle API requests in a meaningful way.”",
         "features": {
           "api": "API Integration",
           "search": "Search",
+          "localization": "Multiple languages",
           "responsive": "Responsive Design"
         },
-        "summary": "The Pokédex loads Pokémon and their information directly from the PokeAPI. Search and filters help users find Pokémon and take a closer look at their stats. I built the API integration and the search and filtering logic."
+        "summary": "Built as a modular Vite application, the Pokédex retrieves Pokémon data and descriptions from the PokéAPI. Users can search entries and explore stats, evolutions, and moves in a responsive detail dialog. The interface supports multiple languages and light and dark themes."
       },
       "django-api": {
         "type": "Backend API",
@@ -371,11 +372,11 @@
       "name": "Pokedex",
       "eyebrow": "Solo project · API encyclopedia",
       "stat1_lbl": "Live data from PokeAPI",
-      "stat2_lbl": "Search & filter logic",
-      "stat3_lbl": "Detail view with stats",
-      "description": "A kind of encyclopedia for Pokémon. The data is pulled live from the PokeAPI. You can scroll through all Pokémon, filter them, and view their exact stats.",
-      "learnings": "Since the API requires an enormous amount of individual requests for certain things, the page was initially very slow. I had to learn how to smartly batch requests and optimize loading times.",
-      "umsetzung": "Mostly asynchronous JavaScript (Fetch) to retrieve the data, combined with search and filter logic for the frontend.",
+      "stat2_lbl": "Search & localization",
+      "stat3_lbl": "Stats, evolutions & moves",
+      "description": "A responsive, multilingual Pokédex with live PokéAPI data. Search entries and explore stats, evolutions, and moves in an animated detail dialog.",
+      "learnings": "A key challenge was keeping multiple API resources responsive while ensuring search, language changes, and dialog navigation stayed in sync. I improved request caching, debounced search input, and cancelled outdated requests.",
+      "umsetzung": "The app is built as a modular vanilla JavaScript project with Vite. It uses i18next for interface translations, Fetch for asynchronous API access, and includes localized content, theme switching, search, and a responsive detail dialog.",
       "duration": "2 Weeks",
       "image_alt": "The Pokedex overview with Pokémon cards and a search field"
     },

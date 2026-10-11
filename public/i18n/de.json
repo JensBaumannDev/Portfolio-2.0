@@ -121,14 +121,15 @@
       },
       "pokedex": {
         "type": "Pokémon-Enzyklopädie",
-        "description": "Eine übersichtliche Pokémon-Enzyklopädie mit API-Anbindung, Suche und detaillierten Informationen.",
+        "description": "Ein mehrsprachiger Pokédex mit responsiver Übersicht, Live-Daten aus der PokéAPI und einem Detaildialog für Werte, Entwicklungen und Attacken.",
         "quote": "„Die Daten kamen nicht immer so schnell wie die Oberfläche es brauchte. Deshalb musste ich lernen, API-Anfragen sinnvoll zu bündeln.“",
         "features": {
           "api": "API-Anbindung",
           "search": "Suche",
+          "localization": "Mehrsprachigkeit",
           "responsive": "Responsive Design"
         },
-        "summary": "Der Pokédex lädt Pokémon und ihre Informationen direkt aus der PokeAPI. Über Suche und Filter lassen sich die Pokémon finden und ihre Werte genauer ansehen. Ich habe die Datenanbindung und die Such- und Filterlogik umgesetzt."
+        "summary": "Die modulare Vite-Anwendung lädt Pokémon-Daten und Beschreibungen aus der PokéAPI. Einträge lassen sich durchsuchen und in einem responsiven Detaildialog mit Werten, Entwicklungen und Attacken erkunden. Die Oberfläche unterstützt mehrere Sprachen sowie einen Light- und Darkmode."
       },
       "django-api": {
         "type": "Backend API",
@@ -371,11 +372,11 @@
       "name": "Pokedex",
       "eyebrow": "Einzelprojekt · API-Lexikon",
       "stat1_lbl": "Live-Daten aus der PokeAPI",
-      "stat2_lbl": "Such- & Filterlogik",
-      "stat3_lbl": "Detailansicht mit Stats",
-      "description": "Eine Art Lexikon für Pokémon. Die Daten kommen live aus der PokeAPI. Man kann durch alle Pokémon scrollen, filtern und sich die genauen Stats ansehen.",
-      "learnings": "Da die API teilweise extrem viele Einzelanfragen erfordert, wurde die Seite anfangs sehr langsam. Ich musste also lernen, wie man Requests intelligent bündelt und die Ladezeiten optimiert.",
-      "umsetzung": "Hauptsächlich asynchrones JavaScript (Fetch), um die Daten abzurufen, kombiniert mit einer Such- und Filterlogik fürs Frontend.",
+      "stat2_lbl": "Suche & Mehrsprachigkeit",
+      "stat3_lbl": "Werte, Entwicklungen & Attacken",
+      "description": "Ein responsiver, mehrsprachiger Pokédex mit Live-Daten aus der PokéAPI. Pokémon lassen sich durchsuchen und mit Werten, Entwicklungen und Attacken in einem animierten Detaildialog erkunden.",
+      "learnings": "Eine Herausforderung war, viele einzelne API-Ressourcen performant bereitzustellen und Suchanfragen, Sprachwechsel sowie den Dialogzustand konsistent zu halten. Dafür habe ich Request-Caching, eine verzögerte Suche und Abbruch überholter Anfragen ergänzt.",
+      "umsetzung": "Die Anwendung ist als modulare Vanilla-JavaScript-App mit Vite aufgebaut. Sie nutzt i18next für die Oberfläche, ruft Daten asynchron über Fetch ab und bietet mehrsprachige Inhalte, Darkmode, Suche sowie einen responsiven Detaildialog.",
       "duration": "2 Wochen",
       "image_alt": "Die Übersicht des Pokedex mit Pokémon-Karten und Suchfeld"
     },

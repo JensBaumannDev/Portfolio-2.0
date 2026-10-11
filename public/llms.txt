@@ -22,7 +22,7 @@ Die Website ist eine Angular-Single-Page-Application mit deutscher und englische
 - [DABubble](https://github.com/JensBaumannDev/DABubble): Echtzeit-Chat im Slack-Stil mit Channels und Threads, Gruppenprojekt. Angular, TypeScript, SCSS, Supabase
 - [Join](https://github.com/JensBaumannDev/Join): Kanban-Board zur Aufgabenverwaltung mit Drag-and-drop, Gruppenprojekt. Angular, TypeScript, SCSS, Supabase
 - [El Pollo Loco](https://github.com/JensBaumannDev/El-Pollo-Loco): Jump-and-run mit eigener Game-Loop und Kollisionserkennung, Einzelprojekt. HTML, CSS, JavaScript
-- [Pokedex](https://github.com/JensBaumannDev/Pokedex): Pokémon-Lexikon auf Basis der PokeAPI mit Such- und Filterlogik, Einzelprojekt. HTML, CSS, JavaScript, API
+- [Pokedex](https://github.com/JensBaumannDev/Pokedex): Mehrsprachiger, responsiver Pokédex mit PokéAPI-Daten, Suche und Detaildialog für Werte, Entwicklungen und Attacken. Einzelprojekt. HTML, CSS, JavaScript, Vite, i18next
 
 ## Kontakt
 
