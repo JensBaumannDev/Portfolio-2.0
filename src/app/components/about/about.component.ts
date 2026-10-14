@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy, computed, inject } from '@angular/c
 import { NgOptimizedImage } from '@angular/common';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
+  lucideAward,
   lucideDownload,
   lucideGamepad2,
   lucideHeart,
@@ -15,7 +16,14 @@ import { RevealDirective } from '../../directives/reveal.directive';
   selector: 'app-about',
   imports: [NgIcon, NgOptimizedImage, TranslatePipe, RevealDirective],
   providers: [
-    provideIcons({ lucideDownload, lucideGamepad2, lucideHeart, lucideMusic2, lucidePawPrint }),
+    provideIcons({
+      lucideAward,
+      lucideDownload,
+      lucideGamepad2,
+      lucideHeart,
+      lucideMusic2,
+      lucidePawPrint,
+    }),
   ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',

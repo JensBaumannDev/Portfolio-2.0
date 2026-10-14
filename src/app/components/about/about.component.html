@@ -18,10 +18,20 @@
       <p class="about-location">
         <strong>{{ 'about.fact_location' | translate }}</strong>
       </p>
-      <a class="about-cv" [href]="cvUrl()" download
-        >{{ 'portfolio.about.cv' | translate }}
-        <ng-icon name="lucideDownload" aria-hidden="true"></ng-icon
-      ></a>
+      <div class="about-actions">
+        <a class="about-cv" [href]="cvUrl()" download
+          >{{ 'portfolio.about.cv' | translate }}
+          <ng-icon name="lucideDownload" aria-hidden="true"></ng-icon
+        ></a>
+        <a
+          class="about-certificates"
+          href="/certificates/Zertifikate-Jens-Baumann.pdf"
+          target="_blank"
+          rel="noopener"
+          >{{ 'portfolio.about.certificates' | translate }}
+          <ng-icon name="lucideAward" aria-hidden="true"></ng-icon
+        ></a>
+      </div>
       <ul class="principles">
         <li appReveal [revealDelay]="0">
           <ng-icon class="principle-icon" name="lucideMusic2" aria-hidden="true"></ng-icon>

@@ -56,15 +56,22 @@ h2 span {
   object-fit: cover;
   object-position: bottom;
 }
-.about-cv {
+.about-actions {
   grid-column: 1;
-  @include abs.actionButton;
+  display: flex;
+  flex-wrap: wrap;
+  gap: abs.rem(16);
   margin-top: abs.rem(4);
+}
+.about-cv,
+.about-certificates {
+  @include abs.actionButton;
   background: abs.$color-accent;
   border-color: abs.$color-accent;
   color: abs.$color-white;
 }
-.about-cv:hover {
+.about-cv:hover,
+.about-certificates:hover {
   background: abs.$color-ink;
   border-color: abs.$color-ink;
 }
@@ -105,7 +112,8 @@ h2 span {
   margin: 0;
   color: var(--color-text-secondary);
 }
-.about-cv ng-icon {
+.about-cv ng-icon,
+.about-certificates ng-icon {
   width: abs.rem(20);
   height: abs.rem(20);
 }
