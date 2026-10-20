@@ -10,6 +10,7 @@ export interface ShowcaseProject {
   readonly features: readonly string[];
   readonly github?: string;
   readonly demo?: string;
+  readonly isNew?: boolean;
 }
 
 export const TECHNOLOGY_ICONS: Readonly<Record<string, string>> = {
@@ -25,9 +26,25 @@ export const TECHNOLOGY_ICONS: Readonly<Record<string, string>> = {
   Django: '/img/skills/django.svg',
   'Django REST': '/img/skills/django.svg',
   SQLite: '/img/skills/sqlite.svg',
+  PostgreSQL: '/img/skills/postgresql.svg',
+  Docker: '/img/skills/docker.svg',
+  Redis: '/img/skills/redis.svg',
+  FFmpeg: '/img/skills/ffmpeg.svg',
 };
 
 export const SHOWCASE_PROJECTS: readonly ShowcaseProject[] = [
+  {
+    slug: 'videoflix',
+    name: 'Videoflix',
+    teamSize: 1,
+    category: 'backend',
+    image: '/img/projects/webp/videoflix_project.webp',
+    technologies: ['Python', 'Django', 'Django REST', 'PostgreSQL', 'Redis', 'FFmpeg', 'Docker'],
+    features: ['authentication', 'streaming', 'background_jobs', 'docker'],
+    github: 'https://github.com/JensBaumannDev/Videoflix',
+    demo: 'https://videoflix.jensbaumann.com',
+    isNew: true,
+  },
   {
     slug: 'coderr',
     name: 'Coderr',

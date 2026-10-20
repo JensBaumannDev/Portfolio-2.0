@@ -169,6 +169,19 @@
       "collaboration": {
         "solo": "Soloprojekt",
         "group": "Gruppenarbeit · {{count}} Personen"
+      },
+      "new": "NEU",
+      "videoflix": {
+        "type": "Video-Streaming-Backend",
+        "description": "Ein Django-Backend für Video-Streaming mit E-Mail-Aktivierung, Login per Cookie und HLS in drei Auflösungen.",
+        "quote": "„Bei Videoflix habe ich gelernt, wie man aufwendige Arbeit wie Videokonvertierung sauber in den Hintergrund verlagert, ohne dass die API langsamer wird.“",
+        "features": {
+          "authentication": "JWT in HttpOnly-Cookies",
+          "streaming": "HLS-Streaming (480p/720p/1080p)",
+          "background_jobs": "Hintergrund-Jobs mit Redis",
+          "docker": "Komplett mit Docker"
+        },
+        "summary": "Videoflix ist eine Video-Streaming-Plattform. Mein Backend übernimmt Registrierung, Aktivierung per E-Mail, Login und Passwort-Reset, erstellt nach dem Upload automatisch Thumbnails und HLS-Streams in 480p, 720p und 1080p und liefert die Videos geschützt aus. Das Frontend wurde von der Developer Akademie bereitgestellt."
       }
     },
     "detail": {
@@ -390,7 +403,18 @@
     "label_duration": "Dauer",
     "label_stack": "Stack",
     "next_project": "Nächstes Projekt",
-    "featured": "Featured Project"
+    "featured": "Featured Project",
+    "videoflix": {
+      "name": "Videoflix",
+      "image_alt": "Die Videoflix-Startseite mit Filmvorschauen und Anmeldung",
+      "eyebrow": "Backend · Video-Streaming",
+      "stat1_lbl": "HLS in 3 Auflösungen",
+      "stat2_lbl": "Hintergrund-Jobs",
+      "stat3_lbl": "100 % Testabdeckung",
+      "description": "Das Backend für eine Video-Streaming-Plattform: Benutzerkonten mit E-Mail-Aktivierung, Login über HttpOnly-Cookies und Videos, die automatisch für das Streaming aufbereitet werden.",
+      "umsetzung": "Das Backend ist mit Python, Django und Django REST Framework umgesetzt und läuft komplett in Docker mit PostgreSQL und Redis. Nach einem Upload starten Signals Hintergrund-Jobs mit Django RQ: FFmpeg erzeugt ein Thumbnail und wandelt das Video in HLS-Playlists mit Segmenten für 480p, 720p und 1080p um. Die Videoliste wird in Redis gecacht. Das Frontend wird von der Developer Akademie bereitgestellt.",
+      "learnings": "Im Mittelpunkt standen Hintergrund-Jobs, das Streaming-Format HLS und eine sichere Authentifizierung mit JWT in HttpOnly-Cookies inklusive Token-Refresh und Blacklist. Ich habe das Projekt testgetrieben entwickelt und 100 % Testabdeckung erreicht, inklusive Tests mit echten FFmpeg-Konvertierungen. Deployt ist es auf einem eigenen Server hinter nginx mit HTTPS."
+    }
   },
   "contact": {
     "section_title": "Kontakt",

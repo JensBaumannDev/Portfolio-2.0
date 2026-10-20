@@ -245,6 +245,24 @@ a:hover {
   text-decoration: underline;
   text-underline-offset: abs.rem(4);
 }
+.new-badge {
+  display: inline-block;
+  margin-left: abs.rem(10);
+  padding: abs.rem(4) abs.rem(12);
+  border-radius: abs.rem(40);
+  background: abs.$color-accent;
+  color: abs.$color-white;
+  font-size: abs.rem(16);
+  font-weight: abs.$font-weight-medium;
+  vertical-align: middle;
+  box-shadow: 0 0 abs.rem(10) rgba(abs.$color-accent, 0.45);
+  animation: new-badge-glow 2.4s ease-in-out infinite;
+}
+@keyframes new-badge-glow {
+  50% {
+    box-shadow: 0 0 abs.rem(20) rgba(abs.$color-accent, 0.8);
+  }
+}
 /* #region RESPONSIVE */
 
 @media (max-width: abs.$breakpoint-desktop), (max-height: abs.$breakpoint-compact-height) {
@@ -302,6 +320,9 @@ a:hover {
   }
   .project-card:hover {
     transform: none;
+  }
+  .new-badge {
+    animation: none;
   }
 }
 /* #endregion */

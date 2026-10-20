@@ -133,7 +133,11 @@ h2 span {
   .about-image {
     grid-column: 1;
     grid-row: auto;
-    min-height: abs.rem(380);
+    justify-self: center;
+    width: 100%;
+    max-width: abs.rem(420);
+    aspect-ratio: 1;
+    min-height: 0;
     margin-bottom: abs.rem(32);
   }
   .label,
@@ -147,9 +151,6 @@ h2 span {
 @media (max-width: abs.$breakpoint-mobile-actions) {
   .principles {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .about-image {
-    min-height: abs.rem(360);
   }
 }
 @media (prefers-reduced-motion: reduce) {

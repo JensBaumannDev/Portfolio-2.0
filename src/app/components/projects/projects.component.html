@@ -58,6 +58,9 @@
             <div class="project-title-row">
               <h3>
                 <a [routerLink]="['/projects', project.slug]">{{ project.name }}</a>
+                @if (project.isNew) {
+                  <span class="new-badge">{{ 'portfolio.projects.new' | translate }}</span>
+                }
               </h3>
               @if (spotlight()) {
                 <span
@@ -88,7 +91,7 @@
             </p>
             <div class="project-footer">
               <ul class="technology-chips" [attr.aria-label]="'a11y.technologies' | translate">
-                @for (technology of project.technologies; track technology) {
+                @for (technology of visibleTechnologies(project); track technology) {
                   <li>{{ technology }}</li>
                 }
               </ul>
