@@ -19,9 +19,9 @@
         <strong>{{ 'about.fact_location' | translate }}</strong>
       </p>
       <div class="about-actions">
-        <a class="about-cv" [href]="cvUrl()" download
+        <a class="about-cv" [href]="cvUrl()" target="_blank" rel="noopener"
           >{{ 'portfolio.about.cv' | translate }}
-          <ng-icon name="lucideDownload" aria-hidden="true"></ng-icon
+          <ng-icon name="lucideFileText" aria-hidden="true"></ng-icon
         ></a>
         <a
           class="about-certificates"
