@@ -3,7 +3,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
   lucideAward,
-  lucideDownload,
+  lucideFileText,
   lucideGamepad2,
   lucideHeart,
   lucideMusic2,
@@ -18,7 +18,7 @@ import { RevealDirective } from '../../directives/reveal.directive';
   providers: [
     provideIcons({
       lucideAward,
-      lucideDownload,
+      lucideFileText,
       lucideGamepad2,
       lucideHeart,
       lucideMusic2,
