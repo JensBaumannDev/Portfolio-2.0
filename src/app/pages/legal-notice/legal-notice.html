@@ -1,0 +1,51 @@
+<app-page-hero
+  [historyBack]="true"
+  [separatedSub]="true"
+  [label]="'page.legal_label' | translate"
+  [title]="'legal.title' | translate"
+  [sub]="'legal.date' | translate"
+/>
+
+<div class="wrap">
+  <article class="legal">
+    <section>
+      <h2>{{ 'legal.provider_title' | translate }}</h2>
+      <p>
+        Jens Baumann<br />
+        {{ 'legal.address_street' | translate }}<br />
+        {{ 'legal.address_zip' | translate }} Emden<br />
+        {{ 'legal.country' | translate }}
+      </p>
+    </section>
+
+    <section>
+      <h2>{{ 'legal.contact_title' | translate }}</h2>
+      <p>
+        {{ 'legal.email_label' | translate }}
+        <a [href]="'mailto:' + email">{{ email }}</a
+        ><br />
+        {{ 'legal.form_label' | translate }} <a routerLink="/contact">jensbaumann.com/contact</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>{{ 'legal.liability_content_title' | translate }}</h2>
+      <p>{{ 'legal.liability_content_text' | translate }}</p>
+    </section>
+
+    <section>
+      <h2>{{ 'legal.liability_links_title' | translate }}</h2>
+      <p>{{ 'legal.liability_links_text' | translate }}</p>
+    </section>
+
+    <section>
+      <h2>{{ 'legal.copyright_title' | translate }}</h2>
+      <p>{{ 'legal.copyright_text' | translate }}</p>
+    </section>
+
+    <section>
+      <h2>{{ 'legal.credits_title' | translate }}</h2>
+      <p>{{ 'legal.credits_text' | translate }}</p>
+    </section>
+  </article>
+</div>

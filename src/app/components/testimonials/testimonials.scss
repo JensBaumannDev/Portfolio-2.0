@@ -1,0 +1,85 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+}
+
+.voices {
+  padding: clamp(#{rem(40)}, 6vw, #{rem(96)}) clamp(#{rem(20)}, 4vw, #{rem(64)});
+  border-radius: $radius-surface;
+  background: $color-stage;
+  color: $color-on-dark;
+}
+
+h2 {
+  @include heading-section;
+  margin-bottom: clamp(#{rem(28)}, 4vw, #{rem(48)});
+}
+
+.vc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.vc {
+  @include flex(column, nowrap, space-between, stretch);
+  gap: rem(32);
+  padding: rem(4) clamp(#{rem(24)}, 3vw, #{rem(48)});
+  border-left: 1px solid $color-line-on-dark;
+
+  &:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+blockquote p {
+  text-indent: -0.42em;
+  font-size: clamp(#{rem(20)}, 1.6vw, #{rem(24)});
+  letter-spacing: -0.01em;
+  line-height: 1.45;
+}
+
+figcaption {
+  @include flex(column, nowrap, flex-start, flex-start);
+  gap: rem(2);
+
+  b {
+    font-size: rem(18);
+    font-weight: $font-weight-semibold;
+  }
+
+  span {
+    margin-bottom: rem(14);
+    color: $color-on-dark-muted;
+  }
+}
+
+/* #region RESPONSIVE */
+@include below-tablet {
+  .vc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vc,
+  .vc:first-child {
+    padding: rem(32) 0;
+    border-top: 1px solid $color-line-on-dark;
+    border-left: 0;
+  }
+
+  .vc:last-child {
+    padding-bottom: 0;
+  }
+}
+
+@include phone {
+  .vc .b {
+    width: 100%;
+  }
+}
+/* #endregion */

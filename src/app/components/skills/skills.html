@@ -1,0 +1,24 @@
+<section aria-labelledby="skills-title">
+  <h2 id="skills-title">
+    {{ 'home.skills.title' | translate }}<br /><span>{{ 'home.skills.title_2' | translate }}</span>
+  </h2>
+  <div class="sk-panel">
+    @for (group of groups; track group.key) {
+      <article class="sk-group">
+        <h3>{{ 'home.skills.' + group.key | translate }}</h3>
+        <ul>
+          @for (tool of group.tools; track tool) {
+            <li>
+              <img
+                [ngSrc]="icons[tool].src"
+                [width]="icons[tool].width"
+                [height]="icons[tool].height"
+                alt=""
+              />{{ tool }}
+            </li>
+          }
+        </ul>
+      </article>
+    }
+  </div>
+</section>

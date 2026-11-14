@@ -1,0 +1,28 @@
+<section class="voices" aria-labelledby="testimonials-title">
+  <h2 id="testimonials-title">
+    {{ 'home.testimonials.title' | translate }}<br /><span>{{
+      'home.testimonials.title_2' | translate
+    }}</span>
+  </h2>
+  <div class="vc-grid">
+    @for (testimonial of testimonials; track testimonial.name) {
+      <figure class="vc">
+        <blockquote>
+          <p>„{{ testimonial.quoteKey | translate }}“</p>
+        </blockquote>
+        <figcaption>
+          <b>{{ testimonial.name }}</b>
+          <span>{{ 'home.testimonials.role' | translate }}</span>
+          <a
+            class="b b-dark"
+            [href]="testimonial.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="(testimonial.linkKey | translate) + ': ' + testimonial.name"
+            >{{ testimonial.linkKey | translate }}</a
+          >
+        </figcaption>
+      </figure>
+    }
+  </div>
+</section>

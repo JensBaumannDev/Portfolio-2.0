@@ -1,0 +1,111 @@
+<app-page-hero
+  backFragment="contact"
+  [label]="'contact.label' | translate"
+  [title]="'contact.title' | translate"
+  [sub]="'contact.sub' | translate"
+>
+  <img
+    heroMedia
+    class="photo"
+    ngSrc="/img/about/jens-contact.webp"
+    width="607"
+    height="840"
+    priority
+    [alt]="'contact.photo_alt' | translate"
+  />
+</app-page-hero>
+
+<div class="wrap msg">
+  <p class="intro">{{ 'contact.intro' | translate }}</p>
+  <div class="card">
+    <div class="body">
+      @if (status() === 'success') {
+        <div class="done" #done tabindex="-1" role="status">
+          <h2>{{ 'contact.done_title' | translate }}</h2>
+          <p>{{ 'contact.done_text' | translate }}</p>
+          <div class="btns">
+            <a class="b b-dark" routerLink="/">{{ 'contact.home' | translate }}</a>
+          </div>
+        </div>
+      } @else {
+        <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+          <div class="fld" [class.bad]="invalid('name')">
+            <label for="contact-name">{{ 'contact.name_label' | translate }}</label>
+            <input
+              id="contact-name"
+              type="text"
+              formControlName="name"
+              autocomplete="name"
+              maxlength="120"
+              required
+              aria-describedby="contact-name-error"
+              [attr.aria-invalid]="invalid('name')"
+            />
+            <p class="err" id="contact-name-error">{{ 'contact.error_name' | translate }}</p>
+          </div>
+          <div class="fld" [class.bad]="invalid('email')">
+            <label for="contact-email">{{ 'contact.email_label' | translate }}</label>
+            <input
+              id="contact-email"
+              type="email"
+              formControlName="email"
+              autocomplete="email"
+              maxlength="254"
+              required
+              aria-describedby="contact-email-error"
+              [attr.aria-invalid]="invalid('email')"
+            />
+            <p class="err" id="contact-email-error">{{ 'contact.error_email' | translate }}</p>
+          </div>
+          <div class="fld" [class.bad]="invalid('message')">
+            <label for="contact-message">{{ 'contact.message_label' | translate }}</label>
+            <textarea
+              id="contact-message"
+              formControlName="message"
+              rows="3"
+              maxlength="5000"
+              required
+              aria-describedby="contact-message-error"
+              [attr.aria-invalid]="invalid('message')"
+            ></textarea>
+            <p class="err" id="contact-message-error">
+              {{ 'contact.error_message' | translate }}
+            </p>
+          </div>
+          <div class="fld chk" [class.bad]="invalid('privacy')">
+            <input
+              id="contact-privacy"
+              type="checkbox"
+              formControlName="privacy"
+              required
+              aria-describedby="contact-privacy-error"
+              [attr.aria-invalid]="invalid('privacy')"
+            />
+            <label for="contact-privacy"
+              >{{ 'contact.privacy_pre' | translate }}
+              <a routerLink="/privacy-policy">{{ 'contact.privacy_link' | translate }}</a>
+              {{ 'contact.privacy_post' | translate }}</label
+            >
+            <p class="err" id="contact-privacy-error">
+              {{ 'contact.error_privacy' | translate }}
+            </p>
+          </div>
+          <input
+            class="honeypot"
+            type="text"
+            formControlName="website"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+          @if (status() === 'error') {
+            <p class="send-error" role="alert">{{ 'contact.error_send' | translate }}</p>
+          }
+          <button class="b b-blue" type="submit" [disabled]="status() === 'sending'">
+            {{ (status() === 'sending' ? 'contact.sending' : 'contact.submit') | translate }}
+          </button>
+        </form>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+  padding-bottom: $page-padding-bottom;
+}
+
+.legal {
+  @include legal-text;
+}

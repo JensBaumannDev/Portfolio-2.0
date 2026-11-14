@@ -1,0 +1,174 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+  padding-bottom: $page-padding-bottom;
+}
+
+.photo {
+  width: min(#{rem(300)}, 60%);
+  margin: clamp(#{rem(24)}, 3vw, #{rem(40)}) auto 0;
+}
+
+.msg {
+  margin-top: clamp(#{rem(48)}, 6vw, #{rem(88)});
+}
+
+.intro {
+  max-width: rem(760);
+  margin: 0 auto clamp(#{rem(40)}, 5vw, #{rem(64)});
+  font-size: clamp(#{rem(20)}, 1.9vw, #{rem(26)});
+  letter-spacing: -0.02em;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.card {
+  @include flex(row, nowrap, center, stretch);
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: clamp(#{rem(28)}, 4vw, #{rem(56)}) clamp(#{rem(20)}, 4vw, #{rem(64)});
+  border-radius: $radius-surface;
+  background: $color-surface;
+}
+
+.body {
+  width: min(#{rem(600)}, 100%);
+}
+
+form {
+  display: grid;
+  gap: rem(18);
+}
+
+.fld label {
+  display: block;
+  margin-bottom: rem(8);
+  font-weight: $font-weight-semibold;
+}
+
+input[type='text'],
+input[type='email'],
+textarea {
+  width: 100%;
+  padding: rem(14) rem(16);
+  border: 1px solid $color-field-line;
+  border-radius: $radius-button;
+  background: $color-white;
+  color: $color-ink;
+  font: $font-weight-medium #{rem(18)}/ 1.4 $font-family-base;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+
+  &:hover {
+    border-color: $color-field-line-hover;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-blue;
+    box-shadow: 0 0 0 3px fade($color-blue, 0.18);
+  }
+}
+
+textarea {
+  min-height: rem(180);
+  resize: vertical;
+}
+
+.err {
+  display: none;
+  margin-top: rem(8);
+  color: $color-error;
+}
+
+.bad {
+  input,
+  textarea {
+    border-color: $color-error;
+  }
+
+  .err {
+    display: block;
+  }
+}
+
+.chk {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: rem(12);
+
+  input {
+    width: rem(22);
+    height: rem(22);
+    margin: rem(1) 0 0;
+    accent-color: $color-blue;
+  }
+
+  label {
+    margin: 0;
+    font-weight: $font-weight-medium;
+    color: $color-text;
+  }
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: rem(3);
+  }
+
+  .err {
+    grid-column: 1 / -1;
+  }
+}
+
+.honeypot {
+  @include visually-hidden;
+}
+
+.send-error {
+  color: $color-error;
+}
+
+form .b {
+  justify-self: center;
+  margin-top: rem(4);
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+}
+
+.done {
+  text-align: center;
+
+  h2 {
+    margin-bottom: rem(10);
+    font-size: clamp(#{rem(28)}, 3vw, #{rem(40)});
+    letter-spacing: -0.04em;
+  }
+
+  p {
+    margin-bottom: rem(24);
+    font-size: rem(18);
+    color: $color-text;
+  }
+
+  .btns {
+    justify-content: center;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/* #region RESPONSIVE */
+@include phone {
+  form .b {
+    justify-self: stretch;
+  }
+}
+/* #endregion */

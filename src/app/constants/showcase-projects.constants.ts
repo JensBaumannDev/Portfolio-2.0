@@ -1,78 +1,49 @@
 export type ShowcaseProjectCategory = 'frontend' | 'backend';
 
+export type ShowcaseProjectFact = 'role' | 'team' | 'duration';
+
 export interface ShowcaseProject {
   readonly slug: string;
   readonly name: string;
   readonly category: ShowcaseProjectCategory;
-  readonly teamSize: number;
-  readonly image: string;
+  readonly railImage: string;
+  readonly browserImage: string;
+  readonly imageWidth: number;
+  readonly imageHeight: number;
+  readonly frameInset?: string;
+  readonly facts: readonly ShowcaseProjectFact[];
   readonly technologies: readonly string[];
   readonly features: readonly string[];
-  readonly github?: string;
-  readonly demo?: string;
-  readonly isNew?: boolean;
+  readonly github: string;
+  readonly demo: string;
 }
-
-export const TECHNOLOGY_ICONS: Readonly<Record<string, string>> = {
-  Angular: '/img/skills/angular.svg',
-  TypeScript: '/img/skills/typescript.svg',
-  SCSS: '/img/skills/css.svg',
-  Supabase: '/img/skills/supabase.svg',
-  HTML: '/img/skills/html.svg',
-  CSS: '/img/skills/css.svg',
-  JavaScript: '/img/skills/javascript.svg',
-  Vite: '/img/skills/vite.svg',
-  Python: '/img/skills/python.svg',
-  Django: '/img/skills/django.svg',
-  'Django REST': '/img/skills/django.svg',
-  SQLite: '/img/skills/sqlite.svg',
-  PostgreSQL: '/img/skills/postgresql.svg',
-  Docker: '/img/skills/docker.svg',
-  Redis: '/img/skills/redis.svg',
-  FFmpeg: '/img/skills/ffmpeg.svg',
-};
 
 export const SHOWCASE_PROJECTS: readonly ShowcaseProject[] = [
   {
     slug: 'videoflix',
     name: 'Videoflix',
-    teamSize: 1,
     category: 'backend',
-    image: '/img/projects/webp/videoflix_project.webp',
-    technologies: ['Python', 'Django', 'Django REST', 'PostgreSQL', 'Redis', 'FFmpeg', 'Docker'],
+    railImage: '/img/projects/rail/videoflix.webp',
+    browserImage: '/img/projects/browser/videoflix.webp',
+    imageWidth: 1440,
+    imageHeight: 900,
+    frameInset: '0 0 3.75%',
+    facts: ['role'],
+    technologies: ['Python', 'Django REST', 'PostgreSQL', 'Redis', 'FFmpeg', 'Docker'],
     features: ['authentication', 'streaming', 'background_jobs', 'docker'],
     github: 'https://github.com/JensBaumannDev/Videoflix',
     demo: 'https://videoflix.jensbaumann.com',
-    isNew: true,
-  },
-  {
-    slug: 'coderr',
-    name: 'Coderr',
-    teamSize: 1,
-    category: 'backend',
-    image: '/img/projects/webp/coderr_project-normal.webp',
-    technologies: ['Python', 'Django', 'Django REST', 'SQLite'],
-    features: ['authentication', 'crud', 'database'],
-    github: 'https://github.com/JensBaumannDev/Coderr_Backend',
-    demo: 'https://coderr.jensbaumann.com',
-  },
-  {
-    slug: 'kanmind',
-    name: 'KanMind',
-    teamSize: 1,
-    category: 'backend',
-    image: '/img/projects/webp/kanmind_project-normal.webp',
-    technologies: ['Python', 'Django', 'Django REST', 'SQLite'],
-    features: ['authentication', 'crud', 'database'],
-    github: 'https://github.com/JensBaumannDev/KanMind',
-    demo: 'https://kanmind.jensbaumann.com',
   },
   {
     slug: 'dabubble',
     name: 'DABubble',
-    teamSize: 2,
     category: 'frontend',
-    image: '/img/projects/webp/dabubble_project.webp',
+    railImage: '/img/projects/rail/dabubble.webp',
+    browserImage: '/img/projects/browser/dabubble.webp',
+    imageWidth: 1540,
+    imageHeight: 1000,
+    frameInset: '4% 3.246753% 6%',
+    facts: ['role', 'team', 'duration'],
     technologies: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
     features: ['authentication', 'updates', 'responsive'],
     github: 'https://github.com/JensBaumannDev/DABubble',
@@ -80,33 +51,75 @@ export const SHOWCASE_PROJECTS: readonly ShowcaseProject[] = [
   },
   {
     slug: 'join',
-    name: 'JOIN',
-    teamSize: 4,
+    name: 'Join',
     category: 'frontend',
-    image: '/img/projects/webp/join_project.webp',
+    railImage: '/img/projects/rail/join.webp',
+    browserImage: '/img/projects/browser/join.webp',
+    imageWidth: 1540,
+    imageHeight: 1000,
+    frameInset: '4% 3.246753% 6%',
+    facts: ['role', 'team', 'duration'],
     technologies: ['Angular', 'TypeScript', 'SCSS', 'Supabase'],
     features: ['authentication', 'updates', 'drag_drop', 'responsive'],
     github: 'https://github.com/JensBaumannDev/Join',
     demo: 'https://join.jensbaumann.com',
   },
   {
+    slug: 'coderr',
+    name: 'Coderr',
+    category: 'backend',
+    railImage: '/img/projects/rail/coderr.webp',
+    browserImage: '/img/projects/browser/coderr.webp',
+    imageWidth: 1540,
+    imageHeight: 1000,
+    frameInset: '4% 3.246753% 6%',
+    facts: ['role'],
+    technologies: ['Python', 'Django REST', 'SQLite'],
+    features: ['authentication', 'crud', 'database'],
+    github: 'https://github.com/JensBaumannDev/Coderr_Backend',
+    demo: 'https://coderr.jensbaumann.com',
+  },
+  {
+    slug: 'kanmind',
+    name: 'KanMind',
+    category: 'backend',
+    railImage: '/img/projects/rail/kanmind.webp',
+    browserImage: '/img/projects/browser/kanmind.webp',
+    imageWidth: 1540,
+    imageHeight: 1000,
+    frameInset: '4% 3.246753% 6%',
+    facts: ['role'],
+    technologies: ['Python', 'Django REST', 'SQLite'],
+    features: ['authentication', 'crud', 'database'],
+    github: 'https://github.com/JensBaumannDev/KanMind',
+    demo: 'https://kanmind.jensbaumann.com',
+  },
+  {
     slug: 'el-pollo-loco',
     name: 'El Pollo Loco',
-    teamSize: 1,
     category: 'frontend',
-    image: '/img/projects/webp/el_pollo_loco_project.webp',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
+    railImage: '/img/projects/rail/el-pollo-loco.webp',
+    browserImage: '/img/projects/browser/el-pollo-loco.webp',
+    imageWidth: 1540,
+    imageHeight: 1000,
+    frameInset: '4% 3.246753% 6%',
+    facts: ['role', 'duration'],
+    technologies: ['JavaScript', 'HTML', 'CSS'],
     features: ['oop', 'game_loop', 'collision'],
     github: 'https://github.com/JensBaumannDev/El-Pollo-Loco',
     demo: 'https://el-pollo-loco.jensbaumann.com',
   },
   {
     slug: 'pokedex',
-    name: 'Pokedex',
-    teamSize: 1,
+    name: 'Pokédex',
     category: 'frontend',
-    image: '/img/projects/webp/pokedex_project.webp',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'Vite'],
+    railImage: '/img/projects/rail/pokedex.webp',
+    browserImage: '/img/projects/browser/pokedex.webp',
+    imageWidth: 1540,
+    imageHeight: 1000,
+    frameInset: '4% 3.246753% 6%',
+    facts: ['role', 'duration'],
+    technologies: ['JavaScript', 'Vite', 'HTML', 'CSS'],
     features: ['api', 'search', 'localization', 'responsive'],
     github: 'https://github.com/JensBaumannDev/Pokedex',
     demo: 'https://pokedex.jensbaumann.com',

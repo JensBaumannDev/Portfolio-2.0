@@ -1,0 +1,62 @@
+@use 'src/styles/abstracts' as *;
+
+.btns {
+  @include button-row;
+}
+
+.b {
+  @include flex(row, nowrap, center, center);
+  min-height: rem(46);
+  padding: rem(12) rem(24);
+  border: 0;
+  border-radius: $radius-button;
+  font: $font-weight-semibold #{rem(17)}/ 1.2 $font-family-base;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.25s,
+    color 0.25s;
+
+  .ic {
+    flex: none;
+    width: 1.05em;
+    height: 1.05em;
+    margin-right: rem(8);
+  }
+}
+
+.b-blue {
+  background: $color-blue;
+  color: $color-white;
+
+  &:hover {
+    background: $color-blue-hover;
+  }
+
+  &:active {
+    background: $color-blue-active;
+  }
+}
+
+.b-dark {
+  background: $color-dark;
+  color: $color-on-dark;
+
+  &:hover {
+    background: $color-dark-hover;
+  }
+}
+
+.b-soc {
+  min-height: rem(38);
+  padding: rem(8) rem(14);
+  font-size: rem(16);
+  background: $color-surface;
+  color: $color-ink;
+
+  &:hover {
+    background: $color-surface-hover;
+  }
+}

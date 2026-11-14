@@ -3,15 +3,16 @@ import { DOCUMENT } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import { SITE_ORIGIN } from '../constants/site.constants';
 
 export interface PageSeo {
   titleKey: string;
   descriptionKey: string;
   path: string;
   noindex?: boolean;
+  params?: Record<string, string>;
 }
 
-const SITE_ORIGIN = 'https://jensbaumann.com';
 const OG_LOCALES: Record<string, string> = { de: 'de_DE', en: 'en_US' };
 
 @Injectable({ providedIn: 'root' })
@@ -25,7 +26,7 @@ export class SeoService implements OnDestroy {
   apply(page: PageSeo): void {
     this.subscription?.unsubscribe();
     this.subscription = this.translate
-      .stream([page.titleKey, page.descriptionKey])
+      .stream([page.titleKey, page.descriptionKey], page.params)
       .subscribe((values: Record<string, string>) => {
         this.render(page, values[page.titleKey], values[page.descriptionKey]);
       });

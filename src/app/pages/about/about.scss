@@ -1,0 +1,189 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+  padding-bottom: $page-padding-bottom;
+}
+
+.actions {
+  justify-content: center;
+}
+
+.photo {
+  width: min(#{rem(520)}, 92%);
+  margin: clamp(#{rem(20)}, 3vw, #{rem(36)}) auto 0;
+}
+
+.profile {
+  max-width: $content-width;
+}
+
+.summary {
+  margin-top: clamp(#{rem(64)}, 8vw, #{rem(120)});
+  text-align: center;
+}
+
+.lead {
+  max-width: rem(820);
+  margin: 0 auto;
+  font-size: clamp(#{rem(21)}, 2vw, #{rem(28)});
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+
+.facts {
+  @include flex(row, wrap, center, baseline);
+  gap: rem(12) clamp(#{rem(28)}, 4vw, #{rem(56)});
+  margin-top: clamp(#{rem(24)}, 3vw, #{rem(32)});
+
+  div {
+    @include flex(row, wrap, center, baseline);
+    gap: rem(8);
+  }
+
+  dt {
+    font-weight: $font-weight-semibold;
+    color: $color-label;
+  }
+
+  dd {
+    font-size: rem(17);
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: rem(18);
+  margin-top: clamp(#{rem(40)}, 5vw, #{rem(64)});
+}
+
+.card {
+  @include surface-card;
+
+  h2 {
+    @include card-label;
+    margin-bottom: rem(28);
+  }
+
+  p {
+    font-size: rem(18);
+    line-height: 1.55;
+    color: $color-text;
+  }
+}
+
+.career {
+  @include flex(column, nowrap);
+
+  .steps {
+    flex: 1;
+    align-content: space-between;
+  }
+}
+
+.intro {
+  margin-bottom: rem(20);
+}
+
+.steps {
+  display: grid;
+  gap: rem(16);
+  counter-reset: step;
+
+  li {
+    position: relative;
+    padding-left: rem(40);
+    counter-increment: step;
+
+    &::before {
+      content: counter(step);
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: rem(26);
+      height: rem(26);
+      border-radius: 50%;
+      background: $color-ink;
+      color: $color-white;
+      font-weight: $font-weight-semibold;
+      line-height: rem(26);
+      text-align: center;
+    }
+  }
+
+  &.plain li {
+    padding-left: 0;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  h3 {
+    font-size: rem(19);
+    font-weight: $font-weight-semibold;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    margin-top: rem(2);
+    font-size: rem(17);
+    line-height: 1.5;
+  }
+}
+
+.free {
+  margin-top: $section-gap;
+
+  > h2 {
+    margin-bottom: clamp(#{rem(24)}, 3vw, #{rem(36)});
+    font-size: clamp(#{rem(36)}, 4.4vw, #{rem(64)});
+    letter-spacing: -0.05em;
+    line-height: 1.02;
+    text-align: center;
+  }
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: rem(18);
+
+  h3 {
+    font-size: rem(21);
+    letter-spacing: -0.03em;
+    overflow-wrap: anywhere;
+  }
+
+  p {
+    margin-top: rem(6);
+    font-size: rem(17);
+    line-height: 1.45;
+  }
+}
+
+app-contact-cta {
+  display: block;
+  margin-top: $section-gap;
+}
+
+/* #region RESPONSIVE */
+@include below-tablet {
+  .tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@include phone {
+  .details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@include small {
+  .tiles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+/* #endregion */

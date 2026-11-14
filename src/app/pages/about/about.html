@@ -1,0 +1,76 @@
+<app-page-hero
+  backFragment="about"
+  [label]="'about.label' | translate"
+  [title]="'about.title' | translate"
+  [sub]="'about.sub' | translate"
+>
+  <div heroActions class="btns actions">
+    <a class="b b-blue" routerLink="/documents/cv">{{ 'home.duo.cv' | translate }}</a>
+    <a class="b b-dark" routerLink="/documents/certificates">{{
+      'home.duo.certificates' | translate
+    }}</a>
+  </div>
+  <img
+    heroMedia
+    class="photo"
+    ngSrc="/img/about/jens-baumann-about-cutout.webp"
+    width="1200"
+    height="801"
+    priority
+    [alt]="'about.photo_alt' | translate"
+  />
+</app-page-hero>
+
+<div class="wrap profile">
+  <section class="summary" [attr.aria-label]="'about.summary_label' | translate">
+    <p class="lead">{{ 'about.text' | translate }}</p>
+    <dl class="facts">
+      @for (fact of facts; track fact) {
+        <div>
+          <dt>{{ 'about.facts.' + fact + '.label' | translate }}</dt>
+          <dd>{{ 'about.facts.' + fact + '.value' | translate }}</dd>
+        </div>
+      }
+    </dl>
+  </section>
+
+  <div class="details">
+    <section class="card career" aria-labelledby="about-career">
+      <h2 id="about-career">{{ 'about.career_title' | translate }}</h2>
+      <ol class="steps" role="list">
+        @for (step of career; track step) {
+          <li>
+            <h3>{{ 'about.career.' + step + '.title' | translate }}</h3>
+            <p>{{ 'about.career.' + step + '.text' | translate }}</p>
+          </li>
+        }
+      </ol>
+    </section>
+    <section class="card" aria-labelledby="about-work">
+      <h2 id="about-work">{{ 'about.work_title' | translate }}</h2>
+      <p class="intro">{{ 'about.work.intro' | translate }}</p>
+      <ul class="steps plain" role="list">
+        @for (step of workSteps; track step) {
+          <li>
+            <h3>{{ 'about.work.' + step + '.title' | translate }}</h3>
+            <p>{{ 'about.work.' + step + '.text' | translate }}</p>
+          </li>
+        }
+      </ul>
+    </section>
+  </div>
+
+  <section class="free" aria-labelledby="about-free">
+    <h2 id="about-free">{{ 'about.free_title' | translate }}</h2>
+    <div class="tiles">
+      @for (interest of interests; track interest) {
+        <article class="card">
+          <h3>{{ 'about.interests.' + interest + '.title' | translate }}</h3>
+          <p>{{ 'about.interests.' + interest + '.text' | translate }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <app-contact-cta />
+</div>

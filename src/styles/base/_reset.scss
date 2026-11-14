@@ -35,8 +35,6 @@ ol {
 
 body {
   min-height: 100svh;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -70,17 +68,8 @@ button {
   cursor: pointer;
 }
 
-:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 4px;
-}
-
 /* #region RESPONSIVE */
 @media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
   *,
   *::before,
   *::after {

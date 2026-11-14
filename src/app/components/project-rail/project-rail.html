@@ -1,0 +1,85 @@
+<section class="sec" [attr.aria-label]="'home.rail.label' | translate">
+  <div
+    class="rail"
+    #rail
+    tabindex="0"
+    [class.lit]="lit()"
+    [attr.aria-label]="'home.rail.keys' | translate"
+    (scroll)="sync()"
+    (keydown)="onKeydown($event)"
+    (pointermove)="onPointerMove($event)"
+    (pointerleave)="lit.set(false)"
+  >
+    @for (project of projects; track project.slug; let first = $first) {
+      <article class="pcard" (click)="open($event, project.slug)">
+        <div class="pc-img">
+          <img
+            [ngSrc]="project.railImage"
+            fill
+            [priority]="first"
+            sizes="(max-width: 760px) 100vw, 60vw"
+            alt=""
+          />
+        </div>
+        <div class="pc-top">
+          <span class="pc-kind">{{ 'work.labels.' + project.category | translate }}</span>
+          <h3>{{ project.name }}</h3>
+          <p>{{ 'work.' + project.slug + '.type' | translate }}</p>
+        </div>
+        <p class="pc-role">
+          <b>{{ 'work.labels.my_part' | translate }}</b>
+          {{ 'work.' + project.slug + '.role' | translate }}
+          <span>{{ 'work.' + project.slug + '.stack' | translate }}</span>
+        </p>
+        <span class="pc-sheen" aria-hidden="true"></span>
+        <div class="btns pc-btns">
+          <a
+            class="b b-blue"
+            [href]="project.demo"
+            target="_blank"
+            rel="noopener"
+            [attr.aria-label]="('home.rail.live' | translate) + ': ' + project.name"
+            >{{ 'home.rail.live' | translate }}</a
+          >
+          <a
+            class="b b-dark"
+            [routerLink]="['/projects', project.slug]"
+            [attr.aria-label]="('home.rail.details' | translate) + ': ' + project.name"
+            >{{ 'home.rail.details' | translate }}</a
+          >
+        </div>
+      </article>
+    }
+  </div>
+  <div class="rail-ui">
+    <button
+      class="arrow"
+      type="button"
+      [disabled]="atStart()"
+      [attr.aria-label]="'home.rail.prev' | translate"
+      (click)="move(-1)"
+    >
+      <ng-icon name="lucideChevronLeft" aria-hidden="true" />
+    </button>
+    <div class="dots">
+      @for (project of projects; track project.slug; let index = $index) {
+        <button
+          type="button"
+          [class.on]="index === active()"
+          [attr.aria-current]="index === active() ? 'true' : null"
+          [attr.aria-label]="'home.rail.dot' | translate: { index: index + 1 }"
+          (click)="goTo(index)"
+        ></button>
+      }
+    </div>
+    <button
+      class="arrow"
+      type="button"
+      [disabled]="atEnd()"
+      [attr.aria-label]="'home.rail.next' | translate"
+      (click)="move(1)"
+    >
+      <ng-icon name="lucideChevronRight" aria-hidden="true" />
+    </button>
+  </div>
+</section>

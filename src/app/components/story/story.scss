@@ -1,0 +1,64 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+}
+
+h2 {
+  @include heading-section;
+  margin-bottom: clamp(#{rem(28)}, 4vw, #{rem(56)});
+}
+
+.st-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(#{rem(24)}, 4vw, #{rem(72)});
+  padding: clamp(#{rem(24)}, 3vw, #{rem(40)}) 0;
+  border-top: 1px solid $color-line;
+}
+
+.st-skill {
+  font-size: clamp(#{rem(30)}, 3vw, #{rem(44)});
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.st-k {
+  margin-bottom: rem(8);
+  font-weight: $font-weight-semibold;
+  color: $color-label;
+}
+
+.st-s {
+  max-width: 40ch;
+  margin-bottom: rem(16);
+  font-size: clamp(#{rem(18)}, 1.5vw, #{rem(21)});
+  line-height: 1.45;
+}
+
+/* #region RESPONSIVE */
+@include below-tablet {
+  .st-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .st-skill {
+    grid-column: 1 / -1;
+  }
+}
+
+@include phone {
+  .st-row {
+    grid-template-columns: 1fr;
+    gap: rem(18);
+  }
+
+  .st-s {
+    margin-bottom: rem(12);
+  }
+
+  .b {
+    width: 100%;
+  }
+}
+/* #endregion */

@@ -14,172 +14,142 @@
   align-items: $align-items;
 }
 
-@mixin maxWidth {
-  max-width: vars.$max-width;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-@mixin actionButton {
-  @include flex(row, nowrap, center, center);
-  width: fit-content;
-  min-width: fn.rem(160);
-  min-height: fn.rem(56);
-  gap: fn.rem(8);
-  padding: fn.rem(12) fn.rem(20);
-  border: 1px solid currentColor;
-  border-radius: vars.$radius-md;
-  background-color: transparent;
-  background-image: linear-gradient(vars.$color-accent, vars.$color-accent);
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: 0 100%;
-  color: var(--color-text);
-  font-family: vars.$font-family-base;
-  font-size: fn.rem(16);
-  font-weight: vars.$font-weight-medium;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition:
-    background-size 0.32s cubic-bezier(0.2, 0.8, 0.2, 1),
-    color 0.2s ease;
-
-  &:hover:not(:disabled) {
-    background-size: 100% 100%;
-    color: vars.$color-white;
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-text);
-    outline-offset: 4px;
-  }
-}
-
-@mixin actionButtonMobile {
-  min-width: 0;
-  min-height: fn.rem(44);
-  padding: fn.rem(8) fn.rem(12);
-}
-
-@mixin socialLink {
-  @include flex(row, nowrap, flex-start, center);
-  width: fit-content;
-  gap: fn.rem(10);
-  color: var(--color-text);
-  text-decoration: none;
-  transition:
-    color 0.18s ease,
-    transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
-
-  > ng-icon {
-    transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-
-  > span {
-    position: relative;
-  }
-
-  > span::after {
-    position: absolute;
-    right: 0;
-    bottom: fn.rem(-6);
-    left: 0;
-    height: fn.rem(1);
-    background: vars.$color-accent;
-    content: '';
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-
-  &:hover {
-    color: var(--color-accent);
-    transform: translateY(-3px);
-  }
-
-  &:hover > ng-icon {
-    transform: rotate(-7deg) scale(1.08);
-  }
-
-  &:hover > span::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-text);
-    outline-offset: 4px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    &,
-    > ng-icon,
-    > span::after {
-      transition: none;
-    }
-
-    &:hover,
-    &:hover > ng-icon {
-      transform: none;
-    }
-  }
-}
-
-@mixin mobile {
-  @media (max-width: #{vars.$breakpoint-tablet}) {
+@mixin small {
+  @media (max-width: #{vars.$bp-small}) {
     @content;
   }
 }
 
-@mixin mobile-sm {
-  @media (max-width: #{vars.$breakpoint-mobile-sm}) {
+@mixin phone {
+  @media (max-width: #{vars.$bp-phone}) {
     @content;
   }
 }
 
-@mixin tablet {
-  @media (min-width: #{vars.$breakpoint-tablet + 1px}) and (max-width: #{vars.$breakpoint-desktop}) {
+@mixin below-tablet {
+  @media (max-width: #{vars.$bp-tablet}) {
     @content;
   }
 }
 
-@mixin tablet-lg {
-  @media (max-width: #{vars.$breakpoint-desktop}) {
-    @content;
-  }
+@mixin wrap {
+  width: min(#{vars.$container-width}, 100% - 2 * #{vars.$gutter});
+  margin-inline: auto;
 }
 
-@mixin typeSection {
-  font-family: vars.$font-family-base;
+@mixin focus-ring($color: vars.$color-blue, $offset: 3px) {
+  outline: 2px solid $color;
+  outline-offset: $offset;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: fn.rem(1);
+  height: fn.rem(1);
+  overflow: clip;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@mixin heading-section {
   font-size: vars.$font-size-section;
-  font-weight: vars.$font-weight-bold;
-  line-height: vars.$line-height-heading;
-  letter-spacing: fn.rem(-1.2);
+  letter-spacing: -0.05em;
+  line-height: 1.02;
+  color: inherit;
+
+  span {
+    color: vars.$color-subtle;
+  }
 }
-@mixin typeCard {
-  font-family: vars.$font-family-base;
-  font-size: vars.$font-size-card;
-  font-weight: vars.$font-weight-bold;
-  line-height: 1.2;
-  letter-spacing: fn.rem(-0.4);
+
+@mixin heading-hero {
+  font-size: vars.$font-size-hero;
+  letter-spacing: -0.05em;
+  line-height: 1;
 }
-@mixin typeBody {
-  font-family: vars.$font-family-base;
-  font-size: vars.$font-size-body;
-  font-weight: vars.$font-weight-regular;
-  line-height: vars.$line-height-body;
-  letter-spacing: normal;
+
+@mixin heading-page {
+  font-size: vars.$font-size-page;
+  letter-spacing: -0.05em;
+  line-height: 1;
 }
-@mixin typeMeta {
-  font-family: vars.$font-family-base;
-  font-size: vars.$font-size-meta;
-  font-weight: vars.$font-weight-regular;
-  line-height: 1.5;
-  letter-spacing: normal;
+
+@mixin card-label {
+  margin-bottom: fn.rem(16);
+  font-size: fn.rem(17);
+  font-weight: vars.$font-weight-semibold;
+  color: vars.$color-label;
 }
-@mixin typeLabel {
-  @include typeMeta;
-  font-weight: vars.$font-weight-bold;
-  letter-spacing: fn.rem(0.8);
+
+@mixin surface-card {
+  padding: clamp(#{fn.rem(24)}, 2.6vw, #{fn.rem(36)});
+  border-radius: vars.$radius-surface;
+  background: vars.$color-surface;
+}
+
+@mixin stage {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: vars.$color-stage;
+  color: vars.$color-on-dark;
+}
+
+@mixin button-row {
+  @include flex(row, wrap, flex-start, center);
+  gap: fn.rem(10);
+}
+
+@mixin legal-text {
+  max-width: fn.rem(760);
+  margin: clamp(#{fn.rem(48)}, 6vw, #{fn.rem(88)}) auto 0;
+
+  section {
+    padding: clamp(#{fn.rem(24)}, 3vw, #{fn.rem(36)}) 0;
+    border-top: 1px solid vars.$color-line;
+  }
+
+  section:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  h2 {
+    margin-bottom: fn.rem(12);
+    font-size: clamp(#{fn.rem(22)}, 1.8vw, #{fn.rem(26)});
+    font-weight: vars.$font-weight-semibold;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  p,
+  li {
+    font-size: fn.rem(17);
+    line-height: 1.6;
+    color: vars.$color-text;
+  }
+
+  p + p,
+  p + ul,
+  ul + p {
+    margin-top: fn.rem(12);
+  }
+
+  ul {
+    @include flex(column, nowrap, flex-start, stretch);
+    gap: fn.rem(6);
+    padding-left: fn.rem(22);
+    list-style: disc;
+  }
+
+  a {
+    color: vars.$color-blue;
+    text-decoration: underline;
+    text-underline-offset: fn.rem(3);
+    overflow-wrap: anywhere;
+
+    &:hover {
+      color: vars.$color-blue-active;
+    }
+  }
 }

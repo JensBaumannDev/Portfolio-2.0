@@ -1,0 +1,138 @@
+@for (p of projects; track p.slug) {
+  <section [attr.data-project]="p.slug" [hidden]="p.slug !== displayed()?.slug">
+    <app-page-hero
+      backFragment="projects"
+      [label]="'work.labels.' + p.category | translate"
+      [title]="p.name"
+      [sub]="'work.' + p.slug + '.type' | translate"
+    >
+      <div heroActions class="btns pj-btns">
+        <a class="b b-blue" [href]="p.demo" target="_blank" rel="noopener">{{
+          'work.labels.live' | translate
+        }}</a>
+        <a class="b b-dark" [href]="p.github" target="_blank" rel="noopener">{{
+          'work.labels.code' | translate
+        }}</a>
+      </div>
+      <nav heroMedia class="slide-ui" [attr.aria-label]="'work.labels.browse' | translate">
+        <button
+          class="pj-mock"
+          type="button"
+          [style.--frame-inset]="p.frameInset ?? '0'"
+          [attr.aria-label]="'work.labels.enlarge' | translate: { name: p.name }"
+          (click)="openShot(p)"
+        >
+          <img
+            [ngSrc]="p.browserImage"
+            [width]="p.imageWidth"
+            [height]="p.imageHeight"
+            priority
+            alt=""
+          />
+        </button>
+        <a
+          class="pj-arrow prev"
+          (click)="direction = -1"
+          [routerLink]="['/projects', neighbour(p, -1).slug]"
+          [attr.aria-label]="'work.labels.prev' | translate: { name: neighbour(p, -1).name }"
+          ><ng-icon name="lucideChevronLeft" aria-hidden="true"
+        /></a>
+        <div class="pj-dots">
+          @for (item of projects; track item.slug) {
+            <a
+              [routerLink]="['/projects', item.slug]"
+              [class.on]="item.slug === p.slug"
+              [attr.aria-current]="item.slug === p.slug ? 'page' : null"
+              [attr.aria-label]="'work.labels.go_to' | translate: { name: item.name }"
+            ></a>
+          }
+        </div>
+        <a
+          class="pj-arrow next"
+          (click)="direction = 1"
+          [routerLink]="['/projects', neighbour(p, 1).slug]"
+          [attr.aria-label]="'work.labels.next' | translate: { name: neighbour(p, 1).name }"
+          ><ng-icon name="lucideChevronRight" aria-hidden="true"
+        /></a>
+      </nav>
+    </app-page-hero>
+
+    <div class="wrap">
+      <section class="pj-sum" [attr.aria-labelledby]="'pj-about-' + p.slug">
+        <h2 class="vh" [id]="'pj-about-' + p.slug">
+          {{ 'work.labels.about' | translate: { name: p.name } }}
+        </h2>
+        <p class="pj-lead">{{ 'work.' + p.slug + '.summary' | translate }}</p>
+        <dl class="pj-facts">
+          @for (fact of p.facts; track fact) {
+            <div>
+              <dt>{{ 'work.labels.' + fact | translate }}</dt>
+              <dd>
+                {{ 'work.' + p.slug + '.' + (fact === 'role' ? 'role_fact' : fact) | translate }}
+              </dd>
+            </div>
+          }
+        </dl>
+      </section>
+      <div class="pj-grid">
+        <section class="pj-card">
+          <h2>{{ 'work.labels.implementation' | translate }}</h2>
+          <p>{{ 'work.' + p.slug + '.implementation' | translate }}</p>
+        </section>
+        <section class="pj-card">
+          <h2>{{ 'work.labels.focus' | translate }}</h2>
+          <p>{{ 'work.' + p.slug + '.focus' | translate }}</p>
+        </section>
+        <section class="pj-card">
+          <h2>{{ 'work.labels.technologies' | translate }}</h2>
+          <ul class="pj-tech">
+            @for (technology of p.technologies; track technology) {
+              <li>
+                <img
+                  [ngSrc]="icons[technology].src"
+                  [width]="icons[technology].width"
+                  [height]="icons[technology].height"
+                  alt=""
+                />{{ technology }}
+              </li>
+            }
+          </ul>
+        </section>
+        <section class="pj-card">
+          <h2>{{ 'work.labels.features' | translate }}</h2>
+          <ul class="pj-feat">
+            @for (feature of p.features; track feature) {
+              <li>{{ 'work.' + p.slug + '.features.' + feature | translate }}</li>
+            }
+          </ul>
+        </section>
+      </div>
+    </div>
+  </section>
+}
+
+<dialog
+  #shot
+  class="pj-shot"
+  [attr.aria-label]="
+    zoomed() ? ('work.labels.browser_alt' | translate: { name: zoomed()?.name }) : null
+  "
+  (click)="closeOnBackdrop($event)"
+>
+  @if (zoomed(); as z) {
+    <button
+      class="pj-close"
+      type="button"
+      [attr.aria-label]="'nav.close' | translate"
+      (click)="closeShot()"
+    >
+      <ng-icon name="lucideX" aria-hidden="true" />
+    </button>
+    <img
+      [ngSrc]="z.browserImage"
+      [width]="z.imageWidth"
+      [height]="z.imageHeight"
+      [alt]="'work.labels.browser_alt' | translate: { name: z.name }"
+    />
+  }
+</dialog>

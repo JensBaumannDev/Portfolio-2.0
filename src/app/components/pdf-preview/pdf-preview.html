@@ -1,0 +1,113 @@
+<div [attr.aria-busy]="status() === 'loading'">
+  @if (status() === 'loading' && !pages().length) {
+    <p class="status" role="status">{{ 'documents.loading' | translate }}</p>
+  }
+  @if (status() === 'error') {
+    <p class="status" role="alert">{{ 'documents.fallback' | translate }}</p>
+  }
+  @if (pages().length) {
+    <div class="stage">
+      <div class="view">
+        @if (pages().length > 1) {
+          <button
+            class="arrow"
+            type="button"
+            [disabled]="active() === 0"
+            [attr.aria-label]="'documents.prev' | translate"
+            (click)="step(-1)"
+          >
+            <ng-icon name="lucideChevronLeft" aria-hidden="true" />
+          </button>
+        }
+        <div class="track" #track (scroll)="syncToScroll()">
+          @for (item of pages(); track item.url; let index = $index) {
+            <button
+              class="sheet"
+              type="button"
+              [attr.tabindex]="index === active() ? 0 : -1"
+              [attr.aria-label]="'documents.enlarge' | translate: { number: index + 1 }"
+              (click)="open(index)"
+            >
+              <img [src]="item.url" [width]="item.width" [height]="item.height" alt="" />
+            </button>
+          }
+        </div>
+        @if (pages().length > 1) {
+          <button
+            class="arrow"
+            type="button"
+            [disabled]="active() === pages().length - 1"
+            [attr.aria-label]="'documents.next' | translate"
+            (click)="step(1)"
+          >
+            <ng-icon name="lucideChevronRight" aria-hidden="true" />
+          </button>
+        }
+      </div>
+      @if (pages().length > 1) {
+        <div class="thumbs" role="group" [attr.aria-label]="'documents.pages' | translate">
+          @for (item of pages(); track item.url; let index = $index) {
+            <button
+              type="button"
+              [class.on]="index === active()"
+              [attr.aria-current]="index === active() ? 'true' : null"
+              [attr.aria-label]="'documents.show_page' | translate: { number: index + 1 }"
+              (click)="goTo(index)"
+            >
+              <img [src]="item.url" [width]="item.width" [height]="item.height" alt="" />
+            </button>
+          }
+        </div>
+      }
+    </div>
+    @for (item of pages(); track item.url; let index = $index) {
+      <section class="text" [attr.aria-label]="'documents.page' | translate: { number: index + 1 }">
+        <p>{{ item.text }}</p>
+      </section>
+    }
+  }
+  <dialog
+    #viewer
+    class="viewer"
+    [attr.aria-label]="'documents.viewer' | translate"
+    (click)="closeOnBackdrop($event)"
+    (keydown)="onKey($event)"
+  >
+    @if (current(); as page) {
+      <div class="bar">
+        <p>
+          {{ 'documents.page_of' | translate: { number: active() + 1, total: pages().length } }}
+        </p>
+        @if (pages().length > 1) {
+          <button
+            class="icon"
+            type="button"
+            [disabled]="active() === 0"
+            [attr.aria-label]="'documents.prev' | translate"
+            (click)="step(-1)"
+          >
+            <ng-icon name="lucideChevronLeft" aria-hidden="true" />
+          </button>
+          <button
+            class="icon"
+            type="button"
+            [disabled]="active() === pages().length - 1"
+            [attr.aria-label]="'documents.next' | translate"
+            (click)="step(1)"
+          >
+            <ng-icon name="lucideChevronRight" aria-hidden="true" />
+          </button>
+        }
+        <button
+          class="icon"
+          type="button"
+          [attr.aria-label]="'nav.close' | translate"
+          (click)="close()"
+        >
+          <ng-icon name="lucideX" aria-hidden="true" />
+        </button>
+      </div>
+      <img class="full" [src]="page.url" [width]="page.width" [height]="page.height" alt="" />
+    }
+  </dialog>
+</div>

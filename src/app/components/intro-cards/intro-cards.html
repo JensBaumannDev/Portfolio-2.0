@@ -1,0 +1,31 @@
+<section class="duo" [attr.aria-label]="'home.duo.label' | translate">
+  <article class="lcard">
+    <div class="txt">
+      <h2>{{ 'home.duo.career_title' | translate }}</h2>
+      <p>{{ 'home.duo.career_text' | translate }}</p>
+      <div class="btns">
+        <a class="b b-blue" routerLink="/documents/cv">{{ 'home.duo.cv' | translate }}</a>
+        <a class="b b-dark" routerLink="/about">{{ 'home.duo.more' | translate }}</a>
+      </div>
+    </div>
+    <img class="side" ngSrc="/img/about/jens-card-thinking.webp" width="367" height="532" alt="" />
+  </article>
+  <article class="lcard">
+    <div class="txt">
+      <h2>{{ 'home.duo.cert_title' | translate }}</h2>
+      <p>{{ 'home.duo.cert_text' | translate }}</p>
+      <div class="btns">
+        <a class="b b-dark" routerLink="/documents/certificates">{{
+          'home.duo.certificates' | translate
+        }}</a>
+      </div>
+    </div>
+    <img
+      class="side"
+      ngSrc="/img/about/jens-card-certificate.webp"
+      width="1029"
+      height="1269"
+      alt=""
+    />
+  </article>
+</section>

@@ -1,0 +1,27 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+}
+
+.contact {
+  padding: clamp(#{rem(36)}, 6vw, #{rem(80)}) clamp(#{rem(24)}, 4vw, #{rem(64)});
+  border-radius: $radius-surface;
+  background: $color-surface;
+  text-align: center;
+}
+
+h2 {
+  @include heading-section;
+}
+
+p {
+  max-width: 48ch;
+  margin: rem(16) auto rem(28);
+  font-size: rem(18);
+  color: $color-text;
+}
+
+.btns {
+  justify-content: center;
+}

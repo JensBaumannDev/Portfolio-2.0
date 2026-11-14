@@ -1,0 +1,27 @@
+<section aria-labelledby="story-title">
+  <h2 id="story-title">
+    {{ 'home.story.title' | translate }}<br /><span>{{ 'home.story.title_2' | translate }}</span>
+  </h2>
+  <ol>
+    @for (row of rows; track row.key) {
+      <li class="st-row">
+        <h3 class="st-skill">{{ 'home.story.' + row.key + '.skill' | translate }}</h3>
+        <div>
+          <p class="st-k">{{ 'home.story.' + row.key + '.then_label' | translate }}</p>
+          <p class="st-s">{{ 'home.story.' + row.key + '.then' | translate }}</p>
+        </div>
+        <div>
+          <p class="st-k">{{ 'home.story.in_code' | translate }}</p>
+          <p class="st-s">{{ 'home.story.' + row.key + '.now' | translate }}</p>
+          @if (row.project; as project) {
+            <div class="btns">
+              <a class="b b-dark" [routerLink]="['/projects', project]">{{
+                'home.story.' + row.key + '.cta' | translate
+              }}</a>
+            </div>
+          }
+        </div>
+      </li>
+    }
+  </ol>
+</section>

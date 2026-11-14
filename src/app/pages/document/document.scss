@@ -1,0 +1,41 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+  padding-bottom: $page-padding-bottom;
+}
+
+.actions {
+  justify-content: center;
+  padding-bottom: clamp(#{rem(32)}, 4vw, #{rem(56)});
+}
+
+.document {
+  max-width: $content-width;
+  margin-top: clamp(#{rem(56)}, 7vw, #{rem(110)});
+}
+
+.intro {
+  max-width: rem(760);
+  margin: 0 auto clamp(#{rem(32)}, 4vw, #{rem(56)});
+  text-align: center;
+
+  h2 {
+    @include heading-section;
+  }
+
+  p {
+    margin-top: clamp(#{rem(16)}, 2vw, #{rem(24)});
+    font-size: clamp(#{rem(18)}, 1.6vw, #{rem(21)});
+    line-height: 1.5;
+    color: $color-text;
+  }
+}
+
+/* #region RESPONSIVE */
+@include phone {
+  .actions {
+    flex-direction: column;
+  }
+}
+/* #endregion */

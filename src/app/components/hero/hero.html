@@ -1,0 +1,32 @@
+<section
+  class="hero"
+  [class.s-photo]="step() >= 1"
+  [class.s-name]="step() >= 2"
+  [class.s-sub]="step() >= 3"
+  [attr.aria-label]="'home.hero.label' | translate"
+>
+  <p class="welcome-big" #big aria-hidden="true">{{ 'home.hero.welcome' | translate }}</p>
+  <div class="hero-top">
+    <p class="welcome" #small>{{ 'home.hero.welcome' | translate }}</p>
+    <h1>{{ 'home.hero.name' | translate }}</h1>
+    <p class="sub">
+      <b>{{ 'home.hero.role' | translate }}</b> {{ 'home.hero.available' | translate }}
+      <span class="stack">Angular · TypeScript · Python · Django</span>
+    </p>
+    <div class="btns">
+      <a class="b b-blue" routerLink="/" fragment="projects">{{
+        'home.hero.cta_projects' | translate
+      }}</a>
+      <a class="b b-dark" routerLink="/documents/cv">{{ 'home.hero.cta_cv' | translate }}</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img
+      ngSrc="/img/hero/profile.webp"
+      fill
+      priority
+      sizes="(max-width: 760px) 100vw, 60vw"
+      [alt]="'home.hero.profile_alt' | translate"
+    />
+  </div>
+</section>
