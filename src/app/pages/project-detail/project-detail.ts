@@ -44,6 +44,8 @@ export class ProjectDetail {
   private transitioning = false;
   private destroyed = false;
   private animations: Animation[] = [];
+  private swipedAt = 0;
+  protected swipeStart: { x: number; y: number } | undefined;
 
   readonly slug = input.required<string>();
   protected readonly projects = SHOWCASE_PROJECTS;
@@ -66,6 +68,7 @@ export class ProjectDetail {
   }
 
   protected openShot(project: ShowcaseProject): void {
+    if (performance.now() - this.swipedAt < 500) return;
     this.zoomed.set(project);
     this.shot().nativeElement.showModal();
   }
@@ -78,6 +81,22 @@ export class ProjectDetail {
     if (event.target === event.currentTarget) this.closeShot();
   }
 
+  protected onSwipeStart(event: PointerEvent): void {
+    this.swipeStart =
+      event.pointerType === 'mouse' ? undefined : { x: event.clientX, y: event.clientY };
+  }
+
+  protected onSwipeEnd(event: PointerEvent, project: ShowcaseProject): void {
+    const start = this.swipeStart;
+    this.swipeStart = undefined;
+    if (!start) return;
+    const dx = event.clientX - start.x;
+    const dy = event.clientY - start.y;
+    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    this.swipedAt = performance.now();
+    this.go(project, dx < 0 ? 1 : -1);
+  }
+
   protected onKeydown(event: KeyboardEvent): void {
     if (this.shot().nativeElement.open) return;
     if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
@@ -86,8 +105,12 @@ export class ProjectDetail {
     const current = this.find(this.slug()) ?? this.displayed();
     if (!step || !current) return;
     event.preventDefault();
+    this.go(current, step);
+  }
+
+  private go(project: ShowcaseProject, step: number): void {
     this.direction = step;
-    void this.router.navigate(['/projects', this.neighbour(current, step).slug]);
+    void this.router.navigate(['/projects', this.neighbour(project, step).slug]);
   }
 
   protected neighbour(project: ShowcaseProject, step: number): ShowcaseProject {
