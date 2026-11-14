@@ -85,21 +85,27 @@ app-page-hero {
 .pj-dots {
   @include flex(row, nowrap, center, center);
   grid-area: dots;
-  gap: rem(8);
 
   a {
-    display: block;
-    width: rem(10);
-    height: rem(10);
+    @include flex(row, nowrap, center, center);
+    width: rem(24);
+    height: rem(24);
     border-radius: 50%;
-    background: $color-dot-dark;
-    transition: background-color 0.15s;
 
-    &:hover {
+    &::before {
+      content: '';
+      width: rem(10);
+      height: rem(10);
+      border-radius: 50%;
+      background: $color-dot-dark;
+      transition: background-color 0.15s;
+    }
+
+    &:hover::before {
       background: $color-subtle;
     }
 
-    &.on {
+    &.on::before {
       background: $color-on-dark;
     }
   }

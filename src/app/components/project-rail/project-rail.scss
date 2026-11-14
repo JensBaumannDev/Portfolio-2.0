@@ -173,19 +173,31 @@ h3 {
 
 .dots {
   @include flex(row, nowrap, center, center);
-  gap: rem(8);
 
   button {
-    width: rem(10);
-    height: rem(10);
+    @include flex(row, nowrap, center, center);
+    width: rem(24);
+    height: rem(24);
     padding: 0;
     border-radius: 50%;
-    background: $color-dot;
+    background: none;
+
+    &::before {
+      content: '';
+      width: rem(10);
+      height: rem(10);
+      border-radius: 50%;
+      background: $color-dot;
+    }
   }
 
-  button.on {
+  button.on::before {
     background: $color-ink;
   }
+}
+
+.vh {
+  @include visually-hidden;
 }
 
 .arrow {

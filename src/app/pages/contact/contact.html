@@ -38,7 +38,7 @@
               autocomplete="name"
               maxlength="120"
               required
-              aria-describedby="contact-name-error"
+              [attr.aria-describedby]="invalid('name') ? 'contact-name-error' : null"
               [attr.aria-invalid]="invalid('name')"
             />
             <p class="err" id="contact-name-error">{{ 'contact.error_name' | translate }}</p>
@@ -52,7 +52,7 @@
               autocomplete="email"
               maxlength="254"
               required
-              aria-describedby="contact-email-error"
+              [attr.aria-describedby]="invalid('email') ? 'contact-email-error' : null"
               [attr.aria-invalid]="invalid('email')"
             />
             <p class="err" id="contact-email-error">{{ 'contact.error_email' | translate }}</p>
@@ -65,7 +65,7 @@
               rows="3"
               maxlength="5000"
               required
-              aria-describedby="contact-message-error"
+              [attr.aria-describedby]="invalid('message') ? 'contact-message-error' : null"
               [attr.aria-invalid]="invalid('message')"
             ></textarea>
             <p class="err" id="contact-message-error">
@@ -78,7 +78,7 @@
               type="checkbox"
               formControlName="privacy"
               required
-              aria-describedby="contact-privacy-error"
+              [attr.aria-describedby]="invalid('privacy') ? 'contact-privacy-error' : null"
               [attr.aria-invalid]="invalid('privacy')"
             />
             <label for="contact-privacy"

@@ -1,7 +1,9 @@
-<section class="sec" [attr.aria-label]="'home.rail.label' | translate">
+<section class="sec" aria-labelledby="rail-title">
+  <h2 class="vh" id="rail-title">{{ 'home.rail.label' | translate }}</h2>
   <div
     class="rail"
     #rail
+    role="group"
     tabindex="0"
     [class.lit]="lit()"
     [attr.aria-label]="'home.rail.keys' | translate"
