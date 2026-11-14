@@ -21,6 +21,9 @@
           [style.--frame-inset]="p.frameInset ?? '0'"
           [attr.aria-label]="'work.labels.enlarge' | translate: { name: p.name }"
           (click)="openShot(p)"
+          (pointerdown)="onSwipeStart($event)"
+          (pointerup)="onSwipeEnd($event, p)"
+          (pointercancel)="swipeStart = undefined"
         >
           <img
             [ngSrc]="p.browserImage"

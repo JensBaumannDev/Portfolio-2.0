@@ -35,6 +35,8 @@ app-page-hero {
   border: 0;
   background: none;
   cursor: zoom-in;
+  touch-action: pan-y;
+  user-select: none;
 
   &:focus-visible {
     @include focus-ring($color-on-dark);
