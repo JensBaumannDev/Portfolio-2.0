@@ -1,0 +1,16 @@
+@use 'src/styles/abstracts' as *;
+
+.foot {
+  @include flex(row, wrap, center, center);
+  gap: rem(8) rem(28);
+  padding: rem(36) rem(16) rem(44);
+  color: $color-label;
+}
+
+a {
+  transition: color 0.15s ease-out;
+
+  &:hover {
+    color: $color-ink;
+  }
+}

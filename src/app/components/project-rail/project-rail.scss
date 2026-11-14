@@ -1,0 +1,290 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+}
+
+.sec {
+  padding-top: clamp(#{rem(28)}, 4vw, #{rem(40)});
+}
+
+.rail {
+  --per: 1;
+  --gap: #{rem(18)};
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - (var(--per) - 1) * var(--gap)) / var(--per));
+  gap: var(--gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: $gutter;
+  padding: rem(8) $gutter rem(4);
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:focus-visible {
+    @include focus-ring($color-blue, -2px);
+    border-radius: $radius-surface;
+  }
+}
+
+.pcard {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: rem(380);
+  border-radius: $radius-surface;
+  background: $color-card;
+  color: $color-white;
+  box-shadow: inset 0 0 0 1px fade($color-white, 0.06);
+  scroll-snap-align: start;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: $z-index-backdrop;
+    background:
+      linear-gradient(
+        fade($color-black, 0.88) 0%,
+        fade($color-black, 0.6) 28%,
+        fade($color-black, 0.1) 55%,
+        fade($color-black, 0.1) 60%,
+        fade($color-black, 0.88) 100%
+      ),
+      fade($color-black, 0.1);
+  }
+}
+
+.pc-img {
+  position: absolute;
+  inset: 0;
+  z-index: $z-index-image;
+  transition: transform 0.7s $ease;
+
+  img {
+    object-fit: cover;
+    object-position: center top;
+  }
+}
+
+.pcard:hover .pc-img,
+.pcard:focus-within .pc-img {
+  transform: scale(1.05);
+}
+
+.pc-sheen {
+  position: absolute;
+  inset: 0;
+  z-index: $z-index-sheen;
+  padding: 1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    #{rem(180)} circle at var(--mx, -999px) var(--my, -999px),
+    fade($color-white, 0.85),
+    fade($color-white, 0.15) 45%,
+    transparent 70%
+  );
+  mask:
+    linear-gradient($color-black 0 0) content-box exclude,
+    linear-gradient($color-black 0 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease-out;
+}
+
+.rail.lit .pc-sheen {
+  opacity: 1;
+}
+
+.pc-top {
+  @include flex(column, nowrap, flex-start, stretch);
+  position: absolute;
+  top: rem(28);
+  right: rem(32);
+  left: rem(32);
+  gap: rem(4);
+}
+
+.pc-kind {
+  font-weight: $font-weight-semibold;
+  color: fade($color-white, 0.75);
+}
+
+h3 {
+  font-size: clamp(#{rem(34)}, 3.4vw, #{rem(48)});
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.pcard p {
+  font-size: rem(17);
+  color: fade($color-white, 0.85);
+}
+
+.pcard .pc-role {
+  position: absolute;
+  bottom: rem(28);
+  left: rem(32);
+  max-width: calc(100% - #{rem(64)} - #{rem(360)});
+  line-height: 1.4;
+  color: $color-white;
+
+  b {
+    font-weight: $font-weight-semibold;
+  }
+
+  span {
+    display: block;
+    margin-top: rem(2);
+    color: fade($color-white, 0.72);
+  }
+}
+
+.pc-btns {
+  position: absolute;
+  right: rem(28);
+  bottom: rem(28);
+  justify-content: flex-end;
+}
+
+.pcard .b-dark {
+  background: fade($color-dark, 0.92);
+  transition: none;
+}
+
+.pcard:hover .b-dark,
+.pcard:focus-within .b-dark {
+  background: $color-white;
+  color: $color-card-hover;
+}
+
+.rail-ui {
+  @include flex(row, nowrap, center, center);
+  gap: rem(16);
+  margin-top: rem(16);
+}
+
+.dots {
+  @include flex(row, nowrap, center, center);
+  gap: rem(8);
+
+  button {
+    width: rem(10);
+    height: rem(10);
+    padding: 0;
+    border-radius: 50%;
+    background: $color-dot;
+  }
+
+  button.on {
+    background: $color-ink;
+  }
+}
+
+.arrow {
+  @include flex(row, nowrap, center, center);
+  width: rem(40);
+  height: rem(40);
+  padding: 0;
+  border-radius: $radius-button;
+  background: $color-surface;
+  color: $color-ink;
+  font-size: rem(20);
+
+  &:hover {
+    background: $color-line;
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+}
+
+/* #region RESPONSIVE */
+@media (min-width: $bp-rail-two) {
+  .rail {
+    --per: 2;
+  }
+}
+
+@media (min-width: $bp-rail-three) {
+  .rail {
+    --per: 3;
+  }
+}
+
+@media (hover: none) {
+  .pc-sheen {
+    display: none;
+  }
+}
+
+@include phone {
+  .pcard {
+    aspect-ratio: auto;
+    height: rem(640);
+
+    &::before {
+      background: linear-gradient(
+        $color-black 0,
+        $color-black #{rem(148)},
+        fade($color-black, 0.05) #{rem(152)},
+        fade($color-black, 0.05) #{rem(388)},
+        $color-black #{rem(392)}
+      );
+    }
+  }
+
+  .pc-img {
+    inset: rem(150) 0 auto;
+    height: rem(240);
+
+    img {
+      object-position: center;
+    }
+  }
+
+  .pc-top {
+    top: rem(22);
+    right: rem(22);
+    left: rem(22);
+  }
+
+  .pcard .pc-role {
+    right: rem(22);
+    bottom: rem(140);
+    left: rem(22);
+    max-width: none;
+  }
+
+  .pc-btns {
+    right: rem(20);
+    bottom: rem(20);
+    left: rem(20);
+    flex-direction: column;
+  }
+
+  .pcard .b {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pc-img {
+    transition: none;
+  }
+
+  .pcard:hover .pc-img,
+  .pcard:focus-within .pc-img {
+    transform: none;
+  }
+}
+/* #endregion */

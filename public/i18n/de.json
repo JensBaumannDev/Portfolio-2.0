@@ -1,465 +1,69 @@
 {
-  "nav": {
-    "home": "Start",
-    "about": "Über",
-    "projects": "Projekte",
-    "contact": "Kontakt",
-    "menu_open": "Menü öffnen",
-    "menu_close": "Menü schließen",
-    "menu_label": "Mobile Navigation",
-    "theme": "Farbschema umschalten",
-    "themeLight": "Hell",
-    "themeDark": "Dunkel",
-    "themeSystem": "System"
-  },
   "a11y": {
     "skip_to_content": "Zum Inhalt springen",
     "primary_navigation": "Hauptnavigation",
-    "mobile_navigation": "Mobile Navigation",
-    "menu": "Menü",
-    "legal_navigation": "Rechtliches",
-    "social_links": "Social-Media-Links",
-    "technologies": "Technologien"
+    "social_links": "Social-Media-Links"
   },
-  "portfolio": {
-    "nav": {
-      "home": "Start",
-      "projects": "Projekte",
-      "skills": "Skills",
-      "about": "Über mich",
-      "contact": "Kontakt",
-      "language": "Sprache",
-      "theme": {
-        "label": "Darstellung",
-        "system": "System",
-        "light": "Hell",
-        "dark": "Dunkel"
-      }
-    },
-    "hero": {
-      "role": "FULLSTACK DEVELOPER",
-      "slogan": "Frontend<span class=\"headline-dot\">.</span><br />Backend<span class=\"headline-dot\">.</span><br />Performance",
-      "intro": "Ich entwickle mit Angular, TypeScript, JavaScript, Python und Django Anwendungen, die klar aufgebaut sind und sich gut weiterentwickeln lassen.",
-      "work": "Meine Projekte",
-      "cv": "Lebenslauf",
-      "talk": "Schreib mir",
-      "projects": "Projekte",
-      "experience": "Erfahrung",
-      "motivation": "Motivation",
-      "availability": "Verfügbar ab November 2026"
-    },
-    "projects": {
-      "eyebrow": "AUS MEINER ARBEIT",
-      "heading": "Projekte,",
-      "heading_line": "die ich gern zeige",
-      "placeholder": "Projektvorschau folgt",
-      "view": "Mehr erfahren",
-      "github": "GitHub",
-      "live_preview": "Live Preview",
-      "project_select": "Projekt auswählen",
-      "filters": {
-        "label": "Projekte filtern",
-        "all": "Alle",
-        "frontend": "Frontend",
-        "backend": "Backend"
-      },
-      "dabubble": {
-        "type": "Echtzeit-Chat-Anwendung",
-        "description": "Ein Slack-ähnlicher Team-Chat mit Channels, Direktnachrichten und Threads in Echtzeit.",
-        "quote": "„Bei DABubble musste die Oberfläche trotz Channels, Direktnachrichten und Threads übersichtlich bleiben. Genau diese Balance aus Funktion und Ruhe war die eigentliche Herausforderung.“",
-        "features": {
-          "authentication": "Authentifizierung",
-          "updates": "Echtzeit-Updates",
-          "responsive": "Responsives Design"
-        },
-        "summary": "DABubble bringt Teams in Channels, Direktnachrichten und Threads zusammen. Nachrichten erscheinen in Echtzeit, damit Gespräche direkt weitergehen können. Ich habe das gesamte Chat-Interface sowie Anmeldung, Profile und Suche umgesetzt."
-      },
-      "el-pollo-loco": {
-        "type": "Jump-and-run-Spiel",
-        "description": "Ein selbst entwickeltes Jump-and-run mit eigener Game-Loop, Sound und Kollisionserkennung.",
-        "quote": "„Bei El Pollo Loco haben mir die Kollisionen gezeigt, wie viel Logik in einem kleinen Spiel steckt – und wie genau man Zustände definieren muss.“",
-        "features": {
-          "oop": "Objektorientierte Programmierung",
-          "game_loop": "Eigene Game-Loop",
-          "collision": "Kollisionserkennung"
-        },
-        "summary": "In El Pollo Loco sammelt die Hauptfigur Münzen und Salsa-Flaschen, um am Ende den Boss-Gegner zu besiegen. Ich habe das Jump-and-run vollständig in JavaScript entwickelt. Dazu gehören die Spiellogik, Kollisionserkennung und Sound."
-      },
-      "coderr": {
-        "type": "REST-API für einen Marktplatz",
-        "description": "Ein Django-Backend für digitale Dienstleistungen mit Profilen, Angeboten, Bestellungen und Bewertungen.",
-        "quote": "„Bei Coderr wurde mir klar, wie wichtig saubere Datenbeziehungen sind, sobald Nutzer, Angebote und Bestellungen zusammenkommen.“",
-        "features": {
-          "authentication": "Token-Authentifizierung",
-          "crud": "CRUD-API",
-          "database": "Datenbankmodelle"
-        },
-        "summary": "Coderr verbindet Anbieter digitaler Dienstleistungen mit ihren Kunden. Mein Backend verwaltet Profile, Angebote, Bestellungen und Bewertungen und stellt die Daten über eine REST-API bereit. Das Frontend wurde von der Developer Akademie bereitgestellt."
-      },
-      "kanmind": {
-        "type": "REST-API für Projektmanagement",
-        "description": "Ein Django-Backend für Kanban-Boards, Aufgaben, Zuweisungen, Kommentare und Reviews.",
-        "quote": "„Bei KanMind war die Struktur entscheidend: Boards, Aufgaben und Kommentare sollten zusammenpassen, ohne dass die API unübersichtlich wird.“",
-        "features": {
-          "authentication": "Token-Authentifizierung",
-          "crud": "CRUD-API",
-          "database": "Datenbankmodelle"
-        },
-        "summary": "KanMind hilft Teams, Aufgaben auf Kanban-Boards zu organisieren und den Überblick zu behalten. Ich habe das Backend für Boards, Aufgaben, Zuweisungen, Kommentare und Reviews entwickelt. Das Frontend wurde von der Developer Akademie bereitgestellt."
-      },
-      "join": {
-        "type": "Anwendung zur Aufgabenverwaltung",
-        "description": "Eine Kanban-basierte Webanwendung zur Teamorganisation mit Backend, Authentifizierung und Echtzeitfunktionen.",
-        "quote": "„Die größte Herausforderung bei JOIN war nicht eine einzelne Funktion, sondern mit vier Leuten gleichzeitig sauber am selben Code zu arbeiten.“",
-        "features": {
-          "authentication": "Benutzerauthentifizierung",
-          "updates": "Echtzeit-Updates",
-          "drag_drop": "Drag & Drop",
-          "responsive": "Responsives Design"
-        },
-        "summary": "Mit Join können Teams Aufgaben erstellen, zuweisen und auf einem Kanban-Board organisieren. Das Projekt entstand in einem Team aus vier Personen. Ich habe das Übersichts-Dashboard, die Drag-and-drop-Logik des Boards und die rechtlichen Pflichtseiten umgesetzt."
-      },
-      "pokedex": {
-        "type": "Pokémon-Enzyklopädie",
-        "description": "Ein mehrsprachiger Pokédex mit responsiver Übersicht, Live-Daten aus der PokéAPI und einem Detaildialog für Werte, Entwicklungen und Attacken.",
-        "quote": "„Die Daten kamen nicht immer so schnell wie die Oberfläche es brauchte. Deshalb musste ich lernen, API-Anfragen sinnvoll zu bündeln.“",
-        "features": {
-          "api": "API-Anbindung",
-          "search": "Suche",
-          "localization": "Mehrsprachigkeit",
-          "responsive": "Responsive Design"
-        },
-        "summary": "Die modulare Vite-Anwendung lädt Pokémon-Daten und Beschreibungen aus der PokéAPI. Einträge lassen sich durchsuchen und in einem responsiven Detaildialog mit Werten, Entwicklungen und Attacken erkunden. Die Oberfläche unterstützt mehrere Sprachen sowie einen Light- und Darkmode."
-      },
-      "django-api": {
-        "type": "Backend API",
-        "description": "Eine RESTful API für datengetriebene Anwendungen mit sauberer Authentifizierung und klaren Endpunkten.",
-        "features": {
-          "authentication": "Authentifizierung",
-          "crud": "CRUD API",
-          "database": "Datenbankmodelle"
-        }
-      },
-      "expense-tracker": {
-        "type": "Finanzanwendung",
-        "description": "Ein Tool zur klaren Erfassung und Auswertung persönlicher Ausgaben.",
-        "features": {
-          "tracking": "Ausgabentracking",
-          "categories": "Kategorien",
-          "responsive": "Responsive Design"
-        }
-      },
-      "weather-app": {
-        "type": "Wetteranwendung",
-        "description": "Eine Wetteranwendung mit aktuellen Daten und einer reduzierten, klaren Oberfläche.",
-        "features": {
-          "weather": "Live-Wetter",
-          "city_search": "Stadtsuche",
-          "responsive": "Responsive Design"
-        }
-      },
-      "more-projects": {
-        "type": "Weitere Arbeiten",
-        "description": "Weitere Projekte und Experimente folgen in Kürze.",
-        "features": {
-          "clean_code": "Clean Code",
-          "learning": "Lernen durch Praxis"
-        }
-      },
-      "collaboration": {
-        "solo": "Soloprojekt",
-        "group": "Gruppenarbeit · {{count}} Personen"
-      },
-      "new": "NEU",
-      "videoflix": {
-        "type": "Video-Streaming-Backend",
-        "description": "Ein Django-Backend für Video-Streaming mit E-Mail-Aktivierung, Login per Cookie und HLS in drei Auflösungen.",
-        "quote": "„Bei Videoflix habe ich gelernt, wie man aufwendige Arbeit wie Videokonvertierung sauber in den Hintergrund verlagert, ohne dass die API langsamer wird.“",
-        "features": {
-          "authentication": "JWT in HttpOnly-Cookies",
-          "streaming": "HLS-Streaming (480p/720p/1080p)",
-          "background_jobs": "Hintergrund-Jobs mit Redis",
-          "docker": "Komplett mit Docker"
-        },
-        "summary": "Videoflix ist eine Video-Streaming-Plattform. Mein Backend übernimmt Registrierung, Aktivierung per E-Mail, Login und Passwort-Reset, erstellt nach dem Upload automatisch Thumbnails und HLS-Streams in 480p, 720p und 1080p und liefert die Videos geschützt aus. Das Frontend wurde von der Developer Akademie bereitgestellt."
-      }
-    },
-    "detail": {
-      "summary": "Kurzbeschreibung",
-      "all_projects": "Zurück zur Projektübersicht",
-      "live_demo": "Live Demo",
-      "technologies": "Technologien",
-      "features": "Funktionen",
-      "preview_alt": "Laptop mit einer Ansicht von {{name}}"
-    },
-    "about": {
-      "eyebrow": "ÜBER MICH",
-      "heading": "Zielstrebig",
-      "heading_line_2": "Führungserfahren",
-      "heading_line_3": "Strukturiert",
-      "text": "Ich komme aus dem Einzelhandel und Vertrieb und habe irgendwann gemerkt, dass mich das Erstellen mehr interessiert als das Verkaufen. Deswegen mache ich gerade eine einjährige Fullstack-Fortbildung und sitze daneben jeden Abend an eigenen Projekten. Was mir dabei am meisten liegt, ist mich in ein neues Thema reinzufuchsen, bis ich wirklich verstanden habe, warum etwas funktioniert.",
-      "text_2": "Ordnung und Struktur sind mir dabei extrem wichtig, im Alltag genauso wie im Code. Ich sehe sofort, wenn etwas nicht sauber sortiert ist, und kann es dann schlecht so liegen lassen. Beim Programmieren ist genau das ein Vorteil: verständliche Namen, eine klare Ordnerstruktur, Komponenten, die genau eine Sache machen. So finde ich mich nach Wochen in meinem eigenen Code noch zurecht, und andere im Team auch.",
-      "cv": "Lebenslauf ansehen",
-      "certificates": "Zertifikate ansehen",
-      "learning": "Immer<br />lernen.",
-      "principles": {
-        "musician": {
-          "title": "Musiker",
-          "text": "Musik als kreativer Ausgleich"
-        },
-        "gamer": {
-          "title": "Gamer",
-          "text": "Strategie, Fokus & Teamwork"
-        },
-        "family": {
-          "title": "Familie",
-          "text": "Ehemann & Vater"
-        },
-        "dog": {
-          "title": "Hundebesitzer",
-          "text": "Balu gehört natürlich dazu"
-        }
-      }
-    },
-    "skills": {
-      "eyebrow": "SKILLS",
-      "heading": "Tools,",
-      "heading_line": "mit denen ich arbeite",
-      "text": "Eine Auswahl der Technologien, mit denen ich reale Projekte umsetze.",
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "tools": "Tools & Anderes",
-      "ai_title": "KI in meinem Entwicklungsalltag",
-      "ai_text": "KI ist fester Bestandteil meines Entwicklungsworkflows. Ich setze sie gezielt ein, um technische Fragen zu klären, mich in neue Themen einzuarbeiten und Lösungsansätze abzuwägen, außerdem bei Fehlersuche und Refactoring. Erfahrung habe ich mit Antigravity, Claude und GPT. Entscheidungen treffe ich selbst: Ich prüfe jeden Vorschlag gegen die Dokumentation und teste ihn im Code.",
-      "learning_title": "Das lerne ich gerade",
-      "learning_text": "Aktuell vertiefe ich meine Backend-Kenntnisse mit API-Integrationen und KI-gestützter Verarbeitung von Videoinhalten.",
-      "learning_ai": "KI & Videoanalyse"
-    },
-    "contact": {
-      "eyebrow": "KONTAKT",
-      "heading": "Einfach",
-      "heading_line_2": "mal Hallo",
-      "heading_line_3": "sagen",
-      "text": "Ob Job, Projekt oder eine Idee, die noch nicht ganz fertig gedacht ist – schreib mir. Ich freue mich auf den Austausch.",
-      "message": "Nachricht senden",
-      "aside": "Guter<br />Code.<br />Bessere<br />Tage."
-    },
-    "footer": {
-      "legal": "Impressum",
-      "privacy": "Datenschutz"
-    }
+  "nav": {
+    "projects": "Projekte",
+    "skills": "Skills",
+    "about": "Über mich",
+    "contact": "Kontakt",
+    "menu": "Menü",
+    "close": "Schließen",
+    "switch_language": "Switch to English"
+  },
+  "footer": {
+    "legal": "Impressum",
+    "privacy": "Datenschutz",
+    "top": "Nach oben"
   },
   "seo": {
     "home_title": "Jens Baumann — Fullstack Developer",
-    "home_desc": "Jens Baumann — Fullstack Developer aus Emden, Ostfriesland. Quereinsteiger mit Angular, TypeScript, Python und Django. Offen für Praktikum, Werkstudium oder eine Junior-Rolle ab November 2026.",
+    "home_desc": "Jens Baumann, Fullstack Developer aus Emden in Ostfriesland. Angular, TypeScript, Python und Django. Ab sofort verfügbar für eine Festanstellung, vor Ort oder remote.",
     "legal_title": "Impressum — Jens Baumann",
     "legal_desc": "Impressum und Anbieterkennzeichnung gemäß § 5 DDG für jensbaumann.com.",
     "privacy_title": "Datenschutzerklärung — Jens Baumann",
-    "privacy_desc": "Datenschutzerklärung für jensbaumann.com: Hosting, Server-Logfiles, Kontaktformular, Local Storage und deine Rechte nach DSGVO.",
+    "privacy_desc": "Datenschutzerklärung für jensbaumann.com: Hosting, Server-Logfiles, Kontaktformular, Webanalyse mit Umami und deine Rechte nach DSGVO.",
     "notfound_title": "Seite nicht gefunden — Jens Baumann",
-    "notfound_desc": "Diese Seite existiert nicht."
+    "notfound_desc": "Diese Seite existiert nicht.",
+    "contact_title": "Kontakt · Jens Baumann",
+    "contact_desc": "Kontakt zu Jens Baumann, Fullstack Developer aus Emden. Antwort meistens innerhalb eines Tages.",
+    "about_title": "Über mich – Jens Baumann",
+    "about_desc": "Vom Handel und Kundensupport in die Softwareentwicklung: Jens Baumann, Fullstack Developer aus Emden, über seinen Weg und wie er arbeitet."
   },
   "notfound": {
     "code": "404",
-    "title": "Diese Seite gibt es nicht.",
-    "text": "Der Link ist entweder veraltet oder es hat sich ein Tippfehler eingeschlichen.",
+    "title": "Diese Seite gibt es nicht",
+    "text": "Vielleicht ist der Link veraltet, oder es hat sich ein Tippfehler eingeschlichen.",
     "back": "Zurück zur Startseite"
   },
-  "hero": {
-    "status": "Verfügbar ab November 2026",
-    "title": "Fullstack Developer",
-    "tags": {
-      "architecture": "Klare Architektur",
-      "accessibility": "Barrierefrei",
-      "maintainability": "Wartbarer Code"
-    },
-    "greeting": "Moin",
-    "cta_projects": "Projekte ansehen",
-    "cta_cv": "Lebenslauf",
-    "profile_alt": "Profilbild von Jens Baumann"
-  },
-  "about": {
-    "section_title": "Über mich",
-    "section_sub": "Meine Skills und Ich",
-    "fact_location_label": "Standort",
-    "fact_location": "Ich suche eine Stelle in Emden und Umgebung oder remote",
-    "malt": "Mein Malt-Profil",
-    "fact_available_label": "Verfügbar",
-    "fact_available": "Ab November 2026",
-    "fact_focus_label": "Aktuell",
-    "fact_focus": "Einjährige Fullstack-Fortbildung bei der Developer Akademie",
-    "fact_languages_label": "Sprachen",
-    "fact_languages": "Deutsch, Englisch, Plattdeutsch",
-    "text": "Ich komme aus dem Einzelhandel und Vertrieb und habe irgendwann gemerkt, dass mich das Erstellen mehr interessiert als das Verkaufen. Deswegen mache ich gerade eine einjährige Fullstack-Fortbildung und sitze daneben jeden Abend an eigenen Projekten. Was mir dabei am meisten liegt, ist mich in ein neues Thema reinzufuchsen, bis ich wirklich verstanden habe, warum etwas funktioniert.",
-    "text2": "Ordnung und Struktur sind mir dabei extrem wichtig, im Alltag genauso wie im Code. Ich sehe sofort, wenn etwas nicht sauber sortiert ist, und kann es dann schlecht so liegen lassen. Beim Programmieren ist genau das ein Vorteil: verständliche Namen, eine klare Ordnerstruktur, Komponenten, die genau eine Sache machen. So finde ich mich nach Wochen in meinem eigenen Code noch zurecht, und andere im Team auch.",
-    "read_more": "Mehr lesen",
-    "read_less": "Weniger anzeigen",
-    "link": "Lebenslauf ansehen",
-    "stack_title": "Tech-Stack",
-    "stack_sub": "Womit ich täglich arbeite",
-    "stack_frontend": "Frontend",
-    "stack_frontend_note": "Darauf habe ich mich spezialisiert",
-    "stack_backend": "Backend",
-    "stack_backend_note": "Baue ich gerade aus, Schritt für Schritt."
-  },
-  "colleagues": {
-    "intro": "MEINUNGEN",
-    "headline": "Was Kollegen über mich sagen",
-    "role": "Fullstack Developer",
-    "testimonial1": "Jens ist ein engagierter Entwickler mit Gespür für modernes Design und saubere Umsetzung. Besonders stark ist er im präzisen Styling und der technischen UI-Umsetzung. Er übernimmt Verantwortung und ist im Team stets hilfsbereit.",
-    "testimonial2": "Jens ist ein engagierter Teamplayer mit großer Ausdauer. Ob fachlich oder bei kniffligen Problemen: Er bleibt zielstrebig und ist ein Gewinn für jedes Team.",
-    "testimonial3": "Ich kann Jens nur empfehlen – ein starker Fullstack Developer, der sauberen Code liefert und immer gute Lösungen findet. Die Zusammenarbeit ist absolut entspannt, zuverlässig und unkompliziert. Ich würde jederzeit wieder mit ihm arbeiten!",
-    "profile": "LinkedIn-Profil ansehen",
-    "website": "Website besuchen"
-  },
-  "projects": {
-    "filters": {
-      "label": "Projekte nach Bereich filtern",
-      "all": "Alle",
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "empty": "Hier sind noch keine Backend-Projekte hinterlegt. Entdecke in der Zwischenzeit meine Frontend-Projekte."
-    },
-    "title": "Projekte",
-    "subtitle": "Meine bisherigen Projekte",
-    "live_unavailable": "Bald verfügbar",
-    "label_focus": "Technische Schwerpunkte",
-    "coderr": {
-      "name": "Coderr",
-      "image_alt": "Die Coderr-Startseite mit Suche nach IT-Dienstleistungen und Plattformstatistiken",
-      "eyebrow": "Backend · Freelancer-Plattform",
-      "stat1_lbl": "Angebote & Bestellungen",
-      "stat2_lbl": "Profile & Bewertungen",
-      "stat3_lbl": "Token-Authentifizierung",
-      "description": "Das Backend für einen Marktplatz für digitale Dienstleistungen. Es verwaltet Nutzerprofile, Angebote, Bestellungen und Bewertungen und stellt die Daten über eine REST-API bereit.",
-      "umsetzung": "Das Backend ist mit Python, Django und Django REST Framework umgesetzt. Eigene Apps trennen Anmeldung und Profile, Angebote, Bestellungen, Bewertungen und Plattformstatistiken. Die lokale Datenhaltung erfolgt mit SQLite. Das zugehörige Frontend wird von der Developer Akademie bereitgestellt.",
-      "learnings": "Im Mittelpunkt stehen die Beziehungen zwischen Angeboten, Bestellungen und Bewertungen sowie die Trennung der API in Serializer, Views und Berechtigungen. Registrierung und Login verwenden Token-Authentifizierung; zum Testen sind pytest und pytest-django eingebunden."
-    },
-    "kanmind": {
-      "name": "KanMind",
-      "image_alt": "Das KanMind-Dashboard mit Aufgabenübersicht, Statusdiagramm und Board-Liste",
-      "eyebrow": "Backend · Kanban-Board",
-      "stat1_lbl": "Boards & Aufgaben",
-      "stat2_lbl": "Zuweisungen & Kommentare",
-      "stat3_lbl": "Token-Authentifizierung",
-      "description": "Das Backend für ein Projektmanagement-Tool im Kanban-Stil. Über die REST-API lassen sich Boards, Aufgaben und Kommentare verwalten sowie zugewiesene Aufgaben und anstehende Reviews abrufen.",
-      "umsetzung": "Python, Django und Django REST Framework bilden die Grundlage. Eine Auth-App übernimmt Registrierung und Login, eine Kanban-App bündelt Boards, Aufgaben, Kommentare und Berechtigungen. Die Daten liegen lokal in SQLite. Das zugehörige Frontend wird von der Developer Akademie bereitgestellt.",
-      "learnings": "Die API bildet die Beziehungen zwischen Boards, Aufgaben und Kommentaren ab. Weitere Schwerpunkte sind Token-Authentifizierung, Zugriffsberechtigungen und eigene Endpunkte für zugewiesene Aufgaben und Reviews."
-    },
-    "join": {
-      "name": "Join",
-      "eyebrow": "Gruppenprojekt · Kanban-Board",
-      "stat1_lbl": "Drag & Drop",
-      "stat2_lbl": "Volle Aufgaben-Logik",
-      "stat3_lbl": "Kontakte & Zuweisung",
-      "description": "Ein typisches Kanban-Board zur Aufgabenverwaltung. Man kann Tasks erstellen, Leuten zuweisen und sie per Drag-and-drop von \"To Do\" auf \"Done\" ziehen.",
-      "learnings": "Die größte Herausforderung war eigentlich die Zusammenarbeit zu viert an demselben Code. Da merkt man schnell, wie wichtig klare Git-Absprachen sind. Gegen Ende habe ich mir dann nochmal Zeit genommen, um den Code ordentlich aufzuräumen und zu strukturieren.",
-      "umsetzung": "Ich habe mich hauptsächlich um das Übersichts-Dashboard gekümmert. Außerdem habe ich die Drag-and-drop-Logik für das Board eingebaut und die rechtlichen Pflichtseiten erstellt.",
-      "duration": "5 Wochen",
-      "image_alt": "Das Kanban-Board von Join mit den Spalten To Do, In Progress und Done"
-    },
-    "dabubble": {
-      "name": "DABubble",
-      "eyebrow": "Gruppenprojekt · Echtzeit-Chat",
-      "stat1_lbl": "Echtzeit-Sync",
-      "stat2_lbl": "Login & Profile",
-      "stat3_lbl": "Channels & Threads",
-      "description": "Eine Art Slack-Klon für Teams. Man kann in Channels oder direkt miteinander schreiben und auf Nachrichten in Threads antworten – natürlich alles in Echtzeit.",
-      "learnings": "Richtig knifflig wurde es, als ich sicherstellen musste, dass Sidebar, Chat und geöffnete Threads immer synchron bleiben, ohne dass sich die Komponenten gegenseitig stören, wenn neue Nachrichten reinkommen.",
-      "umsetzung": "Ich habe das gesamte Chat-Interface gebaut. Wir haben Angular fürs Frontend genutzt und Supabase als Datenbank angehängt, für den Chat die Realtime-Subscriptions. Ansonsten habe ich noch Auth, Profile und eine Suchfunktion eingebaut.",
-      "duration": "2 Wochen",
-      "image_alt": "Die Chat-Oberfläche von DABubble mit Channel-Liste, Nachrichtenverlauf und offenem Thread"
-    },
-    "el_pollo_loco": {
-      "name": "El Pollo Loco",
-      "eyebrow": "Eigenprojekt · Game Dev",
-      "stat1_lbl": "Objektorientiert",
-      "stat2_lbl": "Eigene Game-Loop",
-      "stat3_lbl": "Sound & Kollision",
-      "description": "Ein kleines Jump-and-Run, das ich komplett in purem JavaScript geschrieben habe. Die Hauptfigur sammelt Münzen und Salsa-Flaschen, um am Ende einen Boss-Gegner zu besiegen.",
-      "learnings": "Am meisten Kopfzerbrechen hat mir die Kollisionserkennung bereitet. Wann springt man auf den Gegner, und wann wird man selbst getroffen? Das Ganze wirklich fehlerfrei in Objekten und Klassen zu kapseln, war eine super Übung.",
-      "umsetzung": "Alles ist from scratch in Vanilla JavaScript geschrieben. Es gibt eine eigene Game-Loop, Objekt-Hierarchien für die Gegner und ein rudimentäres State-Management für die Spielphasen.",
-      "duration": "3 Wochen",
-      "image_alt": "Eine Spielszene aus El Pollo Loco mit Spielfigur, Münzanzeige und Gegnern"
-    },
-    "pokedex": {
-      "name": "Pokedex",
-      "eyebrow": "Einzelprojekt · API-Lexikon",
-      "stat1_lbl": "Live-Daten aus der PokeAPI",
-      "stat2_lbl": "Suche & Mehrsprachigkeit",
-      "stat3_lbl": "Werte, Entwicklungen & Attacken",
-      "description": "Ein responsiver, mehrsprachiger Pokédex mit Live-Daten aus der PokéAPI. Pokémon lassen sich durchsuchen und mit Werten, Entwicklungen und Attacken in einem animierten Detaildialog erkunden.",
-      "learnings": "Eine Herausforderung war, viele einzelne API-Ressourcen performant bereitzustellen und Suchanfragen, Sprachwechsel sowie den Dialogzustand konsistent zu halten. Dafür habe ich Request-Caching, eine verzögerte Suche und Abbruch überholter Anfragen ergänzt.",
-      "umsetzung": "Die Anwendung ist als modulare Vanilla-JavaScript-App mit Vite aufgebaut. Sie nutzt i18next für die Oberfläche, ruft Daten asynchron über Fetch ab und bietet mehrsprachige Inhalte, Darkmode, Suche sowie einen responsiven Detaildialog.",
-      "duration": "2 Wochen",
-      "image_alt": "Die Übersicht des Pokedex mit Pokémon-Karten und Suchfeld"
-    },
-    "github": "Code auf GitHub",
-    "live": "Live-Demo",
-    "detail_cta": "Mehr erfahren",
-    "back": "Zurück",
-    "label_learnings": "Herausforderungen & Erkenntnisse",
-    "label_implementation": "Umsetzung",
-    "label_duration": "Dauer",
-    "label_stack": "Stack",
-    "next_project": "Nächstes Projekt",
-    "featured": "Featured Project",
-    "videoflix": {
-      "name": "Videoflix",
-      "image_alt": "Die Videoflix-Startseite mit Filmvorschauen und Anmeldung",
-      "eyebrow": "Backend · Video-Streaming",
-      "stat1_lbl": "HLS in 3 Auflösungen",
-      "stat2_lbl": "Hintergrund-Jobs",
-      "stat3_lbl": "100 % Testabdeckung",
-      "description": "Das Backend für eine Video-Streaming-Plattform: Benutzerkonten mit E-Mail-Aktivierung, Login über HttpOnly-Cookies und Videos, die automatisch für das Streaming aufbereitet werden.",
-      "umsetzung": "Das Backend ist mit Python, Django und Django REST Framework umgesetzt und läuft komplett in Docker mit PostgreSQL und Redis. Nach einem Upload starten Signals Hintergrund-Jobs mit Django RQ: FFmpeg erzeugt ein Thumbnail und wandelt das Video in HLS-Playlists mit Segmenten für 480p, 720p und 1080p um. Die Videoliste wird in Redis gecacht. Das Frontend wird von der Developer Akademie bereitgestellt.",
-      "learnings": "Im Mittelpunkt standen Hintergrund-Jobs, das Streaming-Format HLS und eine sichere Authentifizierung mit JWT in HttpOnly-Cookies inklusive Token-Refresh und Blacklist. Ich habe das Projekt testgetrieben entwickelt und 100 % Testabdeckung erreicht, inklusive Tests mit echten FFmpeg-Konvertierungen. Deployt ist es auf einem eigenen Server hinter nginx mit HTTPS."
-    }
-  },
   "contact": {
-    "section_title": "Kontakt",
-    "section_sub": "Lass uns schnacken.",
-    "form_eyebrow": "SCHREIB MIR GERN",
-    "form_note": "Ich freue mich auf deine Nachricht.",
-    "availability_label": "Verfügbar ab",
-    "availability_value": "November 2026",
-    "title": "Den richtigen Weg finden.",
-    "subtitle": "Offen für Praktikum, Werkstudium oder eine Junior-Rolle – remote oder vor Ort in Emden und Umgebung.",
-    "name_label": "Wie lautet dein Name?",
-    "name_placeholder": "Dein Name kommt hier hin",
-    "email_label": "Wie lautet deine E-Mail-Adresse?",
-    "email_placeholder": "deine.email@email.com",
-    "message_label": "Wie kann ich helfen?",
-    "message_placeholder": "Hallo Jens, ich bin interessiert an…",
+    "label": "Kontakt",
+    "title": "Schreib mir",
+    "sub": "Ich melde mich meistens innerhalb eines Tages.",
+    "photo_alt": "Jens Baumann mit Headset und Smartphone",
+    "intro": "Du hast eine offene Stelle, eine Frage zu einem meiner Projekte oder willst dich einfach vernetzen? Schreib mir ein paar Zeilen. Wenn dir das lieber ist, können wir auch gleich ein kurzes Telefonat oder einen Videocall ausmachen.",
+    "name_label": "Name",
+    "email_label": "E-Mail",
+    "message_label": "Nachricht",
     "privacy_pre": "Ich habe die",
     "privacy_link": "Datenschutzerklärung",
-    "privacy_post": "gelesen und stimme der Verarbeitung meiner Daten zu.",
+    "privacy_post": "gelesen und bin einverstanden.",
+    "error_name": "Bitte gib deinen Namen an, mindestens 4 Zeichen.",
+    "error_email": "Bitte gib eine gültige E-Mail-Adresse an.",
+    "error_message": "Bitte schreib ein paar Worte, mindestens 4 Zeichen.",
+    "error_privacy": "Bitte bestätige die Datenschutzerklärung.",
+    "error_send": "Senden hat leider nicht geklappt. Versuch es bitte später noch einmal oder schreib mir direkt an info@jensbaumann.com.",
     "submit": "Nachricht senden",
-    "sending": "Wird gesendet",
-    "error_name": "Bitte gib mindestens 4 Zeichen ein.",
-    "error_email": "Bitte gib eine gültige E-Mail-Adresse ein.",
-    "error_message": "Bitte gib mindestens 4 Zeichen ein.",
-    "error_privacy": "Bitte stimme der Datenschutzerklärung zu.",
-    "error_send": "Senden fehlgeschlagen. Bitte versuch es später noch einmal.",
-    "success": "Vielen Dank! Deine Nachricht wurde gesendet.",
-    "success_short": "Gesendet",
-    "email_value": "info@jensbaumann.com",
-    "link_mail": "E-Mail",
-    "note": "Ich antworte innerhalb von 24 Stunden. Verfügbar bin ich ab November 2026."
-  },
-  "cv": {
-    "download_file": "cv/Lebenslauf-Jens-Baumann.pdf",
-    "download_name": "Lebenslauf-Jens-Baumann.pdf"
-  },
-  "footer": {
-    "imprint": "Impressum",
-    "privacy": "Datenschutz",
-    "copyright": "{{year}} Jens Baumann"
+    "sending": "Wird gesendet …",
+    "done_title": "Danke, deine Nachricht ist unterwegs",
+    "done_text": "Ich antworte dir an die E-Mail-Adresse, die du angegeben hast.",
+    "home": "Zur Startseite"
   },
   "legal": {
-    "back": "Zurück zur Startseite",
     "title": "Impressum",
-    "date": "Stand: Juni 2026",
+    "date": "Stand: November 2026",
     "country": "Deutschland",
     "address_street": "Ginsterweg 15",
     "address_zip": "26725",
@@ -473,20 +77,20 @@
     "copyright_title": "Urheberrecht",
     "copyright_text": "Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Solltest du trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.",
     "credits_title": "Bildnachweise",
-    "credits_text": "Das Tux-Maskottchen wurde von Larry Ewing mit The GIMP erstellt (lewing@isc.tamu.edu). Alle weiteren gezeigten Logos und Markenzeichen sind Eigentum ihrer jeweiligen Inhaber und dienen ausschließlich der Kennzeichnung der jeweiligen Technologien."
+    "credits_text": "Das Tux-Maskottchen wurde von Larry Ewing mit The GIMP erstellt (lewing@isc.tamu.edu). Alle weiteren gezeigten Logos und Markenzeichen sind Eigentum ihrer jeweiligen Inhaber und dienen ausschließlich der Kennzeichnung der jeweiligen Technologien.",
+    "form_label": "Kontaktformular:"
   },
   "privacy": {
-    "back": "Zurück zur Startseite",
     "title": "Datenschutzerklärung",
-    "date": "Stand: Oktober 2026",
+    "date": "Stand: November 2026",
     "country": "Deutschland",
     "email_label": "E-Mail:",
     "s1_title": "1. Datenschutz auf einen Blick",
-    "s1_text": "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit deinen personenbezogenen Daten passiert, wenn du diese Website besuchst. Personenbezogene Daten sind alle Daten, mit denen du persönlich identifiziert werden kannst. Diese Website verwendet keine Cookies zu Tracking-Zwecken, setzt keine Analyse- oder Werbedienste ein und erstellt keine Nutzerprofile.",
+    "s1_text": "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit deinen personenbezogenen Daten passiert, wenn du diese Website besuchst. Personenbezogene Daten sind alle Daten, mit denen du persönlich identifiziert werden kannst. Diese Website setzt keine Cookies, nutzt keine Werbedienste und erstellt keine Nutzerprofile. Für eine anonymisierte Reichweitenmessung setze ich Umami ein (siehe Abschnitt 6).",
     "s2_title": "2. Verantwortliche Stelle",
     "s2_intro": "Verantwortlich für die Datenverarbeitung auf dieser Website ist:",
     "s3_title": "3. Hosting",
-    "s3_text": "Diese Website wird bei der Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen, Deutschland („Hetzner“) gehostet. Wenn du diese Website besuchst, verarbeitet Hetzner verschiedene Informationen, einschließlich deiner IP-Adresse, um die Website ausliefern zu können. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; ich habe ein berechtigtes Interesse an einer möglichst zuverlässigen und sicheren Darstellung meiner Website. Mit Hetzner wurde ein Vertrag über Auftragsverarbeitung (AVV) gemäß Art. 28 DSGVO geschlossen.",
+    "s3_text": "Diese Website wird bei der Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen, Deutschland („Hetzner“) gehostet. Wenn du diese Website besuchst, verarbeitet Hetzner verschiedene Informationen, einschließlich deiner IP-Adresse, um die Website ausliefern zu können. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; ich habe ein berechtigtes Interesse an einer möglichst zuverlässigen und sicheren Darstellung meiner Website. Mit Hetzner wurde ein Vertrag über Auftragsverarbeitung (AVV) gemäß Art. 28 DSGVO geschlossen. Schriftarten und alle übrigen Dateien der Website werden direkt von diesem Server geladen; eine Verbindung zu Google Fonts oder anderen Schriftanbietern findet nicht statt.",
     "s4_title": "4. Server-Logfiles",
     "s4_intro": "Der Hosting-Anbieter erhebt und speichert automatisch Informationen in sogenannten Server-Logfiles, die dein Browser automatisch übermittelt. Dies sind:",
     "s4_li1": "Browsertyp und Browserversion",
@@ -499,46 +103,348 @@
     "s5_title": "5. Kontaktformular und Kontakt per E-Mail",
     "s5_p1": "Wenn du mir über das Kontaktformular eine Anfrage zukommen lässt, werden die von dir im Formular eingegebenen Daten (Name, E-Mail-Adresse und deine Nachricht) an ein Skript auf dem Server übermittelt und zum Zweck der Bearbeitung deiner Anfrage an meine E-Mail-Adresse (info@jensbaumann.com) weitergeleitet. Diese Daten gebe ich nicht ohne deine Einwilligung weiter.",
     "s5_p2": "Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO (Einwilligung, die du über die Checkbox erteilst) sowie Art. 6 Abs. 1 lit. b DSGVO, sofern deine Anfrage mit der Erfüllung eines Vertrags oder vorvertraglichen Maßnahmen zusammenhängt. Die von dir eingegebenen Daten verbleiben bei mir, bis du mich zur Löschung aufforderst, deine Einwilligung widerrufst oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung deiner Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.",
-    "s5_p3": "Zum Schutz vor automatisierten Spam-Anfragen prüft das Skript, ob ein für Menschen unsichtbares Zusatzfeld ausgefüllt wurde und wie lange das Ausfüllen des Formulars gedauert hat. Zusätzlich wird ein nicht rückrechenbarer Prüfwert (Hash) deiner IP-Adresse für maximal eine Stunde auf dem Server gespeichert, um die Anzahl der Anfragen pro Absender zu begrenzen. Danach wird der Eintrag automatisch gelöscht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Abwehr von Missbrauch).",
+    "s5_p3": "Zum Schutz vor automatisierten Spam-Anfragen prüft das Skript, ob ein für Menschen unsichtbares Zusatzfeld ausgefüllt wurde und wie lange das Ausfüllen des Formulars gedauert hat. Zusätzlich speichert der Server einen pseudonymisierten Prüfwert (Hash) deiner IP-Adresse zusammen mit dem Zeitpunkt der Anfrage, um die Anzahl der Anfragen pro Absender auf fünf pro Stunde zu begrenzen. Einträge, die älter als eine Stunde sind, werden nicht mehr berücksichtigt und bei der nächsten Anfrage automatisch gelöscht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Abwehr von Missbrauch).",
     "s6_title": "6. Webanalyse mit Umami",
     "s6_p1": "Diese Website nutzt den Webanalysedienst Umami Cloud, angeboten von Umami Software, Inc. (USA). Die erfassten Daten werden auf Servern in der Europäischen Union gespeichert. Umami erfasst anonymisierte Nutzungsdaten wie aufgerufene Seiten, Verweildauer, verweisende Website (Referrer), ungefähres Herkunftsland, Gerätetyp, Browser und Betriebssystem. So kann ich nachvollziehen, wie meine Website genutzt wird, und sie verbessern.",
     "s6_p2": "Umami setzt keine Cookies, speichert keine Informationen auf deinem Endgerät und erstellt keine geräteübergreifenden Profile. Deine IP-Adresse wird nicht gespeichert, sondern nur kurzzeitig zur Bildung eines anonymen, regelmäßig wechselnden Prüfwerts verwendet. Eine Identifizierung einzelner Besucher ist mir nicht möglich.",
     "s6_p3": "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; ich habe ein berechtigtes Interesse an der anonymisierten Analyse des Nutzerverhaltens, um mein Webangebot zu optimieren. Die Daten werden in der EU gespeichert; da der Anbieter seinen Sitz in den USA hat, lässt sich ein Zugriff aus den USA jedoch nicht vollständig ausschließen. Du kannst der Erfassung widersprechen, indem du in deinem Browser die Einstellung „Do Not Track“ aktivierst oder einen Skript-Blocker verwendest.",
-    "s7_title": "7. Lokaler Speicher (Local Storage)",
-    "s7_text": "Diese Website speichert deine Einstellungen für das Farbschema (hell, dunkel oder systemabhängig) und die gewählte Sprache im Local Storage deines Browsers (eine funktionale Speichertechnik, kein Tracking-Cookie). Diese Daten verbleiben auf deinem Gerät, werden nicht an mich übermittelt und können jederzeit über deine Browser-Einstellungen gelöscht werden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer nutzerfreundlichen Darstellung der Website).",
-    "s8_title": "8. SSL- bzw. TLS-Verschlüsselung",
-    "s8_text": "Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennst du an dem „https://“ in der Adresszeile deines Browsers und am Schloss-Symbol.",
-    "s9_title": "9. Deine Rechte",
-    "s9_intro": "Dir stehen jederzeit folgende Rechte zu:",
-    "s9_li1": "Recht auf Auskunft über deine gespeicherten Daten (Art. 15 DSGVO)",
-    "s9_li2": "Recht auf Berichtigung unrichtiger Daten (Art. 16 DSGVO)",
-    "s9_li3": "Recht auf Löschung (Art. 17 DSGVO)",
-    "s9_li4": "Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)",
-    "s9_li5": "Recht auf Datenübertragbarkeit (Art. 20 DSGVO)",
-    "s9_li6": "Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)",
-    "s9_li7": "Recht auf Widerruf einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)",
-    "s9_li8": "Recht auf Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO)",
-    "s9_outro": "Zur Ausübung dieser Rechte kannst du dich jederzeit über die im Abschnitt 2 genannten Kontaktdaten an mich wenden."
+    "s7_title": "7. SSL- bzw. TLS-Verschlüsselung",
+    "s7_text": "Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennst du an dem „https://“ in der Adresszeile deines Browsers und am Schloss-Symbol.",
+    "s8_title": "8. Deine Rechte",
+    "s8_intro": "Dir stehen jederzeit folgende Rechte zu:",
+    "s8_li1": "Recht auf Auskunft über deine gespeicherten Daten (Art. 15 DSGVO)",
+    "s8_li2": "Recht auf Berichtigung unrichtiger Daten (Art. 16 DSGVO)",
+    "s8_li3": "Recht auf Löschung (Art. 17 DSGVO)",
+    "s8_li4": "Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)",
+    "s8_li5": "Recht auf Datenübertragbarkeit (Art. 20 DSGVO)",
+    "s8_li6": "Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)",
+    "s8_li7": "Recht auf Widerruf einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)",
+    "s8_li8": "Recht auf Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO), zum Beispiel bei der für mich zuständigen Datenschutzaufsicht in Niedersachsen (LfD Niedersachsen)",
+    "s8_outro": "Zur Ausübung dieser Rechte kannst du dich jederzeit über die im Abschnitt 2 genannten Kontaktdaten an mich wenden."
   },
-  "redesign": {
+  "home": {
     "hero": {
-      "leftLabel": "Was man sieht",
-      "leftText": "Mit Angular und TypeScript setze ich Oberflächen um, die sich auf jedem Bildschirm richtig anfühlen, vom Smartphone bis zum Desktop.",
-      "rightLabel": "Was dahinter steckt",
-      "rightText": "Mit Python und Django setze ich Backends um, die Daten verwalten und Abläufe steuern, von der Anmeldung bis zur Bestellung.",
-      "note": "Moin, ich bin Jens."
+      "welcome": "Willkommen",
+      "name": "Ich bin Jens",
+      "role": "Fullstack Developer aus Emden.",
+      "available": "Ab sofort verfügbar.",
+      "label": "Willkommen",
+      "cta_projects": "Projekte ansehen",
+      "cta_cv": "Lebenslauf",
+      "profile_alt": "Profilbild von Jens Baumann"
     },
-    "spotlight": {
-      "label": "Projekte im Spotlight",
-      "learn_more": "Mehr erfahren",
-      "title": "Von der Idee zur Anwendung",
-      "all": "Alle Projekte"
+    "rail": {
+      "label": "Projekte",
+      "keys": "Projekte, mit Pfeiltasten blättern",
+      "prev": "Vorheriges Projekt",
+      "next": "Nächstes Projekt",
+      "dot": "Projekt {{index}}",
+      "details": "Details",
+      "live": "Live ansehen"
     },
-    "projects": {
-      "title": "Meine Projekte"
+    "duo": {
+      "label": "Über mich",
+      "career_title": "Vom Hobby zum Beruf",
+      "career_text": "Meine ersten Websites habe ich schon als Jugendlicher erstellt. In Photoshop gestaltet, in Stücke geschnitten und mit HTML wieder zusammengesetzt. Beruflich ging es dann erst mal in eine andere Richtung. Jetzt mache ich endlich das, was mir schon immer am meisten Spaß gemacht hat.",
+      "cv": "Lebenslauf",
+      "more": "Mehr erfahren",
+      "cert_title": "Weiterbildung mit Zertifikat",
+      "cert_text": "Meine Weiterbildung zum Fullstack Developer: Das Frontend-Modul habe ich abgeschlossen, im Backend arbeite ich mit Python und Django.",
+      "certificates": "Zertifikate ansehen"
     },
-    "about": {
-      "title": "Der Mensch hinter dem Code"
+    "story": {
+      "title": "Persönliche Skills,",
+      "title_2": "die heute mehr zählen denn je",
+      "in_code": "Im Code",
+      "structure": {
+        "skill": "Prioritäten setzen",
+        "then_label": "Als Abteilungsleiter",
+        "then": "Ich habe jeden Tag geplant, wer wann was macht und was Vorrang hat, und nebenbei selbst verkauft.",
+        "now": "Bei Join habe ich die Projekt- und Ordnerstruktur aufgesetzt. Die Aufgaben haben wir gemeinsam verteilt: Ich habe das Gespräch geleitet und darauf gehört, wer was gern übernehmen möchte. Außerdem habe ich jeden Pull Request gegengelesen und erst gemergt, wenn alles gepasst hat.",
+        "cta": "Join ansehen"
+      },
+      "debugging": {
+        "skill": "Fehler finden",
+        "then_label": "Im technischen Support",
+        "then": "Ob am Telefon oder im Chat, auf Deutsch oder Englisch: Ich musste Schritt für Schritt herausfinden, wo genau das Problem liegt.",
+        "now": "Genauso suche ich heute nach Bugs. Bei Videoflix habe ich die Tests von Anfang an mitgeschrieben, damit Fehler früh auffallen.",
+        "cta": "Videoflix ansehen"
+      },
+      "customers": {
+        "skill": "Nutzer verstehen",
+        "then_label": "In der Kundenberatung",
+        "then": "Kunden kommen oft mit einer festen Vorstellung. Erst mit den richtigen Fragen wird klar, was sie wirklich wollen und vor allem brauchen.",
+        "now": "Bevor ich ein Feature umsetze, frage ich mich, ob es dem Nutzer etwas bringt. Bei diesem Portfolio habe ich deshalb einige Ideen wieder verworfen, die zwar gut aussahen, Besuchern aber nichts gebracht hätten."
+      }
+    },
+    "skills": {
+      "title": "Technische Skills,",
+      "title_2": "mit denen ich arbeite",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Tools & Anderes"
+    },
+    "testimonials": {
+      "title": "Was Kollegen",
+      "title_2": "über die Zusammenarbeit sagen",
+      "role": "Fullstack Developer, Developer Akademie",
+      "quote_1": "Jens ist ein engagierter Entwickler mit Gespür für modernes Design und saubere Umsetzung. Besonders stark ist er im präzisen Styling und der technischen UI-Umsetzung. Er übernimmt Verantwortung und ist im Team stets hilfsbereit.",
+      "quote_2": "Jens ist ein engagierter Teamplayer mit großer Ausdauer. Ob fachlich oder bei kniffligen Problemen: Er bleibt zielstrebig und ist ein Gewinn für jedes Team.",
+      "quote_3": "Ich kann Jens nur empfehlen – ein starker Fullstack Developer, der sauberen Code liefert und immer gute Lösungen findet. Die Zusammenarbeit ist absolut entspannt, zuverlässig und unkompliziert. Ich würde jederzeit wieder mit ihm arbeiten!",
+      "profile": "LinkedIn-Profil ansehen",
+      "website": "Website besuchen"
+    },
+    "contact": {
+      "title": "Lass uns reden",
+      "text": "Ich suche eine Festanstellung als Fullstack Developer und kann sofort anfangen, gern in Emden und Umgebung oder remote. Wenn du denkst, dass ich zu euch passen könnte, schreib mir einfach. Ich melde mich meistens innerhalb eines Tages.",
+      "mail": "E-Mail schreiben",
+      "form": "Kontaktformular",
+      "label": "Kontakt"
     }
+  },
+  "page": {
+    "back": "Zurück",
+    "legal_label": "Rechtliches"
+  },
+  "work": {
+    "labels": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "my_part": "Mein Teil:",
+      "role": "Rolle",
+      "team": "Team",
+      "duration": "Dauer",
+      "technologies": "Technologien",
+      "features": "Funktionen",
+      "implementation": "Umsetzung",
+      "focus": "Technischer Schwerpunkt",
+      "about": "Über {{name}}",
+      "live": "Live ansehen",
+      "code": "Code auf GitHub",
+      "browse": "Projekte durchblättern",
+      "prev": "Vorheriges Projekt: {{name}}",
+      "next": "Nächstes Projekt: {{name}}",
+      "go_to": "Zu {{name}}",
+      "browser_alt": "{{name}} im Browser",
+      "seo_title": "{{name}} · Jens Baumann",
+      "enlarge": "Screenshot von {{name}} vergrößern"
+    },
+    "videoflix": {
+      "type": "Video-Streaming-Backend",
+      "role": "Das ganze Backend, allein entwickelt",
+      "stack": "Django REST · PostgreSQL · Redis · FFmpeg",
+      "summary": "Videoflix ist eine kleine Video-Streaming-Plattform, für die ich das Backend geschrieben habe. Es kümmert sich um Registrierung, Aktivierung per E-Mail, Login und Passwort-Reset. Lädt man ein Video hoch, erstellt es automatisch ein Vorschaubild und wandelt das Video in drei Qualitätsstufen um: 480p, 720p und 1080p.",
+      "role_fact": "Backend, allein entwickelt",
+      "implementation": "Geschrieben in Python mit Django und Django REST Framework. Alles läuft in Docker, mit PostgreSQL als Datenbank und Redis. Nach einem Upload landen die Aufgaben über Django RQ in einer Warteschlange und werden im Hintergrund abgearbeitet. So blockiert die aufwendige Umwandlung nicht den Server: FFmpeg erstellt das Vorschaubild und wandelt das Video in HLS-Streams um. Die Videoliste wird in Redis zwischengespeichert, damit sie schneller lädt.",
+      "focus": "Die größten Brocken waren die Hintergrund-Jobs, das Streaming-Format HLS und ein sicherer Login mit JWT in HttpOnly-Cookies, inklusive Token-Refresh und Blacklist. Die Tests habe ich von Anfang an mitgeschrieben, auch mit echten FFmpeg-Konvertierungen. Online läuft das Backend auf meinem eigenen Server hinter nginx mit HTTPS.",
+      "features": {
+        "authentication": "JWT in HttpOnly-Cookies",
+        "streaming": "HLS-Streaming (480p/720p/1080p)",
+        "background_jobs": "Hintergrund-Jobs mit Redis",
+        "docker": "Komplett mit Docker"
+      }
+    },
+    "dabubble": {
+      "type": "Echtzeit-Chat-Anwendung",
+      "role": "Layout, Chat und Threads",
+      "stack": "Team aus zwei · Angular · Supabase",
+      "summary": "DABubble ist ein Chat für Teams, mit Channels, Direktnachrichten und Threads. Neue Nachrichten erscheinen sofort, ohne dass man die Seite neu laden muss. Wir waren zu zweit. Mein Teil waren das Layout, die Logik für Chat und Threads und die Benachrichtigungen.",
+      "role_fact": "Layout, Chat- und Thread-Logik, Benachrichtigungen",
+      "team": "2 Personen",
+      "duration": "2 Wochen",
+      "implementation": "Im Frontend Angular, als Datenbank Supabase. Ich habe das Layout nach Vorgabe umgesetzt und die Logik für Chat und Threads geschrieben. Neue Nachrichten kommen über die Realtime-Funktion von Supabase direkt bei allen an. Dazu kam die Benachrichtigungsfunktion.",
+      "focus": "Sidebar, Chat und offene Threads mussten immer auf demselben Stand sein. Kommt eine neue Nachricht rein, muss sie überall gleichzeitig richtig ankommen: im Chat, im offenen Thread und bei den Benachrichtigungen. Das war ehrlich gesagt nicht einfach.",
+      "features": {
+        "authentication": "Authentifizierung",
+        "updates": "Echtzeit-Updates",
+        "responsive": "Responsives Design"
+      }
+    },
+    "join": {
+      "type": "Kanban-Board im Team",
+      "role": "Projektleitung, Dashboard, Drag-and-drop",
+      "stack": "Team aus vier · Angular · Supabase",
+      "summary": "Join ist ein Kanban-Board: Man legt Aufgaben an, verteilt sie im Team und schiebt sie per Drag-and-drop durch die Spalten. Wir waren zu viert, und ich hatte die Projektleitung.",
+      "role_fact": "Projektleitung, Dashboard, Drag-and-drop",
+      "team": "4 Personen",
+      "duration": "5 Wochen",
+      "implementation": "Mein Hauptteil war das Übersichts-Dashboard. Außerdem habe ich das Drag-and-drop für das Board umgesetzt und die rechtlichen Pflichtseiten erstellt. Als Projektleiter habe ich alle Pull Requests gegengelesen und sie gemergt oder für Änderungen zurückgegeben.",
+      "focus": "Wenn vier Leute am selben Code arbeiten, merkt man schnell, wie wichtig klare Absprachen bei Git sind. Gegen Ende habe ich mir noch mal Zeit genommen, den Code aufzuräumen, damit er einheitlich und gut lesbar ist.",
+      "features": {
+        "authentication": "Benutzerauthentifizierung",
+        "updates": "Echtzeit-Updates",
+        "drag_drop": "Drag & Drop",
+        "responsive": "Responsives Design"
+      }
+    },
+    "coderr": {
+      "type": "REST-API für einen Marktplatz",
+      "role": "Komplettes Backend, allein",
+      "stack": "Django REST · Token-Login · Berechtigungen",
+      "summary": "Coderr ist ein Marktplatz, auf dem Anbieter ihre digitalen Dienstleistungen anbieten und Kunden sie buchen können. Ich habe das Backend dafür geschrieben: Es verwaltet Profile, Angebote, Bestellungen und Bewertungen und stellt alles über eine REST-API bereit.",
+      "role_fact": "Backend, allein entwickelt",
+      "implementation": "Python mit Django und Django REST Framework. Ich habe das Projekt in mehrere Apps aufgeteilt: Anmeldung und Profile, Angebote, Bestellungen, Bewertungen und Statistiken. Die Daten liegen lokal in SQLite.",
+      "focus": "Im Mittelpunkt stand, Angebote, Bestellungen und Bewertungen sinnvoll miteinander zu verknüpfen und die API übersichtlich aufzuteilen, in Serializer, Views und Berechtigungen. Der Login läuft über Tokens, getestet habe ich mit pytest und pytest-django.",
+      "features": {
+        "authentication": "Token-Authentifizierung",
+        "crud": "CRUD-API",
+        "database": "Datenbankmodelle"
+      }
+    },
+    "kanmind": {
+      "type": "REST-API für Projektmanagement",
+      "role": "Komplettes Backend, allein",
+      "stack": "Python · Django REST",
+      "summary": "Mit KanMind organisieren Teams ihre Aufgaben auf Kanban-Boards. Ich habe das Backend dafür entwickelt: Boards, Aufgaben, Zuweisungen, Kommentare und Reviews.",
+      "role_fact": "Backend, allein entwickelt",
+      "implementation": "Python mit Django und Django REST Framework, aufgeteilt in zwei Apps: eine für Registrierung und Login, eine für alles rund ums Board, also Boards, Aufgaben, Kommentare und Berechtigungen. Die Daten liegen lokal in SQLite.",
+      "focus": "Die API muss abbilden, wie Boards, Aufgaben und Kommentare zusammenhängen, und darf jedem nur zeigen, was er auch sehen darf. Dazu kommen der Login per Token und eigene Endpunkte für die Aufgaben, die einem zugewiesen sind oder die man reviewen soll.",
+      "features": {
+        "authentication": "Token-Authentifizierung",
+        "crud": "CRUD-API",
+        "database": "Datenbankmodelle"
+      }
+    },
+    "el-pollo-loco": {
+      "type": "Jump-and-run in JavaScript",
+      "role": "Allein entwickelt, in drei Wochen",
+      "stack": "JavaScript · HTML · CSS",
+      "summary": "In El Pollo Loco sammelt die Spielfigur Münzen und Salsa-Flaschen, um am Ende den Endgegner zu besiegen. Das Spiel habe ich allein in drei Wochen entwickelt.",
+      "role_fact": "Allein entwickelt",
+      "duration": "3 Wochen",
+      "implementation": "Alles in reinem JavaScript, ohne Framework oder Game-Engine. Ich habe eine eigene Game-Loop geschrieben, dazu Klassen für Spielfigur und Gegner, die aufeinander aufbauen. Kollisionserkennung und Sound gehören ebenfalls dazu.",
+      "focus": "Am meisten Kopfzerbrechen hat mir die Kollisionserkennung gemacht. Wann springt man auf den Gegner, wann wird man selbst getroffen? Bis das sauber funktioniert hat, musste ich einiges ausprobieren.",
+      "features": {
+        "oop": "Objektorientierte Programmierung",
+        "game_loop": "Eigene Game-Loop",
+        "collision": "Kollisionserkennung"
+      }
+    },
+    "pokedex": {
+      "type": "Pokémon-Lexikon mit Live-Daten",
+      "role": "Allein entwickelt, in zwei Wochen",
+      "stack": "JavaScript · Vite",
+      "summary": "Ein Pokémon-Lexikon, das seine Daten live aus der PokéAPI lädt. Man kann Pokémon suchen und sich Werte, Entwicklungen und Attacken anschauen. Ich habe es allein in zwei Wochen entwickelt.",
+      "role_fact": "Allein entwickelt",
+      "duration": "2 Wochen",
+      "implementation": "Reines JavaScript, mit Vite erstellt und in Module aufgeteilt. Die Daten lade ich per Fetch, die Übersetzungen laufen über i18next. Dazu kommen mehrere Sprachen, ein heller und ein dunkler Modus und eine Detailansicht, die auch auf dem Handy funktioniert.",
+      "focus": "Die PokéAPI liefert viele einzelne Datensätze, und die Seite sollte trotzdem schnell bleiben. Deshalb speichere ich Anfragen zwischen, die Suche startet erst nach einer kurzen Tipp-Pause, und Anfragen, die nicht mehr gebraucht werden, breche ich ab.",
+      "features": {
+        "api": "API-Anbindung",
+        "search": "Suche",
+        "localization": "Mehrsprachigkeit",
+        "responsive": "Responsive Design"
+      }
+    }
+  },
+  "about": {
+    "label": "Über mich",
+    "title": "Wie ich zum Programmieren kam",
+    "sub": "Quereinsteiger aus Emden, mit Familie, Hund und viel Neugier.",
+    "photo_alt": "Jens Baumann",
+    "summary_label": "Kurz über mich",
+    "text": "Am Computer habe ich schon immer gerne Zeit verbracht und Websites waren dabei immer mein Lieblingsthema. Früher hat mich vor allem die Gestaltung interessiert. Heute kann ich Design und Code verbinden, und das macht mir richtig Spaß.",
+    "facts": {
+      "location": {
+        "label": "Standort",
+        "value": "Emden und Umgebung oder remote"
+      },
+      "available": {
+        "label": "Verfügbar",
+        "value": "Ab sofort"
+      },
+      "languages": {
+        "label": "Sprachen",
+        "value": "Deutsch, Englisch, Plattdeutsch"
+      }
+    },
+    "career_title": "Werdegang",
+    "work_title": "Wie ich arbeite",
+    "work": {
+      "intro": "Als Abteilungsleiter habe ich jeden Tag geplant, wer wann was macht und was Vorrang hat. Genauso plane ich heute meine Projekte:",
+      "value": {
+        "title": "Was wird gebraucht?",
+        "text": "Bei jedem Feature frage ich mich: Warum brauche ich es, und welchen Mehrwert hat der Nutzer davon? Löst es ein echtes Problem, kommt es rein."
+      },
+      "design": {
+        "title": "Wie soll es aussehen?",
+        "text": "Ich entwerfe das Projekt vorher als Mockup, bis ins Detail."
+      },
+      "tech": {
+        "title": "Womit setze ich es um?",
+        "text": "Angular oder doch ein anderes Framework? Wie teile ich das Projekt auf, und wie sieht die Ordnerstruktur aus?"
+      },
+      "rules": {
+        "title": "Welche Regeln gelten?",
+        "text": "Ich lege fest, was in den Code darf und was nicht. Er soll leicht verständlich sein, damit man sich jederzeit schnell zurechtfindet. Sauberer Code entscheidet, ob ein Projekt performant und wartbar bleibt."
+      }
+    },
+    "career": {
+      "sales": {
+        "title": "Kundenberatung",
+        "text": "Hier habe ich gelernt zu verstehen, was Kunden wirklich möchten."
+      },
+      "leadership": {
+        "title": "Abteilungsleitung",
+        "text": "Hier habe ich gelernt, ein Team zu führen und Prioritäten zu setzen."
+      },
+      "support": {
+        "title": "Kundensupport",
+        "text": "Telefonsupport und Chatsupport auf Deutsch und Englisch. Jeder Kundenkontakt ein neues Rätsel, das gelöst werden musste."
+      },
+      "training": {
+        "title": "Weiterbildung",
+        "text": "Fullstack Developer: Frontend mit Angular und TypeScript, Backend mit Python und Django."
+      }
+    },
+    "free_title": "Abseits vom Code",
+    "interests": {
+      "musician": {
+        "title": "Musiker",
+        "text": "Musik als Ausgleich zum Bildschirm"
+      },
+      "gamer": {
+        "title": "Gamer",
+        "text": "Am liebsten Strategie, gern im Team"
+      },
+      "family": {
+        "title": "Familie",
+        "text": "Ehemann & Vater"
+      },
+      "dog": {
+        "title": "Hundebesitzer",
+        "text": "Balu gehört natürlich dazu"
+      }
+    }
+  },
+  "documents": {
+    "label": "Unterlagen",
+    "download": "PDF herunterladen",
+    "fallback": "Das Dokument konnte nicht geladen werden. Über „PDF herunterladen“ oben bekommst du es trotzdem.",
+    "cv": {
+      "title": "Lebenslauf",
+      "sub": "Mein Werdegang und meine Kenntnisse auf einen Blick.",
+      "seo_title": "Lebenslauf – Jens Baumann",
+      "intro_title": "Mein Lebenslauf",
+      "intro_title_2": "kurz und kompakt",
+      "intro_text": "Werdegang, Skills und Projekte auf einen Blick. Wenn du Fragen hast oder mich kennenlernen möchtest, schreib mir einfach."
+    },
+    "certificates": {
+      "title": "Zertifikate",
+      "sub": "Meine Weiterbildung und Abschlüsse als PDF.",
+      "seo_title": "Zertifikate – Jens Baumann",
+      "intro_title": "Mein Abschluss",
+      "intro_title_2": "und was dahintersteckt",
+      "intro_text": "Im Juni 2026 habe ich meine Weiterbildung im Frontend abgeschlossen. Darin steckten 19 Module und über 12 Projekte mit HTML, CSS, JavaScript, TypeScript, Angular und Supabase. Im Transcript of Records steht genauer, was ich dabei gelernt habe."
+    },
+    "loading": "Dokument wird geladen …",
+    "page": "Seite {{number}}",
+    "pages": "Seiten",
+    "show_page": "Seite {{number}} anzeigen",
+    "enlarge": "Seite {{number}} vergrößern",
+    "viewer": "Dokument in Großansicht",
+    "page_of": "Seite {{number}} von {{total}}",
+    "prev": "Vorherige Seite",
+    "next": "Nächste Seite"
   }
 }

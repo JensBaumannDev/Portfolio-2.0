@@ -1,0 +1,146 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+}
+
+.hero {
+  @include stage;
+  @include flex(column, nowrap, flex-start, stretch);
+  height: max(#{rem(560)}, calc(100dvh - #{$nav-height} - #{rem(110)}));
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: $z-index-backdrop;
+    background:
+      radial-gradient(ellipse 45% 60% at 50% 70%, $color-glow, transparent 70%),
+      radial-gradient(ellipse 80% 40% at 50% 100%, fade($color-white, 0.06), transparent 70%);
+    opacity: 0;
+    transition: opacity 1.4s $ease;
+  }
+
+  &.s-photo::before {
+    opacity: 1;
+  }
+}
+
+.hero-top {
+  @include flex(column, nowrap, flex-start, center);
+  position: relative;
+  z-index: $z-index-content;
+  gap: rem(10);
+  padding: clamp(#{rem(28)}, 6dvh, #{rem(64)}) rem(16) 0;
+  text-align: center;
+}
+
+.welcome {
+  font-size: clamp(#{rem(20)}, 2.2vw, #{rem(28)});
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: $color-on-dark-muted;
+}
+
+.welcome-big {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: $z-index-overlay;
+  font-size: clamp(#{rem(56)}, 11vw, #{rem(160)});
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+h1 {
+  @include heading-hero;
+}
+
+.sub {
+  margin: rem(4) 0 rem(18);
+  font-size: clamp(#{rem(17)}, 1.5vw, #{rem(20)});
+  color: $color-on-dark-muted;
+
+  b {
+    font-weight: $font-weight-semibold;
+    color: $color-on-dark;
+  }
+}
+
+.stack {
+  display: block;
+  margin-top: rem(10);
+  font-size: clamp(#{rem(16)}, 1.15vw, #{rem(17)});
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.01em;
+  color: $color-subtle;
+}
+
+.btns {
+  justify-content: center;
+}
+
+.hero-photo {
+  position: relative;
+  z-index: $z-index-photo;
+  flex: 1 1 0;
+  min-height: 0;
+  margin-top: clamp(#{rem(16)}, 3dvh, #{rem(32)});
+  filter: drop-shadow(0 0 60px fade($color-black, 0.6));
+
+  img {
+    object-fit: contain;
+    object-position: center bottom;
+  }
+}
+
+h1,
+.sub,
+.btns,
+.hero-photo {
+  transition:
+    opacity 0.9s $ease,
+    transform 1s $ease,
+    filter 1s $ease;
+}
+
+.hero:not(.s-photo) .hero-photo {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.hero:not(.s-name) h1 {
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(8px);
+}
+
+.hero:not(.s-sub) .sub,
+.hero:not(.s-sub) .btns {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* #region RESPONSIVE */
+@include phone {
+  .hero {
+    height: calc(100dvh - #{$nav-height} - #{rem(70)});
+    min-height: rem(600);
+  }
+
+  .btns {
+    flex-direction: column;
+    width: min(#{rem(320)}, 100% - #{rem(32)});
+  }
+
+  .btns .b {
+    width: 100%;
+  }
+}
+/* #endregion */

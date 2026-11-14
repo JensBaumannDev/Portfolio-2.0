@@ -1,28 +1,33 @@
 # Jens Baumann — Fullstack Developer
 
-> Portfolio von Jens Baumann, Fullstack Developer aus Emden in Ostfriesland. Quereinsteiger aus Einzelhandel und Vertrieb, aktuell in einer einjährigen Fullstack-Fortbildung an der Developer Akademie. Verfügbar ab November 2026 für Praktikum, Werkstudium oder eine Junior-Rolle, remote, hybrid oder vor Ort.
+> Portfolio von Jens Baumann, Fullstack Developer aus Emden in Ostfriesland. Quereinsteiger aus Einzelhandel und Vertrieb mit Erfahrung in Kundenberatung und Teamführung. Angular, TypeScript, Python und Django. Ab sofort verfügbar für eine Festanstellung, in Emden und Umgebung oder remote.
 
-Die Website ist eine Angular-Single-Page-Application mit deutscher und englischer Oberfläche. Inhaltliche Schwerpunkte sind die Projekte aus der Fortbildung und ein Kontaktformular. Es werden keine Tracking-Cookies gesetzt und keine Analysedienste eingebunden.
+Die Website ist eine Angular-Single-Page-Application mit deutscher und englischer Oberfläche. Sie setzt keine Cookies und nutzt Umami für eine anonymisierte Reichweitenmessung.
 
 ## Seiten
 
-- [Startseite](https://jensbaumann.com/): Vorstellung, Projektübersicht, Tech-Stack und Kontaktformular
+- [Startseite](https://jensbaumann.com/): Vorstellung, Projekte, Werdegang, Skills, Stimmen von Kollegen und Kontakt
+- [Über mich](https://jensbaumann.com/about): Werdegang, Arbeitsweise und Interessen
+- [Kontakt](https://jensbaumann.com/contact): Kontaktformular
+- [Lebenslauf](https://jensbaumann.com/documents/cv): Lebenslauf als PDF
+- [Zertifikate](https://jensbaumann.com/documents/certificates): Zertifikate als PDF
 - [Impressum](https://jensbaumann.com/legal-notice): Anbieterkennzeichnung nach § 5 DDG
-- [Datenschutzerklärung](https://jensbaumann.com/privacy-policy): Hosting, Server-Logfiles, Kontaktformular und Rechte nach DSGVO
+- [Datenschutzerklärung](https://jensbaumann.com/privacy-policy): Hosting, Server-Logfiles, Kontaktformular, Umami und Rechte nach DSGVO
 
 ## Projekte
 
 ### Backend
 
-- [Coderr](https://github.com/JensBaumannDev/Coderr): REST-API für einen Marktplatz für digitale Dienstleistungen mit Nutzerprofilen, Angeboten, Bestellungen, Bewertungen und Token-Authentifizierung. Python, Django, Django REST Framework, SQLite. Das Frontend wird von der Developer Akademie bereitgestellt; eine öffentliche Live-Demo folgt.
-- [KanMind](https://github.com/JensBaumannDev/KanMind): REST-API für ein Kanban-Projektmanagement-Tool mit Boards, Aufgaben, Zuweisungen, Kommentaren, Reviews und Token-Authentifizierung. Python, Django, Django REST Framework, SQLite. Das Frontend wird von der Developer Akademie bereitgestellt; eine öffentliche Live-Demo folgt.
+- [Videoflix](https://jensbaumann.com/projects/videoflix): Video-Streaming-Backend mit Registrierung, Aktivierung per E-Mail, Login, Passwort-Reset sowie automatisch erzeugten Thumbnails und HLS-Streams in 480p, 720p und 1080p. Python, Django REST, PostgreSQL, Redis, FFmpeg, Docker
+- [Coderr](https://jensbaumann.com/projects/coderr): REST-API für einen Marktplatz für digitale Dienstleistungen mit Profilen, Angeboten, Bestellungen und Bewertungen. Python, Django REST, SQLite
+- [KanMind](https://jensbaumann.com/projects/kanmind): REST-API für Projektmanagement mit Boards, Aufgaben, Zuweisungen, Kommentaren und Reviews. Python, Django REST, SQLite
 
 ### Frontend
 
-- [DABubble](https://github.com/JensBaumannDev/DABubble): Echtzeit-Chat im Slack-Stil mit Channels und Threads, Gruppenprojekt. Angular, TypeScript, SCSS, Supabase
-- [Join](https://github.com/JensBaumannDev/Join): Kanban-Board zur Aufgabenverwaltung mit Drag-and-drop, Gruppenprojekt. Angular, TypeScript, SCSS, Supabase
-- [El Pollo Loco](https://github.com/JensBaumannDev/El-Pollo-Loco): Jump-and-run mit eigener Game-Loop und Kollisionserkennung, Einzelprojekt. HTML, CSS, JavaScript
-- [Pokedex](https://github.com/JensBaumannDev/Pokedex): Mehrsprachiger, responsiver Pokédex mit PokéAPI-Daten, Suche und Detaildialog für Werte, Entwicklungen und Attacken. Einzelprojekt. HTML, CSS, JavaScript, Vite, i18next
+- [DABubble](https://jensbaumann.com/projects/dabubble): Echtzeit-Chat mit Channels, Direktnachrichten und Threads, Team aus zwei. Angular, TypeScript, SCSS, Supabase
+- [Join](https://jensbaumann.com/projects/join): Kanban-Board mit Drag-and-drop, Team aus vier. Angular, TypeScript, SCSS, Supabase
+- [El Pollo Loco](https://jensbaumann.com/projects/el-pollo-loco): Jump-and-run mit eigener Spiellogik, Kollisionserkennung und Sound. JavaScript, HTML, CSS
+- [Pokédex](https://jensbaumann.com/projects/pokedex): Pokémon-Lexikon mit Daten aus der PokéAPI, Suche, Detaildialog und mehreren Sprachen. JavaScript, Vite, HTML, CSS
 
 ## Kontakt
 

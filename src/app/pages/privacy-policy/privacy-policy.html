@@ -1,0 +1,82 @@
+<app-page-hero
+  [historyBack]="true"
+  [separatedSub]="true"
+  [label]="'page.legal_label' | translate"
+  [title]="'privacy.title' | translate"
+  [sub]="'privacy.date' | translate"
+/>
+
+<div class="wrap">
+  <article class="legal">
+    <section>
+      <h2>{{ 'privacy.s1_title' | translate }}</h2>
+      <p>{{ 'privacy.s1_text' | translate }}</p>
+    </section>
+
+    <section>
+      <h2>{{ 'privacy.s2_title' | translate }}</h2>
+      <p>{{ 'privacy.s2_intro' | translate }}</p>
+      <p>
+        Jens Baumann<br />
+        {{ 'legal.address_street' | translate }}, {{ 'legal.address_zip' | translate }} Emden,
+        {{ 'privacy.country' | translate }}<br />
+        {{ 'privacy.email_label' | translate }}
+        <a [href]="'mailto:' + email">{{ email }}</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>{{ 'privacy.s3_title' | translate }}</h2>
+      <p>{{ 'privacy.s3_text' | translate }}</p>
+    </section>
+
+    <section>
+      <h2>{{ 'privacy.s4_title' | translate }}</h2>
+      <p>{{ 'privacy.s4_intro' | translate }}</p>
+      <ul>
+        <li>{{ 'privacy.s4_li1' | translate }}</li>
+        <li>{{ 'privacy.s4_li2' | translate }}</li>
+        <li>{{ 'privacy.s4_li3' | translate }}</li>
+        <li>{{ 'privacy.s4_li4' | translate }}</li>
+        <li>{{ 'privacy.s4_li5' | translate }}</li>
+        <li>{{ 'privacy.s4_li6' | translate }}</li>
+      </ul>
+      <p>{{ 'privacy.s4_outro' | translate }}</p>
+    </section>
+
+    <section>
+      <h2>{{ 'privacy.s5_title' | translate }}</h2>
+      <p>{{ 'privacy.s5_p1' | translate }}</p>
+      <p>{{ 'privacy.s5_p2' | translate }}</p>
+      <p>{{ 'privacy.s5_p3' | translate }}</p>
+    </section>
+
+    <section>
+      <h2>{{ 'privacy.s6_title' | translate }}</h2>
+      <p>{{ 'privacy.s6_p1' | translate }}</p>
+      <p>{{ 'privacy.s6_p2' | translate }}</p>
+      <p>{{ 'privacy.s6_p3' | translate }}</p>
+    </section>
+
+    <section>
+      <h2>{{ 'privacy.s7_title' | translate }}</h2>
+      <p>{{ 'privacy.s7_text' | translate }}</p>
+    </section>
+
+    <section>
+      <h2>{{ 'privacy.s8_title' | translate }}</h2>
+      <p>{{ 'privacy.s8_intro' | translate }}</p>
+      <ul>
+        <li>{{ 'privacy.s8_li1' | translate }}</li>
+        <li>{{ 'privacy.s8_li2' | translate }}</li>
+        <li>{{ 'privacy.s8_li3' | translate }}</li>
+        <li>{{ 'privacy.s8_li4' | translate }}</li>
+        <li>{{ 'privacy.s8_li5' | translate }}</li>
+        <li>{{ 'privacy.s8_li6' | translate }}</li>
+        <li>{{ 'privacy.s8_li7' | translate }}</li>
+        <li>{{ 'privacy.s8_li8' | translate }}</li>
+      </ul>
+      <p>{{ 'privacy.s8_outro' | translate }}</p>
+    </section>
+  </article>
+</div>

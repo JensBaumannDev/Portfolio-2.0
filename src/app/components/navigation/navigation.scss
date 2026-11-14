@@ -1,0 +1,144 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  position: sticky;
+  top: 0;
+  z-index: $z-index-nav;
+  display: block;
+  view-transition-name: site-nav;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: $nav-height;
+  padding: 0 $gutter;
+  background: $color-white;
+}
+
+.logo {
+  justify-self: start;
+  font-size: rem(19);
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.nav-mid {
+  @include flex(row, nowrap, center, center);
+  gap: rem(4);
+}
+
+.language {
+  margin-right: rem(4);
+  padding-right: rem(12);
+  border-right: 1px solid $color-line;
+}
+
+.l {
+  padding: rem(8) rem(14);
+  border-radius: $radius-button;
+  font-weight: $font-weight-semibold;
+  transition: background-color 0.15s ease-out;
+
+  &:hover {
+    background: fade($color-black, 0.05);
+  }
+}
+
+.nav-end,
+.socials {
+  @include flex(row, nowrap, flex-end, center);
+  gap: rem(8);
+}
+
+.nav-end {
+  justify-self: end;
+}
+
+.nav-end .b-soc,
+.language .lang {
+  min-width: rem(44);
+  min-height: rem(44);
+  padding: rem(8);
+  font-size: rem(16);
+  background: transparent;
+  color: $color-label;
+  transition:
+    background-color 0.15s ease-out,
+    color 0.15s ease-out;
+
+  &:hover {
+    background: $color-surface;
+    color: $color-ink;
+  }
+
+  .ic {
+    width: rem(16);
+    height: rem(16);
+    margin-right: rem(6);
+  }
+}
+
+.menu,
+.only-phone {
+  display: none;
+}
+
+/* #region RESPONSIVE */
+@media (max-width: $bp-nav-compact) and (min-width: #{$bp-phone + 1px}) {
+  .socials .soc-t {
+    display: none;
+  }
+
+  .socials .ic {
+    margin-right: 0;
+  }
+}
+
+@include phone {
+  .nav {
+    grid-template-columns: 1fr auto;
+  }
+
+  .language {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  .nav-mid,
+  .socials {
+    display: none;
+  }
+
+  .menu {
+    @include flex(row, nowrap, center, center);
+    min-height: rem(38);
+    padding: rem(8) rem(14);
+    background: $color-surface;
+    color: $color-ink;
+  }
+
+  .open .nav-mid {
+    @include flex(column, nowrap, flex-start, stretch);
+    position: absolute;
+    top: $nav-height;
+    right: 0;
+    left: 0;
+    padding: rem(8) rem(12) rem(16);
+    background: $color-white;
+    box-shadow: 0 12px 24px fade($color-black, 0.08);
+  }
+
+  .open .l {
+    padding: rem(14) rem(12);
+    font-size: rem(18);
+  }
+
+  .open .only-phone {
+    display: block;
+  }
+}
+/* #endregion */

@@ -1,0 +1,76 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+}
+
+.duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: rem(18);
+}
+
+.lcard {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+  overflow: clip;
+  min-height: rem(190);
+  border-radius: $radius-surface;
+  background: $color-surface;
+}
+
+.txt {
+  @include flex(column, nowrap, flex-start, stretch);
+  padding: rem(30) rem(36);
+
+  .btns {
+    margin-top: auto;
+  }
+}
+
+h2 {
+  font-size: clamp(#{rem(26)}, 2.2vw, #{rem(32)});
+  font-weight: $font-weight-semibold;
+  letter-spacing: -0.03em;
+}
+
+p {
+  max-width: 46ch;
+  margin: rem(6) 0 rem(18);
+  font-size: rem(17);
+  color: $color-text;
+}
+
+.side {
+  align-self: end;
+  width: auto;
+  height: 100%;
+  max-height: rem(220);
+  margin-right: clamp(#{rem(16)}, 3vw, #{rem(48)});
+}
+
+/* #region RESPONSIVE */
+@include below-tablet {
+  .duo {
+    grid-template-columns: 1fr;
+  }
+}
+
+@include phone {
+  .lcard {
+    grid-template-columns: 1fr;
+  }
+
+  .txt {
+    padding: rem(24) rem(22);
+  }
+
+  .side {
+    justify-self: center;
+    max-height: rem(200);
+    margin-right: 0;
+  }
+}
+/* #endregion */

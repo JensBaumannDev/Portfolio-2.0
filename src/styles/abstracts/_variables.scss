@@ -1,69 +1,74 @@
 @use 'functions' as fn;
 
-$breakpoint-mobile-sm: 400px;
-$breakpoint-mobile-actions: 560px;
-$breakpoint-tablet: 768px;
-$breakpoint-desktop: 1024px;
-$breakpoint-compact-height: 1024px;
-$max-width: fn.rem(1200);
-
-$z-index-header-sidebar: 100;
-$z-index-dialog: 110;
-
-$radius-sm: fn.rem(2);
-$radius-md: fn.rem(6);
-$radius-lg: fn.rem(12);
-$shadow-card: 0 4px 12px rgb(0 0 0 / 10%);
-$shadow-section: 0 -12px 28px -16px rgb(0 0 0 / 22%);
-
-$section-padding: fn.rem(112);
-$section-padding-mobile: fn.rem(72);
-
 $color-black: #000000;
 $color-white: #ffffff;
-$color-ink: #333333;
-$color-paper: #fafafa;
-$color-hero-frontend: #e6f2ef;
-$color-hero-backend: #f3e7d8;
-$color-surface-beige: #d7bb91;
-$color-surface-beige-light: #e4eeea;
-$color-muted: #62625e;
-$color-line: #dddddd;
-$color-accent: #246b63;
-$color-accent-on-dark: #8dcec4;
-$color-field-text-light: #33332f;
-$color-placeholder-light: #686660;
-$color-nav-bg: #141414;
-$color-nav-muted: #e8e8e2;
-$color-nav-menu-muted: #b9b9b4;
-$color-error-light: #a54338;
-$color-success-light: #3c6b3f;
+$color-ink: #171a20;
+$color-text: #393c41;
+$color-label: #5c5e62;
+$color-subtle: #86868b;
+$color-on-dark: #f5f5f7;
+$color-on-dark-muted: #a1a1a6;
+$color-line: #e5e5e5;
+$color-line-on-dark: fn.fade($color-white, 0.16);
+$color-surface: #f4f4f4;
+$color-surface-hover: #e8e8ea;
+$color-blue: #0071e3;
+$color-blue-hover: #1a84f0;
+$color-blue-active: #0062c4;
+$color-dark: #2c2c2e;
+$color-dark-hover: #3a3a3c;
+$color-stage: $color-black;
+$color-glow: rgba(150, 165, 255, 0.22);
+$color-dot: #d0d1d2;
+$color-dot-dark: #48484a;
+$color-arrow-dark: #1d1d1f;
+$color-card: #111111;
+$color-card-hover: #0d2766;
+$color-error: #d70015;
+$color-field-line: #d2d2d7;
+$color-field-line-hover: #b0b0b5;
 
-$color-field-bg-light: rgb(255 255 255 / 34%);
-$color-field-focus-light: rgb(255 255 255 / 58%);
-
-$font-family-base: Arial, Helvetica, sans-serif;
-$font-family-display: $font-family-base;
-
-$font-weight-regular: 400;
-$font-weight-medium: 500;
-$font-weight-bold: 700;
-$font-weight-heading: 700;
-
+$font-family-base:
+  'Urbanist',
+  -apple-system,
+  'Segoe UI',
+  system-ui,
+  sans-serif;
 $font-size-base: fn.rem(16);
-$font-size-md: fn.rem(18);
-$font-size-lg: fn.rem(20);
-$font-size-xl: fn.rem(24);
-$font-size-h2: fn.rem(32);
-$font-size-h1: fn.rem(40);
-$font-size-display-fluid: clamp(#{fn.rem(48)}, 8vw, #{fn.rem(96)});
-
-$z-index-decoration: -1;
-
-$font-size-section: clamp(#{fn.rem(36)}, 4.5vw, #{fn.rem(64)});
-$font-size-card: fn.rem(24);
-$font-size-body: fn.rem(18);
-$font-size-meta: fn.rem(16);
-$font-size-quote: fn.rem(20);
-$line-height-body: 1.6;
+$font-size-section: clamp(#{fn.rem(40)}, 5.2vw, #{fn.rem(76)});
+$font-size-hero: clamp(#{fn.rem(48)}, 7vw, #{fn.rem(104)});
+$font-size-page: clamp(#{fn.rem(44)}, 6vw, #{fn.rem(88)});
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
 $line-height-heading: 1.1;
+
+$radius-sm: fn.rem(2);
+$radius-button: fn.rem(10);
+$radius-surface: fn.rem(16);
+
+$gutter: clamp(#{fn.rem(16)}, 2vw, #{fn.rem(40)});
+$section-gap: clamp(#{fn.rem(72)}, 9vw, #{fn.rem(150)});
+$page-padding-bottom: clamp(#{fn.rem(40)}, 5vw, #{fn.rem(72)});
+$nav-height: fn.rem(56);
+$container-width: fn.rem(1880);
+$content-width: fn.rem(1180);
+
+$ease: cubic-bezier(0.22, 0.8, 0.2, 1);
+
+$bp-small: 400px;
+$bp-phone: 760px;
+$bp-tablet: 1000px;
+$bp-rail-two: 1100px;
+$bp-nav-compact: 1180px;
+$bp-rail-three: 1800px;
+$bp-short: 820px;
+
+$z-index-image: -2;
+$z-index-backdrop: -1;
+$z-index-photo: 1;
+$z-index-content: 2;
+$z-index-sheen: 3;
+$z-index-overlay: 5;
+$z-index-nav: 30;
+$z-index-skip-link: 110;

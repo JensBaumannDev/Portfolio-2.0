@@ -1,0 +1,58 @@
+<header class="nav" [class.open]="menuOpen()">
+  <a class="logo" routerLink="/" (click)="goTo($event, null)">Jens Baumann</a>
+  <nav
+    class="nav-mid"
+    id="primary-navigation"
+    [attr.aria-label]="'a11y.primary_navigation' | translate"
+  >
+    @for (link of links; track link.section) {
+      <a class="l" [href]="'/#' + link.section" (click)="goTo($event, link.section)">{{
+        link.labelKey | translate
+      }}</a>
+    }
+    @for (social of socials; track social.label) {
+      <a class="l only-phone" [href]="social.url" target="_blank" rel="noopener noreferrer">{{
+        social.label
+      }}</a>
+    }
+  </nav>
+  <div class="nav-end">
+    <div class="language">
+      <button
+        class="b lang"
+        type="button"
+        [attr.lang]="otherLanguage()"
+        [attr.aria-label]="'nav.switch_language' | translate"
+        (click)="switchLanguage()"
+      >
+        <ng-icon class="ic" name="lucideGlobe" aria-hidden="true" />{{
+          otherLanguage().toUpperCase()
+        }}
+      </button>
+    </div>
+    <div class="socials" role="group" [attr.aria-label]="'a11y.social_links' | translate">
+      @for (social of socials; track social.label) {
+        <a
+          class="b b-soc"
+          [href]="social.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="social.label"
+          ><ng-icon class="ic" [name]="social.icon" aria-hidden="true" /><span class="soc-t">{{
+            social.label
+          }}</span></a
+        >
+      }
+    </div>
+
+    <button
+      class="b menu"
+      type="button"
+      aria-controls="primary-navigation"
+      [attr.aria-expanded]="menuOpen()"
+      (click)="menuOpen.set(!menuOpen())"
+    >
+      {{ (menuOpen() ? 'nav.close' : 'nav.menu') | translate }}
+    </button>
+  </div>
+</header>

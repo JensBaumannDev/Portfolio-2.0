@@ -1,0 +1,311 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+  padding-bottom: $page-padding-bottom;
+}
+
+app-page-hero {
+  --glow-width: 62%;
+}
+
+.pj-btns {
+  justify-content: center;
+}
+
+.slide-ui {
+  display: grid;
+  grid-template-columns: auto minmax(0, #{rem(600)}) auto;
+  grid-template-areas:
+    'prev mock next'
+    '. dots .';
+  justify-content: center;
+  align-items: center;
+  gap: rem(24) clamp(#{rem(24)}, 4vw, #{rem(64)});
+  padding: clamp(#{rem(28)}, 3vw, #{rem(40)}) 0 rem(32);
+}
+
+.pj-mock {
+  grid-area: mock;
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 77 / 50;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+
+  &:focus-visible {
+    @include focus-ring($color-on-dark);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: var(--frame-inset, 0);
+    border: 1px solid fade($color-white, 0.5);
+    border-radius: $radius-sm;
+    pointer-events: none;
+  }
+}
+
+.pj-arrow {
+  @include flex(row, nowrap, center, center);
+  width: rem(48);
+  height: rem(48);
+  border-radius: $radius-button;
+  background: $color-arrow-dark;
+  color: $color-on-dark;
+  font-size: rem(24);
+  transition: background-color 0.15s;
+
+  &:hover {
+    background: $color-dark;
+  }
+
+  &.prev {
+    grid-area: prev;
+  }
+
+  &.next {
+    grid-area: next;
+  }
+}
+
+.pj-dots {
+  @include flex(row, nowrap, center, center);
+  grid-area: dots;
+  gap: rem(8);
+
+  a {
+    display: block;
+    width: rem(10);
+    height: rem(10);
+    border-radius: 50%;
+    background: $color-dot-dark;
+    transition: background-color 0.15s;
+
+    &:hover {
+      background: $color-subtle;
+    }
+
+    &.on {
+      background: $color-on-dark;
+    }
+  }
+}
+
+.pj-arrow:focus-visible,
+.pj-dots a:focus-visible {
+  @include focus-ring($color-on-dark);
+}
+
+.vh {
+  @include visually-hidden;
+}
+
+.pj-shot {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  padding: rem(72) $gutter $gutter;
+  border: 0;
+  background: transparent;
+  cursor: zoom-out;
+
+  &[open] {
+    @include flex(row, nowrap, center, center);
+  }
+
+  &::backdrop {
+    background: fade($color-black, 0.88);
+  }
+
+  img {
+    width: auto;
+    max-width: min(#{rem(1540)}, 100%);
+    height: auto;
+    max-height: 100%;
+    border-radius: $radius-sm;
+    cursor: default;
+  }
+}
+
+.pj-close {
+  @include flex(row, nowrap, center, center);
+  position: absolute;
+  top: rem(16);
+  right: $gutter;
+  width: rem(44);
+  height: rem(44);
+  padding: 0;
+  border: 0;
+  border-radius: $radius-button;
+  background: $color-dark;
+  color: $color-on-dark;
+  font-size: rem(22);
+  cursor: pointer;
+
+  &:hover {
+    background: $color-dark-hover;
+  }
+
+  &:focus-visible {
+    @include focus-ring($color-on-dark);
+  }
+}
+
+.pj-sum {
+  max-width: $content-width;
+  margin: clamp(#{rem(64)}, 8vw, #{rem(120)}) auto 0;
+  text-align: center;
+}
+
+.pj-lead {
+  max-width: rem(820);
+  margin: 0 auto;
+  font-size: clamp(#{rem(21)}, 2vw, #{rem(28)});
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+
+.pj-facts {
+  @include flex(row, wrap, center, center);
+  gap: rem(12) clamp(#{rem(28)}, 4vw, #{rem(56)});
+  margin-top: clamp(#{rem(24)}, 3vw, #{rem(32)});
+
+  div {
+    @include flex(row, nowrap, center, baseline);
+    gap: rem(8);
+  }
+
+  dt {
+    font-weight: $font-weight-semibold;
+    color: $color-label;
+  }
+
+  dd {
+    font-size: rem(17);
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.pj-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: rem(18);
+  max-width: $content-width;
+  margin: clamp(#{rem(40)}, 5vw, #{rem(64)}) auto 0;
+}
+
+.pj-card {
+  @include surface-card;
+
+  h2 {
+    @include card-label;
+    margin-bottom: rem(18);
+  }
+
+  p {
+    font-size: rem(18);
+    line-height: 1.55;
+    color: $color-text;
+  }
+}
+
+.pj-tech {
+  @include flex(row, wrap, flex-start, center);
+  gap: rem(14) rem(24);
+
+  li {
+    @include flex(row, nowrap, flex-start, center);
+    gap: rem(10);
+    font-size: rem(19);
+    font-weight: $font-weight-semibold;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  img {
+    flex: none;
+    width: rem(22);
+    height: rem(22);
+  }
+}
+
+.pj-feat {
+  display: grid;
+  gap: rem(12);
+
+  li {
+    position: relative;
+    padding-left: rem(30);
+    font-size: rem(19);
+    font-weight: $font-weight-semibold;
+    letter-spacing: -0.02em;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0.3em;
+      left: rem(2);
+      width: rem(16);
+      height: rem(16);
+      border-radius: 50%;
+      background: $color-blue
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.2 2.2 4.8-5' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+        center / rem(16) no-repeat;
+    }
+  }
+}
+
+/* #region RESPONSIVE */
+@media (max-height: $bp-short) and (min-width: #{$bp-phone + 1px}) {
+  .slide-ui {
+    grid-template-columns: auto minmax(0, #{rem(480)}) auto;
+    row-gap: rem(16);
+    padding: rem(20) 0;
+  }
+}
+
+@include below-tablet {
+  .pj-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@include phone {
+  .slide-ui {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      'mock mock mock'
+      'prev dots next';
+    column-gap: rem(12);
+  }
+
+  .pj-arrow {
+    width: rem(40);
+    height: rem(40);
+    font-size: rem(20);
+  }
+
+  .pj-btns {
+    flex-direction: column;
+    width: min(#{rem(320)}, 100%);
+    margin-inline: auto;
+  }
+
+  .pj-btns .b {
+    width: 100%;
+  }
+}
+/* #endregion */

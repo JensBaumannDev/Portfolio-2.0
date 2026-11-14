@@ -1,0 +1,65 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+}
+
+h2 {
+  @include heading-section;
+  margin-bottom: clamp(#{rem(28)}, 4vw, #{rem(48)});
+}
+
+.sk-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: rem(18);
+}
+
+.sk-group {
+  @include surface-card;
+}
+
+.sk-group h3 {
+  @include card-label;
+  margin-bottom: rem(20);
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: rem(18) rem(16);
+}
+
+li {
+  @include flex(row, nowrap, flex-start, center);
+  gap: rem(12);
+  font-size: clamp(#{rem(17)}, 1.4vw, #{rem(20)});
+  font-weight: $font-weight-semibold;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+img {
+  flex: none;
+  width: rem(28);
+  height: rem(28);
+  object-fit: contain;
+}
+
+/* #region RESPONSIVE */
+@include below-tablet {
+  .sk-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@include phone {
+  ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* #endregion */

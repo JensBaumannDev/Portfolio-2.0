@@ -1,0 +1,31 @@
+<app-page-hero
+  [historyBack]="true"
+  [label]="'documents.label' | translate"
+  [title]="'documents.' + kind() + '.title' | translate"
+  [sub]="'documents.' + kind() + '.sub' | translate"
+>
+  <div heroActions class="btns actions">
+    <a class="b b-blue" [href]="fileUrl()" [download]="fileName()">{{
+      'documents.download' | translate
+    }}</a>
+    @if (kind() === 'cv') {
+      <a class="b b-dark" routerLink="/documents/certificates">{{
+        'documents.certificates.title' | translate
+      }}</a>
+    } @else {
+      <a class="b b-dark" routerLink="/documents/cv">{{ 'documents.cv.title' | translate }}</a>
+    }
+  </div>
+</app-page-hero>
+
+<section class="wrap document" aria-labelledby="document-intro">
+  <div class="intro">
+    <h2 id="document-intro">
+      {{ 'documents.' + kind() + '.intro_title' | translate }}<br /><span>{{
+        'documents.' + kind() + '.intro_title_2' | translate
+      }}</span>
+    </h2>
+    <p>{{ 'documents.' + kind() + '.intro_text' | translate }}</p>
+  </div>
+  <app-pdf-preview [src]="fileUrl()" />
+</section>

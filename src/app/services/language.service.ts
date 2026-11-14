@@ -4,7 +4,6 @@ import { TranslateService } from '@ngx-translate/core';
 
 export type AppLanguage = 'de' | 'en';
 
-
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
   private readonly translate = inject(TranslateService);
@@ -31,6 +30,8 @@ export class LanguageService {
 }
 
 function detectLanguage(document: Document): AppLanguage {
-  const languages = document.defaultView?.navigator.languages ?? [document.defaultView?.navigator.language ?? 'en'];
+  const languages = document.defaultView?.navigator.languages ?? [
+    document.defaultView?.navigator.language ?? 'en',
+  ];
   return languages[0]?.toLowerCase().startsWith('de') ? 'de' : 'en';
 }

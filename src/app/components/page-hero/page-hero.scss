@@ -1,0 +1,70 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+}
+
+.page-hero {
+  @include stage;
+  padding: 0 rem(16);
+  text-align: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: $z-index-backdrop;
+    background: radial-gradient(
+      ellipse var(--glow-width, 45%) 55% at 50% 80%,
+      $color-glow,
+      transparent 70%
+    );
+  }
+}
+
+.top {
+  @include wrap;
+  padding: rem(16) 0 clamp(#{rem(20)}, 2vw, #{rem(28)});
+  text-align: left;
+}
+
+.back {
+  font-weight: $font-weight-semibold;
+  color: $color-on-dark-muted;
+  transition: color 0.15s ease-out;
+
+  &:hover {
+    color: $color-on-dark;
+  }
+
+  &:focus-visible {
+    @include focus-ring($color-on-dark);
+  }
+}
+
+.label {
+  margin-bottom: rem(10);
+  font-weight: $font-weight-semibold;
+  color: $color-on-dark-muted;
+}
+
+h1 {
+  @include heading-page;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.sub {
+  margin: rem(10) 0 rem(22);
+  font-size: clamp(#{rem(18)}, 1.6vw, #{rem(22)});
+  color: $color-on-dark-muted;
+
+  &.separated {
+    margin-top: clamp(#{rem(32)}, 3vw, #{rem(48)});
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: $page-padding-bottom;
+  }
+}

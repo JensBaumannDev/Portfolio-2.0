@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'sass:math';
 @use 'sass:meta';
 
@@ -17,4 +18,8 @@ $root-font-size: 16px !default;
   }
 
   @return $value;
+}
+
+@function fade($color, $opacity) {
+  @return color.change($color, $alpha: $opacity);
 }

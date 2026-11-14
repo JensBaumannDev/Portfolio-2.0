@@ -1,0 +1,9 @@
+<footer class="foot">
+  <span>Jens Baumann © {{ year }}</span>
+  <a href="#" (click)="toTop($event)">{{ 'footer.top' | translate }}</a>
+  @for (social of socials; track social.label) {
+    <a [href]="social.url" target="_blank" rel="noopener noreferrer">{{ social.label }}</a>
+  }
+  <a routerLink="/legal-notice">{{ 'footer.legal' | translate }}</a>
+  <a routerLink="/privacy-policy">{{ 'footer.privacy' | translate }}</a>
+</footer>

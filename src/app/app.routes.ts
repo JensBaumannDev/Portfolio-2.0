@@ -1,20 +1,44 @@
 import { Routes } from '@angular/router';
+
 export const routes: Routes = [
-  { path: '', loadComponent: () => import('./pages/landingpage/landingpage.component').then((m) => m.Landingpage) },
+  {
+    path: '',
+    loadComponent: () => import('./pages/home/home').then((m) => m.Home),
+  },
+  {
+    path: 'about',
+    loadComponent: () => import('./pages/about/about').then((m) => m.About),
+  },
   {
     path: 'projects/:slug',
-    loadComponent: () => import('./components/project-detail/project-detail.component').then((m) => m.ProjectDetail),
+    loadComponent: () =>
+      import('./pages/project-detail/project-detail').then((m) => m.ProjectDetail),
+  },
+  {
+    path: 'contact',
+    loadComponent: () => import('./pages/contact/contact').then((m) => m.Contact),
+  },
+  {
+    path: 'documents/cv',
+    data: { kind: 'cv' },
+    loadComponent: () => import('./pages/document/document').then((m) => m.DocumentPage),
+  },
+  {
+    path: 'documents/certificates',
+    data: { kind: 'certificates' },
+    loadComponent: () => import('./pages/document/document').then((m) => m.DocumentPage),
   },
   {
     path: 'legal-notice',
-    loadComponent: () => import('./pages/legal-notice/legal-notice.component').then((m) => m.LegalNotice),
+    loadComponent: () => import('./pages/legal-notice/legal-notice').then((m) => m.LegalNotice),
   },
   {
     path: 'privacy-policy',
-    loadComponent: () => import('./pages/privacy-policy/privacy-policy.component').then((m) => m.PrivacyPolicy),
+    loadComponent: () =>
+      import('./pages/privacy-policy/privacy-policy').then((m) => m.PrivacyPolicy),
   },
   {
     path: '**',
-    loadComponent: () => import('./pages/not-found/not-found.component').then((m) => m.NotFound),
+    loadComponent: () => import('./pages/not-found/not-found').then((m) => m.NotFound),
   },
 ];

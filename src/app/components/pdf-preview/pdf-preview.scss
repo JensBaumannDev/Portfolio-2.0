@@ -1,0 +1,206 @@
+@use 'src/styles/abstracts' as *;
+
+:host {
+  display: block;
+}
+
+.stage {
+  @include flex(column, nowrap, flex-start, center);
+  gap: clamp(#{rem(20)}, 3vw, #{rem(32)});
+  padding: clamp(#{rem(20)}, 5vw, #{rem(64)});
+  border-radius: $radius-surface;
+  background: $color-surface;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: none;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.view {
+  @include flex(row, nowrap, center, center);
+  gap: clamp(#{rem(8)}, 2vw, #{rem(24)});
+  width: 100%;
+  height: clamp(#{rem(320)}, 62vh, #{rem(820)});
+}
+
+.track {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.sheet {
+  @include flex(row, nowrap, center, center);
+  flex: 0 0 100%;
+  height: 100%;
+  border-radius: $radius-button;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  cursor: zoom-in;
+
+  &:focus-visible {
+    @include focus-ring($color-blue, -2px);
+  }
+
+  img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    border-radius: $radius-button;
+    background: $color-white;
+  }
+}
+
+.arrow {
+  @include flex(row, nowrap, center, center);
+  flex-shrink: 0;
+  width: rem(44);
+  height: rem(44);
+  border-radius: $radius-button;
+  background: $color-white;
+  color: $color-ink;
+  font-size: rem(22);
+
+  &:hover {
+    background: $color-line;
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+}
+
+.thumbs {
+  @include flex(row, wrap, center, flex-end);
+  gap: rem(12);
+
+  button {
+    border: 2px solid transparent;
+    border-radius: $radius-button;
+    opacity: 0.6;
+    transition: opacity 0.15s ease-out;
+
+    &:hover,
+    &.on {
+      opacity: 1;
+    }
+
+    &.on {
+      border-color: $color-blue;
+    }
+  }
+
+  img {
+    display: block;
+    width: auto;
+    height: rem(88);
+    border-radius: rem(7);
+    background: $color-white;
+  }
+}
+
+.text {
+  @include visually-hidden;
+}
+
+.status {
+  margin: rem(32) 0;
+  font-size: rem(18);
+  color: $color-label;
+  text-align: center;
+}
+
+.viewer {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  padding: 0 $gutter $gutter;
+  border: 0;
+  background: transparent;
+  overflow: auto;
+
+  &::backdrop {
+    background: fade($color-black, 0.88);
+  }
+}
+
+.bar {
+  @include flex(row, nowrap, flex-end, center);
+  position: sticky;
+  top: 0;
+  gap: rem(8);
+  padding: rem(16) 0;
+
+  p {
+    margin-right: auto;
+    font-weight: $font-weight-semibold;
+    color: $color-on-dark;
+  }
+}
+
+.icon {
+  @include flex(row, nowrap, center, center);
+  width: rem(40);
+  height: rem(40);
+  border-radius: $radius-button;
+  background: $color-dark;
+  color: $color-on-dark;
+  font-size: rem(20);
+
+  &:hover {
+    background: $color-dark-hover;
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  &:focus-visible {
+    @include focus-ring($color-on-dark);
+  }
+}
+
+.full {
+  display: block;
+  width: min(#{rem(1100)}, 100%);
+  height: auto;
+  margin-inline: auto;
+  border-radius: $radius-button;
+  background: $color-white;
+}
+
+/* #region RESPONSIVE */
+@include phone {
+  .view {
+    height: rem(360);
+  }
+
+  .view .arrow {
+    display: none;
+  }
+
+  .thumbs img {
+    height: rem(64);
+  }
+}
+/* #endregion */
