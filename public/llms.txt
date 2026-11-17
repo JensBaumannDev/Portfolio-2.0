@@ -16,6 +16,10 @@ Die Website ist eine Angular-Single-Page-Application mit deutscher und englische
 
 ## Projekte
 
+### Fullstack
+
+- [SnipAtlas](https://jensbaumann.com/projects/snipatlas): Nachschlagewerk für Webentwicklung mit Befehlen, Grundlagen, Anleitungen, Fehlermeldungen und Glossar, dazu Login mit E-Mail-Bestätigung, Favoriten und Fortschritt. Angular mit Server-Side Rendering, Django REST, PostgreSQL, Docker
+
 ### Backend
 
 - [Videoflix](https://jensbaumann.com/projects/videoflix): Video-Streaming-Backend mit Registrierung, Aktivierung per E-Mail, Login, Passwort-Reset sowie automatisch erzeugten Thumbnails und HLS-Streams in 480p, 720p und 1080p. Python, Django REST, PostgreSQL, Redis, FFmpeg, Docker
