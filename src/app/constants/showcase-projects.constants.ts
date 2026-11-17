@@ -1,4 +1,4 @@
-export type ShowcaseProjectCategory = 'frontend' | 'backend';
+export type ShowcaseProjectCategory = 'fullstack' | 'frontend' | 'backend';
 
 export type ShowcaseProjectFact = 'role' | 'team' | 'duration';
 
@@ -19,6 +19,21 @@ export interface ShowcaseProject {
 }
 
 export const SHOWCASE_PROJECTS: readonly ShowcaseProject[] = [
+  {
+    slug: 'snipatlas',
+    name: 'SnipAtlas',
+    category: 'fullstack',
+    railImage: '/img/projects/rail/snipatlas.webp',
+    browserImage: '/img/projects/browser/snipatlas.webp',
+    imageWidth: 1540,
+    imageHeight: 1000,
+    frameInset: '4% 3.246753% 6%',
+    facts: ['role'],
+    technologies: ['Angular', 'TypeScript', 'Django REST', 'PostgreSQL', 'Docker'],
+    features: ['authentication', 'ssr', 'progress', 'docker'],
+    github: 'https://github.com/JensBaumannDev/SnipAtlas',
+    demo: 'https://snipatlas.jensbaumann.com',
+  },
   {
     slug: 'videoflix',
     name: 'Videoflix',

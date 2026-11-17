@@ -208,6 +208,7 @@
   },
   "work": {
     "labels": {
+      "fullstack": "Fullstack",
       "backend": "Backend",
       "frontend": "Frontend",
       "my_part": "Mein Teil:",
@@ -228,6 +229,21 @@
       "browser_alt": "{{name}} im Browser",
       "seo_title": "{{name}} · Jens Baumann",
       "enlarge": "Screenshot von {{name}} vergrößern"
+    },
+    "snipatlas": {
+      "type": "Nachschlagewerk für Webentwicklung",
+      "role": "Frontend und Backend, allein entwickelt",
+      "stack": "Angular · Django REST · PostgreSQL · Docker",
+      "summary": "SnipAtlas ist ein Nachschlagewerk für alle, die mit Webentwicklung anfangen. Es gibt Befehle zum Kopieren, Grundlagen mit Beispielen, Anleitungen für ganze Projekte, häufige Fehlermeldungen mit Ursache und Lösung und ein Glossar. Mit einem Konto kann man Favoriten speichern und seinen Fortschritt in den Anleitungen verfolgen. Frontend und Backend habe ich allein geschrieben.",
+      "role_fact": "Frontend und Backend, allein entwickelt",
+      "implementation": "Das Frontend ist Angular mit Signals und Server-Side Rendering, damit jede Seite eine eigene Adresse hat und von Suchmaschinen gefunden wird. Das Backend ist Django REST Framework mit PostgreSQL. Die Inhalte pflege ich im Django-Admin, die API liefert sie ans Frontend. Alles läuft in Docker, online auf meinem eigenen Server hinter nginx mit HTTPS.",
+      "focus": "Der Login läuft über eine Session mit HttpOnly-Cookie und CSRF-Schutz, neue Konten werden per E-Mail bestätigt. Das Backend habe ich testgetrieben geschrieben: erst der Test, dann der Code. Jeder Fehlerfall der API hat seinen eigenen Test. Im Frontend war mir wichtig, dass alles bis 320 Pixel Breite funktioniert und barrierefrei ist.",
+      "features": {
+        "authentication": "Session-Login mit E-Mail-Bestätigung",
+        "ssr": "Server-Side Rendering",
+        "progress": "Favoriten und Fortschritt",
+        "docker": "Komplett mit Docker"
+      }
     },
     "videoflix": {
       "type": "Video-Streaming-Backend",
