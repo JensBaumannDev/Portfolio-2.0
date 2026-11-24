@@ -19,7 +19,14 @@
             <ng-icon name="lucideChevronLeft" aria-hidden="true" />
           </button>
         }
-        <div class="track" #track (scroll)="syncToScroll()">
+        <div
+          class="track"
+          #track
+          (scroll)="syncToScroll()"
+          (scrollend)="onScrollEnd()"
+          (pointerdown)="releaseScroll()"
+          (wheel)="releaseScroll()"
+        >
           @for (item of pages(); track item.url; let index = $index) {
             <button
               class="sheet"

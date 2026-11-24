@@ -44,6 +44,8 @@ export class PdfPreview {
   protected readonly pages = signal<readonly PdfPage[]>([]);
   protected readonly active = signal(0);
   protected readonly current = computed(() => this.pages()[this.active()]);
+  private readonly scrollTarget = signal<number | null>(null);
+  private readonly retried = signal(false);
 
   constructor() {
     afterNextRender(() => {
@@ -124,19 +126,47 @@ export class PdfPreview {
     const track = this.track()?.nativeElement;
     if (!track) return;
     const left = next * track.clientWidth;
+    this.scrollTarget.set(null);
     if (Math.abs(track.scrollLeft - left) < 1) return;
     const reduce = this.document.defaultView?.matchMedia(
       '(prefers-reduced-motion: reduce)',
     ).matches;
     const instant = reduce || this.viewer().nativeElement.open;
+    this.scrollTarget.set(instant ? null : next);
+    this.retried.set(false);
     track.scrollTo({ left, behavior: instant ? 'auto' : 'smooth' });
   }
 
   protected syncToScroll(): void {
     const track = this.track()?.nativeElement;
     if (!track?.clientWidth) return;
+    const target = this.scrollTarget();
+    if (target !== null) {
+      const arrived = Math.abs(track.scrollLeft - target * track.clientWidth) < 1;
+      if (!arrived) return;
+      this.scrollTarget.set(null);
+    }
     const index = Math.round(track.scrollLeft / track.clientWidth);
     if (index !== this.active()) this.active.set(index);
+  }
+
+  protected onScrollEnd(): void {
+    const track = this.track()?.nativeElement;
+    const target = this.scrollTarget();
+    if (track && target !== null && !this.retried()) {
+      const left = target * track.clientWidth;
+      if (Math.abs(track.scrollLeft - left) >= 1) {
+        this.retried.set(true);
+        track.scrollTo({ left, behavior: 'smooth' });
+        return;
+      }
+    }
+    this.scrollTarget.set(null);
+    this.syncToScroll();
+  }
+
+  protected releaseScroll(): void {
+    this.scrollTarget.set(null);
   }
 
   protected closeOnBackdrop(event: MouseEvent): void {
