@@ -16,9 +16,8 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideChevronLeft, lucideChevronRight, lucideX } from '@ng-icons/lucide';
 import type { PDFDocumentLoadingTask, RenderTask } from 'pdfjs-dist';
-import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs' with {
-  loader: 'file',
-};
+
+const PDF_WORKER_URL = '/pdfjs/pdf.worker.min.mjs';
 
 interface PdfPage {
   url: string;
@@ -69,7 +68,7 @@ export class PdfPreview {
           void (async () => {
             const pdfjs = await import('pdfjs-dist');
             if (cancelled) return;
-            pdfjs.GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
+            pdfjs.GlobalWorkerOptions.workerSrc = PDF_WORKER_URL;
             loading = pdfjs.getDocument({ url: src });
             const pdf = await loading.promise;
             for (let number = 1; number <= pdf.numPages; number++) {
