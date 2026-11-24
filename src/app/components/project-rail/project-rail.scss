@@ -74,8 +74,7 @@
   }
 }
 
-.pcard:hover .pc-img,
-.pcard:focus-within .pc-img {
+.pcard:has(:focus-visible) .pc-img {
   transform: scale(1.05);
 }
 
@@ -159,8 +158,7 @@ h3 {
   transition: none;
 }
 
-.pcard:hover .b-dark,
-.pcard:focus-within .b-dark {
+.pcard:has(:focus-visible) .b-dark {
   background: $color-white;
   color: $color-card-hover;
 }
@@ -233,6 +231,17 @@ h3 {
   }
 }
 
+@media (hover: hover) {
+  .pcard:hover .pc-img {
+    transform: scale(1.05);
+  }
+
+  .pcard:hover .b-dark {
+    background: $color-white;
+    color: $color-card-hover;
+  }
+}
+
 @media (hover: none) {
   .pc-sheen {
     display: none;
@@ -295,7 +304,7 @@ h3 {
   }
 
   .pcard:hover .pc-img,
-  .pcard:focus-within .pc-img {
+  .pcard:has(:focus-visible) .pc-img {
     transform: none;
   }
 }
